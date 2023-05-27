@@ -10,7 +10,8 @@ import (
 	"strings"
 	"time"
 
-	openapi "github.com/chnyda/taikungoclient/client"
+	taikuncore "github.com/chnyda/taikungoclient/client"
+	taikunshowback "github.com/chnyda/taikungoclient/showbackclient"
 )
 
 const TaikunEmailEnvVar = "TAIKUN_EMAIL"
@@ -26,7 +27,8 @@ type CustomTransport struct {
 }
 
 type Client struct {
-	Client          *openapi.APIClient
+	Client          *taikuncore.APIClient
+	ShowbackClient  *taikunshowback.APIClient
 	CustomTransport *CustomTransport
 	email           string
 	password        string
@@ -48,9 +50,13 @@ type jwtData struct {
 }
 
 func NewClientFromCredentials(email string, password string, accessKey string, secretKey string, authMode string, apiHost string) *Client {
-	cfg := openapi.NewConfiguration()
+	cfg := taikuncore.NewConfiguration()
 	cfg.Host = apiHost
 	cfg.Scheme = "https"
+
+	cfg2 := taikunshowback.NewConfiguration()
+	cfg2.Host = apiHost
+	cfg2.Scheme = "https"
 
 	client := &Client{
 		email:     email,
@@ -68,7 +74,9 @@ func NewClientFromCredentials(email string, password string, accessKey string, s
 		Client:    client,
 	}
 	cfg.HTTPClient = &http.Client{Transport: customTransport}
-	client.Client = openapi.NewAPIClient(cfg)
+	cfg2.HTTPClient = &http.Client{Transport: customTransport}
+	client.Client = taikuncore.NewAPIClient(cfg)
+	client.ShowbackClient = taikunshowback.NewAPIClient(cfg2)
 
 	return client
 }
@@ -105,21 +113,21 @@ func NewClient() *Client {
 func (c *CustomTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	if req.URL.Path != "/api/v1/auth/login" && req.URL.Path != "/api/v1/auth/refresh" {
 		if c.Client.token == "" {
-			var loginCmd *openapi.LoginCommand
+			var loginCmd *taikuncore.LoginCommand
 			// keycloak
 			// default
 			// token
 			// autoscaling
 			if c.Client.authMode != "" || c.Client.authMode == "default" {
-				loginCmd = &openapi.LoginCommand{
-					SecretKey: *openapi.NewNullableString(&c.Client.secretKey),
-					AccessKey: *openapi.NewNullableString(&c.Client.accessKey),
-					Mode:      *openapi.NewNullableString(&c.Client.authMode),
+				loginCmd = &taikuncore.LoginCommand{
+					SecretKey: *taikuncore.NewNullableString(&c.Client.secretKey),
+					AccessKey: *taikuncore.NewNullableString(&c.Client.accessKey),
+					Mode:      *taikuncore.NewNullableString(&c.Client.authMode),
 				}
 			} else {
-				loginCmd = &openapi.LoginCommand{
-					Email:    *openapi.NewNullableString(&c.Client.email),
-					Password: *openapi.NewNullableString(&c.Client.password),
+				loginCmd = &taikuncore.LoginCommand{
+					Email:    *taikuncore.NewNullableString(&c.Client.email),
+					Password: *taikuncore.NewNullableString(&c.Client.password),
 				}
 			}
 			result, _, err := c.Client.Client.AuthManagementApi.AuthLogin(req.Context()).LoginCommand(*loginCmd).Execute()
@@ -129,9 +137,9 @@ func (c *CustomTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			c.Client.token = *result.Token.Get()
 			c.Client.refreshToken = *result.RefreshToken.Get()
 		} else if c.Client.token != "" && c.hasTokenExpired() {
-			result, _, err := c.Client.Client.AuthManagementApi.AuthRefresh(req.Context()).RefreshTokenCommand(openapi.RefreshTokenCommand{
-				RefreshToken: *openapi.NewNullableString(&c.Client.refreshToken),
-				Token:        *openapi.NewNullableString(&c.Client.token),
+			result, _, err := c.Client.Client.AuthManagementApi.AuthRefresh(req.Context()).RefreshTokenCommand(taikuncore.RefreshTokenCommand{
+				RefreshToken: *taikuncore.NewNullableString(&c.Client.refreshToken),
+				Token:        *taikuncore.NewNullableString(&c.Client.token),
 			}).Execute()
 			if err != nil {
 				return nil, err

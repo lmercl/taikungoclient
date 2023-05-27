@@ -1,0 +1,134 @@
+# GroupedShowbackSummaryByProjectInfos
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Data** | Pointer to [**[]GroupedShowbackSummariesByProjectDto**](GroupedShowbackSummariesByProjectDto.md) |  | [optional] 
+**RuleName** | Pointer to **string** |  | [optional] 
+**CredentialName** | Pointer to **string** |  | [optional] 
+**TotalPrice** | Pointer to **float64** |  | [optional] 
+
+## Methods
+
+### NewGroupedShowbackSummaryByProjectInfos
+
+`func NewGroupedShowbackSummaryByProjectInfos() *GroupedShowbackSummaryByProjectInfos`
+
+NewGroupedShowbackSummaryByProjectInfos instantiates a new GroupedShowbackSummaryByProjectInfos object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewGroupedShowbackSummaryByProjectInfosWithDefaults
+
+`func NewGroupedShowbackSummaryByProjectInfosWithDefaults() *GroupedShowbackSummaryByProjectInfos`
+
+NewGroupedShowbackSummaryByProjectInfosWithDefaults instantiates a new GroupedShowbackSummaryByProjectInfos object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetData
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetData() []GroupedShowbackSummariesByProjectDto`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetDataOk() (*[]GroupedShowbackSummariesByProjectDto, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetData(v []GroupedShowbackSummariesByProjectDto)`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *GroupedShowbackSummaryByProjectInfos) HasData() bool`
+
+HasData returns a boolean if a field has been set.
+
+### GetRuleName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetRuleName() string`
+
+GetRuleName returns the RuleName field if non-nil, zero value otherwise.
+
+### GetRuleNameOk
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetRuleNameOk() (*string, bool)`
+
+GetRuleNameOk returns a tuple with the RuleName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetRuleName(v string)`
+
+SetRuleName sets RuleName field to given value.
+
+### HasRuleName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) HasRuleName() bool`
+
+HasRuleName returns a boolean if a field has been set.
+
+### GetCredentialName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetCredentialName() string`
+
+GetCredentialName returns the CredentialName field if non-nil, zero value otherwise.
+
+### GetCredentialNameOk
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetCredentialNameOk() (*string, bool)`
+
+GetCredentialNameOk returns a tuple with the CredentialName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCredentialName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetCredentialName(v string)`
+
+SetCredentialName sets CredentialName field to given value.
+
+### HasCredentialName
+
+`func (o *GroupedShowbackSummaryByProjectInfos) HasCredentialName() bool`
+
+HasCredentialName returns a boolean if a field has been set.
+
+### GetTotalPrice
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetTotalPrice() float64`
+
+GetTotalPrice returns the TotalPrice field if non-nil, zero value otherwise.
+
+### GetTotalPriceOk
+
+`func (o *GroupedShowbackSummaryByProjectInfos) GetTotalPriceOk() (*float64, bool)`
+
+GetTotalPriceOk returns a tuple with the TotalPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalPrice
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetTotalPrice(v float64)`
+
+SetTotalPrice sets TotalPrice field to given value.
+
+### HasTotalPrice
+
+`func (o *GroupedShowbackSummaryByProjectInfos) HasTotalPrice() bool`
+
+HasTotalPrice returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
