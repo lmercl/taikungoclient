@@ -126,6 +126,13 @@ Class | Method | HTTP request | Description
 *AllowedHostApi* | [**AllowedhostDelete**](docs/AllowedHostApi.md#allowedhostdelete) | **Delete** /api/v1/allowedhost/{id} | Delete access profile allowed host
 *AllowedHostApi* | [**AllowedhostEdit**](docs/AllowedHostApi.md#allowedhostedit) | **Put** /api/v1/allowedhost/edit/{id} | Edit access profile allowed host
 *AllowedHostApi* | [**AllowedhostList**](docs/AllowedHostApi.md#allowedhostlist) | **Get** /api/v1/allowedhost/list/{accessProfileId} | List allowed hosts by access profile id
+*AppRepositoriesApi* | [**RepositoryAvailableList**](docs/AppRepositoriesApi.md#repositoryavailablelist) | **Get** /api/v1/repository/available | Retrieve available repositories
+*AppRepositoriesApi* | [**RepositoryBind**](docs/AppRepositoriesApi.md#repositorybind) | **Post** /api/v1/repository/bind | Bind repo to organization
+*AppRepositoriesApi* | [**RepositoryDelete**](docs/AppRepositoriesApi.md#repositorydelete) | **Post** /api/v1/repository/delete | Delete repo from organization
+*AppRepositoriesApi* | [**RepositoryDisable**](docs/AppRepositoriesApi.md#repositorydisable) | **Post** /api/v1/repository/disable | Disable repo from organization
+*AppRepositoriesApi* | [**RepositoryImport**](docs/AppRepositoriesApi.md#repositoryimport) | **Post** /api/v1/repository/import | Import repo to artifact
+*AppRepositoriesApi* | [**RepositoryRecommendedList**](docs/AppRepositoriesApi.md#repositoryrecommendedlist) | **Get** /api/v1/repository/recommended | Retrieve taikun recommended repositories
+*AppRepositoriesApi* | [**RepositoryUnbind**](docs/AppRepositoriesApi.md#repositoryunbind) | **Post** /api/v1/repository/unbind | Unbind repo from organization
 *AuthManagementApi* | [**AuthForgotPassword**](docs/AuthManagementApi.md#authforgotpassword) | **Post** /api/v1/auth/forgotpassword | Generate reset password token if you forgot password
 *AuthManagementApi* | [**AuthLogin**](docs/AuthManagementApi.md#authlogin) | **Post** /api/v1/auth/login | Login to API
 *AuthManagementApi* | [**AuthRefresh**](docs/AuthManagementApi.md#authrefresh) | **Post** /api/v1/auth/refresh | Refresh bearer token that generated automatically by API
@@ -389,6 +396,7 @@ Class | Method | HTTP request | Description
 *OperationCredentialsApi* | [**OpscredentialsListByOrganizationId**](docs/OperationCredentialsApi.md#opscredentialslistbyorganizationid) | **Get** /api/v1/opscredentials | Retrieve operation credentials by organization Id
 *OperationCredentialsApi* | [**OpscredentialsLockManager**](docs/OperationCredentialsApi.md#opscredentialslockmanager) | **Post** /api/v1/opscredentials/lockmanager | Lock/Unlock operation credential
 *OperationCredentialsApi* | [**OpscredentialsMakeDefault**](docs/OperationCredentialsApi.md#opscredentialsmakedefault) | **Post** /api/v1/opscredentials/makedefault | Choose default operation credential
+*OperationCredentialsApi* | [**OpscredentialsMetricNames**](docs/OperationCredentialsApi.md#opscredentialsmetricnames) | **Get** /api/v1/opscredentials/{id}/metric/names | Fetch prometheus metric names
 *OrganizationSubscriptionsApi* | [**OrganizationsubcriptionsList**](docs/OrganizationSubscriptionsApi.md#organizationsubcriptionslist) | **Get** /api/v1/organizationsubcriptions | Retrieve all organization subscriptions
 *OrganizationSubscriptionsApi* | [**OrganizationsubcriptionsUpdate**](docs/OrganizationSubscriptionsApi.md#organizationsubcriptionsupdate) | **Post** /api/v1/organizationsubcriptions/update | Update subscription
 *OrganizationsApi* | [**OrganizationsAcceptOffer**](docs/OrganizationsApi.md#organizationsacceptoffer) | **Post** /api/v1/organizations/accept-offer | Accept discount offer
@@ -487,6 +495,23 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ProjectsToggleSpotWorkers**](docs/ProjectsApi.md#projectstogglespotworkers) | **Post** /api/v1/projects/toggle-spot-workers | Spot worker(s) operations enable/disable
 *ProjectsApi* | [**ProjectsUpgrade**](docs/ProjectsApi.md#projectsupgrade) | **Post** /api/v1/projects/upgrade/{projectId} | Upgrade the project&#39;s Kubernetes to the next available version. Project must be READY.
 *ProjectsApi* | [**ProjectsVisibility**](docs/ProjectsApi.md#projectsvisibility) | **Get** /api/v1/projects/visibility/{projectId} | Visibility of project actions
+*PrometheusBillingsApi* | [**PrometheusbillingsCreate**](docs/PrometheusBillingsApi.md#prometheusbillingscreate) | **Post** /api/v1/prometheusbillings | Add prometheus billing
+*PrometheusBillingsApi* | [**PrometheusbillingsExportCsv**](docs/PrometheusBillingsApi.md#prometheusbillingsexportcsv) | **Get** /api/v1/prometheusbillings/export | Export Csv
+*PrometheusBillingsApi* | [**PrometheusbillingsGroupedList**](docs/PrometheusBillingsApi.md#prometheusbillingsgroupedlist) | **Get** /api/v1/prometheusbillings/grouped | Retrieve a list of grouped prometheus billing
+*PrometheusBillingsApi* | [**PrometheusbillingsList**](docs/PrometheusBillingsApi.md#prometheusbillingslist) | **Get** /api/v1/prometheusbillings | Retrieve all prometheus billing
+*PrometheusOrganizationsApi* | [**PrometheusorganizationsBindRules**](docs/PrometheusOrganizationsApi.md#prometheusorganizationsbindrules) | **Post** /api/v1/prometheusorganizations/bind/rules | Bind rules to organizations
+*PrometheusRulesApi* | [**PrometheusrulesBindOrganizations**](docs/PrometheusRulesApi.md#prometheusrulesbindorganizations) | **Post** /api/v1/prometheusrules/bind/organizations | Bind organizations to prometheus rule
+*PrometheusRulesApi* | [**PrometheusrulesCreate**](docs/PrometheusRulesApi.md#prometheusrulescreate) | **Post** /api/v1/prometheusrules | Add prometheus rule
+*PrometheusRulesApi* | [**PrometheusrulesDelete**](docs/PrometheusRulesApi.md#prometheusrulesdelete) | **Delete** /api/v1/prometheusrules/{id} | Remove prometheus rule
+*PrometheusRulesApi* | [**PrometheusrulesDetails**](docs/PrometheusRulesApi.md#prometheusrulesdetails) | **Get** /api/v1/prometheusrules/details | Retrieve all prometheus rules with detailed info
+*PrometheusRulesApi* | [**PrometheusrulesList**](docs/PrometheusRulesApi.md#prometheusruleslist) | **Get** /api/v1/prometheusrules | Retrieve a list of prometheus rules
+*PrometheusRulesApi* | [**PrometheusrulesUpdate**](docs/PrometheusRulesApi.md#prometheusrulesupdate) | **Put** /api/v1/prometheusrules/edit/{id} | Edit prometheus rule
+*ProxmoxCloudCredentialApi* | [**ProxmoxBridgeList**](docs/ProxmoxCloudCredentialApi.md#proxmoxbridgelist) | **Post** /api/v1/proxmox/bridge-list | Fetch proxmox bridge list
+*ProxmoxCloudCredentialApi* | [**ProxmoxCreate**](docs/ProxmoxCloudCredentialApi.md#proxmoxcreate) | **Post** /api/v1/proxmox/create | Add Proxmox credentials
+*ProxmoxCloudCredentialApi* | [**ProxmoxHypervisorList**](docs/ProxmoxCloudCredentialApi.md#proxmoxhypervisorlist) | **Post** /api/v1/proxmox/hypervisor-list | Fetch proxmox hypervisor list
+*ProxmoxCloudCredentialApi* | [**ProxmoxList**](docs/ProxmoxCloudCredentialApi.md#proxmoxlist) | **Get** /api/v1/proxmox/list | Retrieve list of proxmox cloud credentials
+*ProxmoxCloudCredentialApi* | [**ProxmoxStorageList**](docs/ProxmoxCloudCredentialApi.md#proxmoxstoragelist) | **Post** /api/v1/proxmox/storage-list | Fetch proxmox storage list
+*ProxmoxCloudCredentialApi* | [**ProxmoxVmTemplateList**](docs/ProxmoxCloudCredentialApi.md#proxmoxvmtemplatelist) | **Post** /api/v1/proxmox/vm-template-list | Fetch proxmox vm template list
 *S3CredentialsApi* | [**S3credentialsCreate**](docs/S3CredentialsApi.md#s3credentialscreate) | **Post** /api/v1/s3credentials | Add s3 credential
 *S3CredentialsApi* | [**S3credentialsDelete**](docs/S3CredentialsApi.md#s3credentialsdelete) | **Delete** /api/v1/s3credentials/{id} | Delete s3 credential
 *S3CredentialsApi* | [**S3credentialsDropdown**](docs/S3CredentialsApi.md#s3credentialsdropdown) | **Get** /api/v1/s3credentials | Retrieve all S3 credentials for organization
@@ -540,6 +565,19 @@ Class | Method | HTTP request | Description
 *SshUsersApi* | [**SshusersDelete**](docs/SshUsersApi.md#sshusersdelete) | **Post** /api/v1/sshusers/delete | Delete access profile ssh user
 *SshUsersApi* | [**SshusersEdit**](docs/SshUsersApi.md#sshusersedit) | **Post** /api/v1/sshusers/edit | Edit access profile ssh user
 *SshUsersApi* | [**SshusersList**](docs/SshUsersApi.md#sshuserslist) | **Get** /api/v1/sshusers/list/{accessProfileId} | List ssh user by access profile id
+*StandaloneApi* | [**StandaloneCommit**](docs/StandaloneApi.md#standalonecommit) | **Post** /api/v1/standalone/commit | Commit vm
+*StandaloneApi* | [**StandaloneCreate**](docs/StandaloneApi.md#standalonecreate) | **Post** /api/v1/standalone/create | Create a new vm in the given project.
+*StandaloneApi* | [**StandaloneDelete**](docs/StandaloneApi.md#standalonedelete) | **Post** /api/v1/standalone/delete | Delete vm
+*StandaloneApi* | [**StandaloneDetails**](docs/StandaloneApi.md#standalonedetails) | **Get** /api/v1/standalone/{projectId} | Retrieve a list of standalone vm with detailed info
+*StandaloneApi* | [**StandaloneForPoller**](docs/StandaloneApi.md#standaloneforpoller) | **Get** /api/v1/standalone/forpoller | List all StandaloneVms for poller
+*StandaloneApi* | [**StandaloneIpManagement**](docs/StandaloneApi.md#standaloneipmanagement) | **Post** /api/v1/standalone/ip/management | Enable/Disable stand alone public ip
+*StandaloneApi* | [**StandaloneList**](docs/StandaloneApi.md#standalonelist) | **Get** /api/v1/standalone | Retrieve all vms
+*StandaloneApi* | [**StandaloneProjectDetails**](docs/StandaloneApi.md#standaloneprojectdetails) | **Get** /api/v1/standalone/project/{projectId} | Retrieve details of the project by Id
+*StandaloneApi* | [**StandalonePurge**](docs/StandaloneApi.md#standalonepurge) | **Post** /api/v1/standalone/purge | Purge vm
+*StandaloneApi* | [**StandaloneRepair**](docs/StandaloneApi.md#standalonerepair) | **Post** /api/v1/standalone/repair | Repair vm
+*StandaloneApi* | [**StandaloneReset**](docs/StandaloneApi.md#standalonereset) | **Post** /api/v1/standalone/reset | Reset vm status
+*StandaloneApi* | [**StandaloneUpdate**](docs/StandaloneApi.md#standaloneupdate) | **Post** /api/v1/standalone/update | Update vm
+*StandaloneApi* | [**StandaloneUpdateFlavor**](docs/StandaloneApi.md#standaloneupdateflavor) | **Post** /api/v1/standalone/update/flavor | Update standalone vm flavor
 *StandaloneActionsApi* | [**StandaloneactionsConsole**](docs/StandaloneActionsApi.md#standaloneactionsconsole) | **Post** /api/v1/standaloneactions/console | Console screenshot or terminal for vm
 *StandaloneActionsApi* | [**StandaloneactionsDownloadRdp**](docs/StandaloneActionsApi.md#standaloneactionsdownloadrdp) | **Get** /api/v1/standaloneactions/download/rdp/{id} | Download RDP file
 *StandaloneActionsApi* | [**StandaloneactionsReboot**](docs/StandaloneActionsApi.md#standaloneactionsreboot) | **Post** /api/v1/standaloneactions/reboot | Reboot standalone vm
@@ -549,6 +587,76 @@ Class | Method | HTTP request | Description
 *StandaloneActionsApi* | [**StandaloneactionsStop**](docs/StandaloneActionsApi.md#standaloneactionsstop) | **Post** /api/v1/standaloneactions/stop | Stop standalone vm
 *StandaloneActionsApi* | [**StandaloneactionsUnshelve**](docs/StandaloneActionsApi.md#standaloneactionsunshelve) | **Post** /api/v1/standaloneactions/unshelve | Unshelve standalone vm
 *StandaloneActionsApi* | [**StandaloneactionsWindowsInstancePassword**](docs/StandaloneActionsApi.md#standaloneactionswindowsinstancepassword) | **Post** /api/v1/standaloneactions/password | Retrieve aws windows admin instance password
+*StandaloneProfileApi* | [**StandaloneprofileCreate**](docs/StandaloneProfileApi.md#standaloneprofilecreate) | **Post** /api/v1/standaloneprofile/create | Create standalone profile.
+*StandaloneProfileApi* | [**StandaloneprofileDelete**](docs/StandaloneProfileApi.md#standaloneprofiledelete) | **Post** /api/v1/standaloneprofile/delete | Delete standalone profile.
+*StandaloneProfileApi* | [**StandaloneprofileDropdown**](docs/StandaloneProfileApi.md#standaloneprofiledropdown) | **Get** /api/v1/standaloneprofile/list | Retrieve all standalone profiles for organization
+*StandaloneProfileApi* | [**StandaloneprofileEdit**](docs/StandaloneProfileApi.md#standaloneprofileedit) | **Post** /api/v1/standaloneprofile/edit | Edit standalone profile.
+*StandaloneProfileApi* | [**StandaloneprofileList**](docs/StandaloneProfileApi.md#standaloneprofilelist) | **Get** /api/v1/standaloneprofile | Retrieve all standalone profiles
+*StandaloneProfileApi* | [**StandaloneprofileLockManagement**](docs/StandaloneProfileApi.md#standaloneprofilelockmanagement) | **Post** /api/v1/standaloneprofile/lockmanager | Lock/unlock standalone profile.
+*StandaloneVMDisksApi* | [**StandalonevmdisksCreate**](docs/StandaloneVMDisksApi.md#standalonevmdiskscreate) | **Post** /api/v1/standalonevmdisks/create | Add disk for standalone vm
+*StandaloneVMDisksApi* | [**StandalonevmdisksDelete**](docs/StandaloneVMDisksApi.md#standalonevmdisksdelete) | **Post** /api/v1/standalonevmdisks/delete | Remove disk from standalone vm
+*StandaloneVMDisksApi* | [**StandalonevmdisksPurge**](docs/StandaloneVMDisksApi.md#standalonevmdiskspurge) | **Post** /api/v1/standalonevmdisks/purge | Purge vm disks
+*StandaloneVMDisksApi* | [**StandalonevmdisksReset**](docs/StandaloneVMDisksApi.md#standalonevmdisksreset) | **Post** /api/v1/standalonevmdisks/reset | Update status of disk
+*StandaloneVMDisksApi* | [**StandalonevmdisksUpdate**](docs/StandaloneVMDisksApi.md#standalonevmdisksupdate) | **Post** /api/v1/standalonevmdisks/update | Update disk
+*StandaloneVMDisksApi* | [**StandalonevmdisksUpdateSize**](docs/StandaloneVMDisksApi.md#standalonevmdisksupdatesize) | **Post** /api/v1/standalonevmdisks/update-size | Update disk size
+*SubscriptionApi* | [**SubscriptionBind**](docs/SubscriptionApi.md#subscriptionbind) | **Post** /api/v1/subscription/bind | Bind subscription
+*SubscriptionApi* | [**SubscriptionBoundList**](docs/SubscriptionApi.md#subscriptionboundlist) | **Get** /api/v1/subscription/boundlist | Retrieve subscription for organization bound
+*SubscriptionApi* | [**SubscriptionDelete**](docs/SubscriptionApi.md#subscriptiondelete) | **Post** /api/v1/subscription/delete | Delete subscription package
+*SubscriptionApi* | [**SubscriptionList**](docs/SubscriptionApi.md#subscriptionlist) | **Get** /api/v1/subscription | Retrieve private subscription list for partners
+*SubscriptionApi* | [**SubscriptionPublic**](docs/SubscriptionApi.md#subscriptionpublic) | **Get** /api/v1/subscription/public | Retrieve subscription for organization bound
+*SubscriptionApi* | [**SubscriptionSubscription**](docs/SubscriptionApi.md#subscriptionsubscription) | **Post** /api/v1/subscription/create | Add new subscription package
+*SubscriptionApi* | [**SubscriptionUpdate**](docs/SubscriptionApi.md#subscriptionupdate) | **Post** /api/v1/subscription/update | Update subscription
+*TanzuApi* | [**TanzuCreate**](docs/TanzuApi.md#tanzucreate) | **Post** /api/v1/tanzu/create | Create tanzu credentials
+*TanzuApi* | [**TanzuKubernetesVersions**](docs/TanzuApi.md#tanzukubernetesversions) | **Post** /api/v1/tanzu/kubernetes-versions/{cloudId} | Tanzu available k8s version list
+*TanzuApi* | [**TanzuList**](docs/TanzuApi.md#tanzulist) | **Post** /api/v1/tanzu/list | Retrieve list of tanzu cloud credentials
+*TanzuApi* | [**TanzuStorageList**](docs/TanzuApi.md#tanzustoragelist) | **Post** /api/v1/tanzu/storage-list | Tanzu storage list
+*TanzuApi* | [**TanzuUpdate**](docs/TanzuApi.md#tanzuupdate) | **Post** /api/v1/tanzu/update | Update tanzu credentials
+*TicketApi* | [**TicketArchive**](docs/TicketApi.md#ticketarchive) | **Post** /api/v1/ticket/archive | Archive ticket
+*TicketApi* | [**TicketClose**](docs/TicketApi.md#ticketclose) | **Post** /api/v1/ticket/close | Close ticket
+*TicketApi* | [**TicketCreate**](docs/TicketApi.md#ticketcreate) | **Post** /api/v1/ticket/create | Create ticket
+*TicketApi* | [**TicketDelete**](docs/TicketApi.md#ticketdelete) | **Delete** /api/v1/ticket/delete/{ticketId} | 
+*TicketApi* | [**TicketDeleteMessage**](docs/TicketApi.md#ticketdeletemessage) | **Delete** /api/v1/ticket/delete/message/{messageId} | 
+*TicketApi* | [**TicketEdit**](docs/TicketApi.md#ticketedit) | **Post** /api/v1/ticket/edit | Edit ticket
+*TicketApi* | [**TicketEditMessage**](docs/TicketApi.md#ticketeditmessage) | **Post** /api/v1/ticket/edit/message | Edit ticket message
+*TicketApi* | [**TicketList**](docs/TicketApi.md#ticketlist) | **Post** /api/v1/ticket/list | Retrieve list of tickets
+*TicketApi* | [**TicketMessages**](docs/TicketApi.md#ticketmessages) | **Post** /api/v1/ticket/{ticketId}/messages | 
+*TicketApi* | [**TicketOpen**](docs/TicketApi.md#ticketopen) | **Post** /api/v1/ticket/open | Open ticket
+*TicketApi* | [**TicketReply**](docs/TicketApi.md#ticketreply) | **Post** /api/v1/ticket/reply | Reply message
+*TicketApi* | [**TicketSetPriority**](docs/TicketApi.md#ticketsetpriority) | **Post** /api/v1/ticket/set-priority | Set priority
+*TicketApi* | [**TicketTransfer**](docs/TicketApi.md#tickettransfer) | **Post** /api/v1/ticket/transfer | Transfer ticket
+*TicketApi* | [**TicketTransferList**](docs/TicketApi.md#tickettransferlist) | **Post** /api/v1/ticket/transfer/list | Retrieve organization managers
+*UserGroupApi* | [**UsergroupsBindProjectsGroup**](docs/UserGroupApi.md#usergroupsbindprojectsgroup) | **Post** /api/v1/usergroups/bind-project-groups | Bind project groups
+*UserGroupApi* | [**UsergroupsCreate**](docs/UserGroupApi.md#usergroupscreate) | **Post** /api/v1/usergroups/create | Add user groups
+*UserGroupApi* | [**UsergroupsDelete**](docs/UserGroupApi.md#usergroupsdelete) | **Delete** /api/v1/usergroups | Remove user group(s)
+*UserGroupApi* | [**UsergroupsList**](docs/UserGroupApi.md#usergroupslist) | **Get** /api/v1/usergroups/list | Retrieve list of user groups
+*UserGroupApi* | [**UsergroupsListByProjectGroupId**](docs/UserGroupApi.md#usergroupslistbyprojectgroupid) | **Get** /api/v1/usergroups/list-by-project-group-id/{projectGroupId} | Dropdown list
+*UserGroupApi* | [**UsergroupsUpdate**](docs/UserGroupApi.md#usergroupsupdate) | **Put** /api/v1/usergroups/update/{userGroupId} | Update user groups
+*UserGroupApi* | [**UsergroupsUserGroupUsers**](docs/UserGroupApi.md#usergroupsusergroupusers) | **Get** /api/v1/usergroups/users/{userGroupId} | Dropdown list
+*UserProjectsApi* | [**UserprojectsBindProjects**](docs/UserProjectsApi.md#userprojectsbindprojects) | **Post** /api/v1/userprojects/bindprojects | Bind projects to user
+*UserProjectsApi* | [**UserprojectsBindUsers**](docs/UserProjectsApi.md#userprojectsbindusers) | **Post** /api/v1/userprojects/bindusers | Bind users to project
+*UserProjectsApi* | [**UserprojectsProjectListByUser**](docs/UserProjectsApi.md#userprojectsprojectlistbyuser) | **Get** /api/v1/userprojects/projects/list | Projects list for user
+*UserProjectsApi* | [**UserprojectsUserListByProject**](docs/UserProjectsApi.md#userprojectsuserlistbyproject) | **Get** /api/v1/userprojects/users/list/{projectId} | Users list by project id
+*UserTokenApi* | [**UsertokenAvailableEndpoints**](docs/UserTokenApi.md#usertokenavailableendpoints) | **Get** /api/v1/usertoken/available-endpoints | Get available endpoint list
+*UserTokenApi* | [**UsertokenBindUnbind**](docs/UserTokenApi.md#usertokenbindunbind) | **Post** /api/v1/usertoken/bind-unbind | Bind and unbind endpoints
+*UserTokenApi* | [**UsertokenCreate**](docs/UserTokenApi.md#usertokencreate) | **Post** /api/v1/usertoken/create | Create a new user token
+*UserTokenApi* | [**UsertokenDelete**](docs/UserTokenApi.md#usertokendelete) | **Delete** /api/v1/usertoken/delete/{id} | 
+*UserTokenApi* | [**UsertokenList**](docs/UserTokenApi.md#usertokenlist) | **Get** /api/v1/usertoken/list | Get user token list
+*UsersApi* | [**UsersChangePassword**](docs/UsersApi.md#userschangepassword) | **Post** /api/v1/users/changepassword | Change user password
+*UsersApi* | [**UsersConfirmEmail**](docs/UsersApi.md#usersconfirmemail) | **Post** /api/v1/users/confirmemail | Confirm user email
+*UsersApi* | [**UsersCreate**](docs/UsersApi.md#userscreate) | **Post** /api/v1/users/create | Create user
+*UsersApi* | [**UsersDelete**](docs/UsersApi.md#usersdelete) | **Delete** /api/v1/users/{id} | 
+*UsersApi* | [**UsersDeleteMyAccount**](docs/UsersApi.md#usersdeletemyaccount) | **Post** /api/v1/users/delete | Delete my account
+*UsersApi* | [**UsersDisable**](docs/UsersApi.md#usersdisable) | **Post** /api/v1/users/disable | Disable user
+*UsersApi* | [**UsersDropdown**](docs/UsersApi.md#usersdropdown) | **Get** /api/v1/users/list | Retrieve users as dropdown
+*UsersApi* | [**UsersExportCsv**](docs/UsersApi.md#usersexportcsv) | **Get** /api/v1/users/export | Export Csv
+*UsersApi* | [**UsersForceToResetPassword**](docs/UsersApi.md#usersforcetoresetpassword) | **Post** /api/v1/users/force-to-reset | Force to reset password
+*UsersApi* | [**UsersList**](docs/UsersApi.md#userslist) | **Get** /api/v1/users | Retrieve all users
+*UsersApi* | [**UsersToggleDemoMode**](docs/UsersApi.md#userstoggledemomode) | **Post** /api/v1/users/toggle-demo-mode | Toggle demo mode
+*UsersApi* | [**UsersToggleMaintenanceMode**](docs/UsersApi.md#userstogglemaintenancemode) | **Post** /api/v1/users/togglemaintenancemode | Toggle maintenance mode
+*UsersApi* | [**UsersToggleNotificationMode**](docs/UsersApi.md#userstogglenotificationmode) | **Post** /api/v1/users/togglenotificationmode | Toggle notification mode
+*UsersApi* | [**UsersUpdateUser**](docs/UsersApi.md#usersupdateuser) | **Post** /api/v1/users/update | Update user
+*UsersApi* | [**UsersUserInfo**](docs/UsersApi.md#usersuserinfo) | **Get** /api/v1/users/userinfo | Retrieve user info
+*UsersApi* | [**UsersVerifyEmail**](docs/UsersApi.md#usersverifyemail) | **Post** /api/v1/users/verifyemail | Verify user email
 
 
 ## Documentation For Models
@@ -586,6 +694,8 @@ Class | Method | HTTP request | Description
  - [AlertingReminder](docs/AlertingReminder.md)
  - [AlertingWebhookDto](docs/AlertingWebhookDto.md)
  - [AllFlavorsList](docs/AllFlavorsList.md)
+ - [AllTicketsDto](docs/AllTicketsDto.md)
+ - [AllTicketsList](docs/AllTicketsList.md)
  - [AllowedHostCreateDto](docs/AllowedHostCreateDto.md)
  - [AllowedHostList](docs/AllowedHostList.md)
  - [AllowedHostListDto](docs/AllowedHostListDto.md)
@@ -593,10 +703,17 @@ Class | Method | HTTP request | Description
  - [AmazonCredentialsListDto](docs/AmazonCredentialsListDto.md)
  - [Annotations](docs/Annotations.md)
  - [ApiResponse](docs/ApiResponse.md)
+ - [AppRepositoryList](docs/AppRepositoryList.md)
+ - [ArchiveTicketCommand](docs/ArchiveTicketCommand.md)
+ - [ArticleList](docs/ArticleList.md)
+ - [ArticlesListDto](docs/ArticlesListDto.md)
+ - [ArtifactRepositoryDto](docs/ArtifactRepositoryDto.md)
  - [ArtifactUrlCheckerCommand](docs/ArtifactUrlCheckerCommand.md)
  - [AttachDetachAlertingProfileCommand](docs/AttachDetachAlertingProfileCommand.md)
  - [AutoSyncManagementCommand](docs/AutoSyncManagementCommand.md)
  - [AutoscalingSyncCommand](docs/AutoscalingSyncCommand.md)
+ - [AvailableEndpointData](docs/AvailableEndpointData.md)
+ - [AvailableEndpointsList](docs/AvailableEndpointsList.md)
  - [AvailablePackageDetailsDto](docs/AvailablePackageDetailsDto.md)
  - [AvailablePackagesDto](docs/AvailablePackagesDto.md)
  - [AvailablePackagesList](docs/AvailablePackagesList.md)
@@ -644,15 +761,27 @@ Class | Method | HTTP request | Description
  - [BillingInfo](docs/BillingInfo.md)
  - [BillingInfoDto](docs/BillingInfoDto.md)
  - [BillingSummaryDto](docs/BillingSummaryDto.md)
+ - [BindAppRepositoryCommand](docs/BindAppRepositoryCommand.md)
  - [BindFlavorToProjectCommand](docs/BindFlavorToProjectCommand.md)
  - [BindImageToProjectCommand](docs/BindImageToProjectCommand.md)
  - [BindOrganizationsCommand](docs/BindOrganizationsCommand.md)
+ - [BindOrganizationsToRuleDto](docs/BindOrganizationsToRuleDto.md)
+ - [BindProjectGroupsToUserGroupCommand](docs/BindProjectGroupsToUserGroupCommand.md)
+ - [BindProjectsCommand](docs/BindProjectsCommand.md)
  - [BindProjectsToCatalogCommand](docs/BindProjectsToCatalogCommand.md)
+ - [BindPrometheusOrganizationsCommand](docs/BindPrometheusOrganizationsCommand.md)
+ - [BindRulesCommand](docs/BindRulesCommand.md)
+ - [BindRulesToOrganizationDto](docs/BindRulesToOrganizationDto.md)
+ - [BindSubscriptionCommand](docs/BindSubscriptionCommand.md)
+ - [BindSubscriptionResponseDto](docs/BindSubscriptionResponseDto.md)
+ - [BindUnbindEndpointToTokenCommand](docs/BindUnbindEndpointToTokenCommand.md)
  - [BindUserGroupsToProjectGroupCommand](docs/BindUserGroupsToProjectGroupCommand.md)
+ - [BindUsersCommand](docs/BindUsersCommand.md)
  - [BoundFlavorsForProjectsList](docs/BoundFlavorsForProjectsList.md)
  - [BoundFlavorsForProjectsListDto](docs/BoundFlavorsForProjectsListDto.md)
  - [BoundImagesForProjectsList](docs/BoundImagesForProjectsList.md)
  - [BoundImagesForProjectsListDto](docs/BoundImagesForProjectsListDto.md)
+ - [BridgeListCommand](docs/BridgeListCommand.md)
  - [CScheduleDto](docs/CScheduleDto.md)
  - [CardInformationDto](docs/CardInformationDto.md)
  - [CatalogAppDetailsDto](docs/CatalogAppDetailsDto.md)
@@ -664,6 +793,7 @@ Class | Method | HTTP request | Description
  - [CatalogListDto](docs/CatalogListDto.md)
  - [CatalogLockManagementCommand](docs/CatalogLockManagementCommand.md)
  - [ChangeCardCommand](docs/ChangeCardCommand.md)
+ - [ChangePasswordCommand](docs/ChangePasswordCommand.md)
  - [Chart](docs/Chart.md)
  - [ChartSpec](docs/ChartSpec.md)
  - [CheckAwsCommand](docs/CheckAwsCommand.md)
@@ -675,6 +805,7 @@ Class | Method | HTTP request | Description
  - [CheckTanzuCommand](docs/CheckTanzuCommand.md)
  - [CidrCommand](docs/CidrCommand.md)
  - [ClearProjectBackupCommand](docs/ClearProjectBackupCommand.md)
+ - [CloseTicketCommand](docs/CloseTicketCommand.md)
  - [CloudCredentialsDropdownRecordDto](docs/CloudCredentialsDropdownRecordDto.md)
  - [CloudCredentialsForOrganizationEntity](docs/CloudCredentialsForOrganizationEntity.md)
  - [CloudCredentialsResponseData](docs/CloudCredentialsResponseData.md)
@@ -684,18 +815,22 @@ Class | Method | HTTP request | Description
  - [CloudRole](docs/CloudRole.md)
  - [CloudStatus](docs/CloudStatus.md)
  - [CloudType](docs/CloudType.md)
+ - [CommitStandAloneVmCommand](docs/CommitStandAloneVmCommand.md)
  - [CommonAvailabilityDto](docs/CommonAvailabilityDto.md)
  - [CommonDropdownDto](docs/CommonDropdownDto.md)
+ - [CommonDropdownIsBoundDto](docs/CommonDropdownIsBoundDto.md)
  - [CommonDropdownIsBoundDtoForProject](docs/CommonDropdownIsBoundDtoForProject.md)
  - [CommonExtendedDropdownDto](docs/CommonExtendedDropdownDto.md)
  - [CommonSearchKubernetesResponseData](docs/CommonSearchKubernetesResponseData.md)
  - [CommonSearchResponseData](docs/CommonSearchResponseData.md)
  - [CommonStringBasedDropdownDto](docs/CommonStringBasedDropdownDto.md)
+ - [CommonStringDropdownIsBoundDto](docs/CommonStringDropdownIsBoundDto.md)
  - [Condition](docs/Condition.md)
  - [ConfigMapDto](docs/ConfigMapDto.md)
  - [ConfigMapSearchCommand](docs/ConfigMapSearchCommand.md)
  - [ConfigMapSearchList](docs/ConfigMapSearchList.md)
  - [ConfigMaps](docs/ConfigMaps.md)
+ - [ConfirmEmailCommand](docs/ConfirmEmailCommand.md)
  - [ConsoleScreenshotCommand](docs/ConsoleScreenshotCommand.md)
  - [ContactUsCommand](docs/ContactUsCommand.md)
  - [CostComponent](docs/CostComponent.md)
@@ -722,10 +857,19 @@ Class | Method | HTTP request | Description
  - [CreateProjectCommand](docs/CreateProjectCommand.md)
  - [CreateProjectFromTemplateCommand](docs/CreateProjectFromTemplateCommand.md)
  - [CreateProjectGroupCommand](docs/CreateProjectGroupCommand.md)
+ - [CreateProxmoxCommand](docs/CreateProxmoxCommand.md)
+ - [CreateProxmoxNetworkDto](docs/CreateProxmoxNetworkDto.md)
  - [CreateSecurityGroupCommand](docs/CreateSecurityGroupCommand.md)
  - [CreateSlackConfigurationCommand](docs/CreateSlackConfigurationCommand.md)
  - [CreateSshUserCommand](docs/CreateSshUserCommand.md)
+ - [CreateStandAloneDiskCommand](docs/CreateStandAloneDiskCommand.md)
+ - [CreateStandAloneVmCommand](docs/CreateStandAloneVmCommand.md)
  - [CreateStripeCustomerCommand](docs/CreateStripeCustomerCommand.md)
+ - [CreateSubscriptionCommand](docs/CreateSubscriptionCommand.md)
+ - [CreateTanzuCommand](docs/CreateTanzuCommand.md)
+ - [CreateTicketCommand](docs/CreateTicketCommand.md)
+ - [CreateUserCommand](docs/CreateUserCommand.md)
+ - [CreateUserGroupCommand](docs/CreateUserGroupCommand.md)
  - [CredentialChartDto](docs/CredentialChartDto.md)
  - [CredentialMakeDefaultCommand](docs/CredentialMakeDefaultCommand.md)
  - [CredentialsChart](docs/CredentialsChart.md)
@@ -745,11 +889,17 @@ Class | Method | HTTP request | Description
  - [DeleteKubeConfigByProjectIdCommand](docs/DeleteKubeConfigByProjectIdCommand.md)
  - [DeleteKubeConfigCommand](docs/DeleteKubeConfigCommand.md)
  - [DeleteProjectCommand](docs/DeleteProjectCommand.md)
+ - [DeleteRepositoryCommand](docs/DeleteRepositoryCommand.md)
  - [DeleteRestoreCommand](docs/DeleteRestoreCommand.md)
  - [DeleteScheduleCommand](docs/DeleteScheduleCommand.md)
  - [DeleteServerCommand](docs/DeleteServerCommand.md)
  - [DeleteSlackConfigCommand](docs/DeleteSlackConfigCommand.md)
  - [DeleteSshUserCommand](docs/DeleteSshUserCommand.md)
+ - [DeleteStandAloneProfileCommand](docs/DeleteStandAloneProfileCommand.md)
+ - [DeleteStandAloneVmCommand](docs/DeleteStandAloneVmCommand.md)
+ - [DeleteStandAloneVmDiskCommand](docs/DeleteStandAloneVmDiskCommand.md)
+ - [DeleteSubscriptionCommand](docs/DeleteSubscriptionCommand.md)
+ - [DeleteUserGroupCommand](docs/DeleteUserGroupCommand.md)
  - [DeleteWholeProjectCommand](docs/DeleteWholeProjectCommand.md)
  - [DeploymentDto](docs/DeploymentDto.md)
  - [DeploymentSearchCommand](docs/DeploymentSearchCommand.md)
@@ -774,6 +924,8 @@ Class | Method | HTTP request | Description
  - [DisableAutoscalingCommand](docs/DisableAutoscalingCommand.md)
  - [DisableBackupCommand](docs/DisableBackupCommand.md)
  - [DisableGatekeeperCommand](docs/DisableGatekeeperCommand.md)
+ - [DisableRepoCommand](docs/DisableRepoCommand.md)
+ - [DisableUserCommand](docs/DisableUserCommand.md)
  - [DnsCommand](docs/DnsCommand.md)
  - [DnsNtpAddressEditDto](docs/DnsNtpAddressEditDto.md)
  - [DnsServerCreateDto](docs/DnsServerCreateDto.md)
@@ -786,6 +938,7 @@ Class | Method | HTTP request | Description
  - [DuplicateNameCheckerCommand](docs/DuplicateNameCheckerCommand.md)
  - [EditAlertingIntegrationCommand](docs/EditAlertingIntegrationCommand.md)
  - [EditAllowedHostDto](docs/EditAllowedHostDto.md)
+ - [EditArticleCommand](docs/EditArticleCommand.md)
  - [EditAutoscalingCommand](docs/EditAutoscalingCommand.md)
  - [EditCatalogAppParamCommand](docs/EditCatalogAppParamCommand.md)
  - [EditCatalogAppVersionCommand](docs/EditCatalogAppVersionCommand.md)
@@ -793,16 +946,20 @@ Class | Method | HTTP request | Description
  - [EditProjectAppParamsDto](docs/EditProjectAppParamsDto.md)
  - [EditSecurityGroupCommand](docs/EditSecurityGroupCommand.md)
  - [EditSshUserCommand](docs/EditSshUserCommand.md)
+ - [EditTicketCommand](docs/EditTicketCommand.md)
  - [EnableAutoscalingCommand](docs/EnableAutoscalingCommand.md)
  - [EnableBackupCommand](docs/EnableBackupCommand.md)
  - [EnableGatekeeperCommand](docs/EnableGatekeeperCommand.md)
+ - [EndpointElements](docs/EndpointElements.md)
  - [EnumList](docs/EnumList.md)
  - [EstimatedInfracost](docs/EstimatedInfracost.md)
  - [ExceededQuotaList](docs/ExceededQuotaList.md)
  - [Filter](docs/Filter.md)
+ - [FilteringElementDto](docs/FilteringElementDto.md)
  - [FinalPriceCommand](docs/FinalPriceCommand.md)
  - [FinalPriceDto](docs/FinalPriceDto.md)
  - [FlavorsListDto](docs/FlavorsListDto.md)
+ - [ForceToResetPasswordCommand](docs/ForceToResetPasswordCommand.md)
  - [ForgotPasswordCommand](docs/ForgotPasswordCommand.md)
  - [FromTemplateDto](docs/FromTemplateDto.md)
  - [FullSpotOperationCommand](docs/FullSpotOperationCommand.md)
@@ -825,8 +982,10 @@ Class | Method | HTTP request | Description
  - [HelmReleasesList](docs/HelmReleasesList.md)
  - [HelmSpec](docs/HelmSpec.md)
  - [HelmStatus](docs/HelmStatus.md)
+ - [HypervisorListCommand](docs/HypervisorListCommand.md)
  - [ImageByIdCommand](docs/ImageByIdCommand.md)
  - [ImportBackupStorageLocationCommand](docs/ImportBackupStorageLocationCommand.md)
+ - [ImportRepoCommand](docs/ImportRepoCommand.md)
  - [IngressDto](docs/IngressDto.md)
  - [IngressSearchCommand](docs/IngressSearchCommand.md)
  - [IngressSearchList](docs/IngressSearchList.md)
@@ -877,6 +1036,8 @@ Class | Method | HTTP request | Description
  - [ListAllBackupStorageLocations](docs/ListAllBackupStorageLocations.md)
  - [ListAllSchedules](docs/ListAllSchedules.md)
  - [ListCatalogAppAvailableVersionsCommand](docs/ListCatalogAppAvailableVersionsCommand.md)
+ - [ListForLandingPageDto](docs/ListForLandingPageDto.md)
+ - [ListForOrganizationEditDto](docs/ListForOrganizationEditDto.md)
  - [LockProjectAppCommand](docs/LockProjectAppCommand.md)
  - [LoginCommand](docs/LoginCommand.md)
  - [LokiResponseDto](docs/LokiResponseDto.md)
@@ -909,6 +1070,7 @@ Class | Method | HTTP request | Description
  - [OpenStackProjectListQuery](docs/OpenStackProjectListQuery.md)
  - [OpenStackRegionListQuery](docs/OpenStackRegionListQuery.md)
  - [OpenStackZoneListQuery](docs/OpenStackZoneListQuery.md)
+ - [OpenTicketCommand](docs/OpenTicketCommand.md)
  - [OpenstackComputeQuotaDto](docs/OpenstackComputeQuotaDto.md)
  - [OpenstackCredentialList](docs/OpenstackCredentialList.md)
  - [OpenstackCredentialsForProjectDto](docs/OpenstackCredentialsForProjectDto.md)
@@ -932,6 +1094,7 @@ Class | Method | HTTP request | Description
  - [OrganizationDetailsDto](docs/OrganizationDetailsDto.md)
  - [OrganizationDto](docs/OrganizationDto.md)
  - [OrganizationEntityForDashboard](docs/OrganizationEntityForDashboard.md)
+ - [OrganizationForPrometheus](docs/OrganizationForPrometheus.md)
  - [OrganizationNameCheckerCommand](docs/OrganizationNameCheckerCommand.md)
  - [OrganizationSearchCommand](docs/OrganizationSearchCommand.md)
  - [OrganizationSearchList](docs/OrganizationSearchList.md)
@@ -942,6 +1105,7 @@ Class | Method | HTTP request | Description
  - [Parameter](docs/Parameter.md)
  - [PartnerDetailsDto](docs/PartnerDetailsDto.md)
  - [PartnerDetailsForOrganizationsDto](docs/PartnerDetailsForOrganizationsDto.md)
+ - [PartnerDetailsForUserDto](docs/PartnerDetailsForUserDto.md)
  - [PartnerEntity](docs/PartnerEntity.md)
  - [PartnerRecordDto](docs/PartnerRecordDto.md)
  - [PartnersList](docs/PartnersList.md)
@@ -979,10 +1143,14 @@ Class | Method | HTTP request | Description
  - [ProjectChartDto](docs/ProjectChartDto.md)
  - [ProjectCommonRecordDto](docs/ProjectCommonRecordDto.md)
  - [ProjectDetailsForServersDto](docs/ProjectDetailsForServersDto.md)
+ - [ProjectDetailsForVmsDto](docs/ProjectDetailsForVmsDto.md)
+ - [ProjectDto](docs/ProjectDto.md)
  - [ProjectExtendLifeTimeCommand](docs/ProjectExtendLifeTimeCommand.md)
  - [ProjectForListDto](docs/ProjectForListDto.md)
  - [ProjectForUpdateDto](docs/ProjectForUpdateDto.md)
+ - [ProjectFullListDto](docs/ProjectFullListDto.md)
  - [ProjectGroupDetailsListDto](docs/ProjectGroupDetailsListDto.md)
+ - [ProjectGroupEntityListDto](docs/ProjectGroupEntityListDto.md)
  - [ProjectGroupList](docs/ProjectGroupList.md)
  - [ProjectHealth](docs/ProjectHealth.md)
  - [ProjectInfracostUpsertDto](docs/ProjectInfracostUpsertDto.md)
@@ -1006,22 +1174,35 @@ Class | Method | HTTP request | Description
  - [ProjectsMonitoringAlertsCommand](docs/ProjectsMonitoringAlertsCommand.md)
  - [ProjectsSearchCommand](docs/ProjectsSearchCommand.md)
  - [ProjectsSearchList](docs/ProjectsSearchList.md)
+ - [PrometheusBillingCreateCommand](docs/PrometheusBillingCreateCommand.md)
+ - [PrometheusBillingInfo](docs/PrometheusBillingInfo.md)
+ - [PrometheusBillingSummaryDto](docs/PrometheusBillingSummaryDto.md)
  - [PrometheusDashboardCreateCommand](docs/PrometheusDashboardCreateCommand.md)
  - [PrometheusDashboardDto](docs/PrometheusDashboardDto.md)
  - [PrometheusDashboardListDto](docs/PrometheusDashboardListDto.md)
  - [PrometheusDashboardUpdateCommand](docs/PrometheusDashboardUpdateCommand.md)
  - [PrometheusEntity](docs/PrometheusEntity.md)
+ - [PrometheusLabelDeleteDto](docs/PrometheusLabelDeleteDto.md)
+ - [PrometheusLabelListDto](docs/PrometheusLabelListDto.md)
+ - [PrometheusLabelUpdateDto](docs/PrometheusLabelUpdateDto.md)
  - [PrometheusMetricsCommand](docs/PrometheusMetricsCommand.md)
+ - [PrometheusRuleListDto](docs/PrometheusRuleListDto.md)
+ - [PrometheusRulesList](docs/PrometheusRulesList.md)
  - [PrometheusRulesSearchCommand](docs/PrometheusRulesSearchCommand.md)
  - [PrometheusRulesSearchList](docs/PrometheusRulesSearchList.md)
  - [PrometheusRulesSearchResponseData](docs/PrometheusRulesSearchResponseData.md)
+ - [PrometheusType](docs/PrometheusType.md)
  - [ProxmoxCheckerCommand](docs/ProxmoxCheckerCommand.md)
  - [ProxmoxCredentialsForProjectDto](docs/ProxmoxCredentialsForProjectDto.md)
  - [ProxmoxFlavorData](docs/ProxmoxFlavorData.md)
  - [ProxmoxFlavorList](docs/ProxmoxFlavorList.md)
+ - [ProxmoxList](docs/ProxmoxList.md)
+ - [ProxmoxListDto](docs/ProxmoxListDto.md)
  - [ProxmoxNetworkListDto](docs/ProxmoxNetworkListDto.md)
  - [ProxmoxRole](docs/ProxmoxRole.md)
  - [PurgeCommand](docs/PurgeCommand.md)
+ - [PurgeStandAloneCommand](docs/PurgeStandAloneCommand.md)
+ - [PurgeStandAloneVmDiskCommand](docs/PurgeStandAloneVmDiskCommand.md)
  - [PurgeWholeProjectCommand](docs/PurgeWholeProjectCommand.md)
  - [PvcDto](docs/PvcDto.md)
  - [PvcSearchCommand](docs/PvcSearchCommand.md)
@@ -1031,14 +1212,20 @@ Class | Method | HTTP request | Description
  - [RebootStandAloneVmCommand](docs/RebootStandAloneVmCommand.md)
  - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegionListCommand](docs/RegionListCommand.md)
+ - [RepairStandAloneVmCommand](docs/RepairStandAloneVmCommand.md)
+ - [ReplyTicketCommand](docs/ReplyTicketCommand.md)
  - [Repository](docs/Repository.md)
  - [ResetPasswordCommand](docs/ResetPasswordCommand.md)
  - [ResetServerStatusCommand](docs/ResetServerStatusCommand.md)
+ - [ResetStandAloneVmDiskStatusCommand](docs/ResetStandAloneVmDiskStatusCommand.md)
+ - [ResetStandAloneVmStatusCommand](docs/ResetStandAloneVmStatusCommand.md)
  - [Resource](docs/Resource.md)
  - [RestartDaemonSetCommand](docs/RestartDaemonSetCommand.md)
  - [RestartDeploymentCommand](docs/RestartDeploymentCommand.md)
  - [RestartStsCommand](docs/RestartStsCommand.md)
  - [RestoreBackupCommand](docs/RestoreBackupCommand.md)
+ - [RuleCreateCommand](docs/RuleCreateCommand.md)
+ - [RuleForUpdateDto](docs/RuleForUpdateDto.md)
  - [SecretDto](docs/SecretDto.md)
  - [SecretSearchCommand](docs/SecretSearchCommand.md)
  - [SecretSearchList](docs/SecretSearchList.md)
@@ -1063,6 +1250,7 @@ Class | Method | HTTP request | Description
  - [ServiceSearchCommand](docs/ServiceSearchCommand.md)
  - [ServiceSearchList](docs/ServiceSearchList.md)
  - [Services](docs/Services.md)
+ - [SetTicketPriorityCommand](docs/SetTicketPriorityCommand.md)
  - [ShelveStandAloneVmCommand](docs/ShelveStandAloneVmCommand.md)
  - [SilenceOperationsCommand](docs/SilenceOperationsCommand.md)
  - [SimplePrometheusEntity](docs/SimplePrometheusEntity.md)
@@ -1076,14 +1264,43 @@ Class | Method | HTTP request | Description
  - [SshUserCreateDto](docs/SshUserCreateDto.md)
  - [SshUserListDto](docs/SshUserListDto.md)
  - [SshUsersListDto](docs/SshUsersListDto.md)
+ - [StandAloneMetaDataDto](docs/StandAloneMetaDataDto.md)
+ - [StandAloneMetaDataDtoForVm](docs/StandAloneMetaDataDtoForVm.md)
+ - [StandAloneProfileCreateCommand](docs/StandAloneProfileCreateCommand.md)
+ - [StandAloneProfileForDetailsDto](docs/StandAloneProfileForDetailsDto.md)
+ - [StandAloneProfileFullDto](docs/StandAloneProfileFullDto.md)
+ - [StandAloneProfileLockManagementCommand](docs/StandAloneProfileLockManagementCommand.md)
+ - [StandAloneProfileSecurityGroupDto](docs/StandAloneProfileSecurityGroupDto.md)
+ - [StandAloneProfileSecurityGroupForDetailsDto](docs/StandAloneProfileSecurityGroupForDetailsDto.md)
+ - [StandAloneProfileSecurityGroupFullDto](docs/StandAloneProfileSecurityGroupFullDto.md)
+ - [StandAloneProfileUpdateCommand](docs/StandAloneProfileUpdateCommand.md)
+ - [StandAloneProfiles](docs/StandAloneProfiles.md)
+ - [StandAloneProfilesListDto](docs/StandAloneProfilesListDto.md)
  - [StandAloneProfilesSearchCommand](docs/StandAloneProfilesSearchCommand.md)
  - [StandAloneProfilesSearchList](docs/StandAloneProfilesSearchList.md)
+ - [StandAloneVmDiskDto](docs/StandAloneVmDiskDto.md)
+ - [StandAloneVmDiskForDetailsDto](docs/StandAloneVmDiskForDetailsDto.md)
+ - [StandAloneVmDiskFullDto](docs/StandAloneVmDiskFullDto.md)
+ - [StandAloneVmDiskStatus](docs/StandAloneVmDiskStatus.md)
+ - [StandAloneVmFullDto](docs/StandAloneVmFullDto.md)
+ - [StandAloneVmIpManagementCommand](docs/StandAloneVmIpManagementCommand.md)
+ - [StandAloneVmListForDetails](docs/StandAloneVmListForDetails.md)
+ - [StandAloneVmSmallDetailDto](docs/StandAloneVmSmallDetailDto.md)
+ - [StandAloneVmStatus](docs/StandAloneVmStatus.md)
+ - [StandaloneProfileListDto](docs/StandaloneProfileListDto.md)
+ - [StandaloneProfileSecurityGroupListDto](docs/StandaloneProfileSecurityGroupListDto.md)
+ - [StandaloneVisibilityDto](docs/StandaloneVisibilityDto.md)
+ - [StandaloneVmListDto](docs/StandaloneVmListDto.md)
  - [StandaloneVmsForBillingDto](docs/StandaloneVmsForBillingDto.md)
+ - [StandaloneVmsList](docs/StandaloneVmsList.md)
+ - [StandaloneVmsListForDetailsDto](docs/StandaloneVmsListForDetailsDto.md)
+ - [StandaloneVmsListForPoller](docs/StandaloneVmsListForPoller.md)
  - [StartStandaloneVmCommand](docs/StartStandaloneVmCommand.md)
  - [Status](docs/Status.md)
  - [StopStandaloneVmCommand](docs/StopStandaloneVmCommand.md)
  - [StorageClassDto](docs/StorageClassDto.md)
  - [StorageClasses](docs/StorageClasses.md)
+ - [StorageListCommand](docs/StorageListCommand.md)
  - [StripeInvoiceListDto](docs/StripeInvoiceListDto.md)
  - [StripeInvoices](docs/StripeInvoices.md)
  - [StsDto](docs/StsDto.md)
@@ -1094,13 +1311,22 @@ Class | Method | HTTP request | Description
  - [Subresource](docs/Subresource.md)
  - [SyncProjectAppCommand](docs/SyncProjectAppCommand.md)
  - [TanzuCredentialsForProjectDto](docs/TanzuCredentialsForProjectDto.md)
+ - [TanzuCredentialsList](docs/TanzuCredentialsList.md)
  - [TanzuCredentialsListDto](docs/TanzuCredentialsListDto.md)
  - [TanzuFlavorList](docs/TanzuFlavorList.md)
  - [TanzuFlavorsListDto](docs/TanzuFlavorsListDto.md)
  - [TanzuImageList](docs/TanzuImageList.md)
  - [TanzuImagesListDto](docs/TanzuImagesListDto.md)
+ - [TanzuStorageListCommand](docs/TanzuStorageListCommand.md)
+ - [TicketPriority](docs/TicketPriority.md)
+ - [ToggleDemoModeCommand](docs/ToggleDemoModeCommand.md)
  - [ToggleKeycloakCommand](docs/ToggleKeycloakCommand.md)
+ - [ToggleMaintenanceModeCommand](docs/ToggleMaintenanceModeCommand.md)
+ - [ToggleNotificationModeCommand](docs/ToggleNotificationModeCommand.md)
+ - [TransferList](docs/TransferList.md)
+ - [TransferTicketCommand](docs/TransferTicketCommand.md)
  - [TryForFreeCommand](docs/TryForFreeCommand.md)
+ - [UnbindAppRepositoryCommand](docs/UnbindAppRepositoryCommand.md)
  - [UnbindFlavorFromProjectCommand](docs/UnbindFlavorFromProjectCommand.md)
  - [UnshelveStandaloneVmCommand](docs/UnshelveStandaloneVmCommand.md)
  - [UpdateAccessProfileDto](docs/UpdateAccessProfileDto.md)
@@ -1115,22 +1341,46 @@ Class | Method | HTTP request | Description
  - [UpdateOrganizationSubscriptionCommand](docs/UpdateOrganizationSubscriptionCommand.md)
  - [UpdatePaymentIdCommand](docs/UpdatePaymentIdCommand.md)
  - [UpdateProjectGroupDto](docs/UpdateProjectGroupDto.md)
+ - [UpdateProjectUserDto](docs/UpdateProjectUserDto.md)
  - [UpdateProjectUserGroupDto](docs/UpdateProjectUserGroupDto.md)
  - [UpdateQuotaCommand](docs/UpdateQuotaCommand.md)
  - [UpdateServerCommand](docs/UpdateServerCommand.md)
  - [UpdateServerHealthDto](docs/UpdateServerHealthDto.md)
  - [UpdateSlackConfigurationDto](docs/UpdateSlackConfigurationDto.md)
+ - [UpdateStandAloneVmCommand](docs/UpdateStandAloneVmCommand.md)
+ - [UpdateStandAloneVmDiskDto](docs/UpdateStandAloneVmDiskDto.md)
+ - [UpdateStandAloneVmFlavorCommand](docs/UpdateStandAloneVmFlavorCommand.md)
+ - [UpdateStandaloneVmDiskCommand](docs/UpdateStandaloneVmDiskCommand.md)
+ - [UpdateStandaloneVmDiskSizeCommand](docs/UpdateStandaloneVmDiskSizeCommand.md)
+ - [UpdateSubscriptionCommand](docs/UpdateSubscriptionCommand.md)
+ - [UpdateTanzuCommand](docs/UpdateTanzuCommand.md)
+ - [UpdateUserCommand](docs/UpdateUserCommand.md)
+ - [UpdateUserGroupDto](docs/UpdateUserGroupDto.md)
+ - [UpdateUserProjectDto](docs/UpdateUserProjectDto.md)
+ - [UpdateUserProjectGroupDto](docs/UpdateUserProjectGroupDto.md)
+ - [UserDetails](docs/UserDetails.md)
  - [UserDto](docs/UserDto.md)
  - [UserExistCommand](docs/UserExistCommand.md)
+ - [UserForListDto](docs/UserForListDto.md)
+ - [UserGroupDetailsListDto](docs/UserGroupDetailsListDto.md)
  - [UserGroupEntityListDto](docs/UserGroupEntityListDto.md)
+ - [UserGroupList](docs/UserGroupList.md)
+ - [UserListDto](docs/UserListDto.md)
+ - [UserListForUserGroupDto](docs/UserListForUserGroupDto.md)
  - [UserResourceChartDto](docs/UserResourceChartDto.md)
  - [UserRole](docs/UserRole.md)
+ - [UserTokenCreateCommand](docs/UserTokenCreateCommand.md)
+ - [UserTokenCreateDto](docs/UserTokenCreateDto.md)
+ - [UserTokensListDto](docs/UserTokensListDto.md)
+ - [UsersList](docs/UsersList.md)
  - [UsersSearchCommand](docs/UsersSearchCommand.md)
  - [UsersSearchList](docs/UsersSearchList.md)
  - [UsersSearchResponseData](docs/UsersSearchResponseData.md)
+ - [VerifyEmailCommand](docs/VerifyEmailCommand.md)
  - [VerifySlackCredentialsCommand](docs/VerifySlackCredentialsCommand.md)
  - [VerifyWebhookCommand](docs/VerifyWebhookCommand.md)
  - [VmConsoleScreenshotCommand](docs/VmConsoleScreenshotCommand.md)
+ - [VmTemplateListCommand](docs/VmTemplateListCommand.md)
  - [WebhookHeaderDto](docs/WebhookHeaderDto.md)
  - [WhiteListDomainCreateCommand](docs/WhiteListDomainCreateCommand.md)
  - [WhiteListDomainCreateDto](docs/WhiteListDomainCreateDto.md)

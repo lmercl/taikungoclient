@@ -62,6 +62,8 @@ type APIClient struct {
 
 	AllowedHostApi *AllowedHostApiService
 
+	AppRepositoriesApi *AppRepositoriesApiService
+
 	AuthManagementApi *AuthManagementApiService
 
 	AutoscalingApi *AutoscalingApiService
@@ -148,6 +150,14 @@ type APIClient struct {
 
 	ProjectsApi *ProjectsApiService
 
+	PrometheusBillingsApi *PrometheusBillingsApiService
+
+	PrometheusOrganizationsApi *PrometheusOrganizationsApiService
+
+	PrometheusRulesApi *PrometheusRulesApiService
+
+	ProxmoxCloudCredentialApi *ProxmoxCloudCredentialApiService
+
 	S3CredentialsApi *S3CredentialsApiService
 
 	SearchApi *SearchApiService
@@ -160,7 +170,27 @@ type APIClient struct {
 
 	SshUsersApi *SshUsersApiService
 
+	StandaloneApi *StandaloneApiService
+
 	StandaloneActionsApi *StandaloneActionsApiService
+
+	StandaloneProfileApi *StandaloneProfileApiService
+
+	StandaloneVMDisksApi *StandaloneVMDisksApiService
+
+	SubscriptionApi *SubscriptionApiService
+
+	TanzuApi *TanzuApiService
+
+	TicketApi *TicketApiService
+
+	UserGroupApi *UserGroupApiService
+
+	UserProjectsApi *UserProjectsApiService
+
+	UserTokenApi *UserTokenApiService
+
+	UsersApi *UsersApiService
 }
 
 type service struct {
@@ -185,6 +215,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AlertingIntegrationsApi = (*AlertingIntegrationsApiService)(&c.common)
 	c.AlertingProfilesApi = (*AlertingProfilesApiService)(&c.common)
 	c.AllowedHostApi = (*AllowedHostApiService)(&c.common)
+	c.AppRepositoriesApi = (*AppRepositoriesApiService)(&c.common)
 	c.AuthManagementApi = (*AuthManagementApiService)(&c.common)
 	c.AutoscalingApi = (*AutoscalingApiService)(&c.common)
 	c.AzureCloudCredentialApi = (*AzureCloudCredentialApiService)(&c.common)
@@ -228,13 +259,27 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectRevisionsApi = (*ProjectRevisionsApiService)(&c.common)
 	c.ProjectTemplatesApi = (*ProjectTemplatesApiService)(&c.common)
 	c.ProjectsApi = (*ProjectsApiService)(&c.common)
+	c.PrometheusBillingsApi = (*PrometheusBillingsApiService)(&c.common)
+	c.PrometheusOrganizationsApi = (*PrometheusOrganizationsApiService)(&c.common)
+	c.PrometheusRulesApi = (*PrometheusRulesApiService)(&c.common)
+	c.ProxmoxCloudCredentialApi = (*ProxmoxCloudCredentialApiService)(&c.common)
 	c.S3CredentialsApi = (*S3CredentialsApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SecurityGroupApi = (*SecurityGroupApiService)(&c.common)
 	c.ServersApi = (*ServersApiService)(&c.common)
 	c.SlackApi = (*SlackApiService)(&c.common)
 	c.SshUsersApi = (*SshUsersApiService)(&c.common)
+	c.StandaloneApi = (*StandaloneApiService)(&c.common)
 	c.StandaloneActionsApi = (*StandaloneActionsApiService)(&c.common)
+	c.StandaloneProfileApi = (*StandaloneProfileApiService)(&c.common)
+	c.StandaloneVMDisksApi = (*StandaloneVMDisksApiService)(&c.common)
+	c.SubscriptionApi = (*SubscriptionApiService)(&c.common)
+	c.TanzuApi = (*TanzuApiService)(&c.common)
+	c.TicketApi = (*TicketApiService)(&c.common)
+	c.UserGroupApi = (*UserGroupApiService)(&c.common)
+	c.UserProjectsApi = (*UserProjectsApiService)(&c.common)
+	c.UserTokenApi = (*UserTokenApiService)(&c.common)
+	c.UsersApi = (*UsersApiService)(&c.common)
 
 	return c
 }

@@ -93,4 +93,18 @@ func Test_taikuncore_OperationCredentialsApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test OperationCredentialsApiService OpscredentialsMetricNames", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id int32
+
+		resp, httpRes, err := apiClient.OperationCredentialsApi.OpscredentialsMetricNames(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }
