@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PackageId** | **string** |  | 
-**Version** | **string** |  | 
+**PackageId** | Pointer to **NullableString** |  | [optional] 
+**Version** | Pointer to **NullableString** |  | [optional] 
 **CatalogAppId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewGetCatalogAppValueAutocompleteCommand
 
-`func NewGetCatalogAppValueAutocompleteCommand(packageId string, version string, ) *GetCatalogAppValueAutocompleteCommand`
+`func NewGetCatalogAppValueAutocompleteCommand() *GetCatalogAppValueAutocompleteCommand`
 
 NewGetCatalogAppValueAutocompleteCommand instantiates a new GetCatalogAppValueAutocompleteCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetPackageId sets PackageId field to given value.
 
+### HasPackageId
 
+`func (o *GetCatalogAppValueAutocompleteCommand) HasPackageId() bool`
+
+HasPackageId returns a boolean if a field has been set.
+
+### SetPackageIdNil
+
+`func (o *GetCatalogAppValueAutocompleteCommand) SetPackageIdNil(b bool)`
+
+ SetPackageIdNil sets the value for PackageId to be an explicit nil
+
+### UnsetPackageId
+`func (o *GetCatalogAppValueAutocompleteCommand) UnsetPackageId()`
+
+UnsetPackageId ensures that no value is present for PackageId, not even an explicit nil
 ### GetVersion
 
 `func (o *GetCatalogAppValueAutocompleteCommand) GetVersion() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
 
+`func (o *GetCatalogAppValueAutocompleteCommand) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### SetVersionNil
+
+`func (o *GetCatalogAppValueAutocompleteCommand) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *GetCatalogAppValueAutocompleteCommand) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetCatalogAppId
 
 `func (o *GetCatalogAppValueAutocompleteCommand) GetCatalogAppId() int32`

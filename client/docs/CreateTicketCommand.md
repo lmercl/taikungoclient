@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Description** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **Priority** | Pointer to [**TicketPriority**](TicketPriority.md) |  | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCreateTicketCommand
 
-`func NewCreateTicketCommand(name string, description string, ) *CreateTicketCommand`
+`func NewCreateTicketCommand() *CreateTicketCommand`
 
 NewCreateTicketCommand instantiates a new CreateTicketCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,7 +47,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateTicketCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateTicketCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateTicketCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateTicketCommand) GetDescription() string`
@@ -67,7 +82,22 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
 
+`func (o *CreateTicketCommand) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *CreateTicketCommand) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateTicketCommand) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *CreateTicketCommand) GetOrganizationId() int32`

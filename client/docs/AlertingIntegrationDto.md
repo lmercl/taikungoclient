@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | 
+**Url** | Pointer to **NullableString** |  | [optional] 
 **Token** | Pointer to **NullableString** |  | [optional] 
-**AlertingIntegrationType** | [**AlertingIntegrationType**](AlertingIntegrationType.md) |  | 
+**AlertingIntegrationType** | Pointer to [**AlertingIntegrationType**](AlertingIntegrationType.md) |  | [optional] 
 
 ## Methods
 
 ### NewAlertingIntegrationDto
 
-`func NewAlertingIntegrationDto(url string, alertingIntegrationType AlertingIntegrationType, ) *AlertingIntegrationDto`
+`func NewAlertingIntegrationDto() *AlertingIntegrationDto`
 
 NewAlertingIntegrationDto instantiates a new AlertingIntegrationDto object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *AlertingIntegrationDto) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *AlertingIntegrationDto) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *AlertingIntegrationDto) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetToken
 
 `func (o *AlertingIntegrationDto) GetToken() string`
@@ -101,6 +116,11 @@ and a boolean to check if the value has been set.
 
 SetAlertingIntegrationType sets AlertingIntegrationType field to given value.
 
+### HasAlertingIntegrationType
+
+`func (o *AlertingIntegrationDto) HasAlertingIntegrationType() bool`
+
+HasAlertingIntegrationType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

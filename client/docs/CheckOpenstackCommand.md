@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OpenStackUser** | **string** |  | 
-**OpenStackPassword** | **string** |  | 
-**OpenStackUrl** | **string** |  | 
-**OpenStackDomain** | **string** |  | 
+**OpenStackUser** | Pointer to **NullableString** |  | [optional] 
+**OpenStackPassword** | Pointer to **NullableString** |  | [optional] 
+**OpenStackUrl** | Pointer to **NullableString** |  | [optional] 
+**OpenStackDomain** | Pointer to **NullableString** |  | [optional] 
 **IsAdmin** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewCheckOpenstackCommand
 
-`func NewCheckOpenstackCommand(openStackUser string, openStackPassword string, openStackUrl string, openStackDomain string, ) *CheckOpenstackCommand`
+`func NewCheckOpenstackCommand() *CheckOpenstackCommand`
 
 NewCheckOpenstackCommand instantiates a new CheckOpenstackCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackUser sets OpenStackUser field to given value.
 
+### HasOpenStackUser
 
+`func (o *CheckOpenstackCommand) HasOpenStackUser() bool`
+
+HasOpenStackUser returns a boolean if a field has been set.
+
+### SetOpenStackUserNil
+
+`func (o *CheckOpenstackCommand) SetOpenStackUserNil(b bool)`
+
+ SetOpenStackUserNil sets the value for OpenStackUser to be an explicit nil
+
+### UnsetOpenStackUser
+`func (o *CheckOpenstackCommand) UnsetOpenStackUser()`
+
+UnsetOpenStackUser ensures that no value is present for OpenStackUser, not even an explicit nil
 ### GetOpenStackPassword
 
 `func (o *CheckOpenstackCommand) GetOpenStackPassword() string`
@@ -68,7 +83,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackPassword sets OpenStackPassword field to given value.
 
+### HasOpenStackPassword
 
+`func (o *CheckOpenstackCommand) HasOpenStackPassword() bool`
+
+HasOpenStackPassword returns a boolean if a field has been set.
+
+### SetOpenStackPasswordNil
+
+`func (o *CheckOpenstackCommand) SetOpenStackPasswordNil(b bool)`
+
+ SetOpenStackPasswordNil sets the value for OpenStackPassword to be an explicit nil
+
+### UnsetOpenStackPassword
+`func (o *CheckOpenstackCommand) UnsetOpenStackPassword()`
+
+UnsetOpenStackPassword ensures that no value is present for OpenStackPassword, not even an explicit nil
 ### GetOpenStackUrl
 
 `func (o *CheckOpenstackCommand) GetOpenStackUrl() string`
@@ -88,7 +118,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackUrl sets OpenStackUrl field to given value.
 
+### HasOpenStackUrl
 
+`func (o *CheckOpenstackCommand) HasOpenStackUrl() bool`
+
+HasOpenStackUrl returns a boolean if a field has been set.
+
+### SetOpenStackUrlNil
+
+`func (o *CheckOpenstackCommand) SetOpenStackUrlNil(b bool)`
+
+ SetOpenStackUrlNil sets the value for OpenStackUrl to be an explicit nil
+
+### UnsetOpenStackUrl
+`func (o *CheckOpenstackCommand) UnsetOpenStackUrl()`
+
+UnsetOpenStackUrl ensures that no value is present for OpenStackUrl, not even an explicit nil
 ### GetOpenStackDomain
 
 `func (o *CheckOpenstackCommand) GetOpenStackDomain() string`
@@ -108,7 +153,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackDomain sets OpenStackDomain field to given value.
 
+### HasOpenStackDomain
 
+`func (o *CheckOpenstackCommand) HasOpenStackDomain() bool`
+
+HasOpenStackDomain returns a boolean if a field has been set.
+
+### SetOpenStackDomainNil
+
+`func (o *CheckOpenstackCommand) SetOpenStackDomainNil(b bool)`
+
+ SetOpenStackDomainNil sets the value for OpenStackDomain to be an explicit nil
+
+### UnsetOpenStackDomain
+`func (o *CheckOpenstackCommand) UnsetOpenStackDomain()`
+
+UnsetOpenStackDomain ensures that no value is present for OpenStackDomain, not even an explicit nil
 ### GetIsAdmin
 
 `func (o *CheckOpenstackCommand) GetIsAdmin() bool`

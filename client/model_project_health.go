@@ -17,28 +17,28 @@ import (
 )
 
 // ProjectHealth the model 'ProjectHealth'
-type ProjectHealth int32
+type ProjectHealth string
 
 // List of ProjectHealth
 const (
-	PROJECTHEALTH__100 ProjectHealth = 100
-	PROJECTHEALTH__150 ProjectHealth = 150
-	PROJECTHEALTH__200 ProjectHealth = 200
-	PROJECTHEALTH__300 ProjectHealth = 300
-	PROJECTHEALTH__400 ProjectHealth = 400
+	PROJECTHEALTH_HEALTHY ProjectHealth = "Healthy"
+	PROJECTHEALTH_NONE ProjectHealth = "None"
+	PROJECTHEALTH_UNHEALTHY ProjectHealth = "Unhealthy"
+	PROJECTHEALTH_UNKNOWN ProjectHealth = "Unknown"
+	PROJECTHEALTH_WARNING ProjectHealth = "Warning"
 )
 
 // All allowed values of ProjectHealth enum
 var AllowedProjectHealthEnumValues = []ProjectHealth{
-	100,
-	150,
-	200,
-	300,
-	400,
+	"Healthy",
+	"None",
+	"Unhealthy",
+	"Unknown",
+	"Warning",
 }
 
 func (v *ProjectHealth) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -56,7 +56,7 @@ func (v *ProjectHealth) UnmarshalJSON(src []byte) error {
 
 // NewProjectHealthFromValue returns a pointer to a valid ProjectHealth
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewProjectHealthFromValue(v int32) (*ProjectHealth, error) {
+func NewProjectHealthFromValue(v string) (*ProjectHealth, error) {
 	ev := ProjectHealth(v)
 	if ev.IsValid() {
 		return &ev, nil

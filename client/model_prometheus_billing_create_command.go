@@ -21,8 +21,8 @@ var _ MappedNullable = &PrometheusBillingCreateCommand{}
 
 // PrometheusBillingCreateCommand struct for PrometheusBillingCreateCommand
 type PrometheusBillingCreateCommand struct {
-	OrganizationId int32 `json:"organizationId"`
-	PrometheusRuleId int32 `json:"prometheusRuleId"`
+	OrganizationId *int32 `json:"organizationId,omitempty"`
+	PrometheusRuleId *int32 `json:"prometheusRuleId,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
 	Price *float64 `json:"price,omitempty"`
 }
@@ -31,10 +31,8 @@ type PrometheusBillingCreateCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrometheusBillingCreateCommand(organizationId int32, prometheusRuleId int32) *PrometheusBillingCreateCommand {
+func NewPrometheusBillingCreateCommand() *PrometheusBillingCreateCommand {
 	this := PrometheusBillingCreateCommand{}
-	this.OrganizationId = organizationId
-	this.PrometheusRuleId = prometheusRuleId
 	return &this
 }
 
@@ -46,52 +44,68 @@ func NewPrometheusBillingCreateCommandWithDefaults() *PrometheusBillingCreateCom
 	return &this
 }
 
-// GetOrganizationId returns the OrganizationId field value
+// GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
 func (o *PrometheusBillingCreateCommand) GetOrganizationId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrganizationId
+	return *o.OrganizationId
 }
 
-// GetOrganizationIdOk returns a tuple with the OrganizationId field value
+// GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PrometheusBillingCreateCommand) GetOrganizationIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationId) {
 		return nil, false
 	}
-	return &o.OrganizationId, true
+	return o.OrganizationId, true
 }
 
-// SetOrganizationId sets field value
+// HasOrganizationId returns a boolean if a field has been set.
+func (o *PrometheusBillingCreateCommand) HasOrganizationId() bool {
+	if o != nil && !IsNil(o.OrganizationId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationId gets a reference to the given int32 and assigns it to the OrganizationId field.
 func (o *PrometheusBillingCreateCommand) SetOrganizationId(v int32) {
-	o.OrganizationId = v
+	o.OrganizationId = &v
 }
 
-// GetPrometheusRuleId returns the PrometheusRuleId field value
+// GetPrometheusRuleId returns the PrometheusRuleId field value if set, zero value otherwise.
 func (o *PrometheusBillingCreateCommand) GetPrometheusRuleId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PrometheusRuleId) {
 		var ret int32
 		return ret
 	}
-
-	return o.PrometheusRuleId
+	return *o.PrometheusRuleId
 }
 
-// GetPrometheusRuleIdOk returns a tuple with the PrometheusRuleId field value
+// GetPrometheusRuleIdOk returns a tuple with the PrometheusRuleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PrometheusBillingCreateCommand) GetPrometheusRuleIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrometheusRuleId) {
 		return nil, false
 	}
-	return &o.PrometheusRuleId, true
+	return o.PrometheusRuleId, true
 }
 
-// SetPrometheusRuleId sets field value
+// HasPrometheusRuleId returns a boolean if a field has been set.
+func (o *PrometheusBillingCreateCommand) HasPrometheusRuleId() bool {
+	if o != nil && !IsNil(o.PrometheusRuleId) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrometheusRuleId gets a reference to the given int32 and assigns it to the PrometheusRuleId field.
 func (o *PrometheusBillingCreateCommand) SetPrometheusRuleId(v int32) {
-	o.PrometheusRuleId = v
+	o.PrometheusRuleId = &v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
@@ -168,8 +182,12 @@ func (o PrometheusBillingCreateCommand) MarshalJSON() ([]byte, error) {
 
 func (o PrometheusBillingCreateCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["organizationId"] = o.OrganizationId
-	toSerialize["prometheusRuleId"] = o.PrometheusRuleId
+	if !IsNil(o.OrganizationId) {
+		toSerialize["organizationId"] = o.OrganizationId
+	}
+	if !IsNil(o.PrometheusRuleId) {
+		toSerialize["prometheusRuleId"] = o.PrometheusRuleId
+	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}

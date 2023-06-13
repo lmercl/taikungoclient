@@ -20,16 +20,15 @@ var _ MappedNullable = &CheckAzureCpuQuotaCommand{}
 
 // CheckAzureCpuQuotaCommand struct for CheckAzureCpuQuotaCommand
 type CheckAzureCpuQuotaCommand struct {
-	CloudId int32 `json:"cloudId"`
+	CloudId *int32 `json:"cloudId,omitempty"`
 }
 
 // NewCheckAzureCpuQuotaCommand instantiates a new CheckAzureCpuQuotaCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCheckAzureCpuQuotaCommand(cloudId int32) *CheckAzureCpuQuotaCommand {
+func NewCheckAzureCpuQuotaCommand() *CheckAzureCpuQuotaCommand {
 	this := CheckAzureCpuQuotaCommand{}
-	this.CloudId = cloudId
 	return &this
 }
 
@@ -41,28 +40,36 @@ func NewCheckAzureCpuQuotaCommandWithDefaults() *CheckAzureCpuQuotaCommand {
 	return &this
 }
 
-// GetCloudId returns the CloudId field value
+// GetCloudId returns the CloudId field value if set, zero value otherwise.
 func (o *CheckAzureCpuQuotaCommand) GetCloudId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CloudId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CloudId
+	return *o.CloudId
 }
 
-// GetCloudIdOk returns a tuple with the CloudId field value
+// GetCloudIdOk returns a tuple with the CloudId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CheckAzureCpuQuotaCommand) GetCloudIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CloudId) {
 		return nil, false
 	}
-	return &o.CloudId, true
+	return o.CloudId, true
 }
 
-// SetCloudId sets field value
+// HasCloudId returns a boolean if a field has been set.
+func (o *CheckAzureCpuQuotaCommand) HasCloudId() bool {
+	if o != nil && !IsNil(o.CloudId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudId gets a reference to the given int32 and assigns it to the CloudId field.
 func (o *CheckAzureCpuQuotaCommand) SetCloudId(v int32) {
-	o.CloudId = v
+	o.CloudId = &v
 }
 
 func (o CheckAzureCpuQuotaCommand) MarshalJSON() ([]byte, error) {
@@ -75,7 +82,9 @@ func (o CheckAzureCpuQuotaCommand) MarshalJSON() ([]byte, error) {
 
 func (o CheckAzureCpuQuotaCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudId"] = o.CloudId
+	if !IsNil(o.CloudId) {
+		toSerialize["cloudId"] = o.CloudId
+	}
 	return toSerialize, nil
 }
 

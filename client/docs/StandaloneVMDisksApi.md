@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    createStandAloneDiskCommand := *openapiclient.NewCreateStandAloneDiskCommand(int32(123), "Name_example") // CreateStandAloneDiskCommand |  (optional)
+    createStandAloneDiskCommand := *openapiclient.NewCreateStandAloneDiskCommand() // CreateStandAloneDiskCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -220,7 +220,7 @@ import (
 )
 
 func main() {
-    resetStandAloneVmDiskStatusCommand := *openapiclient.NewResetStandAloneVmDiskStatusCommand(int32(123)) // ResetStandAloneVmDiskStatusCommand | 
+    resetStandAloneVmDiskStatusCommand := *openapiclient.NewResetStandAloneVmDiskStatusCommand() // ResetStandAloneVmDiskStatusCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

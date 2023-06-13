@@ -34,9 +34,8 @@ type ProxmoxListDto struct {
 	OrganizationName NullableString `json:"organizationName,omitempty"`
 	ContinentName NullableString `json:"continentName,omitempty"`
 	Hypervisors []CommonDropdownDto `json:"hypervisors,omitempty"`
-	Username NullableString `json:"username,omitempty"`
+	TokenId NullableString `json:"tokenId,omitempty"`
 	Url NullableString `json:"url,omitempty"`
-	Password NullableString `json:"password,omitempty"`
 	Storage NullableString `json:"storage,omitempty"`
 	VmTemplateName NullableString `json:"vmTemplateName,omitempty"`
 	ProxmoxNetworks []ProxmoxNetworkListDto `json:"proxmoxNetworks,omitempty"`
@@ -579,46 +578,46 @@ func (o *ProxmoxListDto) SetHypervisors(v []CommonDropdownDto) {
 	o.Hypervisors = v
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProxmoxListDto) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
+// GetTokenId returns the TokenId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProxmoxListDto) GetTokenId() string {
+	if o == nil || IsNil(o.TokenId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username.Get()
+	return *o.TokenId.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProxmoxListDto) GetUsernameOk() (*string, bool) {
+func (o *ProxmoxListDto) GetTokenIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Username.Get(), o.Username.IsSet()
+	return o.TokenId.Get(), o.TokenId.IsSet()
 }
 
-// HasUsername returns a boolean if a field has been set.
-func (o *ProxmoxListDto) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
+// HasTokenId returns a boolean if a field has been set.
+func (o *ProxmoxListDto) HasTokenId() bool {
+	if o != nil && o.TokenId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
-func (o *ProxmoxListDto) SetUsername(v string) {
-	o.Username.Set(&v)
+// SetTokenId gets a reference to the given NullableString and assigns it to the TokenId field.
+func (o *ProxmoxListDto) SetTokenId(v string) {
+	o.TokenId.Set(&v)
 }
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *ProxmoxListDto) SetUsernameNil() {
-	o.Username.Set(nil)
+// SetTokenIdNil sets the value for TokenId to be an explicit nil
+func (o *ProxmoxListDto) SetTokenIdNil() {
+	o.TokenId.Set(nil)
 }
 
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *ProxmoxListDto) UnsetUsername() {
-	o.Username.Unset()
+// UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+func (o *ProxmoxListDto) UnsetTokenId() {
+	o.TokenId.Unset()
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -661,48 +660,6 @@ func (o *ProxmoxListDto) SetUrlNil() {
 // UnsetUrl ensures that no value is present for Url, not even an explicit nil
 func (o *ProxmoxListDto) UnsetUrl() {
 	o.Url.Unset()
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProxmoxListDto) GetPassword() string {
-	if o == nil || IsNil(o.Password.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Password.Get()
-}
-
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProxmoxListDto) GetPasswordOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Password.Get(), o.Password.IsSet()
-}
-
-// HasPassword returns a boolean if a field has been set.
-func (o *ProxmoxListDto) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
-func (o *ProxmoxListDto) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *ProxmoxListDto) SetPasswordNil() {
-	o.Password.Set(nil)
-}
-
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *ProxmoxListDto) UnsetPassword() {
-	o.Password.Unset()
 }
 
 // GetStorage returns the Storage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -874,14 +831,11 @@ func (o ProxmoxListDto) ToMap() (map[string]interface{}, error) {
 	if o.Hypervisors != nil {
 		toSerialize["hypervisors"] = o.Hypervisors
 	}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
+	if o.TokenId.IsSet() {
+		toSerialize["tokenId"] = o.TokenId.Get()
 	}
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
-	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
 	}
 	if o.Storage.IsSet() {
 		toSerialize["storage"] = o.Storage.Get()

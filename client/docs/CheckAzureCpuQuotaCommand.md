@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudId** | **int32** |  | 
+**CloudId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCheckAzureCpuQuotaCommand
 
-`func NewCheckAzureCpuQuotaCommand(cloudId int32, ) *CheckAzureCpuQuotaCommand`
+`func NewCheckAzureCpuQuotaCommand() *CheckAzureCpuQuotaCommand`
 
 NewCheckAzureCpuQuotaCommand instantiates a new CheckAzureCpuQuotaCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetCloudId sets CloudId field to given value.
 
+### HasCloudId
+
+`func (o *CheckAzureCpuQuotaCommand) HasCloudId() bool`
+
+HasCloudId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

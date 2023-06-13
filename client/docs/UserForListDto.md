@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **HasCustomerId** | Pointer to **bool** |  | [optional] 
 **HasPaymentMethod** | Pointer to **bool** |  | [optional] 
 **OrganizationId** | Pointer to **int32** |  | [optional] 
-**Role** | Pointer to **NullableString** |  | [optional] 
+**Role** | Pointer to [**UserRole**](UserRole.md) |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
@@ -230,20 +230,20 @@ HasOrganizationId returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *UserForListDto) GetRole() string`
+`func (o *UserForListDto) GetRole() UserRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *UserForListDto) GetRoleOk() (*string, bool)`
+`func (o *UserForListDto) GetRoleOk() (*UserRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *UserForListDto) SetRole(v string)`
+`func (o *UserForListDto) SetRole(v UserRole)`
 
 SetRole sets Role field to given value.
 
@@ -253,16 +253,6 @@ SetRole sets Role field to given value.
 
 HasRole returns a boolean if a field has been set.
 
-### SetRoleNil
-
-`func (o *UserForListDto) SetRoleNil(b bool)`
-
- SetRoleNil sets the value for Role to be an explicit nil
-
-### UnsetRole
-`func (o *UserForListDto) UnsetRole()`
-
-UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetEmail
 
 `func (o *UserForListDto) GetEmail() string`

@@ -20,7 +20,7 @@ var _ MappedNullable = &EditCatalogAppParamCommand{}
 
 // EditCatalogAppParamCommand struct for EditCatalogAppParamCommand
 type EditCatalogAppParamCommand struct {
-	CatalogAppId int32 `json:"catalogAppId"`
+	CatalogAppId *int32 `json:"catalogAppId,omitempty"`
 	Parameters []CatalogAppParamsDto `json:"parameters,omitempty"`
 }
 
@@ -28,9 +28,8 @@ type EditCatalogAppParamCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEditCatalogAppParamCommand(catalogAppId int32) *EditCatalogAppParamCommand {
+func NewEditCatalogAppParamCommand() *EditCatalogAppParamCommand {
 	this := EditCatalogAppParamCommand{}
-	this.CatalogAppId = catalogAppId
 	return &this
 }
 
@@ -42,28 +41,36 @@ func NewEditCatalogAppParamCommandWithDefaults() *EditCatalogAppParamCommand {
 	return &this
 }
 
-// GetCatalogAppId returns the CatalogAppId field value
+// GetCatalogAppId returns the CatalogAppId field value if set, zero value otherwise.
 func (o *EditCatalogAppParamCommand) GetCatalogAppId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CatalogAppId
+	return *o.CatalogAppId
 }
 
-// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value
+// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditCatalogAppParamCommand) GetCatalogAppIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		return nil, false
 	}
-	return &o.CatalogAppId, true
+	return o.CatalogAppId, true
 }
 
-// SetCatalogAppId sets field value
+// HasCatalogAppId returns a boolean if a field has been set.
+func (o *EditCatalogAppParamCommand) HasCatalogAppId() bool {
+	if o != nil && !IsNil(o.CatalogAppId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCatalogAppId gets a reference to the given int32 and assigns it to the CatalogAppId field.
 func (o *EditCatalogAppParamCommand) SetCatalogAppId(v int32) {
-	o.CatalogAppId = v
+	o.CatalogAppId = &v
 }
 
 // GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -109,7 +116,9 @@ func (o EditCatalogAppParamCommand) MarshalJSON() ([]byte, error) {
 
 func (o EditCatalogAppParamCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["catalogAppId"] = o.CatalogAppId
+	if !IsNil(o.CatalogAppId) {
+		toSerialize["catalogAppId"] = o.CatalogAppId
+	}
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}

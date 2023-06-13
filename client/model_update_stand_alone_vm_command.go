@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateStandAloneVmCommand{}
 
 // UpdateStandAloneVmCommand struct for UpdateStandAloneVmCommand
 type UpdateStandAloneVmCommand struct {
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	IpAddress NullableString `json:"ipAddress,omitempty"`
 	PublicIp NullableString `json:"publicIp,omitempty"`
 	InstanceId NullableString `json:"instanceId,omitempty"`
@@ -33,9 +33,8 @@ type UpdateStandAloneVmCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateStandAloneVmCommand(id int32) *UpdateStandAloneVmCommand {
+func NewUpdateStandAloneVmCommand() *UpdateStandAloneVmCommand {
 	this := UpdateStandAloneVmCommand{}
-	this.Id = id
 	return &this
 }
 
@@ -47,28 +46,36 @@ func NewUpdateStandAloneVmCommandWithDefaults() *UpdateStandAloneVmCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateStandAloneVmCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateStandAloneVmCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateStandAloneVmCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateStandAloneVmCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
 // GetIpAddress returns the IpAddress field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -324,7 +331,9 @@ func (o UpdateStandAloneVmCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateStandAloneVmCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if o.IpAddress.IsSet() {
 		toSerialize["ipAddress"] = o.IpAddress.Get()
 	}

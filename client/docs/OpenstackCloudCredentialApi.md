@@ -36,7 +36,7 @@ import (
 )
 
 func main() {
-    createOpenstackCloudCommand := *openapiclient.NewCreateOpenstackCloudCommand("Name_example", "OpenStackUser_example", "OpenStackPassword_example", "OpenStackUrl_example", "OpenStackPublicNetwork_example", "OpenStackRegion_example") // CreateOpenstackCloudCommand | 
+    createOpenstackCloudCommand := *openapiclient.NewCreateOpenstackCloudCommand() // CreateOpenstackCloudCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -498,7 +498,7 @@ import (
 )
 
 func main() {
-    updateOpenStackCommand := *openapiclient.NewUpdateOpenStackCommand(int32(123), "Name_example", "OpenStackUser_example", "OpenStackPassword_example") // UpdateOpenStackCommand | 
+    updateOpenStackCommand := *openapiclient.NewUpdateOpenStackCommand() // UpdateOpenStackCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

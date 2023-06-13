@@ -20,18 +20,16 @@ var _ MappedNullable = &BindProjectsToCatalogCommand{}
 
 // BindProjectsToCatalogCommand struct for BindProjectsToCatalogCommand
 type BindProjectsToCatalogCommand struct {
-	Projects []UpdateCatalogDto `json:"projects"`
-	CatalogId int32 `json:"catalogId"`
+	Projects []UpdateCatalogDto `json:"projects,omitempty"`
+	CatalogId *int32 `json:"catalogId,omitempty"`
 }
 
 // NewBindProjectsToCatalogCommand instantiates a new BindProjectsToCatalogCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindProjectsToCatalogCommand(projects []UpdateCatalogDto, catalogId int32) *BindProjectsToCatalogCommand {
+func NewBindProjectsToCatalogCommand() *BindProjectsToCatalogCommand {
 	this := BindProjectsToCatalogCommand{}
-	this.Projects = projects
-	this.CatalogId = catalogId
 	return &this
 }
 
@@ -43,52 +41,69 @@ func NewBindProjectsToCatalogCommandWithDefaults() *BindProjectsToCatalogCommand
 	return &this
 }
 
-// GetProjects returns the Projects field value
+// GetProjects returns the Projects field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BindProjectsToCatalogCommand) GetProjects() []UpdateCatalogDto {
 	if o == nil {
 		var ret []UpdateCatalogDto
 		return ret
 	}
-
 	return o.Projects
 }
 
-// GetProjectsOk returns a tuple with the Projects field value
+// GetProjectsOk returns a tuple with the Projects field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindProjectsToCatalogCommand) GetProjectsOk() ([]UpdateCatalogDto, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Projects) {
 		return nil, false
 	}
 	return o.Projects, true
 }
 
-// SetProjects sets field value
+// HasProjects returns a boolean if a field has been set.
+func (o *BindProjectsToCatalogCommand) HasProjects() bool {
+	if o != nil && IsNil(o.Projects) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjects gets a reference to the given []UpdateCatalogDto and assigns it to the Projects field.
 func (o *BindProjectsToCatalogCommand) SetProjects(v []UpdateCatalogDto) {
 	o.Projects = v
 }
 
-// GetCatalogId returns the CatalogId field value
+// GetCatalogId returns the CatalogId field value if set, zero value otherwise.
 func (o *BindProjectsToCatalogCommand) GetCatalogId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CatalogId
+	return *o.CatalogId
 }
 
-// GetCatalogIdOk returns a tuple with the CatalogId field value
+// GetCatalogIdOk returns a tuple with the CatalogId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindProjectsToCatalogCommand) GetCatalogIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogId) {
 		return nil, false
 	}
-	return &o.CatalogId, true
+	return o.CatalogId, true
 }
 
-// SetCatalogId sets field value
+// HasCatalogId returns a boolean if a field has been set.
+func (o *BindProjectsToCatalogCommand) HasCatalogId() bool {
+	if o != nil && !IsNil(o.CatalogId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCatalogId gets a reference to the given int32 and assigns it to the CatalogId field.
 func (o *BindProjectsToCatalogCommand) SetCatalogId(v int32) {
-	o.CatalogId = v
+	o.CatalogId = &v
 }
 
 func (o BindProjectsToCatalogCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +116,12 @@ func (o BindProjectsToCatalogCommand) MarshalJSON() ([]byte, error) {
 
 func (o BindProjectsToCatalogCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projects"] = o.Projects
-	toSerialize["catalogId"] = o.CatalogId
+	if o.Projects != nil {
+		toSerialize["projects"] = o.Projects
+	}
+	if !IsNil(o.CatalogId) {
+		toSerialize["catalogId"] = o.CatalogId
+	}
 	return toSerialize, nil
 }
 

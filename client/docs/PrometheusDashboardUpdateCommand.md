@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
-**Expression** | **string** |  | 
-**Description** | **string** |  | 
-**CategoryName** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Expression** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**CategoryName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPrometheusDashboardUpdateCommand
 
-`func NewPrometheusDashboardUpdateCommand(id int32, name string, expression string, description string, categoryName string, ) *PrometheusDashboardUpdateCommand`
+`func NewPrometheusDashboardUpdateCommand() *PrometheusDashboardUpdateCommand`
 
 NewPrometheusDashboardUpdateCommand instantiates a new PrometheusDashboardUpdateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *PrometheusDashboardUpdateCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -68,7 +73,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *PrometheusDashboardUpdateCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *PrometheusDashboardUpdateCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PrometheusDashboardUpdateCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetExpression
 
 `func (o *PrometheusDashboardUpdateCommand) GetExpression() string`
@@ -88,7 +108,22 @@ and a boolean to check if the value has been set.
 
 SetExpression sets Expression field to given value.
 
+### HasExpression
 
+`func (o *PrometheusDashboardUpdateCommand) HasExpression() bool`
+
+HasExpression returns a boolean if a field has been set.
+
+### SetExpressionNil
+
+`func (o *PrometheusDashboardUpdateCommand) SetExpressionNil(b bool)`
+
+ SetExpressionNil sets the value for Expression to be an explicit nil
+
+### UnsetExpression
+`func (o *PrometheusDashboardUpdateCommand) UnsetExpression()`
+
+UnsetExpression ensures that no value is present for Expression, not even an explicit nil
 ### GetDescription
 
 `func (o *PrometheusDashboardUpdateCommand) GetDescription() string`
@@ -108,7 +143,22 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
 
+`func (o *PrometheusDashboardUpdateCommand) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *PrometheusDashboardUpdateCommand) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PrometheusDashboardUpdateCommand) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCategoryName
 
 `func (o *PrometheusDashboardUpdateCommand) GetCategoryName() string`
@@ -128,7 +178,22 @@ and a boolean to check if the value has been set.
 
 SetCategoryName sets CategoryName field to given value.
 
+### HasCategoryName
 
+`func (o *PrometheusDashboardUpdateCommand) HasCategoryName() bool`
+
+HasCategoryName returns a boolean if a field has been set.
+
+### SetCategoryNameNil
+
+`func (o *PrometheusDashboardUpdateCommand) SetCategoryNameNil(b bool)`
+
+ SetCategoryNameNil sets the value for CategoryName to be an explicit nil
+
+### UnsetCategoryName
+`func (o *PrometheusDashboardUpdateCommand) UnsetCategoryName()`
+
+UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

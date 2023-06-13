@@ -33,6 +33,17 @@ func Test_taikuncore_OrganizationsApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test OrganizationsApiService OrganizationsAccessForPartner", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.OrganizationsApi.OrganizationsAccessForPartner(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrganizationsApiService OrganizationsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

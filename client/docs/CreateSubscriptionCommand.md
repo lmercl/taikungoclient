@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **ProjectLimit** | Pointer to **int32** |  | [optional] 
 **ServerLimit** | Pointer to **int32** |  | [optional] 
 **UserLimit** | Pointer to **int32** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCreateSubscriptionCommand
 
-`func NewCreateSubscriptionCommand(name string, ) *CreateSubscriptionCommand`
+`func NewCreateSubscriptionCommand() *CreateSubscriptionCommand`
 
 NewCreateSubscriptionCommand instantiates a new CreateSubscriptionCommand object
 This constructor will assign default values to properties that have it defined,
@@ -52,7 +52,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateSubscriptionCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateSubscriptionCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateSubscriptionCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProjectLimit
 
 `func (o *CreateSubscriptionCommand) GetProjectLimit() int32`

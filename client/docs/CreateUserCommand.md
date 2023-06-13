@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | **string** |  | 
+**Username** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Email** | **string** |  | 
+**Email** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **Role** | Pointer to [**UserRole**](UserRole.md) |  | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewCreateUserCommand
 
-`func NewCreateUserCommand(username string, email string, ) *CreateUserCommand`
+`func NewCreateUserCommand() *CreateUserCommand`
 
 NewCreateUserCommand instantiates a new CreateUserCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetUsername sets Username field to given value.
 
+### HasUsername
 
+`func (o *CreateUserCommand) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *CreateUserCommand) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *CreateUserCommand) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetDisplayName
 
 `func (o *CreateUserCommand) GetDisplayName() string`
@@ -103,7 +118,22 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
 
+`func (o *CreateUserCommand) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### SetEmailNil
+
+`func (o *CreateUserCommand) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *CreateUserCommand) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *CreateUserCommand) GetOrganizationId() int32`

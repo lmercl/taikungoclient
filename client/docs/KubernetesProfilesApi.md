@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    createKubernetesProfileCommand := *openapiclient.NewCreateKubernetesProfileCommand("Name_example") // CreateKubernetesProfileCommand | 
+    createKubernetesProfileCommand := *openapiclient.NewCreateKubernetesProfileCommand() // CreateKubernetesProfileCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

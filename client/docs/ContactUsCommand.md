@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**BusinessEmail** | **string** |  | 
-**CompanyName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**BusinessEmail** | Pointer to **NullableString** |  | [optional] 
+**CompanyName** | Pointer to **NullableString** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewContactUsCommand
 
-`func NewContactUsCommand(name string, businessEmail string, companyName string, ) *ContactUsCommand`
+`func NewContactUsCommand() *ContactUsCommand`
 
 NewContactUsCommand instantiates a new ContactUsCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,7 +47,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *ContactUsCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *ContactUsCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ContactUsCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetBusinessEmail
 
 `func (o *ContactUsCommand) GetBusinessEmail() string`
@@ -67,7 +82,22 @@ and a boolean to check if the value has been set.
 
 SetBusinessEmail sets BusinessEmail field to given value.
 
+### HasBusinessEmail
 
+`func (o *ContactUsCommand) HasBusinessEmail() bool`
+
+HasBusinessEmail returns a boolean if a field has been set.
+
+### SetBusinessEmailNil
+
+`func (o *ContactUsCommand) SetBusinessEmailNil(b bool)`
+
+ SetBusinessEmailNil sets the value for BusinessEmail to be an explicit nil
+
+### UnsetBusinessEmail
+`func (o *ContactUsCommand) UnsetBusinessEmail()`
+
+UnsetBusinessEmail ensures that no value is present for BusinessEmail, not even an explicit nil
 ### GetCompanyName
 
 `func (o *ContactUsCommand) GetCompanyName() string`
@@ -87,7 +117,22 @@ and a boolean to check if the value has been set.
 
 SetCompanyName sets CompanyName field to given value.
 
+### HasCompanyName
 
+`func (o *ContactUsCommand) HasCompanyName() bool`
+
+HasCompanyName returns a boolean if a field has been set.
+
+### SetCompanyNameNil
+
+`func (o *ContactUsCommand) SetCompanyNameNil(b bool)`
+
+ SetCompanyNameNil sets the value for CompanyName to be an explicit nil
+
+### UnsetCompanyName
+`func (o *ContactUsCommand) UnsetCompanyName()`
+
+UnsetCompanyName ensures that no value is present for CompanyName, not even an explicit nil
 ### GetComment
 
 `func (o *ContactUsCommand) GetComment() string`

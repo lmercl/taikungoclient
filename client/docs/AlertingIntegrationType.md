@@ -3,13 +3,13 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `OPSGENIE` (value: `"Opsgenie"`)
 
-* `_200` (value: `200`)
+* `PAGERDUTY` (value: `"Pagerduty"`)
 
-* `_300` (value: `300`)
+* `SPLUNK` (value: `"Splunk"`)
 
-* `_400` (value: `400`)
+* `MICROSOFT_TEAMS` (value: `"MicrosoftTeams"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

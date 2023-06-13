@@ -40,7 +40,7 @@ import (
 )
 
 func main() {
-    archiveTicketCommand := *openapiclient.NewArchiveTicketCommand("TicketId_example") // ArchiveTicketCommand | 
+    archiveTicketCommand := *openapiclient.NewArchiveTicketCommand() // ArchiveTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -102,7 +102,7 @@ import (
 )
 
 func main() {
-    closeTicketCommand := *openapiclient.NewCloseTicketCommand("TicketId_example") // CloseTicketCommand | 
+    closeTicketCommand := *openapiclient.NewCloseTicketCommand() // CloseTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-    createTicketCommand := *openapiclient.NewCreateTicketCommand("Name_example", "Description_example") // CreateTicketCommand |  (optional)
+    createTicketCommand := *openapiclient.NewCreateTicketCommand() // CreateTicketCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -358,7 +358,7 @@ import (
 )
 
 func main() {
-    editTicketCommand := *openapiclient.NewEditTicketCommand("TicketId_example", "Name_example", "Description_example") // EditTicketCommand | 
+    editTicketCommand := *openapiclient.NewEditTicketCommand() // EditTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -420,7 +420,7 @@ import (
 )
 
 func main() {
-    editArticleCommand := *openapiclient.NewEditArticleCommand("MessageId_example", "Body_example") // EditArticleCommand | 
+    editArticleCommand := *openapiclient.NewEditArticleCommand() // EditArticleCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -630,7 +630,7 @@ import (
 )
 
 func main() {
-    openTicketCommand := *openapiclient.NewOpenTicketCommand("TicketId_example") // OpenTicketCommand | 
+    openTicketCommand := *openapiclient.NewOpenTicketCommand() // OpenTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -692,7 +692,7 @@ import (
 )
 
 func main() {
-    replyTicketCommand := *openapiclient.NewReplyTicketCommand("TicketId_example", "Body_example") // ReplyTicketCommand | 
+    replyTicketCommand := *openapiclient.NewReplyTicketCommand() // ReplyTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -754,7 +754,7 @@ import (
 )
 
 func main() {
-    setTicketPriorityCommand := *openapiclient.NewSetTicketPriorityCommand("Id_example") // SetTicketPriorityCommand | 
+    setTicketPriorityCommand := *openapiclient.NewSetTicketPriorityCommand() // SetTicketPriorityCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -816,7 +816,7 @@ import (
 )
 
 func main() {
-    transferTicketCommand := *openapiclient.NewTransferTicketCommand("TicketId_example", "UserId_example") // TransferTicketCommand | 
+    transferTicketCommand := *openapiclient.NewTransferTicketCommand() // TransferTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

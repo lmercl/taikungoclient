@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewEditCatalogCommand
 
-`func NewEditCatalogCommand(id int32, name string, ) *EditCatalogCommand`
+`func NewEditCatalogCommand() *EditCatalogCommand`
 
 NewEditCatalogCommand instantiates a new EditCatalogCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *EditCatalogCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *EditCatalogCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *EditCatalogCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditCatalogCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *EditCatalogCommand) GetDescription() string`

@@ -20,7 +20,8 @@ var _ MappedNullable = &ProxmoxCredentialsForProjectDto{}
 
 // ProxmoxCredentialsForProjectDto struct for ProxmoxCredentialsForProjectDto
 type ProxmoxCredentialsForProjectDto struct {
-	Username NullableString `json:"username,omitempty"`
+	TokenId NullableString `json:"tokenId,omitempty"`
+	TokenSecret NullableString `json:"tokenSecret,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 	Password NullableString `json:"password,omitempty"`
 	Storage NullableString `json:"storage,omitempty"`
@@ -45,46 +46,88 @@ func NewProxmoxCredentialsForProjectDtoWithDefaults() *ProxmoxCredentialsForProj
 	return &this
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProxmoxCredentialsForProjectDto) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
+// GetTokenId returns the TokenId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProxmoxCredentialsForProjectDto) GetTokenId() string {
+	if o == nil || IsNil(o.TokenId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username.Get()
+	return *o.TokenId.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProxmoxCredentialsForProjectDto) GetUsernameOk() (*string, bool) {
+func (o *ProxmoxCredentialsForProjectDto) GetTokenIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Username.Get(), o.Username.IsSet()
+	return o.TokenId.Get(), o.TokenId.IsSet()
 }
 
-// HasUsername returns a boolean if a field has been set.
-func (o *ProxmoxCredentialsForProjectDto) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
+// HasTokenId returns a boolean if a field has been set.
+func (o *ProxmoxCredentialsForProjectDto) HasTokenId() bool {
+	if o != nil && o.TokenId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
-func (o *ProxmoxCredentialsForProjectDto) SetUsername(v string) {
-	o.Username.Set(&v)
+// SetTokenId gets a reference to the given NullableString and assigns it to the TokenId field.
+func (o *ProxmoxCredentialsForProjectDto) SetTokenId(v string) {
+	o.TokenId.Set(&v)
 }
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *ProxmoxCredentialsForProjectDto) SetUsernameNil() {
-	o.Username.Set(nil)
+// SetTokenIdNil sets the value for TokenId to be an explicit nil
+func (o *ProxmoxCredentialsForProjectDto) SetTokenIdNil() {
+	o.TokenId.Set(nil)
 }
 
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *ProxmoxCredentialsForProjectDto) UnsetUsername() {
-	o.Username.Unset()
+// UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+func (o *ProxmoxCredentialsForProjectDto) UnsetTokenId() {
+	o.TokenId.Unset()
+}
+
+// GetTokenSecret returns the TokenSecret field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProxmoxCredentialsForProjectDto) GetTokenSecret() string {
+	if o == nil || IsNil(o.TokenSecret.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TokenSecret.Get()
+}
+
+// GetTokenSecretOk returns a tuple with the TokenSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProxmoxCredentialsForProjectDto) GetTokenSecretOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TokenSecret.Get(), o.TokenSecret.IsSet()
+}
+
+// HasTokenSecret returns a boolean if a field has been set.
+func (o *ProxmoxCredentialsForProjectDto) HasTokenSecret() bool {
+	if o != nil && o.TokenSecret.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTokenSecret gets a reference to the given NullableString and assigns it to the TokenSecret field.
+func (o *ProxmoxCredentialsForProjectDto) SetTokenSecret(v string) {
+	o.TokenSecret.Set(&v)
+}
+// SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+func (o *ProxmoxCredentialsForProjectDto) SetTokenSecretNil() {
+	o.TokenSecret.Set(nil)
+}
+
+// UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
+func (o *ProxmoxCredentialsForProjectDto) UnsetTokenSecret() {
+	o.TokenSecret.Unset()
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -298,8 +341,11 @@ func (o ProxmoxCredentialsForProjectDto) MarshalJSON() ([]byte, error) {
 
 func (o ProxmoxCredentialsForProjectDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
+	if o.TokenId.IsSet() {
+		toSerialize["tokenId"] = o.TokenId.Get()
+	}
+	if o.TokenSecret.IsSet() {
+		toSerialize["tokenSecret"] = o.TokenSecret.Get()
 	}
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()

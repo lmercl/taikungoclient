@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**AzureSubscriptionId** | **string** |  | 
-**AzureClientId** | **string** |  | 
-**AzureClientSecret** | **string** |  | 
-**AzureTenantId** | **string** |  | 
-**AzureLocation** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**AzureSubscriptionId** | Pointer to **NullableString** |  | [optional] 
+**AzureClientId** | Pointer to **NullableString** |  | [optional] 
+**AzureClientSecret** | Pointer to **NullableString** |  | [optional] 
+**AzureTenantId** | Pointer to **NullableString** |  | [optional] 
+**AzureLocation** | Pointer to **NullableString** |  | [optional] 
 **AzCount** | Pointer to **int32** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCreateAzureCloudCommand
 
-`func NewCreateAzureCloudCommand(name string, azureSubscriptionId string, azureClientId string, azureClientSecret string, azureTenantId string, azureLocation string, ) *CreateAzureCloudCommand`
+`func NewCreateAzureCloudCommand() *CreateAzureCloudCommand`
 
 NewCreateAzureCloudCommand instantiates a new CreateAzureCloudCommand object
 This constructor will assign default values to properties that have it defined,
@@ -51,7 +51,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateAzureCloudCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateAzureCloudCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateAzureCloudCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAzureSubscriptionId
 
 `func (o *CreateAzureCloudCommand) GetAzureSubscriptionId() string`
@@ -71,7 +86,22 @@ and a boolean to check if the value has been set.
 
 SetAzureSubscriptionId sets AzureSubscriptionId field to given value.
 
+### HasAzureSubscriptionId
 
+`func (o *CreateAzureCloudCommand) HasAzureSubscriptionId() bool`
+
+HasAzureSubscriptionId returns a boolean if a field has been set.
+
+### SetAzureSubscriptionIdNil
+
+`func (o *CreateAzureCloudCommand) SetAzureSubscriptionIdNil(b bool)`
+
+ SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+
+### UnsetAzureSubscriptionId
+`func (o *CreateAzureCloudCommand) UnsetAzureSubscriptionId()`
+
+UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
 ### GetAzureClientId
 
 `func (o *CreateAzureCloudCommand) GetAzureClientId() string`
@@ -91,7 +121,22 @@ and a boolean to check if the value has been set.
 
 SetAzureClientId sets AzureClientId field to given value.
 
+### HasAzureClientId
 
+`func (o *CreateAzureCloudCommand) HasAzureClientId() bool`
+
+HasAzureClientId returns a boolean if a field has been set.
+
+### SetAzureClientIdNil
+
+`func (o *CreateAzureCloudCommand) SetAzureClientIdNil(b bool)`
+
+ SetAzureClientIdNil sets the value for AzureClientId to be an explicit nil
+
+### UnsetAzureClientId
+`func (o *CreateAzureCloudCommand) UnsetAzureClientId()`
+
+UnsetAzureClientId ensures that no value is present for AzureClientId, not even an explicit nil
 ### GetAzureClientSecret
 
 `func (o *CreateAzureCloudCommand) GetAzureClientSecret() string`
@@ -111,7 +156,22 @@ and a boolean to check if the value has been set.
 
 SetAzureClientSecret sets AzureClientSecret field to given value.
 
+### HasAzureClientSecret
 
+`func (o *CreateAzureCloudCommand) HasAzureClientSecret() bool`
+
+HasAzureClientSecret returns a boolean if a field has been set.
+
+### SetAzureClientSecretNil
+
+`func (o *CreateAzureCloudCommand) SetAzureClientSecretNil(b bool)`
+
+ SetAzureClientSecretNil sets the value for AzureClientSecret to be an explicit nil
+
+### UnsetAzureClientSecret
+`func (o *CreateAzureCloudCommand) UnsetAzureClientSecret()`
+
+UnsetAzureClientSecret ensures that no value is present for AzureClientSecret, not even an explicit nil
 ### GetAzureTenantId
 
 `func (o *CreateAzureCloudCommand) GetAzureTenantId() string`
@@ -131,7 +191,22 @@ and a boolean to check if the value has been set.
 
 SetAzureTenantId sets AzureTenantId field to given value.
 
+### HasAzureTenantId
 
+`func (o *CreateAzureCloudCommand) HasAzureTenantId() bool`
+
+HasAzureTenantId returns a boolean if a field has been set.
+
+### SetAzureTenantIdNil
+
+`func (o *CreateAzureCloudCommand) SetAzureTenantIdNil(b bool)`
+
+ SetAzureTenantIdNil sets the value for AzureTenantId to be an explicit nil
+
+### UnsetAzureTenantId
+`func (o *CreateAzureCloudCommand) UnsetAzureTenantId()`
+
+UnsetAzureTenantId ensures that no value is present for AzureTenantId, not even an explicit nil
 ### GetAzureLocation
 
 `func (o *CreateAzureCloudCommand) GetAzureLocation() string`
@@ -151,7 +226,22 @@ and a boolean to check if the value has been set.
 
 SetAzureLocation sets AzureLocation field to given value.
 
+### HasAzureLocation
 
+`func (o *CreateAzureCloudCommand) HasAzureLocation() bool`
+
+HasAzureLocation returns a boolean if a field has been set.
+
+### SetAzureLocationNil
+
+`func (o *CreateAzureCloudCommand) SetAzureLocationNil(b bool)`
+
+ SetAzureLocationNil sets the value for AzureLocation to be an explicit nil
+
+### UnsetAzureLocation
+`func (o *CreateAzureCloudCommand) UnsetAzureLocation()`
+
+UnsetAzureLocation ensures that no value is present for AzureLocation, not even an explicit nil
 ### GetAzCount
 
 `func (o *CreateAzureCloudCommand) GetAzCount() int32`

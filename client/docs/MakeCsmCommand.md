@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** |  | 
-**Mode** | **string** |  | 
+**UserId** | Pointer to **NullableString** |  | [optional] 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewMakeCsmCommand
 
-`func NewMakeCsmCommand(userId string, mode string, ) *MakeCsmCommand`
+`func NewMakeCsmCommand() *MakeCsmCommand`
 
 NewMakeCsmCommand instantiates a new MakeCsmCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
 
+`func (o *MakeCsmCommand) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### SetUserIdNil
+
+`func (o *MakeCsmCommand) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *MakeCsmCommand) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetMode
 
 `func (o *MakeCsmCommand) GetMode() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *MakeCsmCommand) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *MakeCsmCommand) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *MakeCsmCommand) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

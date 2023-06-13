@@ -17,24 +17,24 @@ import (
 )
 
 // TicketPriority the model 'TicketPriority'
-type TicketPriority int32
+type TicketPriority string
 
 // List of TicketPriority
 const (
-	TICKETPRIORITY__100 TicketPriority = 100
-	TICKETPRIORITY__200 TicketPriority = 200
-	TICKETPRIORITY__300 TicketPriority = 300
+	TICKETPRIORITY_LOW TicketPriority = "Low"
+	TICKETPRIORITY_MEDIUM TicketPriority = "Medium"
+	TICKETPRIORITY_HIGH TicketPriority = "High"
 )
 
 // All allowed values of TicketPriority enum
 var AllowedTicketPriorityEnumValues = []TicketPriority{
-	100,
-	200,
-	300,
+	"Low",
+	"Medium",
+	"High",
 }
 
 func (v *TicketPriority) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -52,7 +52,7 @@ func (v *TicketPriority) UnmarshalJSON(src []byte) error {
 
 // NewTicketPriorityFromValue returns a pointer to a valid TicketPriority
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewTicketPriorityFromValue(v int32) (*TicketPriority, error) {
+func NewTicketPriorityFromValue(v string) (*TicketPriority, error) {
 	ev := TicketPriority(v)
 	if ev.IsValid() {
 		return &ev, nil

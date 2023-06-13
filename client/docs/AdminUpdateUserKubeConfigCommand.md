@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewAdminUpdateUserKubeConfigCommand
 
-`func NewAdminUpdateUserKubeConfigCommand(id int32, ) *AdminUpdateUserKubeConfigCommand`
+`func NewAdminUpdateUserKubeConfigCommand() *AdminUpdateUserKubeConfigCommand`
 
 NewAdminUpdateUserKubeConfigCommand instantiates a new AdminUpdateUserKubeConfigCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *AdminUpdateUserKubeConfigCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

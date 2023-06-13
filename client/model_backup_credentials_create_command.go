@@ -20,10 +20,10 @@ var _ MappedNullable = &BackupCredentialsCreateCommand{}
 
 // BackupCredentialsCreateCommand struct for BackupCredentialsCreateCommand
 type BackupCredentialsCreateCommand struct {
-	S3Name string `json:"s3Name"`
-	S3AccessKeyId string `json:"s3AccessKeyId"`
-	S3SecretKey string `json:"s3SecretKey"`
-	S3Endpoint string `json:"s3Endpoint"`
+	S3Name NullableString `json:"s3Name,omitempty"`
+	S3AccessKeyId NullableString `json:"s3AccessKeyId,omitempty"`
+	S3SecretKey NullableString `json:"s3SecretKey,omitempty"`
+	S3Endpoint NullableString `json:"s3Endpoint,omitempty"`
 	S3Region NullableString `json:"s3Region,omitempty"`
 	OrganizationId NullableInt32 `json:"organizationId,omitempty"`
 }
@@ -32,12 +32,8 @@ type BackupCredentialsCreateCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBackupCredentialsCreateCommand(s3Name string, s3AccessKeyId string, s3SecretKey string, s3Endpoint string) *BackupCredentialsCreateCommand {
+func NewBackupCredentialsCreateCommand() *BackupCredentialsCreateCommand {
 	this := BackupCredentialsCreateCommand{}
-	this.S3Name = s3Name
-	this.S3AccessKeyId = s3AccessKeyId
-	this.S3SecretKey = s3SecretKey
-	this.S3Endpoint = s3Endpoint
 	return &this
 }
 
@@ -49,100 +45,172 @@ func NewBackupCredentialsCreateCommandWithDefaults() *BackupCredentialsCreateCom
 	return &this
 }
 
-// GetS3Name returns the S3Name field value
+// GetS3Name returns the S3Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupCredentialsCreateCommand) GetS3Name() string {
-	if o == nil {
+	if o == nil || IsNil(o.S3Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.S3Name
+	return *o.S3Name.Get()
 }
 
-// GetS3NameOk returns a tuple with the S3Name field value
+// GetS3NameOk returns a tuple with the S3Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupCredentialsCreateCommand) GetS3NameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.S3Name, true
+	return o.S3Name.Get(), o.S3Name.IsSet()
 }
 
-// SetS3Name sets field value
+// HasS3Name returns a boolean if a field has been set.
+func (o *BackupCredentialsCreateCommand) HasS3Name() bool {
+	if o != nil && o.S3Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3Name gets a reference to the given NullableString and assigns it to the S3Name field.
 func (o *BackupCredentialsCreateCommand) SetS3Name(v string) {
-	o.S3Name = v
+	o.S3Name.Set(&v)
+}
+// SetS3NameNil sets the value for S3Name to be an explicit nil
+func (o *BackupCredentialsCreateCommand) SetS3NameNil() {
+	o.S3Name.Set(nil)
 }
 
-// GetS3AccessKeyId returns the S3AccessKeyId field value
+// UnsetS3Name ensures that no value is present for S3Name, not even an explicit nil
+func (o *BackupCredentialsCreateCommand) UnsetS3Name() {
+	o.S3Name.Unset()
+}
+
+// GetS3AccessKeyId returns the S3AccessKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupCredentialsCreateCommand) GetS3AccessKeyId() string {
-	if o == nil {
+	if o == nil || IsNil(o.S3AccessKeyId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.S3AccessKeyId
+	return *o.S3AccessKeyId.Get()
 }
 
-// GetS3AccessKeyIdOk returns a tuple with the S3AccessKeyId field value
+// GetS3AccessKeyIdOk returns a tuple with the S3AccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupCredentialsCreateCommand) GetS3AccessKeyIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.S3AccessKeyId, true
+	return o.S3AccessKeyId.Get(), o.S3AccessKeyId.IsSet()
 }
 
-// SetS3AccessKeyId sets field value
+// HasS3AccessKeyId returns a boolean if a field has been set.
+func (o *BackupCredentialsCreateCommand) HasS3AccessKeyId() bool {
+	if o != nil && o.S3AccessKeyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3AccessKeyId gets a reference to the given NullableString and assigns it to the S3AccessKeyId field.
 func (o *BackupCredentialsCreateCommand) SetS3AccessKeyId(v string) {
-	o.S3AccessKeyId = v
+	o.S3AccessKeyId.Set(&v)
+}
+// SetS3AccessKeyIdNil sets the value for S3AccessKeyId to be an explicit nil
+func (o *BackupCredentialsCreateCommand) SetS3AccessKeyIdNil() {
+	o.S3AccessKeyId.Set(nil)
 }
 
-// GetS3SecretKey returns the S3SecretKey field value
+// UnsetS3AccessKeyId ensures that no value is present for S3AccessKeyId, not even an explicit nil
+func (o *BackupCredentialsCreateCommand) UnsetS3AccessKeyId() {
+	o.S3AccessKeyId.Unset()
+}
+
+// GetS3SecretKey returns the S3SecretKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupCredentialsCreateCommand) GetS3SecretKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.S3SecretKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.S3SecretKey
+	return *o.S3SecretKey.Get()
 }
 
-// GetS3SecretKeyOk returns a tuple with the S3SecretKey field value
+// GetS3SecretKeyOk returns a tuple with the S3SecretKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupCredentialsCreateCommand) GetS3SecretKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.S3SecretKey, true
+	return o.S3SecretKey.Get(), o.S3SecretKey.IsSet()
 }
 
-// SetS3SecretKey sets field value
+// HasS3SecretKey returns a boolean if a field has been set.
+func (o *BackupCredentialsCreateCommand) HasS3SecretKey() bool {
+	if o != nil && o.S3SecretKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3SecretKey gets a reference to the given NullableString and assigns it to the S3SecretKey field.
 func (o *BackupCredentialsCreateCommand) SetS3SecretKey(v string) {
-	o.S3SecretKey = v
+	o.S3SecretKey.Set(&v)
+}
+// SetS3SecretKeyNil sets the value for S3SecretKey to be an explicit nil
+func (o *BackupCredentialsCreateCommand) SetS3SecretKeyNil() {
+	o.S3SecretKey.Set(nil)
 }
 
-// GetS3Endpoint returns the S3Endpoint field value
+// UnsetS3SecretKey ensures that no value is present for S3SecretKey, not even an explicit nil
+func (o *BackupCredentialsCreateCommand) UnsetS3SecretKey() {
+	o.S3SecretKey.Unset()
+}
+
+// GetS3Endpoint returns the S3Endpoint field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupCredentialsCreateCommand) GetS3Endpoint() string {
-	if o == nil {
+	if o == nil || IsNil(o.S3Endpoint.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.S3Endpoint
+	return *o.S3Endpoint.Get()
 }
 
-// GetS3EndpointOk returns a tuple with the S3Endpoint field value
+// GetS3EndpointOk returns a tuple with the S3Endpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupCredentialsCreateCommand) GetS3EndpointOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.S3Endpoint, true
+	return o.S3Endpoint.Get(), o.S3Endpoint.IsSet()
 }
 
-// SetS3Endpoint sets field value
+// HasS3Endpoint returns a boolean if a field has been set.
+func (o *BackupCredentialsCreateCommand) HasS3Endpoint() bool {
+	if o != nil && o.S3Endpoint.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3Endpoint gets a reference to the given NullableString and assigns it to the S3Endpoint field.
 func (o *BackupCredentialsCreateCommand) SetS3Endpoint(v string) {
-	o.S3Endpoint = v
+	o.S3Endpoint.Set(&v)
+}
+// SetS3EndpointNil sets the value for S3Endpoint to be an explicit nil
+func (o *BackupCredentialsCreateCommand) SetS3EndpointNil() {
+	o.S3Endpoint.Set(nil)
+}
+
+// UnsetS3Endpoint ensures that no value is present for S3Endpoint, not even an explicit nil
+func (o *BackupCredentialsCreateCommand) UnsetS3Endpoint() {
+	o.S3Endpoint.Unset()
 }
 
 // GetS3Region returns the S3Region field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -239,10 +307,18 @@ func (o BackupCredentialsCreateCommand) MarshalJSON() ([]byte, error) {
 
 func (o BackupCredentialsCreateCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["s3Name"] = o.S3Name
-	toSerialize["s3AccessKeyId"] = o.S3AccessKeyId
-	toSerialize["s3SecretKey"] = o.S3SecretKey
-	toSerialize["s3Endpoint"] = o.S3Endpoint
+	if o.S3Name.IsSet() {
+		toSerialize["s3Name"] = o.S3Name.Get()
+	}
+	if o.S3AccessKeyId.IsSet() {
+		toSerialize["s3AccessKeyId"] = o.S3AccessKeyId.Get()
+	}
+	if o.S3SecretKey.IsSet() {
+		toSerialize["s3SecretKey"] = o.S3SecretKey.Get()
+	}
+	if o.S3Endpoint.IsSet() {
+		toSerialize["s3Endpoint"] = o.S3Endpoint.Get()
+	}
 	if o.S3Region.IsSet() {
 		toSerialize["s3Region"] = o.S3Region.Get()
 	}

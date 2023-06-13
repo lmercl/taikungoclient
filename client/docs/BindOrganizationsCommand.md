@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Organizations** | Pointer to [**[]OrganizationDto**](OrganizationDto.md) |  | [optional] 
-**PartnerId** | **int32** |  | 
+**PartnerId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewBindOrganizationsCommand
 
-`func NewBindOrganizationsCommand(partnerId int32, ) *BindOrganizationsCommand`
+`func NewBindOrganizationsCommand() *BindOrganizationsCommand`
 
 NewBindOrganizationsCommand instantiates a new BindOrganizationsCommand object
 This constructor will assign default values to properties that have it defined,
@@ -80,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetPartnerId sets PartnerId field to given value.
 
+### HasPartnerId
 
+`func (o *BindOrganizationsCommand) HasPartnerId() bool`
+
+HasPartnerId returns a boolean if a field has been set.
+
+### SetPartnerIdNil
+
+`func (o *BindOrganizationsCommand) SetPartnerIdNil(b bool)`
+
+ SetPartnerIdNil sets the value for PartnerId to be an explicit nil
+
+### UnsetPartnerId
+`func (o *BindOrganizationsCommand) UnsetPartnerId()`
+
+UnsetPartnerId ensures that no value is present for PartnerId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **IncludeNamespaces** | Pointer to **[]string** |  | [optional] 
-**CronPeriod** | **string** |  | 
-**RetentionPeriod** | **string** |  | 
-**ProjectId** | **int32** |  | 
+**CronPeriod** | Pointer to **NullableString** |  | [optional] 
+**RetentionPeriod** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateBackupPolicyCommand
 
-`func NewCreateBackupPolicyCommand(name string, cronPeriod string, retentionPeriod string, projectId int32, ) *CreateBackupPolicyCommand`
+`func NewCreateBackupPolicyCommand() *CreateBackupPolicyCommand`
 
 NewCreateBackupPolicyCommand instantiates a new CreateBackupPolicyCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateBackupPolicyCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateBackupPolicyCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateBackupPolicyCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIncludeNamespaces
 
 `func (o *CreateBackupPolicyCommand) GetIncludeNamespaces() []string`
@@ -103,7 +118,22 @@ and a boolean to check if the value has been set.
 
 SetCronPeriod sets CronPeriod field to given value.
 
+### HasCronPeriod
 
+`func (o *CreateBackupPolicyCommand) HasCronPeriod() bool`
+
+HasCronPeriod returns a boolean if a field has been set.
+
+### SetCronPeriodNil
+
+`func (o *CreateBackupPolicyCommand) SetCronPeriodNil(b bool)`
+
+ SetCronPeriodNil sets the value for CronPeriod to be an explicit nil
+
+### UnsetCronPeriod
+`func (o *CreateBackupPolicyCommand) UnsetCronPeriod()`
+
+UnsetCronPeriod ensures that no value is present for CronPeriod, not even an explicit nil
 ### GetRetentionPeriod
 
 `func (o *CreateBackupPolicyCommand) GetRetentionPeriod() string`
@@ -123,7 +153,22 @@ and a boolean to check if the value has been set.
 
 SetRetentionPeriod sets RetentionPeriod field to given value.
 
+### HasRetentionPeriod
 
+`func (o *CreateBackupPolicyCommand) HasRetentionPeriod() bool`
+
+HasRetentionPeriod returns a boolean if a field has been set.
+
+### SetRetentionPeriodNil
+
+`func (o *CreateBackupPolicyCommand) SetRetentionPeriodNil(b bool)`
+
+ SetRetentionPeriodNil sets the value for RetentionPeriod to be an explicit nil
+
+### UnsetRetentionPeriod
+`func (o *CreateBackupPolicyCommand) UnsetRetentionPeriod()`
+
+UnsetRetentionPeriod ensures that no value is present for RetentionPeriod, not even an explicit nil
 ### GetProjectId
 
 `func (o *CreateBackupPolicyCommand) GetProjectId() int32`
@@ -143,6 +188,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *CreateBackupPolicyCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

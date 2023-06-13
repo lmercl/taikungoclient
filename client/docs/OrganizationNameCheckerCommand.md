@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewOrganizationNameCheckerCommand
 
-`func NewOrganizationNameCheckerCommand(name string, ) *OrganizationNameCheckerCommand`
+`func NewOrganizationNameCheckerCommand() *OrganizationNameCheckerCommand`
 
 NewOrganizationNameCheckerCommand instantiates a new OrganizationNameCheckerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *OrganizationNameCheckerCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *OrganizationNameCheckerCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *OrganizationNameCheckerCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

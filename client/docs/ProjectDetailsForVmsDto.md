@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **AllowSpotVMs** | Pointer to **bool** |  | [optional] 
 **MaxSpotPrice** | Pointer to **NullableFloat64** |  | [optional] 
 **TotalHourlyCost** | Pointer to **float64** |  | [optional] 
+**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**Hypervisors** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -592,6 +594,76 @@ SetTotalHourlyCost sets TotalHourlyCost field to given value.
 
 HasTotalHourlyCost returns a boolean if a field has been set.
 
+### GetAvailabilityZones
+
+`func (o *ProjectDetailsForVmsDto) GetAvailabilityZones() []string`
+
+GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesOk
+
+`func (o *ProjectDetailsForVmsDto) GetAvailabilityZonesOk() (*[]string, bool)`
+
+GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZones
+
+`func (o *ProjectDetailsForVmsDto) SetAvailabilityZones(v []string)`
+
+SetAvailabilityZones sets AvailabilityZones field to given value.
+
+### HasAvailabilityZones
+
+`func (o *ProjectDetailsForVmsDto) HasAvailabilityZones() bool`
+
+HasAvailabilityZones returns a boolean if a field has been set.
+
+### SetAvailabilityZonesNil
+
+`func (o *ProjectDetailsForVmsDto) SetAvailabilityZonesNil(b bool)`
+
+ SetAvailabilityZonesNil sets the value for AvailabilityZones to be an explicit nil
+
+### UnsetAvailabilityZones
+`func (o *ProjectDetailsForVmsDto) UnsetAvailabilityZones()`
+
+UnsetAvailabilityZones ensures that no value is present for AvailabilityZones, not even an explicit nil
+### GetHypervisors
+
+`func (o *ProjectDetailsForVmsDto) GetHypervisors() []string`
+
+GetHypervisors returns the Hypervisors field if non-nil, zero value otherwise.
+
+### GetHypervisorsOk
+
+`func (o *ProjectDetailsForVmsDto) GetHypervisorsOk() (*[]string, bool)`
+
+GetHypervisorsOk returns a tuple with the Hypervisors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisors
+
+`func (o *ProjectDetailsForVmsDto) SetHypervisors(v []string)`
+
+SetHypervisors sets Hypervisors field to given value.
+
+### HasHypervisors
+
+`func (o *ProjectDetailsForVmsDto) HasHypervisors() bool`
+
+HasHypervisors returns a boolean if a field has been set.
+
+### SetHypervisorsNil
+
+`func (o *ProjectDetailsForVmsDto) SetHypervisorsNil(b bool)`
+
+ SetHypervisorsNil sets the value for Hypervisors to be an explicit nil
+
+### UnsetHypervisors
+`func (o *ProjectDetailsForVmsDto) UnsetHypervisors()`
+
+UnsetHypervisors ensures that no value is present for Hypervisors, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

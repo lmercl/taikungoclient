@@ -93,6 +93,17 @@ func Test_taikuncore_AWSCloudCredentialApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test AWSCloudCredentialApiService AwsValidateOwners", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.AWSCloudCredentialApi.AwsValidateOwners(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AWSCloudCredentialApiService AwsZones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

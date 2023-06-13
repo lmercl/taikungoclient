@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerId** | **string** |  | 
+**CustomerId** | Pointer to **NullableString** |  | [optional] 
 **Balance** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
 ### NewAdminAddBalanceCommand
 
-`func NewAdminAddBalanceCommand(customerId string, ) *AdminAddBalanceCommand`
+`func NewAdminAddBalanceCommand() *AdminAddBalanceCommand`
 
 NewAdminAddBalanceCommand instantiates a new AdminAddBalanceCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetCustomerId sets CustomerId field to given value.
 
+### HasCustomerId
 
+`func (o *AdminAddBalanceCommand) HasCustomerId() bool`
+
+HasCustomerId returns a boolean if a field has been set.
+
+### SetCustomerIdNil
+
+`func (o *AdminAddBalanceCommand) SetCustomerIdNil(b bool)`
+
+ SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+
+### UnsetCustomerId
+`func (o *AdminAddBalanceCommand) UnsetCustomerId()`
+
+UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
 ### GetBalance
 
 `func (o *AdminAddBalanceCommand) GetBalance() int64`

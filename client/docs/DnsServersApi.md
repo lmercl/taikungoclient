@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createDnsServerCommand := *openapiclient.NewCreateDnsServerCommand("Address_example", int32(123)) // CreateDnsServerCommand | 
+    createDnsServerCommand := *openapiclient.NewCreateDnsServerCommand() // CreateDnsServerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**AwsOwners**](AWSCloudCredentialApi.md#AwsOwners) | **Get** /api/v1/aws/owners | Retrieve aws verified owner list
 [**AwsRegionlist**](AWSCloudCredentialApi.md#AwsRegionlist) | **Post** /api/v1/aws/regions | Retrieve aws regions list
 [**AwsUpdate**](AWSCloudCredentialApi.md#AwsUpdate) | **Post** /api/v1/aws/update | Update AWS credentials
+[**AwsValidateOwners**](AWSCloudCredentialApi.md#AwsValidateOwners) | **Post** /api/v1/aws/validate-owners | Aws validate owners
 [**AwsZones**](AWSCloudCredentialApi.md#AwsZones) | **Post** /api/v1/aws/zones | Fetch Aws zones
 
 
@@ -33,7 +34,7 @@ import (
 )
 
 func main() {
-    createAwsCloudCommand := *openapiclient.NewCreateAwsCloudCommand("Name_example", "AwsSecretAccessKey_example", "AwsAccessKeyId_example", "AwsRegion_example") // CreateAwsCloudCommand | 
+    createAwsCloudCommand := *openapiclient.NewCreateAwsCloudCommand() // CreateAwsCloudCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -362,7 +363,7 @@ import (
 )
 
 func main() {
-    updateAwsCommand := *openapiclient.NewUpdateAwsCommand(int32(123), "Name_example", "AwsSecretAccessKey_example", "AwsAccessKeyId_example") // UpdateAwsCommand | 
+    updateAwsCommand := *openapiclient.NewUpdateAwsCommand() // UpdateAwsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -386,6 +387,68 @@ Other parameters are passed through a pointer to a apiAwsUpdateRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **updateAwsCommand** | [**UpdateAwsCommand**](UpdateAwsCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AwsValidateOwners
+
+> AwsValidateOwners(ctx).AwsValidateOwnerCommand(awsValidateOwnerCommand).Execute()
+
+Aws validate owners
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    awsValidateOwnerCommand := *openapiclient.NewAwsValidateOwnerCommand() // AwsValidateOwnerCommand | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AWSCloudCredentialApi.AwsValidateOwners(context.Background()).AwsValidateOwnerCommand(awsValidateOwnerCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AWSCloudCredentialApi.AwsValidateOwners``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAwsValidateOwnersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **awsValidateOwnerCommand** | [**AwsValidateOwnerCommand**](AwsValidateOwnerCommand.md) |  | 
 
 ### Return type
 

@@ -21,16 +21,15 @@ var _ MappedNullable = &ArtifactUrlCheckerCommand{}
 // ArtifactUrlCheckerCommand struct for ArtifactUrlCheckerCommand
 type ArtifactUrlCheckerCommand struct {
 	Url NullableString `json:"url,omitempty"`
-	Name string `json:"name"`
+	Name NullableString `json:"name,omitempty"`
 }
 
 // NewArtifactUrlCheckerCommand instantiates a new ArtifactUrlCheckerCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewArtifactUrlCheckerCommand(name string) *ArtifactUrlCheckerCommand {
+func NewArtifactUrlCheckerCommand() *ArtifactUrlCheckerCommand {
 	this := ArtifactUrlCheckerCommand{}
-	this.Name = name
 	return &this
 }
 
@@ -84,28 +83,46 @@ func (o *ArtifactUrlCheckerCommand) UnsetUrl() {
 	o.Url.Unset()
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ArtifactUrlCheckerCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ArtifactUrlCheckerCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *ArtifactUrlCheckerCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ArtifactUrlCheckerCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ArtifactUrlCheckerCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ArtifactUrlCheckerCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 func (o ArtifactUrlCheckerCommand) MarshalJSON() ([]byte, error) {
@@ -121,7 +138,9 @@ func (o ArtifactUrlCheckerCommand) ToMap() (map[string]interface{}, error) {
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
 	}
-	toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	return toSerialize, nil
 }
 

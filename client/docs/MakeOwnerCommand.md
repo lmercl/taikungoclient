@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** |  | 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewMakeOwnerCommand
 
-`func NewMakeOwnerCommand(userId string, ) *MakeOwnerCommand`
+`func NewMakeOwnerCommand() *MakeOwnerCommand`
 
 NewMakeOwnerCommand instantiates a new MakeOwnerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
 
+`func (o *MakeOwnerCommand) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### SetUserIdNil
+
+`func (o *MakeOwnerCommand) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *MakeOwnerCommand) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

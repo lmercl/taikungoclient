@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | **string** |  | 
+**Address** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewNtpServerCreateDto
 
-`func NewNtpServerCreateDto(address string, ) *NtpServerCreateDto`
+`func NewNtpServerCreateDto() *NtpServerCreateDto`
 
 NewNtpServerCreateDto instantiates a new NtpServerCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+### HasAddress
 
+`func (o *NtpServerCreateDto) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *NtpServerCreateDto) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *NtpServerCreateDto) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

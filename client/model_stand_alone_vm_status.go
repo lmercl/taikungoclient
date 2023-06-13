@@ -17,30 +17,30 @@ import (
 )
 
 // StandAloneVmStatus the model 'StandAloneVmStatus'
-type StandAloneVmStatus int32
+type StandAloneVmStatus string
 
 // List of StandAloneVmStatus
 const (
-	STANDALONEVMSTATUS__100 StandAloneVmStatus = 100
-	STANDALONEVMSTATUS__200 StandAloneVmStatus = 200
-	STANDALONEVMSTATUS__300 StandAloneVmStatus = 300
-	STANDALONEVMSTATUS__400 StandAloneVmStatus = 400
-	STANDALONEVMSTATUS__500 StandAloneVmStatus = 500
-	STANDALONEVMSTATUS__600 StandAloneVmStatus = 600
+	STANDALONEVMSTATUS_DELETING StandAloneVmStatus = "Deleting"
+	STANDALONEVMSTATUS_FAILURE StandAloneVmStatus = "Failure"
+	STANDALONEVMSTATUS_WAITING StandAloneVmStatus = "Waiting"
+	STANDALONEVMSTATUS_PENDING_DELETE StandAloneVmStatus = "PendingDelete"
+	STANDALONEVMSTATUS_READY StandAloneVmStatus = "Ready"
+	STANDALONEVMSTATUS_UPDATING StandAloneVmStatus = "Updating"
 )
 
 // All allowed values of StandAloneVmStatus enum
 var AllowedStandAloneVmStatusEnumValues = []StandAloneVmStatus{
-	100,
-	200,
-	300,
-	400,
-	500,
-	600,
+	"Deleting",
+	"Failure",
+	"Waiting",
+	"PendingDelete",
+	"Ready",
+	"Updating",
 }
 
 func (v *StandAloneVmStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -58,7 +58,7 @@ func (v *StandAloneVmStatus) UnmarshalJSON(src []byte) error {
 
 // NewStandAloneVmStatusFromValue returns a pointer to a valid StandAloneVmStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewStandAloneVmStatusFromValue(v int32) (*StandAloneVmStatus, error) {
+func NewStandAloneVmStatusFromValue(v string) (*StandAloneVmStatus, error) {
 	ev := StandAloneVmStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

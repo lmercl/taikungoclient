@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Name** | **string** |  | 
-**Namespace** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewDescribePodDisruptionCommand
 
-`func NewDescribePodDisruptionCommand(projectId int32, name string, namespace string, ) *DescribePodDisruptionCommand`
+`func NewDescribePodDisruptionCommand() *DescribePodDisruptionCommand`
 
 NewDescribePodDisruptionCommand instantiates a new DescribePodDisruptionCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *DescribePodDisruptionCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *DescribePodDisruptionCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *DescribePodDisruptionCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DescribePodDisruptionCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *DescribePodDisruptionCommand) GetNamespace() string`
@@ -86,7 +106,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *DescribePodDisruptionCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *DescribePodDisruptionCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *DescribePodDisruptionCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

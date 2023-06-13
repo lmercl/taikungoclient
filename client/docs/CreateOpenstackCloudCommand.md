@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**OpenStackUser** | **string** |  | 
-**OpenStackPassword** | **string** |  | 
-**OpenStackUrl** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**OpenStackUser** | Pointer to **NullableString** |  | [optional] 
+**OpenStackPassword** | Pointer to **NullableString** |  | [optional] 
+**OpenStackUrl** | Pointer to **NullableString** |  | [optional] 
 **OpenStackProject** | Pointer to **NullableString** |  | [optional] 
-**OpenStackPublicNetwork** | **string** |  | 
+**OpenStackPublicNetwork** | Pointer to **NullableString** |  | [optional] 
 **OpenStackAvailabilityZone** | Pointer to **NullableString** |  | [optional] 
 **OpenStackDomain** | Pointer to **NullableString** |  | [optional] 
-**OpenStackRegion** | **string** |  | 
+**OpenStackRegion** | Pointer to **NullableString** |  | [optional] 
 **OpenStackContinent** | Pointer to **NullableString** |  | [optional] 
 **OpenStackVolumeType** | Pointer to **NullableString** |  | [optional] 
 **OpenStackImportNetwork** | Pointer to **bool** |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewCreateOpenstackCloudCommand
 
-`func NewCreateOpenstackCloudCommand(name string, openStackUser string, openStackPassword string, openStackUrl string, openStackPublicNetwork string, openStackRegion string, ) *CreateOpenstackCloudCommand`
+`func NewCreateOpenstackCloudCommand() *CreateOpenstackCloudCommand`
 
 NewCreateOpenstackCloudCommand instantiates a new CreateOpenstackCloudCommand object
 This constructor will assign default values to properties that have it defined,
@@ -59,7 +59,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateOpenstackCloudCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateOpenstackCloudCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateOpenstackCloudCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetOpenStackUser
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackUser() string`
@@ -79,7 +94,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackUser sets OpenStackUser field to given value.
 
+### HasOpenStackUser
 
+`func (o *CreateOpenstackCloudCommand) HasOpenStackUser() bool`
+
+HasOpenStackUser returns a boolean if a field has been set.
+
+### SetOpenStackUserNil
+
+`func (o *CreateOpenstackCloudCommand) SetOpenStackUserNil(b bool)`
+
+ SetOpenStackUserNil sets the value for OpenStackUser to be an explicit nil
+
+### UnsetOpenStackUser
+`func (o *CreateOpenstackCloudCommand) UnsetOpenStackUser()`
+
+UnsetOpenStackUser ensures that no value is present for OpenStackUser, not even an explicit nil
 ### GetOpenStackPassword
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackPassword() string`
@@ -99,7 +129,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackPassword sets OpenStackPassword field to given value.
 
+### HasOpenStackPassword
 
+`func (o *CreateOpenstackCloudCommand) HasOpenStackPassword() bool`
+
+HasOpenStackPassword returns a boolean if a field has been set.
+
+### SetOpenStackPasswordNil
+
+`func (o *CreateOpenstackCloudCommand) SetOpenStackPasswordNil(b bool)`
+
+ SetOpenStackPasswordNil sets the value for OpenStackPassword to be an explicit nil
+
+### UnsetOpenStackPassword
+`func (o *CreateOpenstackCloudCommand) UnsetOpenStackPassword()`
+
+UnsetOpenStackPassword ensures that no value is present for OpenStackPassword, not even an explicit nil
 ### GetOpenStackUrl
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackUrl() string`
@@ -119,7 +164,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackUrl sets OpenStackUrl field to given value.
 
+### HasOpenStackUrl
 
+`func (o *CreateOpenstackCloudCommand) HasOpenStackUrl() bool`
+
+HasOpenStackUrl returns a boolean if a field has been set.
+
+### SetOpenStackUrlNil
+
+`func (o *CreateOpenstackCloudCommand) SetOpenStackUrlNil(b bool)`
+
+ SetOpenStackUrlNil sets the value for OpenStackUrl to be an explicit nil
+
+### UnsetOpenStackUrl
+`func (o *CreateOpenstackCloudCommand) UnsetOpenStackUrl()`
+
+UnsetOpenStackUrl ensures that no value is present for OpenStackUrl, not even an explicit nil
 ### GetOpenStackProject
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackProject() string`
@@ -174,7 +234,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackPublicNetwork sets OpenStackPublicNetwork field to given value.
 
+### HasOpenStackPublicNetwork
 
+`func (o *CreateOpenstackCloudCommand) HasOpenStackPublicNetwork() bool`
+
+HasOpenStackPublicNetwork returns a boolean if a field has been set.
+
+### SetOpenStackPublicNetworkNil
+
+`func (o *CreateOpenstackCloudCommand) SetOpenStackPublicNetworkNil(b bool)`
+
+ SetOpenStackPublicNetworkNil sets the value for OpenStackPublicNetwork to be an explicit nil
+
+### UnsetOpenStackPublicNetwork
+`func (o *CreateOpenstackCloudCommand) UnsetOpenStackPublicNetwork()`
+
+UnsetOpenStackPublicNetwork ensures that no value is present for OpenStackPublicNetwork, not even an explicit nil
 ### GetOpenStackAvailabilityZone
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackAvailabilityZone() string`
@@ -264,7 +339,22 @@ and a boolean to check if the value has been set.
 
 SetOpenStackRegion sets OpenStackRegion field to given value.
 
+### HasOpenStackRegion
 
+`func (o *CreateOpenstackCloudCommand) HasOpenStackRegion() bool`
+
+HasOpenStackRegion returns a boolean if a field has been set.
+
+### SetOpenStackRegionNil
+
+`func (o *CreateOpenstackCloudCommand) SetOpenStackRegionNil(b bool)`
+
+ SetOpenStackRegionNil sets the value for OpenStackRegion to be an explicit nil
+
+### UnsetOpenStackRegion
+`func (o *CreateOpenstackCloudCommand) UnsetOpenStackRegion()`
+
+UnsetOpenStackRegion ensures that no value is present for OpenStackRegion, not even an explicit nil
 ### GetOpenStackContinent
 
 `func (o *CreateOpenstackCloudCommand) GetOpenStackContinent() string`

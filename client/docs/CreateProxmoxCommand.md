@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Username** | **string** |  | 
-**Url** | **string** |  | 
-**Password** | **string** |  | 
-**Storage** | **string** |  | 
-**VmTemplateName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
+**Storage** | Pointer to **NullableString** |  | [optional] 
+**VmTemplateName** | Pointer to **NullableString** |  | [optional] 
 **Continent** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **Hypervisors** | Pointer to **[]string** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCreateProxmoxCommand
 
-`func NewCreateProxmoxCommand(name string, username string, url string, password string, storage string, vmTemplateName string, ) *CreateProxmoxCommand`
+`func NewCreateProxmoxCommand() *CreateProxmoxCommand`
 
 NewCreateProxmoxCommand instantiates a new CreateProxmoxCommand object
 This constructor will assign default values to properties that have it defined,
@@ -54,27 +54,57 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
-### GetUsername
+`func (o *CreateProxmoxCommand) HasName() bool`
 
-`func (o *CreateProxmoxCommand) GetUsername() string`
+HasName returns a boolean if a field has been set.
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+### SetNameNil
 
-### GetUsernameOk
+`func (o *CreateProxmoxCommand) SetNameNil(b bool)`
 
-`func (o *CreateProxmoxCommand) GetUsernameOk() (*string, bool)`
+ SetNameNil sets the value for Name to be an explicit nil
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+### UnsetName
+`func (o *CreateProxmoxCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetTokenId
+
+`func (o *CreateProxmoxCommand) GetTokenId() string`
+
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
+
+### GetTokenIdOk
+
+`func (o *CreateProxmoxCommand) GetTokenIdOk() (*string, bool)`
+
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *CreateProxmoxCommand) SetUsername(v string)`
+`func (o *CreateProxmoxCommand) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
+### HasTokenId
 
+`func (o *CreateProxmoxCommand) HasTokenId() bool`
+
+HasTokenId returns a boolean if a field has been set.
+
+### SetTokenIdNil
+
+`func (o *CreateProxmoxCommand) SetTokenIdNil(b bool)`
+
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
+
+### UnsetTokenId
+`func (o *CreateProxmoxCommand) UnsetTokenId()`
+
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
 ### GetUrl
 
 `func (o *CreateProxmoxCommand) GetUrl() string`
@@ -94,27 +124,57 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
-### GetPassword
+`func (o *CreateProxmoxCommand) HasUrl() bool`
 
-`func (o *CreateProxmoxCommand) GetPassword() string`
+HasUrl returns a boolean if a field has been set.
 
-GetPassword returns the Password field if non-nil, zero value otherwise.
+### SetUrlNil
 
-### GetPasswordOk
+`func (o *CreateProxmoxCommand) SetUrlNil(b bool)`
 
-`func (o *CreateProxmoxCommand) GetPasswordOk() (*string, bool)`
+ SetUrlNil sets the value for Url to be an explicit nil
 
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+### UnsetUrl
+`func (o *CreateProxmoxCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
+### GetTokenSecret
+
+`func (o *CreateProxmoxCommand) GetTokenSecret() string`
+
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
+
+### GetTokenSecretOk
+
+`func (o *CreateProxmoxCommand) GetTokenSecretOk() (*string, bool)`
+
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPassword
+### SetTokenSecret
 
-`func (o *CreateProxmoxCommand) SetPassword(v string)`
+`func (o *CreateProxmoxCommand) SetTokenSecret(v string)`
 
-SetPassword sets Password field to given value.
+SetTokenSecret sets TokenSecret field to given value.
 
+### HasTokenSecret
 
+`func (o *CreateProxmoxCommand) HasTokenSecret() bool`
+
+HasTokenSecret returns a boolean if a field has been set.
+
+### SetTokenSecretNil
+
+`func (o *CreateProxmoxCommand) SetTokenSecretNil(b bool)`
+
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+
+### UnsetTokenSecret
+`func (o *CreateProxmoxCommand) UnsetTokenSecret()`
+
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 ### GetStorage
 
 `func (o *CreateProxmoxCommand) GetStorage() string`
@@ -134,7 +194,22 @@ and a boolean to check if the value has been set.
 
 SetStorage sets Storage field to given value.
 
+### HasStorage
 
+`func (o *CreateProxmoxCommand) HasStorage() bool`
+
+HasStorage returns a boolean if a field has been set.
+
+### SetStorageNil
+
+`func (o *CreateProxmoxCommand) SetStorageNil(b bool)`
+
+ SetStorageNil sets the value for Storage to be an explicit nil
+
+### UnsetStorage
+`func (o *CreateProxmoxCommand) UnsetStorage()`
+
+UnsetStorage ensures that no value is present for Storage, not even an explicit nil
 ### GetVmTemplateName
 
 `func (o *CreateProxmoxCommand) GetVmTemplateName() string`
@@ -154,7 +229,22 @@ and a boolean to check if the value has been set.
 
 SetVmTemplateName sets VmTemplateName field to given value.
 
+### HasVmTemplateName
 
+`func (o *CreateProxmoxCommand) HasVmTemplateName() bool`
+
+HasVmTemplateName returns a boolean if a field has been set.
+
+### SetVmTemplateNameNil
+
+`func (o *CreateProxmoxCommand) SetVmTemplateNameNil(b bool)`
+
+ SetVmTemplateNameNil sets the value for VmTemplateName to be an explicit nil
+
+### UnsetVmTemplateName
+`func (o *CreateProxmoxCommand) UnsetVmTemplateName()`
+
+UnsetVmTemplateName ensures that no value is present for VmTemplateName, not even an explicit nil
 ### GetContinent
 
 `func (o *CreateProxmoxCommand) GetContinent() string`

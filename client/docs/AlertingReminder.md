@@ -3,13 +3,13 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `HALF_HOUR` (value: `"HalfHour"`)
 
-* `_200` (value: `200`)
+* `HOURLY` (value: `"Hourly"`)
 
-* `_300` (value: `300`)
+* `DAILY` (value: `"Daily"`)
 
-* `_MINUS_1` (value: `-1`)
+* `NONE` (value: `"None"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

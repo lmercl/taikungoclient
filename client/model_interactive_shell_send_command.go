@@ -20,18 +20,16 @@ var _ MappedNullable = &InteractiveShellSendCommand{}
 
 // InteractiveShellSendCommand struct for InteractiveShellSendCommand
 type InteractiveShellSendCommand struct {
-	ProjectId int32 `json:"projectId"`
-	Token string `json:"token"`
+	ProjectId *int32 `json:"projectId,omitempty"`
+	Token NullableString `json:"token,omitempty"`
 }
 
 // NewInteractiveShellSendCommand instantiates a new InteractiveShellSendCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInteractiveShellSendCommand(projectId int32, token string) *InteractiveShellSendCommand {
+func NewInteractiveShellSendCommand() *InteractiveShellSendCommand {
 	this := InteractiveShellSendCommand{}
-	this.ProjectId = projectId
-	this.Token = token
 	return &this
 }
 
@@ -43,52 +41,78 @@ func NewInteractiveShellSendCommandWithDefaults() *InteractiveShellSendCommand {
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *InteractiveShellSendCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InteractiveShellSendCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *InteractiveShellSendCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *InteractiveShellSendCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
-// GetToken returns the Token field value
+// GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InteractiveShellSendCommand) GetToken() string {
-	if o == nil {
+	if o == nil || IsNil(o.Token.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Token
+	return *o.Token.Get()
 }
 
-// GetTokenOk returns a tuple with the Token field value
+// GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InteractiveShellSendCommand) GetTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Token, true
+	return o.Token.Get(), o.Token.IsSet()
 }
 
-// SetToken sets field value
+// HasToken returns a boolean if a field has been set.
+func (o *InteractiveShellSendCommand) HasToken() bool {
+	if o != nil && o.Token.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetToken gets a reference to the given NullableString and assigns it to the Token field.
 func (o *InteractiveShellSendCommand) SetToken(v string) {
-	o.Token = v
+	o.Token.Set(&v)
+}
+// SetTokenNil sets the value for Token to be an explicit nil
+func (o *InteractiveShellSendCommand) SetTokenNil() {
+	o.Token.Set(nil)
+}
+
+// UnsetToken ensures that no value is present for Token, not even an explicit nil
+func (o *InteractiveShellSendCommand) UnsetToken() {
+	o.Token.Unset()
 }
 
 func (o InteractiveShellSendCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +125,12 @@ func (o InteractiveShellSendCommand) MarshalJSON() ([]byte, error) {
 
 func (o InteractiveShellSendCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["token"] = o.Token
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
+	if o.Token.IsSet() {
+		toSerialize["token"] = o.Token.Get()
+	}
 	return toSerialize, nil
 }
 

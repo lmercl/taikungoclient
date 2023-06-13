@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**FlavorName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**FlavorName** | Pointer to **NullableString** |  | [optional] 
 **VolumeSize** | Pointer to **int64** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **Username** | Pointer to **NullableString** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
 **PublicIpEnabled** | Pointer to **bool** |  | [optional] 
-**Image** | **string** |  | 
+**Image** | Pointer to **NullableString** |  | [optional] 
 **CloudInit** | Pointer to **NullableString** |  | [optional] 
-**StandAloneProfileId** | **int32** |  | 
-**ProjectId** | **int32** |  | 
+**StandAloneProfileId** | Pointer to **int32** |  | [optional] 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 **Count** | Pointer to **int32** |  | [optional] 
 **SpotPrice** | Pointer to **NullableFloat64** |  | [optional] 
 **SpotInstance** | Pointer to **bool** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewCreateStandAloneVmCommand
 
-`func NewCreateStandAloneVmCommand(name string, flavorName string, image string, standAloneProfileId int32, projectId int32, ) *CreateStandAloneVmCommand`
+`func NewCreateStandAloneVmCommand() *CreateStandAloneVmCommand`
 
 NewCreateStandAloneVmCommand instantiates a new CreateStandAloneVmCommand object
 This constructor will assign default values to properties that have it defined,
@@ -61,7 +61,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateStandAloneVmCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateStandAloneVmCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateStandAloneVmCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFlavorName
 
 `func (o *CreateStandAloneVmCommand) GetFlavorName() string`
@@ -81,7 +96,22 @@ and a boolean to check if the value has been set.
 
 SetFlavorName sets FlavorName field to given value.
 
+### HasFlavorName
 
+`func (o *CreateStandAloneVmCommand) HasFlavorName() bool`
+
+HasFlavorName returns a boolean if a field has been set.
+
+### SetFlavorNameNil
+
+`func (o *CreateStandAloneVmCommand) SetFlavorNameNil(b bool)`
+
+ SetFlavorNameNil sets the value for FlavorName to be an explicit nil
+
+### UnsetFlavorName
+`func (o *CreateStandAloneVmCommand) UnsetFlavorName()`
+
+UnsetFlavorName ensures that no value is present for FlavorName, not even an explicit nil
 ### GetVolumeSize
 
 `func (o *CreateStandAloneVmCommand) GetVolumeSize() int64`
@@ -256,7 +286,22 @@ and a boolean to check if the value has been set.
 
 SetImage sets Image field to given value.
 
+### HasImage
 
+`func (o *CreateStandAloneVmCommand) HasImage() bool`
+
+HasImage returns a boolean if a field has been set.
+
+### SetImageNil
+
+`func (o *CreateStandAloneVmCommand) SetImageNil(b bool)`
+
+ SetImageNil sets the value for Image to be an explicit nil
+
+### UnsetImage
+`func (o *CreateStandAloneVmCommand) UnsetImage()`
+
+UnsetImage ensures that no value is present for Image, not even an explicit nil
 ### GetCloudInit
 
 `func (o *CreateStandAloneVmCommand) GetCloudInit() string`
@@ -311,6 +356,11 @@ and a boolean to check if the value has been set.
 
 SetStandAloneProfileId sets StandAloneProfileId field to given value.
 
+### HasStandAloneProfileId
+
+`func (o *CreateStandAloneVmCommand) HasStandAloneProfileId() bool`
+
+HasStandAloneProfileId returns a boolean if a field has been set.
 
 ### GetProjectId
 
@@ -331,6 +381,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *CreateStandAloneVmCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetCount
 

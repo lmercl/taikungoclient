@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewEmail** | **string** |  | 
-**Mode** | **string** |  | 
+**NewEmail** | Pointer to **NullableString** |  | [optional] 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewConfirmEmailCommand
 
-`func NewConfirmEmailCommand(newEmail string, mode string, ) *ConfirmEmailCommand`
+`func NewConfirmEmailCommand() *ConfirmEmailCommand`
 
 NewConfirmEmailCommand instantiates a new ConfirmEmailCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetNewEmail sets NewEmail field to given value.
 
+### HasNewEmail
 
+`func (o *ConfirmEmailCommand) HasNewEmail() bool`
+
+HasNewEmail returns a boolean if a field has been set.
+
+### SetNewEmailNil
+
+`func (o *ConfirmEmailCommand) SetNewEmailNil(b bool)`
+
+ SetNewEmailNil sets the value for NewEmail to be an explicit nil
+
+### UnsetNewEmail
+`func (o *ConfirmEmailCommand) UnsetNewEmail()`
+
+UnsetNewEmail ensures that no value is present for NewEmail, not even an explicit nil
 ### GetMode
 
 `func (o *ConfirmEmailCommand) GetMode() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *ConfirmEmailCommand) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *ConfirmEmailCommand) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *ConfirmEmailCommand) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

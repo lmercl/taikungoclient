@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createAllowedHostCommand := *openapiclient.NewCreateAllowedHostCommand(int32(123), "IpAddress_example") // CreateAllowedHostCommand |  (optional)
+    createAllowedHostCommand := *openapiclient.NewCreateAllowedHostCommand() // CreateAllowedHostCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

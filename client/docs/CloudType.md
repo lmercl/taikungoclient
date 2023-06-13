@@ -3,17 +3,17 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `AWS` (value: `"AWS"`)
 
-* `_200` (value: `200`)
+* `AZURE` (value: `"AZURE"`)
 
-* `_300` (value: `300`)
+* `GOOGLE` (value: `"GOOGLE"`)
 
-* `_400` (value: `400`)
+* `OPENSTACK` (value: `"OPENSTACK"`)
 
-* `_500` (value: `500`)
+* `PROXMOX` (value: `"PROXMOX"`)
 
-* `_600` (value: `600`)
+* `TANZU` (value: `"TANZU"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

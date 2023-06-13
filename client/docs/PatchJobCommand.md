@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Yaml** | **string** |  | 
-**Name** | **string** |  | 
-**Namespace** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Yaml** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPatchJobCommand
 
-`func NewPatchJobCommand(projectId int32, yaml string, name string, namespace string, ) *PatchJobCommand`
+`func NewPatchJobCommand() *PatchJobCommand`
 
 NewPatchJobCommand instantiates a new PatchJobCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *PatchJobCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetYaml
 
@@ -67,7 +72,22 @@ and a boolean to check if the value has been set.
 
 SetYaml sets Yaml field to given value.
 
+### HasYaml
 
+`func (o *PatchJobCommand) HasYaml() bool`
+
+HasYaml returns a boolean if a field has been set.
+
+### SetYamlNil
+
+`func (o *PatchJobCommand) SetYamlNil(b bool)`
+
+ SetYamlNil sets the value for Yaml to be an explicit nil
+
+### UnsetYaml
+`func (o *PatchJobCommand) UnsetYaml()`
+
+UnsetYaml ensures that no value is present for Yaml, not even an explicit nil
 ### GetName
 
 `func (o *PatchJobCommand) GetName() string`
@@ -87,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *PatchJobCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *PatchJobCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PatchJobCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *PatchJobCommand) GetNamespace() string`
@@ -107,7 +142,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *PatchJobCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *PatchJobCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *PatchJobCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

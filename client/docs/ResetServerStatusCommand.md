@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 **ServerIds** | Pointer to **[]int32** |  | [optional] 
 **Status** | Pointer to [**CloudStatus**](CloudStatus.md) |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewResetServerStatusCommand
 
-`func NewResetServerStatusCommand(projectId int32, ) *ResetServerStatusCommand`
+`func NewResetServerStatusCommand() *ResetServerStatusCommand`
 
 NewResetServerStatusCommand instantiates a new ResetServerStatusCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *ResetServerStatusCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetServerIds
 

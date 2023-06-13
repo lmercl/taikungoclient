@@ -17,24 +17,24 @@ import (
 )
 
 // SecurityGroupProtocol the model 'SecurityGroupProtocol'
-type SecurityGroupProtocol int32
+type SecurityGroupProtocol string
 
 // List of SecurityGroupProtocol
 const (
-	SECURITYGROUPPROTOCOL__100 SecurityGroupProtocol = 100
-	SECURITYGROUPPROTOCOL__200 SecurityGroupProtocol = 200
-	SECURITYGROUPPROTOCOL__300 SecurityGroupProtocol = 300
+	SECURITYGROUPPROTOCOL_ICMP SecurityGroupProtocol = "ICMP"
+	SECURITYGROUPPROTOCOL_TCP SecurityGroupProtocol = "TCP"
+	SECURITYGROUPPROTOCOL_UDP SecurityGroupProtocol = "UDP"
 )
 
 // All allowed values of SecurityGroupProtocol enum
 var AllowedSecurityGroupProtocolEnumValues = []SecurityGroupProtocol{
-	100,
-	200,
-	300,
+	"ICMP",
+	"TCP",
+	"UDP",
 }
 
 func (v *SecurityGroupProtocol) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -52,7 +52,7 @@ func (v *SecurityGroupProtocol) UnmarshalJSON(src []byte) error {
 
 // NewSecurityGroupProtocolFromValue returns a pointer to a valid SecurityGroupProtocol
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewSecurityGroupProtocolFromValue(v int32) (*SecurityGroupProtocol, error) {
+func NewSecurityGroupProtocolFromValue(v string) (*SecurityGroupProtocol, error) {
 	ev := SecurityGroupProtocol(v)
 	if ev.IsValid() {
 		return &ev, nil

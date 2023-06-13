@@ -17,22 +17,22 @@ import (
 )
 
 // PrometheusType the model 'PrometheusType'
-type PrometheusType int32
+type PrometheusType string
 
 // List of PrometheusType
 const (
-	PROMETHEUSTYPE__100 PrometheusType = 100
-	PROMETHEUSTYPE__200 PrometheusType = 200
+	PROMETHEUSTYPE_COUNT PrometheusType = "Count"
+	PROMETHEUSTYPE_SUM PrometheusType = "Sum"
 )
 
 // All allowed values of PrometheusType enum
 var AllowedPrometheusTypeEnumValues = []PrometheusType{
-	100,
-	200,
+	"Count",
+	"Sum",
 }
 
 func (v *PrometheusType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func (v *PrometheusType) UnmarshalJSON(src []byte) error {
 
 // NewPrometheusTypeFromValue returns a pointer to a valid PrometheusType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewPrometheusTypeFromValue(v int32) (*PrometheusType, error) {
+func NewPrometheusTypeFromValue(v string) (*PrometheusType, error) {
 	ev := PrometheusType(v)
 	if ev.IsValid() {
 		return &ev, nil

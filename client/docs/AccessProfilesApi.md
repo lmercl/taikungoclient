@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    createAccessProfileCommand := *openapiclient.NewCreateAccessProfileCommand("Name_example") // CreateAccessProfileCommand |  (optional)
+    createAccessProfileCommand := *openapiclient.NewCreateAccessProfileCommand() // CreateAccessProfileCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -306,7 +306,7 @@ import (
 )
 
 func main() {
-    accessProfilesLockManagementCommand := *openapiclient.NewAccessProfilesLockManagementCommand(int32(123), "Mode_example") // AccessProfilesLockManagementCommand |  (optional)
+    accessProfilesLockManagementCommand := *openapiclient.NewAccessProfilesLockManagementCommand() // AccessProfilesLockManagementCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

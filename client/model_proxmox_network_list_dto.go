@@ -24,6 +24,8 @@ type ProxmoxNetworkListDto struct {
 	Gateway NullableString `json:"gateway,omitempty"`
 	IpAddress NullableString `json:"ipAddress,omitempty"`
 	NetMask *int32 `json:"netMask,omitempty"`
+	BeginAllocationRange NullableString `json:"beginAllocationRange,omitempty"`
+	EndAllocationRange NullableString `json:"endAllocationRange,omitempty"`
 	IsPrivate *bool `json:"isPrivate,omitempty"`
 }
 
@@ -202,6 +204,90 @@ func (o *ProxmoxNetworkListDto) SetNetMask(v int32) {
 	o.NetMask = &v
 }
 
+// GetBeginAllocationRange returns the BeginAllocationRange field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProxmoxNetworkListDto) GetBeginAllocationRange() string {
+	if o == nil || IsNil(o.BeginAllocationRange.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BeginAllocationRange.Get()
+}
+
+// GetBeginAllocationRangeOk returns a tuple with the BeginAllocationRange field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProxmoxNetworkListDto) GetBeginAllocationRangeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BeginAllocationRange.Get(), o.BeginAllocationRange.IsSet()
+}
+
+// HasBeginAllocationRange returns a boolean if a field has been set.
+func (o *ProxmoxNetworkListDto) HasBeginAllocationRange() bool {
+	if o != nil && o.BeginAllocationRange.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBeginAllocationRange gets a reference to the given NullableString and assigns it to the BeginAllocationRange field.
+func (o *ProxmoxNetworkListDto) SetBeginAllocationRange(v string) {
+	o.BeginAllocationRange.Set(&v)
+}
+// SetBeginAllocationRangeNil sets the value for BeginAllocationRange to be an explicit nil
+func (o *ProxmoxNetworkListDto) SetBeginAllocationRangeNil() {
+	o.BeginAllocationRange.Set(nil)
+}
+
+// UnsetBeginAllocationRange ensures that no value is present for BeginAllocationRange, not even an explicit nil
+func (o *ProxmoxNetworkListDto) UnsetBeginAllocationRange() {
+	o.BeginAllocationRange.Unset()
+}
+
+// GetEndAllocationRange returns the EndAllocationRange field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProxmoxNetworkListDto) GetEndAllocationRange() string {
+	if o == nil || IsNil(o.EndAllocationRange.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.EndAllocationRange.Get()
+}
+
+// GetEndAllocationRangeOk returns a tuple with the EndAllocationRange field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProxmoxNetworkListDto) GetEndAllocationRangeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EndAllocationRange.Get(), o.EndAllocationRange.IsSet()
+}
+
+// HasEndAllocationRange returns a boolean if a field has been set.
+func (o *ProxmoxNetworkListDto) HasEndAllocationRange() bool {
+	if o != nil && o.EndAllocationRange.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEndAllocationRange gets a reference to the given NullableString and assigns it to the EndAllocationRange field.
+func (o *ProxmoxNetworkListDto) SetEndAllocationRange(v string) {
+	o.EndAllocationRange.Set(&v)
+}
+// SetEndAllocationRangeNil sets the value for EndAllocationRange to be an explicit nil
+func (o *ProxmoxNetworkListDto) SetEndAllocationRangeNil() {
+	o.EndAllocationRange.Set(nil)
+}
+
+// UnsetEndAllocationRange ensures that no value is present for EndAllocationRange, not even an explicit nil
+func (o *ProxmoxNetworkListDto) UnsetEndAllocationRange() {
+	o.EndAllocationRange.Unset()
+}
+
 // GetIsPrivate returns the IsPrivate field value if set, zero value otherwise.
 func (o *ProxmoxNetworkListDto) GetIsPrivate() bool {
 	if o == nil || IsNil(o.IsPrivate) {
@@ -255,6 +341,12 @@ func (o ProxmoxNetworkListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.NetMask) {
 		toSerialize["netMask"] = o.NetMask
+	}
+	if o.BeginAllocationRange.IsSet() {
+		toSerialize["beginAllocationRange"] = o.BeginAllocationRange.Get()
+	}
+	if o.EndAllocationRange.IsSet() {
+		toSerialize["endAllocationRange"] = o.EndAllocationRange.Get()
 	}
 	if !IsNil(o.IsPrivate) {
 		toSerialize["isPrivate"] = o.IsPrivate

@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    createCatalogAppCommand := *openapiclient.NewCreateCatalogAppCommand("RepoName_example", "PackageName_example", int32(123)) // CreateCatalogAppCommand |  (optional)
+    createCatalogAppCommand := *openapiclient.NewCreateCatalogAppCommand() // CreateCatalogAppCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -229,7 +229,7 @@ import (
 )
 
 func main() {
-    editCatalogAppParamCommand := *openapiclient.NewEditCatalogAppParamCommand(int32(123)) // EditCatalogAppParamCommand |  (optional)
+    editCatalogAppParamCommand := *openapiclient.NewEditCatalogAppParamCommand() // EditCatalogAppParamCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -291,7 +291,7 @@ import (
 )
 
 func main() {
-    editCatalogAppVersionCommand := *openapiclient.NewEditCatalogAppVersionCommand(int32(123), "Version_example") // EditCatalogAppVersionCommand | 
+    editCatalogAppVersionCommand := *openapiclient.NewEditCatalogAppVersionCommand() // EditCatalogAppVersionCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

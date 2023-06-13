@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **TenantId** | Pointer to **NullableString** |  | [optional] 
 **Location** | Pointer to **NullableString** |  | [optional] 
 **AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZonesCount** | Pointer to **int32** |  | [optional] 
 **Projects** | Pointer to [**[]CommonDropdownDto**](CommonDropdownDto.md) |  | [optional] 
 **CreatedBy** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
@@ -255,6 +256,31 @@ HasAvailabilityZones returns a boolean if a field has been set.
 `func (o *AzureCredentialsListDto) UnsetAvailabilityZones()`
 
 UnsetAvailabilityZones ensures that no value is present for AvailabilityZones, not even an explicit nil
+### GetAvailabilityZonesCount
+
+`func (o *AzureCredentialsListDto) GetAvailabilityZonesCount() int32`
+
+GetAvailabilityZonesCount returns the AvailabilityZonesCount field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesCountOk
+
+`func (o *AzureCredentialsListDto) GetAvailabilityZonesCountOk() (*int32, bool)`
+
+GetAvailabilityZonesCountOk returns a tuple with the AvailabilityZonesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZonesCount
+
+`func (o *AzureCredentialsListDto) SetAvailabilityZonesCount(v int32)`
+
+SetAvailabilityZonesCount sets AvailabilityZonesCount field to given value.
+
+### HasAvailabilityZonesCount
+
+`func (o *AzureCredentialsListDto) HasAvailabilityZonesCount() bool`
+
+HasAvailabilityZonesCount returns a boolean if a field has been set.
+
 ### GetProjects
 
 `func (o *AzureCredentialsListDto) GetProjects() []CommonDropdownDto`

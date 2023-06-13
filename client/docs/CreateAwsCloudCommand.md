@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**AwsSecretAccessKey** | **string** |  | 
-**AwsAccessKeyId** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**AwsSecretAccessKey** | Pointer to **NullableString** |  | [optional] 
+**AwsAccessKeyId** | Pointer to **NullableString** |  | [optional] 
 **AzCount** | Pointer to **int32** |  | [optional] 
-**AwsRegion** | **string** |  | 
+**AwsRegion** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateAwsCloudCommand
 
-`func NewCreateAwsCloudCommand(name string, awsSecretAccessKey string, awsAccessKeyId string, awsRegion string, ) *CreateAwsCloudCommand`
+`func NewCreateAwsCloudCommand() *CreateAwsCloudCommand`
 
 NewCreateAwsCloudCommand instantiates a new CreateAwsCloudCommand object
 This constructor will assign default values to properties that have it defined,
@@ -49,7 +49,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateAwsCloudCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateAwsCloudCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateAwsCloudCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAwsSecretAccessKey
 
 `func (o *CreateAwsCloudCommand) GetAwsSecretAccessKey() string`
@@ -69,7 +84,22 @@ and a boolean to check if the value has been set.
 
 SetAwsSecretAccessKey sets AwsSecretAccessKey field to given value.
 
+### HasAwsSecretAccessKey
 
+`func (o *CreateAwsCloudCommand) HasAwsSecretAccessKey() bool`
+
+HasAwsSecretAccessKey returns a boolean if a field has been set.
+
+### SetAwsSecretAccessKeyNil
+
+`func (o *CreateAwsCloudCommand) SetAwsSecretAccessKeyNil(b bool)`
+
+ SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
+
+### UnsetAwsSecretAccessKey
+`func (o *CreateAwsCloudCommand) UnsetAwsSecretAccessKey()`
+
+UnsetAwsSecretAccessKey ensures that no value is present for AwsSecretAccessKey, not even an explicit nil
 ### GetAwsAccessKeyId
 
 `func (o *CreateAwsCloudCommand) GetAwsAccessKeyId() string`
@@ -89,7 +119,22 @@ and a boolean to check if the value has been set.
 
 SetAwsAccessKeyId sets AwsAccessKeyId field to given value.
 
+### HasAwsAccessKeyId
 
+`func (o *CreateAwsCloudCommand) HasAwsAccessKeyId() bool`
+
+HasAwsAccessKeyId returns a boolean if a field has been set.
+
+### SetAwsAccessKeyIdNil
+
+`func (o *CreateAwsCloudCommand) SetAwsAccessKeyIdNil(b bool)`
+
+ SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
+
+### UnsetAwsAccessKeyId
+`func (o *CreateAwsCloudCommand) UnsetAwsAccessKeyId()`
+
+UnsetAwsAccessKeyId ensures that no value is present for AwsAccessKeyId, not even an explicit nil
 ### GetAzCount
 
 `func (o *CreateAwsCloudCommand) GetAzCount() int32`
@@ -134,7 +179,22 @@ and a boolean to check if the value has been set.
 
 SetAwsRegion sets AwsRegion field to given value.
 
+### HasAwsRegion
 
+`func (o *CreateAwsCloudCommand) HasAwsRegion() bool`
+
+HasAwsRegion returns a boolean if a field has been set.
+
+### SetAwsRegionNil
+
+`func (o *CreateAwsCloudCommand) SetAwsRegionNil(b bool)`
+
+ SetAwsRegionNil sets the value for AwsRegion to be an explicit nil
+
+### UnsetAwsRegion
+`func (o *CreateAwsCloudCommand) UnsetAwsRegion()`
+
+UnsetAwsRegion ensures that no value is present for AwsRegion, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *CreateAwsCloudCommand) GetOrganizationId() int32`

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Flavor** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Flavor** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewUpdateStandAloneVmFlavorCommand
 
-`func NewUpdateStandAloneVmFlavorCommand(id int32, flavor string, ) *UpdateStandAloneVmFlavorCommand`
+`func NewUpdateStandAloneVmFlavorCommand() *UpdateStandAloneVmFlavorCommand`
 
 NewUpdateStandAloneVmFlavorCommand instantiates a new UpdateStandAloneVmFlavorCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *UpdateStandAloneVmFlavorCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetFlavor
 
@@ -65,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetFlavor sets Flavor field to given value.
 
+### HasFlavor
 
+`func (o *UpdateStandAloneVmFlavorCommand) HasFlavor() bool`
+
+HasFlavor returns a boolean if a field has been set.
+
+### SetFlavorNil
+
+`func (o *UpdateStandAloneVmFlavorCommand) SetFlavorNil(b bool)`
+
+ SetFlavorNil sets the value for Flavor to be an explicit nil
+
+### UnsetFlavor
+`func (o *UpdateStandAloneVmFlavorCommand) UnsetFlavor()`
+
+UnsetFlavor ensures that no value is present for Flavor, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

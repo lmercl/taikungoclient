@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `K8_S` (value: `"K8S"`)
 
-* `_200` (value: `200`)
+* `VIRT` (value: `"VIRT"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

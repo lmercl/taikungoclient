@@ -20,7 +20,7 @@ var _ MappedNullable = &CreateSubscriptionCommand{}
 
 // CreateSubscriptionCommand struct for CreateSubscriptionCommand
 type CreateSubscriptionCommand struct {
-	Name string `json:"name"`
+	Name NullableString `json:"name,omitempty"`
 	ProjectLimit *int32 `json:"projectLimit,omitempty"`
 	ServerLimit *int32 `json:"serverLimit,omitempty"`
 	UserLimit *int32 `json:"userLimit,omitempty"`
@@ -35,9 +35,8 @@ type CreateSubscriptionCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateSubscriptionCommand(name string) *CreateSubscriptionCommand {
+func NewCreateSubscriptionCommand() *CreateSubscriptionCommand {
 	this := CreateSubscriptionCommand{}
-	this.Name = name
 	return &this
 }
 
@@ -49,28 +48,46 @@ func NewCreateSubscriptionCommandWithDefaults() *CreateSubscriptionCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateSubscriptionCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateSubscriptionCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateSubscriptionCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateSubscriptionCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateSubscriptionCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateSubscriptionCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetProjectLimit returns the ProjectLimit field value if set, zero value otherwise.
@@ -369,7 +386,9 @@ func (o CreateSubscriptionCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateSubscriptionCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if !IsNil(o.ProjectLimit) {
 		toSerialize["projectLimit"] = o.ProjectLimit
 	}

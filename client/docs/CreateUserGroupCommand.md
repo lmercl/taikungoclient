@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **UserIds** | Pointer to **[]string** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewCreateUserGroupCommand
 
-`func NewCreateUserGroupCommand(name string, ) *CreateUserGroupCommand`
+`func NewCreateUserGroupCommand() *CreateUserGroupCommand`
 
 NewCreateUserGroupCommand instantiates a new CreateUserGroupCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateUserGroupCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateUserGroupCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateUserGroupCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *CreateUserGroupCommand) GetOrganizationId() int32`

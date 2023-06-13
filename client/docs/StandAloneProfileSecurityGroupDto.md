@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Protocol** | Pointer to [**SecurityGroupProtocol**](SecurityGroupProtocol.md) |  | [optional] 
 **PortMinRange** | Pointer to **int32** |  | [optional] 
 **PortMaxRange** | Pointer to **int32** |  | [optional] 
-**RemoteIpPrefix** | **string** |  | 
+**RemoteIpPrefix** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewStandAloneProfileSecurityGroupDto
 
-`func NewStandAloneProfileSecurityGroupDto(name string, remoteIpPrefix string, ) *StandAloneProfileSecurityGroupDto`
+`func NewStandAloneProfileSecurityGroupDto() *StandAloneProfileSecurityGroupDto`
 
 NewStandAloneProfileSecurityGroupDto instantiates a new StandAloneProfileSecurityGroupDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *StandAloneProfileSecurityGroupDto) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *StandAloneProfileSecurityGroupDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *StandAloneProfileSecurityGroupDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProtocol
 
 `func (o *StandAloneProfileSecurityGroupDto) GetProtocol() SecurityGroupProtocol`
@@ -143,7 +158,22 @@ and a boolean to check if the value has been set.
 
 SetRemoteIpPrefix sets RemoteIpPrefix field to given value.
 
+### HasRemoteIpPrefix
 
+`func (o *StandAloneProfileSecurityGroupDto) HasRemoteIpPrefix() bool`
+
+HasRemoteIpPrefix returns a boolean if a field has been set.
+
+### SetRemoteIpPrefixNil
+
+`func (o *StandAloneProfileSecurityGroupDto) SetRemoteIpPrefixNil(b bool)`
+
+ SetRemoteIpPrefixNil sets the value for RemoteIpPrefix to be an explicit nil
+
+### UnsetRemoteIpPrefix
+`func (o *StandAloneProfileSecurityGroupDto) UnsetRemoteIpPrefix()`
+
+UnsetRemoteIpPrefix ensures that no value is present for RemoteIpPrefix, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

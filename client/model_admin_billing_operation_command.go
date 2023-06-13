@@ -20,16 +20,15 @@ var _ MappedNullable = &AdminBillingOperationCommand{}
 
 // AdminBillingOperationCommand struct for AdminBillingOperationCommand
 type AdminBillingOperationCommand struct {
-	CloudCredentialId int32 `json:"cloudCredentialId"`
+	CloudCredentialId *int32 `json:"cloudCredentialId,omitempty"`
 }
 
 // NewAdminBillingOperationCommand instantiates a new AdminBillingOperationCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdminBillingOperationCommand(cloudCredentialId int32) *AdminBillingOperationCommand {
+func NewAdminBillingOperationCommand() *AdminBillingOperationCommand {
 	this := AdminBillingOperationCommand{}
-	this.CloudCredentialId = cloudCredentialId
 	return &this
 }
 
@@ -41,28 +40,36 @@ func NewAdminBillingOperationCommandWithDefaults() *AdminBillingOperationCommand
 	return &this
 }
 
-// GetCloudCredentialId returns the CloudCredentialId field value
+// GetCloudCredentialId returns the CloudCredentialId field value if set, zero value otherwise.
 func (o *AdminBillingOperationCommand) GetCloudCredentialId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CloudCredentialId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CloudCredentialId
+	return *o.CloudCredentialId
 }
 
-// GetCloudCredentialIdOk returns a tuple with the CloudCredentialId field value
+// GetCloudCredentialIdOk returns a tuple with the CloudCredentialId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdminBillingOperationCommand) GetCloudCredentialIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CloudCredentialId) {
 		return nil, false
 	}
-	return &o.CloudCredentialId, true
+	return o.CloudCredentialId, true
 }
 
-// SetCloudCredentialId sets field value
+// HasCloudCredentialId returns a boolean if a field has been set.
+func (o *AdminBillingOperationCommand) HasCloudCredentialId() bool {
+	if o != nil && !IsNil(o.CloudCredentialId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudCredentialId gets a reference to the given int32 and assigns it to the CloudCredentialId field.
 func (o *AdminBillingOperationCommand) SetCloudCredentialId(v int32) {
-	o.CloudCredentialId = v
+	o.CloudCredentialId = &v
 }
 
 func (o AdminBillingOperationCommand) MarshalJSON() ([]byte, error) {
@@ -75,7 +82,9 @@ func (o AdminBillingOperationCommand) MarshalJSON() ([]byte, error) {
 
 func (o AdminBillingOperationCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cloudCredentialId"] = o.CloudCredentialId
+	if !IsNil(o.CloudCredentialId) {
+		toSerialize["cloudCredentialId"] = o.CloudCredentialId
+	}
 	return toSerialize, nil
 }
 

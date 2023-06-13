@@ -20,7 +20,7 @@ var _ MappedNullable = &AdminUsersUpdateEmailCommand{}
 
 // AdminUsersUpdateEmailCommand struct for AdminUsersUpdateEmailCommand
 type AdminUsersUpdateEmailCommand struct {
-	Id string `json:"id"`
+	Id NullableString `json:"id,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 }
 
@@ -28,9 +28,8 @@ type AdminUsersUpdateEmailCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdminUsersUpdateEmailCommand(id string) *AdminUsersUpdateEmailCommand {
+func NewAdminUsersUpdateEmailCommand() *AdminUsersUpdateEmailCommand {
 	this := AdminUsersUpdateEmailCommand{}
-	this.Id = id
 	return &this
 }
 
@@ -42,28 +41,46 @@ func NewAdminUsersUpdateEmailCommandWithDefaults() *AdminUsersUpdateEmailCommand
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminUsersUpdateEmailCommand) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdminUsersUpdateEmailCommand) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *AdminUsersUpdateEmailCommand) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *AdminUsersUpdateEmailCommand) SetId(v string) {
-	o.Id = v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AdminUsersUpdateEmailCommand) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AdminUsersUpdateEmailCommand) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -118,7 +135,9 @@ func (o AdminUsersUpdateEmailCommand) MarshalJSON() ([]byte, error) {
 
 func (o AdminUsersUpdateEmailCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}

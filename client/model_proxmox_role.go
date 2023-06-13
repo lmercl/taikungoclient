@@ -17,22 +17,22 @@ import (
 )
 
 // ProxmoxRole the model 'ProxmoxRole'
-type ProxmoxRole int32
+type ProxmoxRole string
 
 // List of ProxmoxRole
 const (
-	PROXMOXROLE__0 ProxmoxRole = 0
-	PROXMOXROLE__100 ProxmoxRole = 100
+	PROXMOXROLE_NONE ProxmoxRole = "NONE"
+	PROXMOXROLE_NFS ProxmoxRole = "NFS"
 )
 
 // All allowed values of ProxmoxRole enum
 var AllowedProxmoxRoleEnumValues = []ProxmoxRole{
-	0,
-	100,
+	"NONE",
+	"NFS",
 }
 
 func (v *ProxmoxRole) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func (v *ProxmoxRole) UnmarshalJSON(src []byte) error {
 
 // NewProxmoxRoleFromValue returns a pointer to a valid ProxmoxRole
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewProxmoxRoleFromValue(v int32) (*ProxmoxRole, error) {
+func NewProxmoxRoleFromValue(v string) (*ProxmoxRole, error) {
 	ev := ProxmoxRole(v)
 	if ev.IsValid() {
 		return &ev, nil

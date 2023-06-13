@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** |  | 
+**Key** | Pointer to **NullableString** |  | [optional] 
 **Value** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewKubernetesNodeLabelsDto
 
-`func NewKubernetesNodeLabelsDto(key string, ) *KubernetesNodeLabelsDto`
+`func NewKubernetesNodeLabelsDto() *KubernetesNodeLabelsDto`
 
 NewKubernetesNodeLabelsDto instantiates a new KubernetesNodeLabelsDto object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+### HasKey
 
+`func (o *KubernetesNodeLabelsDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
+
+### SetKeyNil
+
+`func (o *KubernetesNodeLabelsDto) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *KubernetesNodeLabelsDto) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *KubernetesNodeLabelsDto) GetValue() string`

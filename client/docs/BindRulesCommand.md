@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Rules** | Pointer to [**[]BindRulesToOrganizationDto**](BindRulesToOrganizationDto.md) |  | [optional] 
-**OrganizationId** | **int32** |  | 
+**OrganizationId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewBindRulesCommand
 
-`func NewBindRulesCommand(organizationId int32, ) *BindRulesCommand`
+`func NewBindRulesCommand() *BindRulesCommand`
 
 NewBindRulesCommand instantiates a new BindRulesCommand object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetOrganizationId sets OrganizationId field to given value.
 
+### HasOrganizationId
+
+`func (o *BindRulesCommand) HasOrganizationId() bool`
+
+HasOrganizationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

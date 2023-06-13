@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCreateCatalogCommand
 
-`func NewCreateCatalogCommand(name string, ) *CreateCatalogCommand`
+`func NewCreateCatalogCommand() *CreateCatalogCommand`
 
 NewCreateCatalogCommand instantiates a new CreateCatalogCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateCatalogCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateCatalogCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateCatalogCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateCatalogCommand) GetDescription() string`

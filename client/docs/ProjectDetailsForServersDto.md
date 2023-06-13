@@ -84,6 +84,9 @@ Name | Type | Description | Notes
 **SpotEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsAutoscalingEnabled** | Pointer to **bool** |  | [optional] 
 **HasExpirationWarning** | Pointer to **bool** |  | [optional] 
+**HasNfsServer** | Pointer to **bool** |  | [optional] 
+**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**Hypervisors** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -2434,6 +2437,101 @@ SetHasExpirationWarning sets HasExpirationWarning field to given value.
 
 HasHasExpirationWarning returns a boolean if a field has been set.
 
+### GetHasNfsServer
+
+`func (o *ProjectDetailsForServersDto) GetHasNfsServer() bool`
+
+GetHasNfsServer returns the HasNfsServer field if non-nil, zero value otherwise.
+
+### GetHasNfsServerOk
+
+`func (o *ProjectDetailsForServersDto) GetHasNfsServerOk() (*bool, bool)`
+
+GetHasNfsServerOk returns a tuple with the HasNfsServer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasNfsServer
+
+`func (o *ProjectDetailsForServersDto) SetHasNfsServer(v bool)`
+
+SetHasNfsServer sets HasNfsServer field to given value.
+
+### HasHasNfsServer
+
+`func (o *ProjectDetailsForServersDto) HasHasNfsServer() bool`
+
+HasHasNfsServer returns a boolean if a field has been set.
+
+### GetAvailabilityZones
+
+`func (o *ProjectDetailsForServersDto) GetAvailabilityZones() []string`
+
+GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesOk
+
+`func (o *ProjectDetailsForServersDto) GetAvailabilityZonesOk() (*[]string, bool)`
+
+GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZones
+
+`func (o *ProjectDetailsForServersDto) SetAvailabilityZones(v []string)`
+
+SetAvailabilityZones sets AvailabilityZones field to given value.
+
+### HasAvailabilityZones
+
+`func (o *ProjectDetailsForServersDto) HasAvailabilityZones() bool`
+
+HasAvailabilityZones returns a boolean if a field has been set.
+
+### SetAvailabilityZonesNil
+
+`func (o *ProjectDetailsForServersDto) SetAvailabilityZonesNil(b bool)`
+
+ SetAvailabilityZonesNil sets the value for AvailabilityZones to be an explicit nil
+
+### UnsetAvailabilityZones
+`func (o *ProjectDetailsForServersDto) UnsetAvailabilityZones()`
+
+UnsetAvailabilityZones ensures that no value is present for AvailabilityZones, not even an explicit nil
+### GetHypervisors
+
+`func (o *ProjectDetailsForServersDto) GetHypervisors() []string`
+
+GetHypervisors returns the Hypervisors field if non-nil, zero value otherwise.
+
+### GetHypervisorsOk
+
+`func (o *ProjectDetailsForServersDto) GetHypervisorsOk() (*[]string, bool)`
+
+GetHypervisorsOk returns a tuple with the Hypervisors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisors
+
+`func (o *ProjectDetailsForServersDto) SetHypervisors(v []string)`
+
+SetHypervisors sets Hypervisors field to given value.
+
+### HasHypervisors
+
+`func (o *ProjectDetailsForServersDto) HasHypervisors() bool`
+
+HasHypervisors returns a boolean if a field has been set.
+
+### SetHypervisorsNil
+
+`func (o *ProjectDetailsForServersDto) SetHypervisorsNil(b bool)`
+
+ SetHypervisorsNil sets the value for Hypervisors to be an explicit nil
+
+### UnsetHypervisors
+`func (o *ProjectDetailsForServersDto) UnsetHypervisors()`
+
+UnsetHypervisors ensures that no value is present for Hypervisors, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

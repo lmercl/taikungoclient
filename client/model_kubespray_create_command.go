@@ -20,18 +20,16 @@ var _ MappedNullable = &KubesprayCreateCommand{}
 
 // KubesprayCreateCommand struct for KubesprayCreateCommand
 type KubesprayCreateCommand struct {
-	Version string `json:"version"`
-	KubernetesVersion string `json:"kubernetesVersion"`
+	Version NullableString `json:"version,omitempty"`
+	KubernetesVersion NullableString `json:"kubernetesVersion,omitempty"`
 }
 
 // NewKubesprayCreateCommand instantiates a new KubesprayCreateCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewKubesprayCreateCommand(version string, kubernetesVersion string) *KubesprayCreateCommand {
+func NewKubesprayCreateCommand() *KubesprayCreateCommand {
 	this := KubesprayCreateCommand{}
-	this.Version = version
-	this.KubernetesVersion = kubernetesVersion
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewKubesprayCreateCommandWithDefaults() *KubesprayCreateCommand {
 	return &this
 }
 
-// GetVersion returns the Version field value
+// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KubesprayCreateCommand) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version.Get()
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KubesprayCreateCommand) GetVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version.Get(), o.Version.IsSet()
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *KubesprayCreateCommand) HasVersion() bool {
+	if o != nil && o.Version.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given NullableString and assigns it to the Version field.
 func (o *KubesprayCreateCommand) SetVersion(v string) {
-	o.Version = v
+	o.Version.Set(&v)
+}
+// SetVersionNil sets the value for Version to be an explicit nil
+func (o *KubesprayCreateCommand) SetVersionNil() {
+	o.Version.Set(nil)
 }
 
-// GetKubernetesVersion returns the KubernetesVersion field value
+// UnsetVersion ensures that no value is present for Version, not even an explicit nil
+func (o *KubesprayCreateCommand) UnsetVersion() {
+	o.Version.Unset()
+}
+
+// GetKubernetesVersion returns the KubernetesVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KubesprayCreateCommand) GetKubernetesVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.KubernetesVersion.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.KubernetesVersion
+	return *o.KubernetesVersion.Get()
 }
 
-// GetKubernetesVersionOk returns a tuple with the KubernetesVersion field value
+// GetKubernetesVersionOk returns a tuple with the KubernetesVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KubesprayCreateCommand) GetKubernetesVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.KubernetesVersion, true
+	return o.KubernetesVersion.Get(), o.KubernetesVersion.IsSet()
 }
 
-// SetKubernetesVersion sets field value
+// HasKubernetesVersion returns a boolean if a field has been set.
+func (o *KubesprayCreateCommand) HasKubernetesVersion() bool {
+	if o != nil && o.KubernetesVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetKubernetesVersion gets a reference to the given NullableString and assigns it to the KubernetesVersion field.
 func (o *KubesprayCreateCommand) SetKubernetesVersion(v string) {
-	o.KubernetesVersion = v
+	o.KubernetesVersion.Set(&v)
+}
+// SetKubernetesVersionNil sets the value for KubernetesVersion to be an explicit nil
+func (o *KubesprayCreateCommand) SetKubernetesVersionNil() {
+	o.KubernetesVersion.Set(nil)
+}
+
+// UnsetKubernetesVersion ensures that no value is present for KubernetesVersion, not even an explicit nil
+func (o *KubesprayCreateCommand) UnsetKubernetesVersion() {
+	o.KubernetesVersion.Unset()
 }
 
 func (o KubesprayCreateCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o KubesprayCreateCommand) MarshalJSON() ([]byte, error) {
 
 func (o KubesprayCreateCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["version"] = o.Version
-	toSerialize["kubernetesVersion"] = o.KubernetesVersion
+	if o.Version.IsSet() {
+		toSerialize["version"] = o.Version.Get()
+	}
+	if o.KubernetesVersion.IsSet() {
+		toSerialize["kubernetesVersion"] = o.KubernetesVersion.Get()
+	}
 	return toSerialize, nil
 }
 

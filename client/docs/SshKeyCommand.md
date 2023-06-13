@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SshPublicKey** | **string** |  | 
+**SshPublicKey** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewSshKeyCommand
 
-`func NewSshKeyCommand(sshPublicKey string, ) *SshKeyCommand`
+`func NewSshKeyCommand() *SshKeyCommand`
 
 NewSshKeyCommand instantiates a new SshKeyCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetSshPublicKey sets SshPublicKey field to given value.
 
+### HasSshPublicKey
 
+`func (o *SshKeyCommand) HasSshPublicKey() bool`
+
+HasSshPublicKey returns a boolean if a field has been set.
+
+### SetSshPublicKeyNil
+
+`func (o *SshKeyCommand) SetSshPublicKeyNil(b bool)`
+
+ SetSshPublicKeyNil sets the value for SshPublicKey to be an explicit nil
+
+### UnsetSshPublicKey
+`func (o *SshKeyCommand) UnsetSshPublicKey()`
+
+UnsetSshPublicKey ensures that no value is present for SshPublicKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

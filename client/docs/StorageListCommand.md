@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | 
-**Username** | **string** |  | 
-**Password** | **string** |  | 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewStorageListCommand
 
-`func NewStorageListCommand(url string, username string, password string, ) *StorageListCommand`
+`func NewStorageListCommand() *StorageListCommand`
 
 NewStorageListCommand instantiates a new StorageListCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,47 +46,92 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
-### GetUsername
+`func (o *StorageListCommand) HasUrl() bool`
 
-`func (o *StorageListCommand) GetUsername() string`
+HasUrl returns a boolean if a field has been set.
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+### SetUrlNil
 
-### GetUsernameOk
+`func (o *StorageListCommand) SetUrlNil(b bool)`
 
-`func (o *StorageListCommand) GetUsernameOk() (*string, bool)`
+ SetUrlNil sets the value for Url to be an explicit nil
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+### UnsetUrl
+`func (o *StorageListCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
+### GetTokenId
+
+`func (o *StorageListCommand) GetTokenId() string`
+
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
+
+### GetTokenIdOk
+
+`func (o *StorageListCommand) GetTokenIdOk() (*string, bool)`
+
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *StorageListCommand) SetUsername(v string)`
+`func (o *StorageListCommand) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
+### HasTokenId
 
-### GetPassword
+`func (o *StorageListCommand) HasTokenId() bool`
 
-`func (o *StorageListCommand) GetPassword() string`
+HasTokenId returns a boolean if a field has been set.
 
-GetPassword returns the Password field if non-nil, zero value otherwise.
+### SetTokenIdNil
 
-### GetPasswordOk
+`func (o *StorageListCommand) SetTokenIdNil(b bool)`
 
-`func (o *StorageListCommand) GetPasswordOk() (*string, bool)`
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+### UnsetTokenId
+`func (o *StorageListCommand) UnsetTokenId()`
+
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+### GetTokenSecret
+
+`func (o *StorageListCommand) GetTokenSecret() string`
+
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
+
+### GetTokenSecretOk
+
+`func (o *StorageListCommand) GetTokenSecretOk() (*string, bool)`
+
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPassword
+### SetTokenSecret
 
-`func (o *StorageListCommand) SetPassword(v string)`
+`func (o *StorageListCommand) SetTokenSecret(v string)`
 
-SetPassword sets Password field to given value.
+SetTokenSecret sets TokenSecret field to given value.
 
+### HasTokenSecret
 
+`func (o *StorageListCommand) HasTokenSecret() bool`
+
+HasTokenSecret returns a boolean if a field has been set.
+
+### SetTokenSecretNil
+
+`func (o *StorageListCommand) SetTokenSecretNil(b bool)`
+
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+
+### UnsetTokenSecret
+`func (o *StorageListCommand) UnsetTokenSecret()`
+
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

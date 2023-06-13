@@ -20,22 +20,18 @@ var _ MappedNullable = &PatchIngressCommand{}
 
 // PatchIngressCommand struct for PatchIngressCommand
 type PatchIngressCommand struct {
-	ProjectId int32 `json:"projectId"`
-	Yaml string `json:"yaml"`
-	Name string `json:"name"`
-	Namespace string `json:"namespace"`
+	ProjectId *int32 `json:"projectId,omitempty"`
+	Yaml NullableString `json:"yaml,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Namespace NullableString `json:"namespace,omitempty"`
 }
 
 // NewPatchIngressCommand instantiates a new PatchIngressCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchIngressCommand(projectId int32, yaml string, name string, namespace string) *PatchIngressCommand {
+func NewPatchIngressCommand() *PatchIngressCommand {
 	this := PatchIngressCommand{}
-	this.ProjectId = projectId
-	this.Yaml = yaml
-	this.Name = name
-	this.Namespace = namespace
 	return &this
 }
 
@@ -47,100 +43,162 @@ func NewPatchIngressCommandWithDefaults() *PatchIngressCommand {
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *PatchIngressCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PatchIngressCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *PatchIngressCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *PatchIngressCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
-// GetYaml returns the Yaml field value
+// GetYaml returns the Yaml field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchIngressCommand) GetYaml() string {
-	if o == nil {
+	if o == nil || IsNil(o.Yaml.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Yaml
+	return *o.Yaml.Get()
 }
 
-// GetYamlOk returns a tuple with the Yaml field value
+// GetYamlOk returns a tuple with the Yaml field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchIngressCommand) GetYamlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Yaml, true
+	return o.Yaml.Get(), o.Yaml.IsSet()
 }
 
-// SetYaml sets field value
+// HasYaml returns a boolean if a field has been set.
+func (o *PatchIngressCommand) HasYaml() bool {
+	if o != nil && o.Yaml.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetYaml gets a reference to the given NullableString and assigns it to the Yaml field.
 func (o *PatchIngressCommand) SetYaml(v string) {
-	o.Yaml = v
+	o.Yaml.Set(&v)
+}
+// SetYamlNil sets the value for Yaml to be an explicit nil
+func (o *PatchIngressCommand) SetYamlNil() {
+	o.Yaml.Set(nil)
 }
 
-// GetName returns the Name field value
+// UnsetYaml ensures that no value is present for Yaml, not even an explicit nil
+func (o *PatchIngressCommand) UnsetYaml() {
+	o.Yaml.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchIngressCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchIngressCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *PatchIngressCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *PatchIngressCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *PatchIngressCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetNamespace returns the Namespace field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *PatchIngressCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchIngressCommand) GetNamespace() string {
-	if o == nil {
+	if o == nil || IsNil(o.Namespace.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Namespace
+	return *o.Namespace.Get()
 }
 
-// GetNamespaceOk returns a tuple with the Namespace field value
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchIngressCommand) GetNamespaceOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Namespace, true
+	return o.Namespace.Get(), o.Namespace.IsSet()
 }
 
-// SetNamespace sets field value
+// HasNamespace returns a boolean if a field has been set.
+func (o *PatchIngressCommand) HasNamespace() bool {
+	if o != nil && o.Namespace.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespace gets a reference to the given NullableString and assigns it to the Namespace field.
 func (o *PatchIngressCommand) SetNamespace(v string) {
-	o.Namespace = v
+	o.Namespace.Set(&v)
+}
+// SetNamespaceNil sets the value for Namespace to be an explicit nil
+func (o *PatchIngressCommand) SetNamespaceNil() {
+	o.Namespace.Set(nil)
+}
+
+// UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
+func (o *PatchIngressCommand) UnsetNamespace() {
+	o.Namespace.Unset()
 }
 
 func (o PatchIngressCommand) MarshalJSON() ([]byte, error) {
@@ -153,10 +211,18 @@ func (o PatchIngressCommand) MarshalJSON() ([]byte, error) {
 
 func (o PatchIngressCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["yaml"] = o.Yaml
-	toSerialize["name"] = o.Name
-	toSerialize["namespace"] = o.Namespace
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
+	if o.Yaml.IsSet() {
+		toSerialize["yaml"] = o.Yaml.Get()
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Namespace.IsSet() {
+		toSerialize["namespace"] = o.Namespace.Get()
+	}
 	return toSerialize, nil
 }
 

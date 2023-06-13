@@ -20,22 +20,18 @@ var _ MappedNullable = &UpdateAwsCommand{}
 
 // UpdateAwsCommand struct for UpdateAwsCommand
 type UpdateAwsCommand struct {
-	Id int32 `json:"id"`
-	Name string `json:"name"`
-	AwsSecretAccessKey string `json:"awsSecretAccessKey"`
-	AwsAccessKeyId string `json:"awsAccessKeyId"`
+	Id *int32 `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	AwsSecretAccessKey NullableString `json:"awsSecretAccessKey,omitempty"`
+	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty"`
 }
 
 // NewUpdateAwsCommand instantiates a new UpdateAwsCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateAwsCommand(id int32, name string, awsSecretAccessKey string, awsAccessKeyId string) *UpdateAwsCommand {
+func NewUpdateAwsCommand() *UpdateAwsCommand {
 	this := UpdateAwsCommand{}
-	this.Id = id
-	this.Name = name
-	this.AwsSecretAccessKey = awsSecretAccessKey
-	this.AwsAccessKeyId = awsAccessKeyId
 	return &this
 }
 
@@ -47,100 +43,162 @@ func NewUpdateAwsCommandWithDefaults() *UpdateAwsCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateAwsCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAwsCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateAwsCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateAwsCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAwsCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAwsCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *UpdateAwsCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *UpdateAwsCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *UpdateAwsCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetAwsSecretAccessKey returns the AwsSecretAccessKey field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *UpdateAwsCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetAwsSecretAccessKey returns the AwsSecretAccessKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAwsCommand) GetAwsSecretAccessKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.AwsSecretAccessKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.AwsSecretAccessKey
+	return *o.AwsSecretAccessKey.Get()
 }
 
-// GetAwsSecretAccessKeyOk returns a tuple with the AwsSecretAccessKey field value
+// GetAwsSecretAccessKeyOk returns a tuple with the AwsSecretAccessKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAwsCommand) GetAwsSecretAccessKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AwsSecretAccessKey, true
+	return o.AwsSecretAccessKey.Get(), o.AwsSecretAccessKey.IsSet()
 }
 
-// SetAwsSecretAccessKey sets field value
+// HasAwsSecretAccessKey returns a boolean if a field has been set.
+func (o *UpdateAwsCommand) HasAwsSecretAccessKey() bool {
+	if o != nil && o.AwsSecretAccessKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsSecretAccessKey gets a reference to the given NullableString and assigns it to the AwsSecretAccessKey field.
 func (o *UpdateAwsCommand) SetAwsSecretAccessKey(v string) {
-	o.AwsSecretAccessKey = v
+	o.AwsSecretAccessKey.Set(&v)
+}
+// SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
+func (o *UpdateAwsCommand) SetAwsSecretAccessKeyNil() {
+	o.AwsSecretAccessKey.Set(nil)
 }
 
-// GetAwsAccessKeyId returns the AwsAccessKeyId field value
+// UnsetAwsSecretAccessKey ensures that no value is present for AwsSecretAccessKey, not even an explicit nil
+func (o *UpdateAwsCommand) UnsetAwsSecretAccessKey() {
+	o.AwsSecretAccessKey.Unset()
+}
+
+// GetAwsAccessKeyId returns the AwsAccessKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAwsCommand) GetAwsAccessKeyId() string {
-	if o == nil {
+	if o == nil || IsNil(o.AwsAccessKeyId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.AwsAccessKeyId
+	return *o.AwsAccessKeyId.Get()
 }
 
-// GetAwsAccessKeyIdOk returns a tuple with the AwsAccessKeyId field value
+// GetAwsAccessKeyIdOk returns a tuple with the AwsAccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAwsCommand) GetAwsAccessKeyIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AwsAccessKeyId, true
+	return o.AwsAccessKeyId.Get(), o.AwsAccessKeyId.IsSet()
 }
 
-// SetAwsAccessKeyId sets field value
+// HasAwsAccessKeyId returns a boolean if a field has been set.
+func (o *UpdateAwsCommand) HasAwsAccessKeyId() bool {
+	if o != nil && o.AwsAccessKeyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsAccessKeyId gets a reference to the given NullableString and assigns it to the AwsAccessKeyId field.
 func (o *UpdateAwsCommand) SetAwsAccessKeyId(v string) {
-	o.AwsAccessKeyId = v
+	o.AwsAccessKeyId.Set(&v)
+}
+// SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
+func (o *UpdateAwsCommand) SetAwsAccessKeyIdNil() {
+	o.AwsAccessKeyId.Set(nil)
+}
+
+// UnsetAwsAccessKeyId ensures that no value is present for AwsAccessKeyId, not even an explicit nil
+func (o *UpdateAwsCommand) UnsetAwsAccessKeyId() {
+	o.AwsAccessKeyId.Unset()
 }
 
 func (o UpdateAwsCommand) MarshalJSON() ([]byte, error) {
@@ -153,10 +211,18 @@ func (o UpdateAwsCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateAwsCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
-	toSerialize["awsSecretAccessKey"] = o.AwsSecretAccessKey
-	toSerialize["awsAccessKeyId"] = o.AwsAccessKeyId
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.AwsSecretAccessKey.IsSet() {
+		toSerialize["awsSecretAccessKey"] = o.AwsSecretAccessKey.Get()
+	}
+	if o.AwsAccessKeyId.IsSet() {
+		toSerialize["awsAccessKeyId"] = o.AwsAccessKeyId.Get()
+	}
 	return toSerialize, nil
 }
 

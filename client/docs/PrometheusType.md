@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `COUNT` (value: `"Count"`)
 
-* `_200` (value: `200`)
+* `SUM` (value: `"Sum"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

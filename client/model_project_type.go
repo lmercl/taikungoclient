@@ -17,22 +17,22 @@ import (
 )
 
 // ProjectType the model 'ProjectType'
-type ProjectType int32
+type ProjectType string
 
 // List of ProjectType
 const (
-	PROJECTTYPE__100 ProjectType = 100
-	PROJECTTYPE__200 ProjectType = 200
+	PROJECTTYPE_K8_S ProjectType = "K8S"
+	PROJECTTYPE_VIRT ProjectType = "VIRT"
 )
 
 // All allowed values of ProjectType enum
 var AllowedProjectTypeEnumValues = []ProjectType{
-	100,
-	200,
+	"K8S",
+	"VIRT",
 }
 
 func (v *ProjectType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func (v *ProjectType) UnmarshalJSON(src []byte) error {
 
 // NewProjectTypeFromValue returns a pointer to a valid ProjectType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewProjectTypeFromValue(v int32) (*ProjectType, error) {
+func NewProjectTypeFromValue(v string) (*ProjectType, error) {
 	ev := ProjectType(v)
 	if ev.IsValid() {
 		return &ev, nil

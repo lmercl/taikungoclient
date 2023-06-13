@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    operationCredentialsCreateCommand := *openapiclient.NewOperationCredentialsCreateCommand("Name_example", "PrometheusUsername_example", "PrometheusPassword_example", "PrometheusUrl_example") // OperationCredentialsCreateCommand | 
+    operationCredentialsCreateCommand := *openapiclient.NewOperationCredentialsCreateCommand() // OperationCredentialsCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

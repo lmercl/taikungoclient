@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    backupCredentialsCreateCommand := *openapiclient.NewBackupCredentialsCreateCommand("S3Name_example", "S3AccessKeyId_example", "S3SecretKey_example", "S3Endpoint_example") // BackupCredentialsCreateCommand | 
+    backupCredentialsCreateCommand := *openapiclient.NewBackupCredentialsCreateCommand() // BackupCredentialsCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -431,7 +431,7 @@ import (
 )
 
 func main() {
-    backupCredentialsUpdateCommand := *openapiclient.NewBackupCredentialsUpdateCommand(int32(123), "S3Name_example", "S3AccessKeyId_example", "S3SecretKey_example") // BackupCredentialsUpdateCommand |  (optional)
+    backupCredentialsUpdateCommand := *openapiclient.NewBackupCredentialsUpdateCommand() // BackupCredentialsUpdateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

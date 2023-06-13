@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createProjectFromTemplateCommand := *openapiclient.NewCreateProjectFromTemplateCommand(int32(123), "ProjectName_example") // CreateProjectFromTemplateCommand | 
+    createProjectFromTemplateCommand := *openapiclient.NewCreateProjectFromTemplateCommand() // CreateProjectFromTemplateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -17,28 +17,28 @@ import (
 )
 
 // UserRole the model 'UserRole'
-type UserRole int32
+type UserRole string
 
 // List of UserRole
 const (
-	USERROLE__100 UserRole = 100
-	USERROLE__200 UserRole = 200
-	USERROLE__250 UserRole = 250
-	USERROLE__400 UserRole = 400
-	USERROLE__6000 UserRole = 6000
+	USERROLE_ADMIN UserRole = "Admin"
+	USERROLE_MANAGER UserRole = "Manager"
+	USERROLE_PARTNER UserRole = "Partner"
+	USERROLE_USER UserRole = "User"
+	USERROLE_AUTOSCALER UserRole = "Autoscaler"
 )
 
 // All allowed values of UserRole enum
 var AllowedUserRoleEnumValues = []UserRole{
-	100,
-	200,
-	250,
-	400,
-	6000,
+	"Admin",
+	"Manager",
+	"Partner",
+	"User",
+	"Autoscaler",
 }
 
 func (v *UserRole) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -56,7 +56,7 @@ func (v *UserRole) UnmarshalJSON(src []byte) error {
 
 // NewUserRoleFromValue returns a pointer to a valid UserRole
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewUserRoleFromValue(v int32) (*UserRole, error) {
+func NewUserRoleFromValue(v string) (*UserRole, error) {
 	ev := UserRole(v)
 	if ev.IsValid() {
 		return &ev, nil

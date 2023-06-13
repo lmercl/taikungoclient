@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProjectId** | Pointer to **int32** |  | [optional] 
-**Name** | **string** |  | 
-**Expression** | **string** |  | 
-**Description** | **string** |  | 
-**CategoryName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Expression** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**CategoryName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPrometheusDashboardCreateCommand
 
-`func NewPrometheusDashboardCreateCommand(name string, expression string, description string, categoryName string, ) *PrometheusDashboardCreateCommand`
+`func NewPrometheusDashboardCreateCommand() *PrometheusDashboardCreateCommand`
 
 NewPrometheusDashboardCreateCommand instantiates a new PrometheusDashboardCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -73,7 +73,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *PrometheusDashboardCreateCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *PrometheusDashboardCreateCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PrometheusDashboardCreateCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetExpression
 
 `func (o *PrometheusDashboardCreateCommand) GetExpression() string`
@@ -93,7 +108,22 @@ and a boolean to check if the value has been set.
 
 SetExpression sets Expression field to given value.
 
+### HasExpression
 
+`func (o *PrometheusDashboardCreateCommand) HasExpression() bool`
+
+HasExpression returns a boolean if a field has been set.
+
+### SetExpressionNil
+
+`func (o *PrometheusDashboardCreateCommand) SetExpressionNil(b bool)`
+
+ SetExpressionNil sets the value for Expression to be an explicit nil
+
+### UnsetExpression
+`func (o *PrometheusDashboardCreateCommand) UnsetExpression()`
+
+UnsetExpression ensures that no value is present for Expression, not even an explicit nil
 ### GetDescription
 
 `func (o *PrometheusDashboardCreateCommand) GetDescription() string`
@@ -113,7 +143,22 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
 
+`func (o *PrometheusDashboardCreateCommand) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *PrometheusDashboardCreateCommand) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PrometheusDashboardCreateCommand) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCategoryName
 
 `func (o *PrometheusDashboardCreateCommand) GetCategoryName() string`
@@ -133,7 +178,22 @@ and a boolean to check if the value has been set.
 
 SetCategoryName sets CategoryName field to given value.
 
+### HasCategoryName
 
+`func (o *PrometheusDashboardCreateCommand) HasCategoryName() bool`
+
+HasCategoryName returns a boolean if a field has been set.
+
+### SetCategoryNameNil
+
+`func (o *PrometheusDashboardCreateCommand) SetCategoryNameNil(b bool)`
+
+ SetCategoryNameNil sets the value for CategoryName to be an explicit nil
+
+### UnsetCategoryName
+`func (o *PrometheusDashboardCreateCommand) UnsetCategoryName()`
+
+UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    createKubeConfigCommand := *openapiclient.NewCreateKubeConfigCommand("Name_example", int32(123)) // CreateKubeConfigCommand |  (optional)
+    createKubeConfigCommand := *openapiclient.NewCreateKubeConfigCommand() // CreateKubeConfigCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -284,7 +284,7 @@ import (
 )
 
 func main() {
-    kubeConfigInteractiveShellCommand := *openapiclient.NewKubeConfigInteractiveShellCommand(int32(123), "Token_example", int32(123)) // KubeConfigInteractiveShellCommand | 
+    kubeConfigInteractiveShellCommand := *openapiclient.NewKubeConfigInteractiveShellCommand() // KubeConfigInteractiveShellCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

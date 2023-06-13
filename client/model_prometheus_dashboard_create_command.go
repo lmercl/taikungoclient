@@ -21,22 +21,18 @@ var _ MappedNullable = &PrometheusDashboardCreateCommand{}
 // PrometheusDashboardCreateCommand struct for PrometheusDashboardCreateCommand
 type PrometheusDashboardCreateCommand struct {
 	ProjectId *int32 `json:"projectId,omitempty"`
-	Name string `json:"name"`
-	Expression string `json:"expression"`
-	Description string `json:"description"`
-	CategoryName string `json:"categoryName"`
+	Name NullableString `json:"name,omitempty"`
+	Expression NullableString `json:"expression,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	CategoryName NullableString `json:"categoryName,omitempty"`
 }
 
 // NewPrometheusDashboardCreateCommand instantiates a new PrometheusDashboardCreateCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrometheusDashboardCreateCommand(name string, expression string, description string, categoryName string) *PrometheusDashboardCreateCommand {
+func NewPrometheusDashboardCreateCommand() *PrometheusDashboardCreateCommand {
 	this := PrometheusDashboardCreateCommand{}
-	this.Name = name
-	this.Expression = expression
-	this.Description = description
-	this.CategoryName = categoryName
 	return &this
 }
 
@@ -80,100 +76,172 @@ func (o *PrometheusDashboardCreateCommand) SetProjectId(v int32) {
 	o.ProjectId = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PrometheusDashboardCreateCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrometheusDashboardCreateCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *PrometheusDashboardCreateCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *PrometheusDashboardCreateCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *PrometheusDashboardCreateCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetExpression returns the Expression field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *PrometheusDashboardCreateCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetExpression returns the Expression field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PrometheusDashboardCreateCommand) GetExpression() string {
-	if o == nil {
+	if o == nil || IsNil(o.Expression.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Expression
+	return *o.Expression.Get()
 }
 
-// GetExpressionOk returns a tuple with the Expression field value
+// GetExpressionOk returns a tuple with the Expression field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrometheusDashboardCreateCommand) GetExpressionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Expression, true
+	return o.Expression.Get(), o.Expression.IsSet()
 }
 
-// SetExpression sets field value
+// HasExpression returns a boolean if a field has been set.
+func (o *PrometheusDashboardCreateCommand) HasExpression() bool {
+	if o != nil && o.Expression.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExpression gets a reference to the given NullableString and assigns it to the Expression field.
 func (o *PrometheusDashboardCreateCommand) SetExpression(v string) {
-	o.Expression = v
+	o.Expression.Set(&v)
+}
+// SetExpressionNil sets the value for Expression to be an explicit nil
+func (o *PrometheusDashboardCreateCommand) SetExpressionNil() {
+	o.Expression.Set(nil)
 }
 
-// GetDescription returns the Description field value
+// UnsetExpression ensures that no value is present for Expression, not even an explicit nil
+func (o *PrometheusDashboardCreateCommand) UnsetExpression() {
+	o.Expression.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PrometheusDashboardCreateCommand) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description.Get()
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrometheusDashboardCreateCommand) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *PrometheusDashboardCreateCommand) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *PrometheusDashboardCreateCommand) SetDescription(v string) {
-	o.Description = v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *PrometheusDashboardCreateCommand) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetCategoryName returns the CategoryName field value
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *PrometheusDashboardCreateCommand) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetCategoryName returns the CategoryName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PrometheusDashboardCreateCommand) GetCategoryName() string {
-	if o == nil {
+	if o == nil || IsNil(o.CategoryName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.CategoryName
+	return *o.CategoryName.Get()
 }
 
-// GetCategoryNameOk returns a tuple with the CategoryName field value
+// GetCategoryNameOk returns a tuple with the CategoryName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PrometheusDashboardCreateCommand) GetCategoryNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CategoryName, true
+	return o.CategoryName.Get(), o.CategoryName.IsSet()
 }
 
-// SetCategoryName sets field value
+// HasCategoryName returns a boolean if a field has been set.
+func (o *PrometheusDashboardCreateCommand) HasCategoryName() bool {
+	if o != nil && o.CategoryName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCategoryName gets a reference to the given NullableString and assigns it to the CategoryName field.
 func (o *PrometheusDashboardCreateCommand) SetCategoryName(v string) {
-	o.CategoryName = v
+	o.CategoryName.Set(&v)
+}
+// SetCategoryNameNil sets the value for CategoryName to be an explicit nil
+func (o *PrometheusDashboardCreateCommand) SetCategoryNameNil() {
+	o.CategoryName.Set(nil)
+}
+
+// UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
+func (o *PrometheusDashboardCreateCommand) UnsetCategoryName() {
+	o.CategoryName.Unset()
 }
 
 func (o PrometheusDashboardCreateCommand) MarshalJSON() ([]byte, error) {
@@ -189,10 +257,18 @@ func (o PrometheusDashboardCreateCommand) ToMap() (map[string]interface{}, error
 	if !IsNil(o.ProjectId) {
 		toSerialize["projectId"] = o.ProjectId
 	}
-	toSerialize["name"] = o.Name
-	toSerialize["expression"] = o.Expression
-	toSerialize["description"] = o.Description
-	toSerialize["categoryName"] = o.CategoryName
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Expression.IsSet() {
+		toSerialize["expression"] = o.Expression.Get()
+	}
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
+	if o.CategoryName.IsSet() {
+		toSerialize["categoryName"] = o.CategoryName.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-    createStandAloneVmCommand := *openapiclient.NewCreateStandAloneVmCommand("Name_example", "FlavorName_example", "Image_example", int32(123), int32(123)) // CreateStandAloneVmCommand |  (optional)
+    createStandAloneVmCommand := *openapiclient.NewCreateStandAloneVmCommand() // CreateStandAloneVmCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -369,7 +369,7 @@ import (
 )
 
 func main() {
-    standAloneVmIpManagementCommand := *openapiclient.NewStandAloneVmIpManagementCommand(int32(123), "Mode_example") // StandAloneVmIpManagementCommand |  (optional)
+    standAloneVmIpManagementCommand := *openapiclient.NewStandAloneVmIpManagementCommand() // StandAloneVmIpManagementCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -717,7 +717,7 @@ import (
 )
 
 func main() {
-    resetStandAloneVmStatusCommand := *openapiclient.NewResetStandAloneVmStatusCommand(int32(123)) // ResetStandAloneVmStatusCommand |  (optional)
+    resetStandAloneVmStatusCommand := *openapiclient.NewResetStandAloneVmStatusCommand() // ResetStandAloneVmStatusCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -779,7 +779,7 @@ import (
 )
 
 func main() {
-    updateStandAloneVmCommand := *openapiclient.NewUpdateStandAloneVmCommand(int32(123)) // UpdateStandAloneVmCommand |  (optional)
+    updateStandAloneVmCommand := *openapiclient.NewUpdateStandAloneVmCommand() // UpdateStandAloneVmCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -841,7 +841,7 @@ import (
 )
 
 func main() {
-    updateStandAloneVmFlavorCommand := *openapiclient.NewUpdateStandAloneVmFlavorCommand(int32(123), "Flavor_example") // UpdateStandAloneVmFlavorCommand |  (optional)
+    updateStandAloneVmFlavorCommand := *openapiclient.NewUpdateStandAloneVmFlavorCommand() // UpdateStandAloneVmFlavorCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -21,7 +21,7 @@ var _ MappedNullable = &ProjectExtendLifeTimeCommand{}
 
 // ProjectExtendLifeTimeCommand struct for ProjectExtendLifeTimeCommand
 type ProjectExtendLifeTimeCommand struct {
-	ProjectId int32 `json:"projectId"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 	ExpireAt NullableTime `json:"expireAt,omitempty"`
 	DeleteOnExpiration *bool `json:"deleteOnExpiration,omitempty"`
 }
@@ -30,9 +30,8 @@ type ProjectExtendLifeTimeCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectExtendLifeTimeCommand(projectId int32) *ProjectExtendLifeTimeCommand {
+func NewProjectExtendLifeTimeCommand() *ProjectExtendLifeTimeCommand {
 	this := ProjectExtendLifeTimeCommand{}
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -44,28 +43,36 @@ func NewProjectExtendLifeTimeCommandWithDefaults() *ProjectExtendLifeTimeCommand
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *ProjectExtendLifeTimeCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProjectExtendLifeTimeCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *ProjectExtendLifeTimeCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *ProjectExtendLifeTimeCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 // GetExpireAt returns the ExpireAt field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -152,7 +159,9 @@ func (o ProjectExtendLifeTimeCommand) MarshalJSON() ([]byte, error) {
 
 func (o ProjectExtendLifeTimeCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	if o.ExpireAt.IsSet() {
 		toSerialize["expireAt"] = o.ExpireAt.Get()
 	}

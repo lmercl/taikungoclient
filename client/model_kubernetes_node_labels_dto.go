@@ -20,7 +20,7 @@ var _ MappedNullable = &KubernetesNodeLabelsDto{}
 
 // KubernetesNodeLabelsDto struct for KubernetesNodeLabelsDto
 type KubernetesNodeLabelsDto struct {
-	Key string `json:"key"`
+	Key NullableString `json:"key,omitempty"`
 	Value NullableString `json:"value,omitempty"`
 }
 
@@ -28,9 +28,8 @@ type KubernetesNodeLabelsDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewKubernetesNodeLabelsDto(key string) *KubernetesNodeLabelsDto {
+func NewKubernetesNodeLabelsDto() *KubernetesNodeLabelsDto {
 	this := KubernetesNodeLabelsDto{}
-	this.Key = key
 	return &this
 }
 
@@ -42,28 +41,46 @@ func NewKubernetesNodeLabelsDtoWithDefaults() *KubernetesNodeLabelsDto {
 	return &this
 }
 
-// GetKey returns the Key field value
+// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KubernetesNodeLabelsDto) GetKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.Key.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Key
+	return *o.Key.Get()
 }
 
-// GetKeyOk returns a tuple with the Key field value
+// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KubernetesNodeLabelsDto) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Key, true
+	return o.Key.Get(), o.Key.IsSet()
 }
 
-// SetKey sets field value
+// HasKey returns a boolean if a field has been set.
+func (o *KubernetesNodeLabelsDto) HasKey() bool {
+	if o != nil && o.Key.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetKey gets a reference to the given NullableString and assigns it to the Key field.
 func (o *KubernetesNodeLabelsDto) SetKey(v string) {
-	o.Key = v
+	o.Key.Set(&v)
+}
+// SetKeyNil sets the value for Key to be an explicit nil
+func (o *KubernetesNodeLabelsDto) SetKeyNil() {
+	o.Key.Set(nil)
+}
+
+// UnsetKey ensures that no value is present for Key, not even an explicit nil
+func (o *KubernetesNodeLabelsDto) UnsetKey() {
+	o.Key.Unset()
 }
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -118,7 +135,9 @@ func (o KubernetesNodeLabelsDto) MarshalJSON() ([]byte, error) {
 
 func (o KubernetesNodeLabelsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["key"] = o.Key
+	if o.Key.IsSet() {
+		toSerialize["key"] = o.Key.Get()
+	}
 	if o.Value.IsSet() {
 		toSerialize["value"] = o.Value.Get()
 	}

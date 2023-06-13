@@ -20,19 +20,17 @@ var _ MappedNullable = &PatchNodeLabelsDto{}
 
 // PatchNodeLabelsDto struct for PatchNodeLabelsDto
 type PatchNodeLabelsDto struct {
-	Key string `json:"key"`
+	Key NullableString `json:"key,omitempty"`
 	Value NullableString `json:"value,omitempty"`
-	Mode string `json:"mode"`
+	Mode NullableString `json:"mode,omitempty"`
 }
 
 // NewPatchNodeLabelsDto instantiates a new PatchNodeLabelsDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchNodeLabelsDto(key string, mode string) *PatchNodeLabelsDto {
+func NewPatchNodeLabelsDto() *PatchNodeLabelsDto {
 	this := PatchNodeLabelsDto{}
-	this.Key = key
-	this.Mode = mode
 	return &this
 }
 
@@ -44,28 +42,46 @@ func NewPatchNodeLabelsDtoWithDefaults() *PatchNodeLabelsDto {
 	return &this
 }
 
-// GetKey returns the Key field value
+// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchNodeLabelsDto) GetKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.Key.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Key
+	return *o.Key.Get()
 }
 
-// GetKeyOk returns a tuple with the Key field value
+// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchNodeLabelsDto) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Key, true
+	return o.Key.Get(), o.Key.IsSet()
 }
 
-// SetKey sets field value
+// HasKey returns a boolean if a field has been set.
+func (o *PatchNodeLabelsDto) HasKey() bool {
+	if o != nil && o.Key.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetKey gets a reference to the given NullableString and assigns it to the Key field.
 func (o *PatchNodeLabelsDto) SetKey(v string) {
-	o.Key = v
+	o.Key.Set(&v)
+}
+// SetKeyNil sets the value for Key to be an explicit nil
+func (o *PatchNodeLabelsDto) SetKeyNil() {
+	o.Key.Set(nil)
+}
+
+// UnsetKey ensures that no value is present for Key, not even an explicit nil
+func (o *PatchNodeLabelsDto) UnsetKey() {
+	o.Key.Unset()
 }
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -110,28 +126,46 @@ func (o *PatchNodeLabelsDto) UnsetValue() {
 	o.Value.Unset()
 }
 
-// GetMode returns the Mode field value
+// GetMode returns the Mode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchNodeLabelsDto) GetMode() string {
-	if o == nil {
+	if o == nil || IsNil(o.Mode.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Mode
+	return *o.Mode.Get()
 }
 
-// GetModeOk returns a tuple with the Mode field value
+// GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchNodeLabelsDto) GetModeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Mode, true
+	return o.Mode.Get(), o.Mode.IsSet()
 }
 
-// SetMode sets field value
+// HasMode returns a boolean if a field has been set.
+func (o *PatchNodeLabelsDto) HasMode() bool {
+	if o != nil && o.Mode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMode gets a reference to the given NullableString and assigns it to the Mode field.
 func (o *PatchNodeLabelsDto) SetMode(v string) {
-	o.Mode = v
+	o.Mode.Set(&v)
+}
+// SetModeNil sets the value for Mode to be an explicit nil
+func (o *PatchNodeLabelsDto) SetModeNil() {
+	o.Mode.Set(nil)
+}
+
+// UnsetMode ensures that no value is present for Mode, not even an explicit nil
+func (o *PatchNodeLabelsDto) UnsetMode() {
+	o.Mode.Unset()
 }
 
 func (o PatchNodeLabelsDto) MarshalJSON() ([]byte, error) {
@@ -144,11 +178,15 @@ func (o PatchNodeLabelsDto) MarshalJSON() ([]byte, error) {
 
 func (o PatchNodeLabelsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["key"] = o.Key
+	if o.Key.IsSet() {
+		toSerialize["key"] = o.Key.Get()
+	}
 	if o.Value.IsSet() {
 		toSerialize["value"] = o.Value.Get()
 	}
-	toSerialize["mode"] = o.Mode
+	if o.Mode.IsSet() {
+		toSerialize["mode"] = o.Mode.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &ResetServerStatusCommand{}
 
 // ResetServerStatusCommand struct for ResetServerStatusCommand
 type ResetServerStatusCommand struct {
-	ProjectId int32 `json:"projectId"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 	ServerIds []int32 `json:"serverIds,omitempty"`
 	Status *CloudStatus `json:"status,omitempty"`
 }
@@ -29,9 +29,8 @@ type ResetServerStatusCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResetServerStatusCommand(projectId int32) *ResetServerStatusCommand {
+func NewResetServerStatusCommand() *ResetServerStatusCommand {
 	this := ResetServerStatusCommand{}
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -43,28 +42,36 @@ func NewResetServerStatusCommandWithDefaults() *ResetServerStatusCommand {
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *ResetServerStatusCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResetServerStatusCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *ResetServerStatusCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *ResetServerStatusCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 // GetServerIds returns the ServerIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -142,7 +149,9 @@ func (o ResetServerStatusCommand) MarshalJSON() ([]byte, error) {
 
 func (o ResetServerStatusCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	if o.ServerIds != nil {
 		toSerialize["serverIds"] = o.ServerIds
 	}

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Url** | Pointer to **NullableString** |  | [optional] 
-**Username** | Pointer to **NullableString** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
 **CloudId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
@@ -63,76 +63,76 @@ HasUrl returns a boolean if a field has been set.
 `func (o *HypervisorListCommand) UnsetUrl()`
 
 UnsetUrl ensures that no value is present for Url, not even an explicit nil
-### GetUsername
+### GetTokenId
 
-`func (o *HypervisorListCommand) GetUsername() string`
+`func (o *HypervisorListCommand) GetTokenId() string`
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
 
-### GetUsernameOk
+### GetTokenIdOk
 
-`func (o *HypervisorListCommand) GetUsernameOk() (*string, bool)`
+`func (o *HypervisorListCommand) GetTokenIdOk() (*string, bool)`
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *HypervisorListCommand) SetUsername(v string)`
+`func (o *HypervisorListCommand) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
-### HasUsername
+### HasTokenId
 
-`func (o *HypervisorListCommand) HasUsername() bool`
+`func (o *HypervisorListCommand) HasTokenId() bool`
 
-HasUsername returns a boolean if a field has been set.
+HasTokenId returns a boolean if a field has been set.
 
-### SetUsernameNil
+### SetTokenIdNil
 
-`func (o *HypervisorListCommand) SetUsernameNil(b bool)`
+`func (o *HypervisorListCommand) SetTokenIdNil(b bool)`
 
- SetUsernameNil sets the value for Username to be an explicit nil
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-### UnsetUsername
-`func (o *HypervisorListCommand) UnsetUsername()`
+### UnsetTokenId
+`func (o *HypervisorListCommand) UnsetTokenId()`
 
-UnsetUsername ensures that no value is present for Username, not even an explicit nil
-### GetPassword
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+### GetTokenSecret
 
-`func (o *HypervisorListCommand) GetPassword() string`
+`func (o *HypervisorListCommand) GetTokenSecret() string`
 
-GetPassword returns the Password field if non-nil, zero value otherwise.
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
 
-### GetPasswordOk
+### GetTokenSecretOk
 
-`func (o *HypervisorListCommand) GetPasswordOk() (*string, bool)`
+`func (o *HypervisorListCommand) GetTokenSecretOk() (*string, bool)`
 
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPassword
+### SetTokenSecret
 
-`func (o *HypervisorListCommand) SetPassword(v string)`
+`func (o *HypervisorListCommand) SetTokenSecret(v string)`
 
-SetPassword sets Password field to given value.
+SetTokenSecret sets TokenSecret field to given value.
 
-### HasPassword
+### HasTokenSecret
 
-`func (o *HypervisorListCommand) HasPassword() bool`
+`func (o *HypervisorListCommand) HasTokenSecret() bool`
 
-HasPassword returns a boolean if a field has been set.
+HasTokenSecret returns a boolean if a field has been set.
 
-### SetPasswordNil
+### SetTokenSecretNil
 
-`func (o *HypervisorListCommand) SetPasswordNil(b bool)`
+`func (o *HypervisorListCommand) SetTokenSecretNil(b bool)`
 
- SetPasswordNil sets the value for Password to be an explicit nil
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
 
-### UnsetPassword
-`func (o *HypervisorListCommand) UnsetPassword()`
+### UnsetTokenSecret
+`func (o *HypervisorListCommand) UnsetTokenSecret()`
 
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 ### GetCloudId
 
 `func (o *HypervisorListCommand) GetCloudId() int32`

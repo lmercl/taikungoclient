@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reason** | **string** |  | 
+**Reason** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewLeaveTaikunCommand
 
-`func NewLeaveTaikunCommand(reason string, ) *LeaveTaikunCommand`
+`func NewLeaveTaikunCommand() *LeaveTaikunCommand`
 
 NewLeaveTaikunCommand instantiates a new LeaveTaikunCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetReason sets Reason field to given value.
 
+### HasReason
 
+`func (o *LeaveTaikunCommand) HasReason() bool`
+
+HasReason returns a boolean if a field has been set.
+
+### SetReasonNil
+
+`func (o *LeaveTaikunCommand) SetReasonNil(b bool)`
+
+ SetReasonNil sets the value for Reason to be an explicit nil
+
+### UnsetReason
+`func (o *LeaveTaikunCommand) UnsetReason()`
+
+UnsetReason ensures that no value is present for Reason, not even an explicit nil
 ### GetMessage
 
 `func (o *LeaveTaikunCommand) GetMessage() string`

@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `ALERT` (value: `"Alert"`)
 
-* `_200` (value: `200`)
+* `GENERAL` (value: `"General"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

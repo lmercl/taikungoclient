@@ -20,8 +20,8 @@ var _ MappedNullable = &CreateStandAloneDiskCommand{}
 
 // CreateStandAloneDiskCommand struct for CreateStandAloneDiskCommand
 type CreateStandAloneDiskCommand struct {
-	StandaloneVmId int32 `json:"standaloneVmId"`
-	Name string `json:"name"`
+	StandaloneVmId *int32 `json:"standaloneVmId,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	Size *int64 `json:"size,omitempty"`
 	VolumeType NullableString `json:"volumeType,omitempty"`
 	DeviceName NullableString `json:"deviceName,omitempty"`
@@ -32,10 +32,8 @@ type CreateStandAloneDiskCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateStandAloneDiskCommand(standaloneVmId int32, name string) *CreateStandAloneDiskCommand {
+func NewCreateStandAloneDiskCommand() *CreateStandAloneDiskCommand {
 	this := CreateStandAloneDiskCommand{}
-	this.StandaloneVmId = standaloneVmId
-	this.Name = name
 	return &this
 }
 
@@ -47,52 +45,78 @@ func NewCreateStandAloneDiskCommandWithDefaults() *CreateStandAloneDiskCommand {
 	return &this
 }
 
-// GetStandaloneVmId returns the StandaloneVmId field value
+// GetStandaloneVmId returns the StandaloneVmId field value if set, zero value otherwise.
 func (o *CreateStandAloneDiskCommand) GetStandaloneVmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StandaloneVmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.StandaloneVmId
+	return *o.StandaloneVmId
 }
 
-// GetStandaloneVmIdOk returns a tuple with the StandaloneVmId field value
+// GetStandaloneVmIdOk returns a tuple with the StandaloneVmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateStandAloneDiskCommand) GetStandaloneVmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StandaloneVmId) {
 		return nil, false
 	}
-	return &o.StandaloneVmId, true
+	return o.StandaloneVmId, true
 }
 
-// SetStandaloneVmId sets field value
+// HasStandaloneVmId returns a boolean if a field has been set.
+func (o *CreateStandAloneDiskCommand) HasStandaloneVmId() bool {
+	if o != nil && !IsNil(o.StandaloneVmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetStandaloneVmId gets a reference to the given int32 and assigns it to the StandaloneVmId field.
 func (o *CreateStandAloneDiskCommand) SetStandaloneVmId(v int32) {
-	o.StandaloneVmId = v
+	o.StandaloneVmId = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateStandAloneDiskCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStandAloneDiskCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateStandAloneDiskCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateStandAloneDiskCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateStandAloneDiskCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateStandAloneDiskCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
@@ -263,8 +287,12 @@ func (o CreateStandAloneDiskCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateStandAloneDiskCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["standaloneVmId"] = o.StandaloneVmId
-	toSerialize["name"] = o.Name
+	if !IsNil(o.StandaloneVmId) {
+		toSerialize["standaloneVmId"] = o.StandaloneVmId
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}

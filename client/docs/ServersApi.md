@@ -456,7 +456,7 @@ import (
 )
 
 func main() {
-    resetServerStatusCommand := *openapiclient.NewResetServerStatusCommand(int32(123)) // ResetServerStatusCommand |  (optional)
+    resetServerStatusCommand := *openapiclient.NewResetServerStatusCommand() // ResetServerStatusCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -586,7 +586,7 @@ import (
 )
 
 func main() {
-    updateServerCommand := *openapiclient.NewUpdateServerCommand(int32(123), "Ip_example") // UpdateServerCommand |  (optional)
+    updateServerCommand := *openapiclient.NewUpdateServerCommand() // UpdateServerCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**MetricName** | **string** |  | 
-**Labels** | [**[]PrometheusLabelListDto**](PrometheusLabelListDto.md) |  | 
-**Type** | [**PrometheusType**](PrometheusType.md) |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**MetricName** | Pointer to **NullableString** |  | [optional] 
+**Labels** | Pointer to [**[]PrometheusLabelListDto**](PrometheusLabelListDto.md) |  | [optional] 
+**Type** | Pointer to [**PrometheusType**](PrometheusType.md) |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 **PartnerId** | Pointer to **NullableInt32** |  | [optional] 
 **OperationCredentialId** | Pointer to **int32** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewRuleCreateCommand
 
-`func NewRuleCreateCommand(name string, metricName string, labels []PrometheusLabelListDto, type_ PrometheusType, ) *RuleCreateCommand`
+`func NewRuleCreateCommand() *RuleCreateCommand`
 
 NewRuleCreateCommand instantiates a new RuleCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -52,7 +52,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *RuleCreateCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *RuleCreateCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *RuleCreateCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetMetricName
 
 `func (o *RuleCreateCommand) GetMetricName() string`
@@ -72,7 +87,22 @@ and a boolean to check if the value has been set.
 
 SetMetricName sets MetricName field to given value.
 
+### HasMetricName
 
+`func (o *RuleCreateCommand) HasMetricName() bool`
+
+HasMetricName returns a boolean if a field has been set.
+
+### SetMetricNameNil
+
+`func (o *RuleCreateCommand) SetMetricNameNil(b bool)`
+
+ SetMetricNameNil sets the value for MetricName to be an explicit nil
+
+### UnsetMetricName
+`func (o *RuleCreateCommand) UnsetMetricName()`
+
+UnsetMetricName ensures that no value is present for MetricName, not even an explicit nil
 ### GetLabels
 
 `func (o *RuleCreateCommand) GetLabels() []PrometheusLabelListDto`
@@ -92,7 +122,22 @@ and a boolean to check if the value has been set.
 
 SetLabels sets Labels field to given value.
 
+### HasLabels
 
+`func (o *RuleCreateCommand) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
+
+### SetLabelsNil
+
+`func (o *RuleCreateCommand) SetLabelsNil(b bool)`
+
+ SetLabelsNil sets the value for Labels to be an explicit nil
+
+### UnsetLabels
+`func (o *RuleCreateCommand) UnsetLabels()`
+
+UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 ### GetType
 
 `func (o *RuleCreateCommand) GetType() PrometheusType`
@@ -112,6 +157,11 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
+
+`func (o *RuleCreateCommand) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetPrice
 

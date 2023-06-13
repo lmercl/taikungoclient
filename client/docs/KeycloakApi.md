@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    keycloakCreateCommand := *openapiclient.NewKeycloakCreateCommand("Name_example", "Url_example", "RealmsName_example", "ClientId_example", "ClientSecret_example") // KeycloakCreateCommand | 
+    keycloakCreateCommand := *openapiclient.NewKeycloakCreateCommand() // KeycloakCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -154,7 +154,7 @@ import (
 )
 
 func main() {
-    keycloakEditCommand := *openapiclient.NewKeycloakEditCommand(int32(123), "Name_example", "Url_example", "RealmsName_example", "ClientId_example", "ClientSecret_example") // KeycloakEditCommand | 
+    keycloakEditCommand := *openapiclient.NewKeycloakEditCommand() // KeycloakEditCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

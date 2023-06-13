@@ -21,19 +21,17 @@ var _ MappedNullable = &CreateBillingSummaryCommand{}
 
 // CreateBillingSummaryCommand struct for CreateBillingSummaryCommand
 type CreateBillingSummaryCommand struct {
-	Icu int32 `json:"icu"`
+	Icu *int32 `json:"icu,omitempty"`
 	BeginApply *time.Time `json:"beginApply,omitempty"`
-	ProjectId int32 `json:"projectId"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 }
 
 // NewCreateBillingSummaryCommand instantiates a new CreateBillingSummaryCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateBillingSummaryCommand(icu int32, projectId int32) *CreateBillingSummaryCommand {
+func NewCreateBillingSummaryCommand() *CreateBillingSummaryCommand {
 	this := CreateBillingSummaryCommand{}
-	this.Icu = icu
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -45,28 +43,36 @@ func NewCreateBillingSummaryCommandWithDefaults() *CreateBillingSummaryCommand {
 	return &this
 }
 
-// GetIcu returns the Icu field value
+// GetIcu returns the Icu field value if set, zero value otherwise.
 func (o *CreateBillingSummaryCommand) GetIcu() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Icu) {
 		var ret int32
 		return ret
 	}
-
-	return o.Icu
+	return *o.Icu
 }
 
-// GetIcuOk returns a tuple with the Icu field value
+// GetIcuOk returns a tuple with the Icu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateBillingSummaryCommand) GetIcuOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Icu) {
 		return nil, false
 	}
-	return &o.Icu, true
+	return o.Icu, true
 }
 
-// SetIcu sets field value
+// HasIcu returns a boolean if a field has been set.
+func (o *CreateBillingSummaryCommand) HasIcu() bool {
+	if o != nil && !IsNil(o.Icu) {
+		return true
+	}
+
+	return false
+}
+
+// SetIcu gets a reference to the given int32 and assigns it to the Icu field.
 func (o *CreateBillingSummaryCommand) SetIcu(v int32) {
-	o.Icu = v
+	o.Icu = &v
 }
 
 // GetBeginApply returns the BeginApply field value if set, zero value otherwise.
@@ -101,28 +107,36 @@ func (o *CreateBillingSummaryCommand) SetBeginApply(v time.Time) {
 	o.BeginApply = &v
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *CreateBillingSummaryCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateBillingSummaryCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *CreateBillingSummaryCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *CreateBillingSummaryCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 func (o CreateBillingSummaryCommand) MarshalJSON() ([]byte, error) {
@@ -135,11 +149,15 @@ func (o CreateBillingSummaryCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateBillingSummaryCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["icu"] = o.Icu
+	if !IsNil(o.Icu) {
+		toSerialize["icu"] = o.Icu
+	}
 	if !IsNil(o.BeginApply) {
 		toSerialize["beginApply"] = o.BeginApply
 	}
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	return toSerialize, nil
 }
 

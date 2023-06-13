@@ -95,7 +95,7 @@ import (
 )
 
 func main() {
-    createUserGroupCommand := *openapiclient.NewCreateUserGroupCommand("Name_example") // CreateUserGroupCommand |  (optional)
+    createUserGroupCommand := *openapiclient.NewCreateUserGroupCommand() // CreateUserGroupCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

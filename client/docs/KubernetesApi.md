@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**KubernetesPodList**](KubernetesApi.md#KubernetesPodList) | **Get** /api/v1/kubernetes/{projectId}/pod | Retrieve a list of k8s pod for all namespaces
 [**KubernetesPodLogs**](KubernetesApi.md#KubernetesPodLogs) | **Post** /api/v1/kubernetes/podLogs | Retrieve k8s pod logs
 [**KubernetesPvcList**](KubernetesApi.md#KubernetesPvcList) | **Get** /api/v1/kubernetes/{projectId}/pvc | Retrieve a list of k8s pvc for all namespaces
+[**KubernetesQuota**](KubernetesApi.md#KubernetesQuota) | **Get** /api/v1/kubernetes/{projectId}/quota | K8s quota usage
 [**KubernetesRemovealerts**](KubernetesApi.md#KubernetesRemovealerts) | **Post** /api/v1/kubernetes/removealerts | Remove k8s alerts
 [**KubernetesRestartDaemonSet**](KubernetesApi.md#KubernetesRestartDaemonSet) | **Post** /api/v1/kubernetes/restart/daemonset | Restart daemon set
 [**KubernetesRestartDeployment**](KubernetesApi.md#KubernetesRestartDeployment) | **Post** /api/v1/kubernetes/restart/deployment | Restart deployment
@@ -850,7 +851,7 @@ import (
 )
 
 func main() {
-    describeConfigMapCommand := *openapiclient.NewDescribeConfigMapCommand(int32(123), "Name_example", "Namespace_example") // DescribeConfigMapCommand | 
+    describeConfigMapCommand := *openapiclient.NewDescribeConfigMapCommand() // DescribeConfigMapCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -914,7 +915,7 @@ import (
 )
 
 func main() {
-    describeCrdCommand := *openapiclient.NewDescribeCrdCommand(int32(123), "Name_example") // DescribeCrdCommand | 
+    describeCrdCommand := *openapiclient.NewDescribeCrdCommand() // DescribeCrdCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -978,7 +979,7 @@ import (
 )
 
 func main() {
-    describeCronJobCommand := *openapiclient.NewDescribeCronJobCommand(int32(123), "Name_example", "Namespace_example") // DescribeCronJobCommand | 
+    describeCronJobCommand := *openapiclient.NewDescribeCronJobCommand() // DescribeCronJobCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1042,7 +1043,7 @@ import (
 )
 
 func main() {
-    describeDaemonSetCommand := *openapiclient.NewDescribeDaemonSetCommand(int32(123), "Name_example", "Namespace_example") // DescribeDaemonSetCommand | 
+    describeDaemonSetCommand := *openapiclient.NewDescribeDaemonSetCommand() // DescribeDaemonSetCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1106,7 +1107,7 @@ import (
 )
 
 func main() {
-    describeDeploymentCommand := *openapiclient.NewDescribeDeploymentCommand(int32(123), "Name_example", "Namespace_example") // DescribeDeploymentCommand | 
+    describeDeploymentCommand := *openapiclient.NewDescribeDeploymentCommand() // DescribeDeploymentCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1170,7 +1171,7 @@ import (
 )
 
 func main() {
-    describeIngressCommand := *openapiclient.NewDescribeIngressCommand(int32(123), "Name_example", "Namespace_example") // DescribeIngressCommand | 
+    describeIngressCommand := *openapiclient.NewDescribeIngressCommand() // DescribeIngressCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1234,7 +1235,7 @@ import (
 )
 
 func main() {
-    describeJobCommand := *openapiclient.NewDescribeJobCommand(int32(123), "Name_example", "Namespace_example") // DescribeJobCommand | 
+    describeJobCommand := *openapiclient.NewDescribeJobCommand() // DescribeJobCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1298,7 +1299,7 @@ import (
 )
 
 func main() {
-    describeNetworkPolicyCommand := *openapiclient.NewDescribeNetworkPolicyCommand(int32(123), "Name_example", "Namespace_example") // DescribeNetworkPolicyCommand | 
+    describeNetworkPolicyCommand := *openapiclient.NewDescribeNetworkPolicyCommand() // DescribeNetworkPolicyCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1362,7 +1363,7 @@ import (
 )
 
 func main() {
-    describeNodeCommand := *openapiclient.NewDescribeNodeCommand(int32(123), "Name_example") // DescribeNodeCommand | 
+    describeNodeCommand := *openapiclient.NewDescribeNodeCommand() // DescribeNodeCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1426,7 +1427,7 @@ import (
 )
 
 func main() {
-    describePodDisruptionCommand := *openapiclient.NewDescribePodDisruptionCommand(int32(123), "Name_example", "Namespace_example") // DescribePodDisruptionCommand | 
+    describePodDisruptionCommand := *openapiclient.NewDescribePodDisruptionCommand() // DescribePodDisruptionCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1490,7 +1491,7 @@ import (
 )
 
 func main() {
-    describePodCommand := *openapiclient.NewDescribePodCommand(int32(123), "Name_example", "Namespace_example") // DescribePodCommand | 
+    describePodCommand := *openapiclient.NewDescribePodCommand() // DescribePodCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1554,7 +1555,7 @@ import (
 )
 
 func main() {
-    describePvcCommand := *openapiclient.NewDescribePvcCommand(int32(123), "Name_example", "Namespace_example") // DescribePvcCommand | 
+    describePvcCommand := *openapiclient.NewDescribePvcCommand() // DescribePvcCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1618,7 +1619,7 @@ import (
 )
 
 func main() {
-    describeSecretCommand := *openapiclient.NewDescribeSecretCommand(int32(123), "Name_example", "Namespace_example") // DescribeSecretCommand | 
+    describeSecretCommand := *openapiclient.NewDescribeSecretCommand() // DescribeSecretCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1682,7 +1683,7 @@ import (
 )
 
 func main() {
-    describeServiceCommand := *openapiclient.NewDescribeServiceCommand(int32(123), "Name_example", "Namespace_example") // DescribeServiceCommand | 
+    describeServiceCommand := *openapiclient.NewDescribeServiceCommand() // DescribeServiceCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1746,7 +1747,7 @@ import (
 )
 
 func main() {
-    describeStorageClassCommand := *openapiclient.NewDescribeStorageClassCommand(int32(123), "Name_example") // DescribeStorageClassCommand | 
+    describeStorageClassCommand := *openapiclient.NewDescribeStorageClassCommand() // DescribeStorageClassCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1810,7 +1811,7 @@ import (
 )
 
 func main() {
-    describeStsCommand := *openapiclient.NewDescribeStsCommand(int32(123), "Name_example", "Namespace_example") // DescribeStsCommand | 
+    describeStsCommand := *openapiclient.NewDescribeStsCommand() // DescribeStsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2165,7 +2166,7 @@ import (
 )
 
 func main() {
-    interactiveShellSendCommand := *openapiclient.NewInteractiveShellSendCommand(int32(123), "Token_example") // InteractiveShellSendCommand | 
+    interactiveShellSendCommand := *openapiclient.NewInteractiveShellSendCommand() // InteractiveShellSendCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2735,7 +2736,7 @@ import (
 )
 
 func main() {
-    patchCrdCommand := *openapiclient.NewPatchCrdCommand(int32(123), "Yaml_example", "Name_example") // PatchCrdCommand | 
+    patchCrdCommand := *openapiclient.NewPatchCrdCommand() // PatchCrdCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2797,7 +2798,7 @@ import (
 )
 
 func main() {
-    patchCronJobCommand := *openapiclient.NewPatchCronJobCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchCronJobCommand | 
+    patchCronJobCommand := *openapiclient.NewPatchCronJobCommand() // PatchCronJobCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2859,7 +2860,7 @@ import (
 )
 
 func main() {
-    patchIngressCommand := *openapiclient.NewPatchIngressCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchIngressCommand | 
+    patchIngressCommand := *openapiclient.NewPatchIngressCommand() // PatchIngressCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2921,7 +2922,7 @@ import (
 )
 
 func main() {
-    patchJobCommand := *openapiclient.NewPatchJobCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchJobCommand | 
+    patchJobCommand := *openapiclient.NewPatchJobCommand() // PatchJobCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2983,7 +2984,7 @@ import (
 )
 
 func main() {
-    patchNodeCommand := *openapiclient.NewPatchNodeCommand(int32(123), "Name_example") // PatchNodeCommand | 
+    patchNodeCommand := *openapiclient.NewPatchNodeCommand() // PatchNodeCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3045,7 +3046,7 @@ import (
 )
 
 func main() {
-    patchPdbCommand := *openapiclient.NewPatchPdbCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchPdbCommand | 
+    patchPdbCommand := *openapiclient.NewPatchPdbCommand() // PatchPdbCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3107,7 +3108,7 @@ import (
 )
 
 func main() {
-    patchPodCommand := *openapiclient.NewPatchPodCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchPodCommand | 
+    patchPodCommand := *openapiclient.NewPatchPodCommand() // PatchPodCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3169,7 +3170,7 @@ import (
 )
 
 func main() {
-    patchPvcCommand := *openapiclient.NewPatchPvcCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchPvcCommand | 
+    patchPvcCommand := *openapiclient.NewPatchPvcCommand() // PatchPvcCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3231,7 +3232,7 @@ import (
 )
 
 func main() {
-    patchSecretCommand := *openapiclient.NewPatchSecretCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchSecretCommand | 
+    patchSecretCommand := *openapiclient.NewPatchSecretCommand() // PatchSecretCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3293,7 +3294,7 @@ import (
 )
 
 func main() {
-    patchStsCommand := *openapiclient.NewPatchStsCommand(int32(123), "Yaml_example", "Name_example", "Namespace_example") // PatchStsCommand | 
+    patchStsCommand := *openapiclient.NewPatchStsCommand() // PatchStsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3646,6 +3647,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## KubernetesQuota
+
+> KubernetesQuotaListDto KubernetesQuota(ctx, projectId).Execute()
+
+K8s quota usage
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    projectId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.KubernetesApi.KubernetesQuota(context.Background(), projectId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.KubernetesQuota``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `KubernetesQuota`: KubernetesQuotaListDto
+    fmt.Fprintf(os.Stdout, "Response from `KubernetesApi.KubernetesQuota`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiKubernetesQuotaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**KubernetesQuotaListDto**](KubernetesQuotaListDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## KubernetesRemovealerts
 
 > KubernetesRemovealerts(ctx).DeleteAlertCommand(deleteAlertCommand).Execute()
@@ -3665,7 +3734,7 @@ import (
 )
 
 func main() {
-    deleteAlertCommand := *openapiclient.NewDeleteAlertCommand(int32(123)) // DeleteAlertCommand | 
+    deleteAlertCommand := *openapiclient.NewDeleteAlertCommand() // DeleteAlertCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3727,7 +3796,7 @@ import (
 )
 
 func main() {
-    restartDaemonSetCommand := *openapiclient.NewRestartDaemonSetCommand(int32(123), "Name_example", "Namespace_example") // RestartDaemonSetCommand | 
+    restartDaemonSetCommand := *openapiclient.NewRestartDaemonSetCommand() // RestartDaemonSetCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3789,7 +3858,7 @@ import (
 )
 
 func main() {
-    restartDeploymentCommand := *openapiclient.NewRestartDeploymentCommand(int32(123), "Name_example", "Namespace_example") // RestartDeploymentCommand | 
+    restartDeploymentCommand := *openapiclient.NewRestartDeploymentCommand() // RestartDeploymentCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3851,7 +3920,7 @@ import (
 )
 
 func main() {
-    restartStsCommand := *openapiclient.NewRestartStsCommand(int32(123), "Name_example", "Namespace_example") // RestartStsCommand | 
+    restartStsCommand := *openapiclient.NewRestartStsCommand() // RestartStsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -4077,7 +4146,7 @@ import (
 )
 
 func main() {
-    silenceOperationsCommand := *openapiclient.NewSilenceOperationsCommand(int32(123), "Mode_example") // SilenceOperationsCommand | 
+    silenceOperationsCommand := *openapiclient.NewSilenceOperationsCommand() // SilenceOperationsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

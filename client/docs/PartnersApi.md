@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-    becomePartnerCommand := *openapiclient.NewBecomePartnerCommand("FullName_example", "Email_example") // BecomePartnerCommand | 
+    becomePartnerCommand := *openapiclient.NewBecomePartnerCommand() // BecomePartnerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -161,7 +161,7 @@ import (
 )
 
 func main() {
-    bindOrganizationsCommand := *openapiclient.NewBindOrganizationsCommand(int32(123)) // BindOrganizationsCommand |  (optional)
+    bindOrganizationsCommand := *openapiclient.NewBindOrganizationsCommand() // BindOrganizationsCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -223,7 +223,7 @@ import (
 )
 
 func main() {
-    contactUsCommand := *openapiclient.NewContactUsCommand("Name_example", "BusinessEmail_example", "CompanyName_example") // ContactUsCommand | 
+    contactUsCommand := *openapiclient.NewContactUsCommand() // ContactUsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -94,7 +94,7 @@ import (
 )
 
 func main() {
-    ruleCreateCommand := *openapiclient.NewRuleCreateCommand("Name_example", "MetricName_example", []openapiclient.PrometheusLabelListDto{*openapiclient.NewPrometheusLabelListDto("Value_example")}, openapiclient.PrometheusType(100)) // RuleCreateCommand |  (optional)
+    ruleCreateCommand := *openapiclient.NewRuleCreateCommand() // RuleCreateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -677,6 +677,20 @@ func Test_taikuncore_KubernetesApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test KubernetesApiService KubernetesQuota", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId int32
+
+		resp, httpRes, err := apiClient.KubernetesApi.KubernetesQuota(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test KubernetesApiService KubernetesRemovealerts", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

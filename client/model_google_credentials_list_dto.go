@@ -31,6 +31,7 @@ type GoogleCredentialsListDto struct {
 	ProjectId NullableString `json:"projectId,omitempty"`
 	BillingAccountId NullableString `json:"billingAccountId,omitempty"`
 	Zones []string `json:"zones,omitempty"`
+	AvailabilityZonesCount *int32 `json:"availabilityZonesCount,omitempty"`
 	Region NullableString `json:"region,omitempty"`
 	IsLocked *bool `json:"isLocked,omitempty"`
 	IsDefault *bool `json:"isDefault,omitempty"`
@@ -480,6 +481,38 @@ func (o *GoogleCredentialsListDto) SetZones(v []string) {
 	o.Zones = v
 }
 
+// GetAvailabilityZonesCount returns the AvailabilityZonesCount field value if set, zero value otherwise.
+func (o *GoogleCredentialsListDto) GetAvailabilityZonesCount() int32 {
+	if o == nil || IsNil(o.AvailabilityZonesCount) {
+		var ret int32
+		return ret
+	}
+	return *o.AvailabilityZonesCount
+}
+
+// GetAvailabilityZonesCountOk returns a tuple with the AvailabilityZonesCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GoogleCredentialsListDto) GetAvailabilityZonesCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.AvailabilityZonesCount) {
+		return nil, false
+	}
+	return o.AvailabilityZonesCount, true
+}
+
+// HasAvailabilityZonesCount returns a boolean if a field has been set.
+func (o *GoogleCredentialsListDto) HasAvailabilityZonesCount() bool {
+	if o != nil && !IsNil(o.AvailabilityZonesCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZonesCount gets a reference to the given int32 and assigns it to the AvailabilityZonesCount field.
+func (o *GoogleCredentialsListDto) SetAvailabilityZonesCount(v int32) {
+	o.AvailabilityZonesCount = &v
+}
+
 // GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GoogleCredentialsListDto) GetRegion() string {
 	if o == nil || IsNil(o.Region.Get()) {
@@ -754,6 +787,9 @@ func (o GoogleCredentialsListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Zones != nil {
 		toSerialize["zones"] = o.Zones
+	}
+	if !IsNil(o.AvailabilityZonesCount) {
+		toSerialize["availabilityZonesCount"] = o.AvailabilityZonesCount
 	}
 	if o.Region.IsSet() {
 		toSerialize["region"] = o.Region.Get()

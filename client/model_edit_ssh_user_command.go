@@ -20,22 +20,18 @@ var _ MappedNullable = &EditSshUserCommand{}
 
 // EditSshUserCommand struct for EditSshUserCommand
 type EditSshUserCommand struct {
-	Id int32 `json:"id"`
-	Name string `json:"name"`
-	SshPublicKey string `json:"sshPublicKey"`
-	AccessProfileId int32 `json:"accessProfileId"`
+	Id *int32 `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	SshPublicKey NullableString `json:"sshPublicKey,omitempty"`
+	AccessProfileId *int32 `json:"accessProfileId,omitempty"`
 }
 
 // NewEditSshUserCommand instantiates a new EditSshUserCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEditSshUserCommand(id int32, name string, sshPublicKey string, accessProfileId int32) *EditSshUserCommand {
+func NewEditSshUserCommand() *EditSshUserCommand {
 	this := EditSshUserCommand{}
-	this.Id = id
-	this.Name = name
-	this.SshPublicKey = sshPublicKey
-	this.AccessProfileId = accessProfileId
 	return &this
 }
 
@@ -47,100 +43,152 @@ func NewEditSshUserCommandWithDefaults() *EditSshUserCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *EditSshUserCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditSshUserCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *EditSshUserCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *EditSshUserCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditSshUserCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EditSshUserCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *EditSshUserCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *EditSshUserCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *EditSshUserCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetSshPublicKey returns the SshPublicKey field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *EditSshUserCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetSshPublicKey returns the SshPublicKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditSshUserCommand) GetSshPublicKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.SshPublicKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.SshPublicKey
+	return *o.SshPublicKey.Get()
 }
 
-// GetSshPublicKeyOk returns a tuple with the SshPublicKey field value
+// GetSshPublicKeyOk returns a tuple with the SshPublicKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EditSshUserCommand) GetSshPublicKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SshPublicKey, true
+	return o.SshPublicKey.Get(), o.SshPublicKey.IsSet()
 }
 
-// SetSshPublicKey sets field value
+// HasSshPublicKey returns a boolean if a field has been set.
+func (o *EditSshUserCommand) HasSshPublicKey() bool {
+	if o != nil && o.SshPublicKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSshPublicKey gets a reference to the given NullableString and assigns it to the SshPublicKey field.
 func (o *EditSshUserCommand) SetSshPublicKey(v string) {
-	o.SshPublicKey = v
+	o.SshPublicKey.Set(&v)
+}
+// SetSshPublicKeyNil sets the value for SshPublicKey to be an explicit nil
+func (o *EditSshUserCommand) SetSshPublicKeyNil() {
+	o.SshPublicKey.Set(nil)
 }
 
-// GetAccessProfileId returns the AccessProfileId field value
+// UnsetSshPublicKey ensures that no value is present for SshPublicKey, not even an explicit nil
+func (o *EditSshUserCommand) UnsetSshPublicKey() {
+	o.SshPublicKey.Unset()
+}
+
+// GetAccessProfileId returns the AccessProfileId field value if set, zero value otherwise.
 func (o *EditSshUserCommand) GetAccessProfileId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AccessProfileId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AccessProfileId
+	return *o.AccessProfileId
 }
 
-// GetAccessProfileIdOk returns a tuple with the AccessProfileId field value
+// GetAccessProfileIdOk returns a tuple with the AccessProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditSshUserCommand) GetAccessProfileIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccessProfileId) {
 		return nil, false
 	}
-	return &o.AccessProfileId, true
+	return o.AccessProfileId, true
 }
 
-// SetAccessProfileId sets field value
+// HasAccessProfileId returns a boolean if a field has been set.
+func (o *EditSshUserCommand) HasAccessProfileId() bool {
+	if o != nil && !IsNil(o.AccessProfileId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessProfileId gets a reference to the given int32 and assigns it to the AccessProfileId field.
 func (o *EditSshUserCommand) SetAccessProfileId(v int32) {
-	o.AccessProfileId = v
+	o.AccessProfileId = &v
 }
 
 func (o EditSshUserCommand) MarshalJSON() ([]byte, error) {
@@ -153,10 +201,18 @@ func (o EditSshUserCommand) MarshalJSON() ([]byte, error) {
 
 func (o EditSshUserCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
-	toSerialize["sshPublicKey"] = o.SshPublicKey
-	toSerialize["accessProfileId"] = o.AccessProfileId
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.SshPublicKey.IsSet() {
+		toSerialize["sshPublicKey"] = o.SshPublicKey.Get()
+	}
+	if !IsNil(o.AccessProfileId) {
+		toSerialize["accessProfileId"] = o.AccessProfileId
+	}
 	return toSerialize, nil
 }
 

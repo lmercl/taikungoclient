@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `_0` (value: `0`)
+* `NONE` (value: `"NONE"`)
 
-* `_100` (value: `100`)
+* `NFS` (value: `"NFS"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

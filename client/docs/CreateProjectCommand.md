@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **KubernetesVersion** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
-**CloudCredentialId** | **int32** |  | 
+**CloudCredentialId** | Pointer to **int32** |  | [optional] 
 **S3CredentialId** | Pointer to **NullableInt32** |  | [optional] 
 **AccessProfileId** | Pointer to **NullableInt32** |  | [optional] 
 **OpaProfileId** | Pointer to **NullableInt32** |  | [optional] 
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 
 ### NewCreateProjectCommand
 
-`func NewCreateProjectCommand(name string, cloudCredentialId int32, ) *CreateProjectCommand`
+`func NewCreateProjectCommand() *CreateProjectCommand`
 
 NewCreateProjectCommand instantiates a new CreateProjectCommand object
 This constructor will assign default values to properties that have it defined,
@@ -80,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateProjectCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateProjectCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateProjectCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetKubernetesVersion
 
 `func (o *CreateProjectCommand) GetKubernetesVersion() string`
@@ -170,6 +185,11 @@ and a boolean to check if the value has been set.
 
 SetCloudCredentialId sets CloudCredentialId field to given value.
 
+### HasCloudCredentialId
+
+`func (o *CreateProjectCommand) HasCloudCredentialId() bool`
+
+HasCloudCredentialId returns a boolean if a field has been set.
 
 ### GetS3CredentialId
 

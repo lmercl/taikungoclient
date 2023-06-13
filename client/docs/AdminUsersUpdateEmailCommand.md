@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAdminUsersUpdateEmailCommand
 
-`func NewAdminUsersUpdateEmailCommand(id string, ) *AdminUsersUpdateEmailCommand`
+`func NewAdminUsersUpdateEmailCommand() *AdminUsersUpdateEmailCommand`
 
 NewAdminUsersUpdateEmailCommand instantiates a new AdminUsersUpdateEmailCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *AdminUsersUpdateEmailCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *AdminUsersUpdateEmailCommand) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AdminUsersUpdateEmailCommand) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetEmail
 
 `func (o *AdminUsersUpdateEmailCommand) GetEmail() string`

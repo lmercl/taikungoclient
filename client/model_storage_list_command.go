@@ -20,20 +20,17 @@ var _ MappedNullable = &StorageListCommand{}
 
 // StorageListCommand struct for StorageListCommand
 type StorageListCommand struct {
-	Url string `json:"url"`
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Url NullableString `json:"url,omitempty"`
+	TokenId NullableString `json:"tokenId,omitempty"`
+	TokenSecret NullableString `json:"tokenSecret,omitempty"`
 }
 
 // NewStorageListCommand instantiates a new StorageListCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStorageListCommand(url string, username string, password string) *StorageListCommand {
+func NewStorageListCommand() *StorageListCommand {
 	this := StorageListCommand{}
-	this.Url = url
-	this.Username = username
-	this.Password = password
 	return &this
 }
 
@@ -45,76 +42,130 @@ func NewStorageListCommandWithDefaults() *StorageListCommand {
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageListCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageListCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *StorageListCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *StorageListCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *StorageListCommand) SetUrlNil() {
+	o.Url.Set(nil)
 }
 
-// GetUsername returns the Username field value
-func (o *StorageListCommand) GetUsername() string {
-	if o == nil {
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *StorageListCommand) UnsetUrl() {
+	o.Url.Unset()
+}
+
+// GetTokenId returns the TokenId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StorageListCommand) GetTokenId() string {
+	if o == nil || IsNil(o.TokenId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Username
+	return *o.TokenId.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StorageListCommand) GetUsernameOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StorageListCommand) GetTokenIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Username, true
+	return o.TokenId.Get(), o.TokenId.IsSet()
 }
 
-// SetUsername sets field value
-func (o *StorageListCommand) SetUsername(v string) {
-	o.Username = v
+// HasTokenId returns a boolean if a field has been set.
+func (o *StorageListCommand) HasTokenId() bool {
+	if o != nil && o.TokenId.IsSet() {
+		return true
+	}
+
+	return false
 }
 
-// GetPassword returns the Password field value
-func (o *StorageListCommand) GetPassword() string {
-	if o == nil {
+// SetTokenId gets a reference to the given NullableString and assigns it to the TokenId field.
+func (o *StorageListCommand) SetTokenId(v string) {
+	o.TokenId.Set(&v)
+}
+// SetTokenIdNil sets the value for TokenId to be an explicit nil
+func (o *StorageListCommand) SetTokenIdNil() {
+	o.TokenId.Set(nil)
+}
+
+// UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+func (o *StorageListCommand) UnsetTokenId() {
+	o.TokenId.Unset()
+}
+
+// GetTokenSecret returns the TokenSecret field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StorageListCommand) GetTokenSecret() string {
+	if o == nil || IsNil(o.TokenSecret.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Password
+	return *o.TokenSecret.Get()
 }
 
-// GetPasswordOk returns a tuple with the Password field value
+// GetTokenSecretOk returns a tuple with the TokenSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StorageListCommand) GetPasswordOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StorageListCommand) GetTokenSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Password, true
+	return o.TokenSecret.Get(), o.TokenSecret.IsSet()
 }
 
-// SetPassword sets field value
-func (o *StorageListCommand) SetPassword(v string) {
-	o.Password = v
+// HasTokenSecret returns a boolean if a field has been set.
+func (o *StorageListCommand) HasTokenSecret() bool {
+	if o != nil && o.TokenSecret.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTokenSecret gets a reference to the given NullableString and assigns it to the TokenSecret field.
+func (o *StorageListCommand) SetTokenSecret(v string) {
+	o.TokenSecret.Set(&v)
+}
+// SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+func (o *StorageListCommand) SetTokenSecretNil() {
+	o.TokenSecret.Set(nil)
+}
+
+// UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
+func (o *StorageListCommand) UnsetTokenSecret() {
+	o.TokenSecret.Unset()
 }
 
 func (o StorageListCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +178,15 @@ func (o StorageListCommand) MarshalJSON() ([]byte, error) {
 
 func (o StorageListCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
-	toSerialize["username"] = o.Username
-	toSerialize["password"] = o.Password
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
+	if o.TokenId.IsSet() {
+		toSerialize["tokenId"] = o.TokenId.Get()
+	}
+	if o.TokenSecret.IsSet() {
+		toSerialize["tokenSecret"] = o.TokenSecret.Get()
+	}
 	return toSerialize, nil
 }
 

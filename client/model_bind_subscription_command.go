@@ -20,7 +20,7 @@ var _ MappedNullable = &BindSubscriptionCommand{}
 
 // BindSubscriptionCommand struct for BindSubscriptionCommand
 type BindSubscriptionCommand struct {
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	Yearly *bool `json:"yearly,omitempty"`
 }
 
@@ -28,9 +28,8 @@ type BindSubscriptionCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindSubscriptionCommand(id int32) *BindSubscriptionCommand {
+func NewBindSubscriptionCommand() *BindSubscriptionCommand {
 	this := BindSubscriptionCommand{}
-	this.Id = id
 	return &this
 }
 
@@ -42,28 +41,36 @@ func NewBindSubscriptionCommandWithDefaults() *BindSubscriptionCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *BindSubscriptionCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindSubscriptionCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *BindSubscriptionCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *BindSubscriptionCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
 // GetYearly returns the Yearly field value if set, zero value otherwise.
@@ -108,7 +115,9 @@ func (o BindSubscriptionCommand) MarshalJSON() ([]byte, error) {
 
 func (o BindSubscriptionCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if !IsNil(o.Yearly) {
 		toSerialize["yearly"] = o.Yearly
 	}

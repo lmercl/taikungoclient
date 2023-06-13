@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AzureClientId** | **string** |  | 
-**AzureClientSecret** | **string** |  | 
-**AzureTenantId** | **string** |  | 
+**AzureClientId** | Pointer to **NullableString** |  | [optional] 
+**AzureClientSecret** | Pointer to **NullableString** |  | [optional] 
+**AzureTenantId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCheckAzureCommand
 
-`func NewCheckAzureCommand(azureClientId string, azureClientSecret string, azureTenantId string, ) *CheckAzureCommand`
+`func NewCheckAzureCommand() *CheckAzureCommand`
 
 NewCheckAzureCommand instantiates a new CheckAzureCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetAzureClientId sets AzureClientId field to given value.
 
+### HasAzureClientId
 
+`func (o *CheckAzureCommand) HasAzureClientId() bool`
+
+HasAzureClientId returns a boolean if a field has been set.
+
+### SetAzureClientIdNil
+
+`func (o *CheckAzureCommand) SetAzureClientIdNil(b bool)`
+
+ SetAzureClientIdNil sets the value for AzureClientId to be an explicit nil
+
+### UnsetAzureClientId
+`func (o *CheckAzureCommand) UnsetAzureClientId()`
+
+UnsetAzureClientId ensures that no value is present for AzureClientId, not even an explicit nil
 ### GetAzureClientSecret
 
 `func (o *CheckAzureCommand) GetAzureClientSecret() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetAzureClientSecret sets AzureClientSecret field to given value.
 
+### HasAzureClientSecret
 
+`func (o *CheckAzureCommand) HasAzureClientSecret() bool`
+
+HasAzureClientSecret returns a boolean if a field has been set.
+
+### SetAzureClientSecretNil
+
+`func (o *CheckAzureCommand) SetAzureClientSecretNil(b bool)`
+
+ SetAzureClientSecretNil sets the value for AzureClientSecret to be an explicit nil
+
+### UnsetAzureClientSecret
+`func (o *CheckAzureCommand) UnsetAzureClientSecret()`
+
+UnsetAzureClientSecret ensures that no value is present for AzureClientSecret, not even an explicit nil
 ### GetAzureTenantId
 
 `func (o *CheckAzureCommand) GetAzureTenantId() string`
@@ -86,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetAzureTenantId sets AzureTenantId field to given value.
 
+### HasAzureTenantId
 
+`func (o *CheckAzureCommand) HasAzureTenantId() bool`
+
+HasAzureTenantId returns a boolean if a field has been set.
+
+### SetAzureTenantIdNil
+
+`func (o *CheckAzureCommand) SetAzureTenantIdNil(b bool)`
+
+ SetAzureTenantIdNil sets the value for AzureTenantId to be an explicit nil
+
+### UnsetAzureTenantId
+`func (o *CheckAzureCommand) UnsetAzureTenantId()`
+
+UnsetAzureTenantId ensures that no value is present for AzureTenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

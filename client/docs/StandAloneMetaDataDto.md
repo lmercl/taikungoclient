@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** |  | 
-**Value** | **string** |  | 
+**Key** | Pointer to **NullableString** |  | [optional] 
+**Value** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewStandAloneMetaDataDto
 
-`func NewStandAloneMetaDataDto(key string, value string, ) *StandAloneMetaDataDto`
+`func NewStandAloneMetaDataDto() *StandAloneMetaDataDto`
 
 NewStandAloneMetaDataDto instantiates a new StandAloneMetaDataDto object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+### HasKey
 
+`func (o *StandAloneMetaDataDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
+
+### SetKeyNil
+
+`func (o *StandAloneMetaDataDto) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *StandAloneMetaDataDto) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *StandAloneMetaDataDto) GetValue() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
+### HasValue
 
+`func (o *StandAloneMetaDataDto) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
+
+### SetValueNil
+
+`func (o *StandAloneMetaDataDto) SetValueNil(b bool)`
+
+ SetValueNil sets the value for Value to be an explicit nil
+
+### UnsetValue
+`func (o *StandAloneMetaDataDto) UnsetValue()`
+
+UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

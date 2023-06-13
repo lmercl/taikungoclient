@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectAppId** | **int32** |  | 
+**ProjectAppId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewSyncProjectAppCommand
 
-`func NewSyncProjectAppCommand(projectAppId int32, ) *SyncProjectAppCommand`
+`func NewSyncProjectAppCommand() *SyncProjectAppCommand`
 
 NewSyncProjectAppCommand instantiates a new SyncProjectAppCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetProjectAppId sets ProjectAppId field to given value.
 
+### HasProjectAppId
+
+`func (o *SyncProjectAppCommand) HasProjectAppId() bool`
+
+HasProjectAppId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

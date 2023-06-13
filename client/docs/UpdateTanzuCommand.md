@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
-**Password** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewUpdateTanzuCommand
 
-`func NewUpdateTanzuCommand(id int32, name string, password string, ) *UpdateTanzuCommand`
+`func NewUpdateTanzuCommand() *UpdateTanzuCommand`
 
 NewUpdateTanzuCommand instantiates a new UpdateTanzuCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *UpdateTanzuCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *UpdateTanzuCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *UpdateTanzuCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UpdateTanzuCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPassword
 
 `func (o *UpdateTanzuCommand) GetPassword() string`
@@ -86,7 +106,22 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *UpdateTanzuCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *UpdateTanzuCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *UpdateTanzuCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

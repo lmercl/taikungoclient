@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MessageId** | **string** |  | 
-**Body** | **string** |  | 
+**MessageId** | Pointer to **NullableString** |  | [optional] 
+**Body** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewEditArticleCommand
 
-`func NewEditArticleCommand(messageId string, body string, ) *EditArticleCommand`
+`func NewEditArticleCommand() *EditArticleCommand`
 
 NewEditArticleCommand instantiates a new EditArticleCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetMessageId sets MessageId field to given value.
 
+### HasMessageId
 
+`func (o *EditArticleCommand) HasMessageId() bool`
+
+HasMessageId returns a boolean if a field has been set.
+
+### SetMessageIdNil
+
+`func (o *EditArticleCommand) SetMessageIdNil(b bool)`
+
+ SetMessageIdNil sets the value for MessageId to be an explicit nil
+
+### UnsetMessageId
+`func (o *EditArticleCommand) UnsetMessageId()`
+
+UnsetMessageId ensures that no value is present for MessageId, not even an explicit nil
 ### GetBody
 
 `func (o *EditArticleCommand) GetBody() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetBody sets Body field to given value.
 
+### HasBody
 
+`func (o *EditArticleCommand) HasBody() bool`
+
+HasBody returns a boolean if a field has been set.
+
+### SetBodyNil
+
+`func (o *EditArticleCommand) SetBodyNil(b bool)`
+
+ SetBodyNil sets the value for Body to be an explicit nil
+
+### UnsetBody
+`func (o *EditArticleCommand) UnsetBody()`
+
+UnsetBody ensures that no value is present for Body, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

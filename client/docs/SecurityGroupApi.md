@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createSecurityGroupCommand := *openapiclient.NewCreateSecurityGroupCommand("Name_example", "RemoteIpPrefix_example", int32(123)) // CreateSecurityGroupCommand |  (optional)
+    createSecurityGroupCommand := *openapiclient.NewCreateSecurityGroupCommand() // CreateSecurityGroupCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -160,7 +160,7 @@ import (
 )
 
 func main() {
-    editSecurityGroupCommand := *openapiclient.NewEditSecurityGroupCommand(int32(123), "Name_example", "RemoteIpPrefix_example") // EditSecurityGroupCommand |  (optional)
+    editSecurityGroupCommand := *openapiclient.NewEditSecurityGroupCommand() // EditSecurityGroupCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

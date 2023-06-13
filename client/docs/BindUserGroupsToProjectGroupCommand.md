@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserGroups** | Pointer to [**[]UpdateProjectUserGroupDto**](UpdateProjectUserGroupDto.md) |  | [optional] 
-**ProjectGroupId** | **int32** |  | 
+**ProjectGroupId** | Pointer to **int32** |  | [optional] 
 **ProjectGroupName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewBindUserGroupsToProjectGroupCommand
 
-`func NewBindUserGroupsToProjectGroupCommand(projectGroupId int32, ) *BindUserGroupsToProjectGroupCommand`
+`func NewBindUserGroupsToProjectGroupCommand() *BindUserGroupsToProjectGroupCommand`
 
 NewBindUserGroupsToProjectGroupCommand instantiates a new BindUserGroupsToProjectGroupCommand object
 This constructor will assign default values to properties that have it defined,
@@ -81,6 +81,11 @@ and a boolean to check if the value has been set.
 
 SetProjectGroupId sets ProjectGroupId field to given value.
 
+### HasProjectGroupId
+
+`func (o *BindUserGroupsToProjectGroupCommand) HasProjectGroupId() bool`
+
+HasProjectGroupId returns a boolean if a field has been set.
 
 ### GetProjectGroupName
 

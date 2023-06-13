@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    bindUserGroupsToProjectGroupCommand := *openapiclient.NewBindUserGroupsToProjectGroupCommand(int32(123)) // BindUserGroupsToProjectGroupCommand |  (optional)
+    bindUserGroupsToProjectGroupCommand := *openapiclient.NewBindUserGroupsToProjectGroupCommand() // BindUserGroupsToProjectGroupCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -95,7 +95,7 @@ import (
 )
 
 func main() {
-    createProjectGroupCommand := *openapiclient.NewCreateProjectGroupCommand("Name_example") // CreateProjectGroupCommand |  (optional)
+    createProjectGroupCommand := *openapiclient.NewCreateProjectGroupCommand() // CreateProjectGroupCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

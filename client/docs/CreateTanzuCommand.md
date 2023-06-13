@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
-**Name** | **string** |  | 
-**Username** | **string** |  | 
-**Url** | **string** |  | 
-**Password** | **string** |  | 
-**VolumeType** | **string** |  | 
-**Namespace** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
+**VolumeType** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 **TanzuContinent** | Pointer to **NullableString** |  | [optional] 
 **Port** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCreateTanzuCommand
 
-`func NewCreateTanzuCommand(name string, username string, url string, password string, volumeType string, namespace string, ) *CreateTanzuCommand`
+`func NewCreateTanzuCommand() *CreateTanzuCommand`
 
 NewCreateTanzuCommand instantiates a new CreateTanzuCommand object
 This constructor will assign default values to properties that have it defined,
@@ -87,7 +87,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateTanzuCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateTanzuCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateTanzuCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUsername
 
 `func (o *CreateTanzuCommand) GetUsername() string`
@@ -107,7 +122,22 @@ and a boolean to check if the value has been set.
 
 SetUsername sets Username field to given value.
 
+### HasUsername
 
+`func (o *CreateTanzuCommand) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *CreateTanzuCommand) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *CreateTanzuCommand) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetUrl
 
 `func (o *CreateTanzuCommand) GetUrl() string`
@@ -127,7 +157,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *CreateTanzuCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *CreateTanzuCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *CreateTanzuCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetPassword
 
 `func (o *CreateTanzuCommand) GetPassword() string`
@@ -147,7 +192,22 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *CreateTanzuCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *CreateTanzuCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *CreateTanzuCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetVolumeType
 
 `func (o *CreateTanzuCommand) GetVolumeType() string`
@@ -167,7 +227,22 @@ and a boolean to check if the value has been set.
 
 SetVolumeType sets VolumeType field to given value.
 
+### HasVolumeType
 
+`func (o *CreateTanzuCommand) HasVolumeType() bool`
+
+HasVolumeType returns a boolean if a field has been set.
+
+### SetVolumeTypeNil
+
+`func (o *CreateTanzuCommand) SetVolumeTypeNil(b bool)`
+
+ SetVolumeTypeNil sets the value for VolumeType to be an explicit nil
+
+### UnsetVolumeType
+`func (o *CreateTanzuCommand) UnsetVolumeType()`
+
+UnsetVolumeType ensures that no value is present for VolumeType, not even an explicit nil
 ### GetNamespace
 
 `func (o *CreateTanzuCommand) GetNamespace() string`
@@ -187,7 +262,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *CreateTanzuCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *CreateTanzuCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *CreateTanzuCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 ### GetTanzuContinent
 
 `func (o *CreateTanzuCommand) GetTanzuContinent() string`

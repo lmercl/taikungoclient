@@ -1041,6 +1041,7 @@ type ApiProjectsDropdownRequest struct {
 	catalogId *int32
 	healthy *bool
 	userId *string
+	ready *bool
 }
 
 func (r ApiProjectsDropdownRequest) OrganizationId(organizationId int32) ApiProjectsDropdownRequest {
@@ -1065,6 +1066,11 @@ func (r ApiProjectsDropdownRequest) Healthy(healthy bool) ApiProjectsDropdownReq
 
 func (r ApiProjectsDropdownRequest) UserId(userId string) ApiProjectsDropdownRequest {
 	r.userId = &userId
+	return r
+}
+
+func (r ApiProjectsDropdownRequest) Ready(ready bool) ApiProjectsDropdownRequest {
+	r.ready = &ready
 	return r
 }
 
@@ -1120,6 +1126,9 @@ func (a *ProjectsApiService) ProjectsDropdownExecute(r ApiProjectsDropdownReques
 	}
 	if r.userId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "UserId", r.userId, "")
+	}
+	if r.ready != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Ready", r.ready, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1413,10 +1422,10 @@ type ApiProjectsEditHealthRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	projectId int32
-	body *int32
+	body *string
 }
 
-func (r ApiProjectsEditHealthRequest) Body(body int32) ApiProjectsEditHealthRequest {
+func (r ApiProjectsEditHealthRequest) Body(body string) ApiProjectsEditHealthRequest {
 	r.body = &body
 	return r
 }
@@ -1582,10 +1591,10 @@ type ApiProjectsEditStatusRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	projectId int32
-	body *int32
+	body *string
 }
 
-func (r ApiProjectsEditStatusRequest) Body(body int32) ApiProjectsEditStatusRequest {
+func (r ApiProjectsEditStatusRequest) Body(body string) ApiProjectsEditStatusRequest {
 	r.body = &body
 	return r
 }

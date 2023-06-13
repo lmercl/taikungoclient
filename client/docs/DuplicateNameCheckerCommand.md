@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
-**Type** | **string** |  | 
-**Name** | **string** |  | 
+**Type** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewDuplicateNameCheckerCommand
 
-`func NewDuplicateNameCheckerCommand(type_ string, name string, ) *DuplicateNameCheckerCommand`
+`func NewDuplicateNameCheckerCommand() *DuplicateNameCheckerCommand`
 
 NewDuplicateNameCheckerCommand instantiates a new DuplicateNameCheckerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -81,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
 
+`func (o *DuplicateNameCheckerCommand) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *DuplicateNameCheckerCommand) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *DuplicateNameCheckerCommand) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetName
 
 `func (o *DuplicateNameCheckerCommand) GetName() string`
@@ -101,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *DuplicateNameCheckerCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *DuplicateNameCheckerCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DuplicateNameCheckerCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

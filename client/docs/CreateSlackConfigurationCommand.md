@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
-**Name** | **string** |  | 
-**Url** | **string** |  | 
-**Channel** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**Channel** | Pointer to **NullableString** |  | [optional] 
 **SlackType** | Pointer to [**SlackType**](SlackType.md) |  | [optional] 
 
 ## Methods
 
 ### NewCreateSlackConfigurationCommand
 
-`func NewCreateSlackConfigurationCommand(name string, url string, channel string, ) *CreateSlackConfigurationCommand`
+`func NewCreateSlackConfigurationCommand() *CreateSlackConfigurationCommand`
 
 NewCreateSlackConfigurationCommand instantiates a new CreateSlackConfigurationCommand object
 This constructor will assign default values to properties that have it defined,
@@ -83,7 +83,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateSlackConfigurationCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateSlackConfigurationCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateSlackConfigurationCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUrl
 
 `func (o *CreateSlackConfigurationCommand) GetUrl() string`
@@ -103,7 +118,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *CreateSlackConfigurationCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *CreateSlackConfigurationCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *CreateSlackConfigurationCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetChannel
 
 `func (o *CreateSlackConfigurationCommand) GetChannel() string`
@@ -123,7 +153,22 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
+### HasChannel
 
+`func (o *CreateSlackConfigurationCommand) HasChannel() bool`
+
+HasChannel returns a boolean if a field has been set.
+
+### SetChannelNil
+
+`func (o *CreateSlackConfigurationCommand) SetChannelNil(b bool)`
+
+ SetChannelNil sets the value for Channel to be an explicit nil
+
+### UnsetChannel
+`func (o *CreateSlackConfigurationCommand) UnsetChannel()`
+
+UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetSlackType
 
 `func (o *CreateSlackConfigurationCommand) GetSlackType() SlackType`

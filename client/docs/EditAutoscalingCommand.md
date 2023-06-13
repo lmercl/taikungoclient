@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 **MinSize** | Pointer to **int32** |  | [optional] 
 **MaxSize** | Pointer to **int32** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEditAutoscalingCommand
 
-`func NewEditAutoscalingCommand(projectId int32, ) *EditAutoscalingCommand`
+`func NewEditAutoscalingCommand() *EditAutoscalingCommand`
 
 NewEditAutoscalingCommand instantiates a new EditAutoscalingCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *EditAutoscalingCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetMinSize
 

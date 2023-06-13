@@ -233,7 +233,7 @@ import (
 )
 
 func main() {
-    disableRepoCommand := *openapiclient.NewDisableRepoCommand("RepoName_example") // DisableRepoCommand | 
+    disableRepoCommand := *openapiclient.NewDisableRepoCommand() // DisableRepoCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -295,7 +295,7 @@ import (
 )
 
 func main() {
-    importRepoCommand := *openapiclient.NewImportRepoCommand("Name_example", "DisplayName_example") // ImportRepoCommand |  (optional)
+    importRepoCommand := *openapiclient.NewImportRepoCommand() // ImportRepoCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

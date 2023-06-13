@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
-**Url** | **string** |  | 
-**RealmsName** | **string** |  | 
-**ClientId** | **string** |  | 
-**ClientSecret** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**RealmsName** | Pointer to **NullableString** |  | [optional] 
+**ClientId** | Pointer to **NullableString** |  | [optional] 
+**ClientSecret** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewKeycloakEditCommand
 
-`func NewKeycloakEditCommand(id int32, name string, url string, realmsName string, clientId string, clientSecret string, ) *KeycloakEditCommand`
+`func NewKeycloakEditCommand() *KeycloakEditCommand`
 
 NewKeycloakEditCommand instantiates a new KeycloakEditCommand object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *KeycloakEditCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -69,7 +74,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *KeycloakEditCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *KeycloakEditCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *KeycloakEditCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUrl
 
 `func (o *KeycloakEditCommand) GetUrl() string`
@@ -89,7 +109,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *KeycloakEditCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *KeycloakEditCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *KeycloakEditCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetRealmsName
 
 `func (o *KeycloakEditCommand) GetRealmsName() string`
@@ -109,7 +144,22 @@ and a boolean to check if the value has been set.
 
 SetRealmsName sets RealmsName field to given value.
 
+### HasRealmsName
 
+`func (o *KeycloakEditCommand) HasRealmsName() bool`
+
+HasRealmsName returns a boolean if a field has been set.
+
+### SetRealmsNameNil
+
+`func (o *KeycloakEditCommand) SetRealmsNameNil(b bool)`
+
+ SetRealmsNameNil sets the value for RealmsName to be an explicit nil
+
+### UnsetRealmsName
+`func (o *KeycloakEditCommand) UnsetRealmsName()`
+
+UnsetRealmsName ensures that no value is present for RealmsName, not even an explicit nil
 ### GetClientId
 
 `func (o *KeycloakEditCommand) GetClientId() string`
@@ -129,7 +179,22 @@ and a boolean to check if the value has been set.
 
 SetClientId sets ClientId field to given value.
 
+### HasClientId
 
+`func (o *KeycloakEditCommand) HasClientId() bool`
+
+HasClientId returns a boolean if a field has been set.
+
+### SetClientIdNil
+
+`func (o *KeycloakEditCommand) SetClientIdNil(b bool)`
+
+ SetClientIdNil sets the value for ClientId to be an explicit nil
+
+### UnsetClientId
+`func (o *KeycloakEditCommand) UnsetClientId()`
+
+UnsetClientId ensures that no value is present for ClientId, not even an explicit nil
 ### GetClientSecret
 
 `func (o *KeycloakEditCommand) GetClientSecret() string`
@@ -149,7 +214,22 @@ and a boolean to check if the value has been set.
 
 SetClientSecret sets ClientSecret field to given value.
 
+### HasClientSecret
 
+`func (o *KeycloakEditCommand) HasClientSecret() bool`
+
+HasClientSecret returns a boolean if a field has been set.
+
+### SetClientSecretNil
+
+`func (o *KeycloakEditCommand) SetClientSecretNil(b bool)`
+
+ SetClientSecretNil sets the value for ClientSecret to be an explicit nil
+
+### UnsetClientSecret
+`func (o *KeycloakEditCommand) UnsetClientSecret()`
+
+UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

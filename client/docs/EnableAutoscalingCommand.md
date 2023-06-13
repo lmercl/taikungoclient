@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**AutoscalingGroupName** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**AutoscalingGroupName** | Pointer to **NullableString** |  | [optional] 
 **MinSize** | Pointer to **int32** |  | [optional] 
 **MaxSize** | Pointer to **int32** |  | [optional] 
 **DiskSize** | Pointer to **float64** |  | [optional] 
-**Flavor** | **string** |  | 
+**Flavor** | Pointer to **NullableString** |  | [optional] 
 **SpotEnabled** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewEnableAutoscalingCommand
 
-`func NewEnableAutoscalingCommand(id int32, autoscalingGroupName string, flavor string, ) *EnableAutoscalingCommand`
+`func NewEnableAutoscalingCommand() *EnableAutoscalingCommand`
 
 NewEnableAutoscalingCommand instantiates a new EnableAutoscalingCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *EnableAutoscalingCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetAutoscalingGroupName
 
@@ -70,7 +75,22 @@ and a boolean to check if the value has been set.
 
 SetAutoscalingGroupName sets AutoscalingGroupName field to given value.
 
+### HasAutoscalingGroupName
 
+`func (o *EnableAutoscalingCommand) HasAutoscalingGroupName() bool`
+
+HasAutoscalingGroupName returns a boolean if a field has been set.
+
+### SetAutoscalingGroupNameNil
+
+`func (o *EnableAutoscalingCommand) SetAutoscalingGroupNameNil(b bool)`
+
+ SetAutoscalingGroupNameNil sets the value for AutoscalingGroupName to be an explicit nil
+
+### UnsetAutoscalingGroupName
+`func (o *EnableAutoscalingCommand) UnsetAutoscalingGroupName()`
+
+UnsetAutoscalingGroupName ensures that no value is present for AutoscalingGroupName, not even an explicit nil
 ### GetMinSize
 
 `func (o *EnableAutoscalingCommand) GetMinSize() int32`
@@ -165,7 +185,22 @@ and a boolean to check if the value has been set.
 
 SetFlavor sets Flavor field to given value.
 
+### HasFlavor
 
+`func (o *EnableAutoscalingCommand) HasFlavor() bool`
+
+HasFlavor returns a boolean if a field has been set.
+
+### SetFlavorNil
+
+`func (o *EnableAutoscalingCommand) SetFlavorNil(b bool)`
+
+ SetFlavorNil sets the value for Flavor to be an explicit nil
+
+### UnsetFlavor
+`func (o *EnableAutoscalingCommand) UnsetFlavor()`
+
+UnsetFlavor ensures that no value is present for Flavor, not even an explicit nil
 ### GetSpotEnabled
 
 `func (o *EnableAutoscalingCommand) GetSpotEnabled() bool`

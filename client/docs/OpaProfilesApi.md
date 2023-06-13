@@ -36,7 +36,7 @@ import (
 )
 
 func main() {
-    createOpaProfileCommand := *openapiclient.NewCreateOpaProfileCommand("Name_example") // CreateOpaProfileCommand | 
+    createOpaProfileCommand := *openapiclient.NewCreateOpaProfileCommand() // CreateOpaProfileCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -558,7 +558,7 @@ import (
 )
 
 func main() {
-    opaProfileSyncCommand := *openapiclient.NewOpaProfileSyncCommand(int32(123)) // OpaProfileSyncCommand | 
+    opaProfileSyncCommand := *openapiclient.NewOpaProfileSyncCommand() // OpaProfileSyncCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -620,7 +620,7 @@ import (
 )
 
 func main() {
-    opaProfileUpdateCommand := *openapiclient.NewOpaProfileUpdateCommand(int32(123), "Name_example") // OpaProfileUpdateCommand |  (optional)
+    opaProfileUpdateCommand := *openapiclient.NewOpaProfileUpdateCommand() // OpaProfileUpdateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

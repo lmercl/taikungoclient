@@ -20,21 +20,18 @@ var _ MappedNullable = &CreateAlertingIntegrationCommand{}
 
 // CreateAlertingIntegrationCommand struct for CreateAlertingIntegrationCommand
 type CreateAlertingIntegrationCommand struct {
-	Url string `json:"url"`
+	Url NullableString `json:"url,omitempty"`
 	Token NullableString `json:"token,omitempty"`
-	AlertingIntegrationType AlertingIntegrationType `json:"alertingIntegrationType"`
-	AlertingProfileId int32 `json:"alertingProfileId"`
+	AlertingIntegrationType *AlertingIntegrationType `json:"alertingIntegrationType,omitempty"`
+	AlertingProfileId *int32 `json:"alertingProfileId,omitempty"`
 }
 
 // NewCreateAlertingIntegrationCommand instantiates a new CreateAlertingIntegrationCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAlertingIntegrationCommand(url string, alertingIntegrationType AlertingIntegrationType, alertingProfileId int32) *CreateAlertingIntegrationCommand {
+func NewCreateAlertingIntegrationCommand() *CreateAlertingIntegrationCommand {
 	this := CreateAlertingIntegrationCommand{}
-	this.Url = url
-	this.AlertingIntegrationType = alertingIntegrationType
-	this.AlertingProfileId = alertingProfileId
 	return &this
 }
 
@@ -46,28 +43,46 @@ func NewCreateAlertingIntegrationCommandWithDefaults() *CreateAlertingIntegratio
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateAlertingIntegrationCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAlertingIntegrationCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *CreateAlertingIntegrationCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *CreateAlertingIntegrationCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *CreateAlertingIntegrationCommand) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *CreateAlertingIntegrationCommand) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -112,52 +127,68 @@ func (o *CreateAlertingIntegrationCommand) UnsetToken() {
 	o.Token.Unset()
 }
 
-// GetAlertingIntegrationType returns the AlertingIntegrationType field value
+// GetAlertingIntegrationType returns the AlertingIntegrationType field value if set, zero value otherwise.
 func (o *CreateAlertingIntegrationCommand) GetAlertingIntegrationType() AlertingIntegrationType {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		var ret AlertingIntegrationType
 		return ret
 	}
-
-	return o.AlertingIntegrationType
+	return *o.AlertingIntegrationType
 }
 
-// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value
+// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateAlertingIntegrationCommand) GetAlertingIntegrationTypeOk() (*AlertingIntegrationType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		return nil, false
 	}
-	return &o.AlertingIntegrationType, true
+	return o.AlertingIntegrationType, true
 }
 
-// SetAlertingIntegrationType sets field value
+// HasAlertingIntegrationType returns a boolean if a field has been set.
+func (o *CreateAlertingIntegrationCommand) HasAlertingIntegrationType() bool {
+	if o != nil && !IsNil(o.AlertingIntegrationType) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertingIntegrationType gets a reference to the given AlertingIntegrationType and assigns it to the AlertingIntegrationType field.
 func (o *CreateAlertingIntegrationCommand) SetAlertingIntegrationType(v AlertingIntegrationType) {
-	o.AlertingIntegrationType = v
+	o.AlertingIntegrationType = &v
 }
 
-// GetAlertingProfileId returns the AlertingProfileId field value
+// GetAlertingProfileId returns the AlertingProfileId field value if set, zero value otherwise.
 func (o *CreateAlertingIntegrationCommand) GetAlertingProfileId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingProfileId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AlertingProfileId
+	return *o.AlertingProfileId
 }
 
-// GetAlertingProfileIdOk returns a tuple with the AlertingProfileId field value
+// GetAlertingProfileIdOk returns a tuple with the AlertingProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateAlertingIntegrationCommand) GetAlertingProfileIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingProfileId) {
 		return nil, false
 	}
-	return &o.AlertingProfileId, true
+	return o.AlertingProfileId, true
 }
 
-// SetAlertingProfileId sets field value
+// HasAlertingProfileId returns a boolean if a field has been set.
+func (o *CreateAlertingIntegrationCommand) HasAlertingProfileId() bool {
+	if o != nil && !IsNil(o.AlertingProfileId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertingProfileId gets a reference to the given int32 and assigns it to the AlertingProfileId field.
 func (o *CreateAlertingIntegrationCommand) SetAlertingProfileId(v int32) {
-	o.AlertingProfileId = v
+	o.AlertingProfileId = &v
 }
 
 func (o CreateAlertingIntegrationCommand) MarshalJSON() ([]byte, error) {
@@ -170,12 +201,18 @@ func (o CreateAlertingIntegrationCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateAlertingIntegrationCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
 	if o.Token.IsSet() {
 		toSerialize["token"] = o.Token.Get()
 	}
-	toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
-	toSerialize["alertingProfileId"] = o.AlertingProfileId
+	if !IsNil(o.AlertingIntegrationType) {
+		toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
+	}
+	if !IsNil(o.AlertingProfileId) {
+		toSerialize["alertingProfileId"] = o.AlertingProfileId
+	}
 	return toSerialize, nil
 }
 

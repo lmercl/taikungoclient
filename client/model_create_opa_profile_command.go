@@ -20,12 +20,13 @@ var _ MappedNullable = &CreateOpaProfileCommand{}
 
 // CreateOpaProfileCommand struct for CreateOpaProfileCommand
 type CreateOpaProfileCommand struct {
-	Name string `json:"name"`
+	Name NullableString `json:"name,omitempty"`
 	ForbidNodePort *bool `json:"forbidNodePort,omitempty"`
 	ForbidHttpIngress *bool `json:"forbidHttpIngress,omitempty"`
 	RequireProbe *bool `json:"requireProbe,omitempty"`
 	UniqueIngresses *bool `json:"uniqueIngresses,omitempty"`
 	UniqueServiceSelector *bool `json:"uniqueServiceSelector,omitempty"`
+	ForcePodResource *bool `json:"forcePodResource,omitempty"`
 	AllowedRepo []string `json:"allowedRepo,omitempty"`
 	ForbidSpecificTags []string `json:"forbidSpecificTags,omitempty"`
 	IngressWhitelist []string `json:"ingressWhitelist,omitempty"`
@@ -36,9 +37,8 @@ type CreateOpaProfileCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateOpaProfileCommand(name string) *CreateOpaProfileCommand {
+func NewCreateOpaProfileCommand() *CreateOpaProfileCommand {
 	this := CreateOpaProfileCommand{}
-	this.Name = name
 	return &this
 }
 
@@ -50,28 +50,46 @@ func NewCreateOpaProfileCommandWithDefaults() *CreateOpaProfileCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateOpaProfileCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOpaProfileCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateOpaProfileCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateOpaProfileCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateOpaProfileCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateOpaProfileCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetForbidNodePort returns the ForbidNodePort field value if set, zero value otherwise.
@@ -234,6 +252,38 @@ func (o *CreateOpaProfileCommand) SetUniqueServiceSelector(v bool) {
 	o.UniqueServiceSelector = &v
 }
 
+// GetForcePodResource returns the ForcePodResource field value if set, zero value otherwise.
+func (o *CreateOpaProfileCommand) GetForcePodResource() bool {
+	if o == nil || IsNil(o.ForcePodResource) {
+		var ret bool
+		return ret
+	}
+	return *o.ForcePodResource
+}
+
+// GetForcePodResourceOk returns a tuple with the ForcePodResource field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOpaProfileCommand) GetForcePodResourceOk() (*bool, bool) {
+	if o == nil || IsNil(o.ForcePodResource) {
+		return nil, false
+	}
+	return o.ForcePodResource, true
+}
+
+// HasForcePodResource returns a boolean if a field has been set.
+func (o *CreateOpaProfileCommand) HasForcePodResource() bool {
+	if o != nil && !IsNil(o.ForcePodResource) {
+		return true
+	}
+
+	return false
+}
+
+// SetForcePodResource gets a reference to the given bool and assigns it to the ForcePodResource field.
+func (o *CreateOpaProfileCommand) SetForcePodResource(v bool) {
+	o.ForcePodResource = &v
+}
+
 // GetAllowedRepo returns the AllowedRepo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateOpaProfileCommand) GetAllowedRepo() []string {
 	if o == nil {
@@ -385,7 +435,9 @@ func (o CreateOpaProfileCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateOpaProfileCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if !IsNil(o.ForbidNodePort) {
 		toSerialize["forbidNodePort"] = o.ForbidNodePort
 	}
@@ -400,6 +452,9 @@ func (o CreateOpaProfileCommand) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UniqueServiceSelector) {
 		toSerialize["uniqueServiceSelector"] = o.UniqueServiceSelector
+	}
+	if !IsNil(o.ForcePodResource) {
+		toSerialize["forcePodResource"] = o.ForcePodResource
 	}
 	if o.AllowedRepo != nil {
 		toSerialize["allowedRepo"] = o.AllowedRepo

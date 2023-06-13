@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Protocol** | Pointer to [**SecurityGroupProtocol**](SecurityGroupProtocol.md) |  | [optional] 
 **PortMinRange** | Pointer to **int32** |  | [optional] 
 **PortMaxRange** | Pointer to **int32** |  | [optional] 
-**RemoteIpPrefix** | **string** |  | 
+**RemoteIpPrefix** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewEditSecurityGroupCommand
 
-`func NewEditSecurityGroupCommand(id int32, name string, remoteIpPrefix string, ) *EditSecurityGroupCommand`
+`func NewEditSecurityGroupCommand() *EditSecurityGroupCommand`
 
 NewEditSecurityGroupCommand instantiates a new EditSecurityGroupCommand object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *EditSecurityGroupCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -69,7 +74,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *EditSecurityGroupCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *EditSecurityGroupCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditSecurityGroupCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProtocol
 
 `func (o *EditSecurityGroupCommand) GetProtocol() SecurityGroupProtocol`
@@ -164,7 +184,22 @@ and a boolean to check if the value has been set.
 
 SetRemoteIpPrefix sets RemoteIpPrefix field to given value.
 
+### HasRemoteIpPrefix
 
+`func (o *EditSecurityGroupCommand) HasRemoteIpPrefix() bool`
+
+HasRemoteIpPrefix returns a boolean if a field has been set.
+
+### SetRemoteIpPrefixNil
+
+`func (o *EditSecurityGroupCommand) SetRemoteIpPrefixNil(b bool)`
+
+ SetRemoteIpPrefixNil sets the value for RemoteIpPrefix to be an explicit nil
+
+### UnsetRemoteIpPrefix
+`func (o *EditSecurityGroupCommand) UnsetRemoteIpPrefix()`
+
+UnsetRemoteIpPrefix ensures that no value is present for RemoteIpPrefix, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

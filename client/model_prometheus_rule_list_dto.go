@@ -27,13 +27,12 @@ type PrometheusRuleListDto struct {
 	Url NullableString `json:"url,omitempty"`
 	MetricName NullableString `json:"metricName,omitempty"`
 	Labels []PrometheusLabelUpdateDto `json:"labels,omitempty"`
+	BoundOrganizations []PrometheusOrganizationDiscountDto `json:"boundOrganizations,omitempty"`
 	Type NullableString `json:"type,omitempty"`
 	Price *float64 `json:"price,omitempty"`
-	IsAll *bool `json:"isAll,omitempty"`
 	BillingStartDate NullableString `json:"billingStartDate,omitempty"`
 	CreatedAt NullableString `json:"createdAt,omitempty"`
 	Partner *PartnerDetailsDto `json:"partner,omitempty"`
-	BoundOrganizations []OrganizationForPrometheus `json:"boundOrganizations,omitempty"`
 	OperationCredential *OperationCredentialsForOrganizationEntity `json:"operationCredential,omitempty"`
 	CreatedBy NullableString `json:"createdBy,omitempty"`
 	LastModified NullableString `json:"lastModified,omitempty"`
@@ -332,6 +331,39 @@ func (o *PrometheusRuleListDto) SetLabels(v []PrometheusLabelUpdateDto) {
 	o.Labels = v
 }
 
+// GetBoundOrganizations returns the BoundOrganizations field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PrometheusRuleListDto) GetBoundOrganizations() []PrometheusOrganizationDiscountDto {
+	if o == nil {
+		var ret []PrometheusOrganizationDiscountDto
+		return ret
+	}
+	return o.BoundOrganizations
+}
+
+// GetBoundOrganizationsOk returns a tuple with the BoundOrganizations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PrometheusRuleListDto) GetBoundOrganizationsOk() ([]PrometheusOrganizationDiscountDto, bool) {
+	if o == nil || IsNil(o.BoundOrganizations) {
+		return nil, false
+	}
+	return o.BoundOrganizations, true
+}
+
+// HasBoundOrganizations returns a boolean if a field has been set.
+func (o *PrometheusRuleListDto) HasBoundOrganizations() bool {
+	if o != nil && IsNil(o.BoundOrganizations) {
+		return true
+	}
+
+	return false
+}
+
+// SetBoundOrganizations gets a reference to the given []PrometheusOrganizationDiscountDto and assigns it to the BoundOrganizations field.
+func (o *PrometheusRuleListDto) SetBoundOrganizations(v []PrometheusOrganizationDiscountDto) {
+	o.BoundOrganizations = v
+}
+
 // GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PrometheusRuleListDto) GetType() string {
 	if o == nil || IsNil(o.Type.Get()) {
@@ -404,38 +436,6 @@ func (o *PrometheusRuleListDto) HasPrice() bool {
 // SetPrice gets a reference to the given float64 and assigns it to the Price field.
 func (o *PrometheusRuleListDto) SetPrice(v float64) {
 	o.Price = &v
-}
-
-// GetIsAll returns the IsAll field value if set, zero value otherwise.
-func (o *PrometheusRuleListDto) GetIsAll() bool {
-	if o == nil || IsNil(o.IsAll) {
-		var ret bool
-		return ret
-	}
-	return *o.IsAll
-}
-
-// GetIsAllOk returns a tuple with the IsAll field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PrometheusRuleListDto) GetIsAllOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAll) {
-		return nil, false
-	}
-	return o.IsAll, true
-}
-
-// HasIsAll returns a boolean if a field has been set.
-func (o *PrometheusRuleListDto) HasIsAll() bool {
-	if o != nil && !IsNil(o.IsAll) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAll gets a reference to the given bool and assigns it to the IsAll field.
-func (o *PrometheusRuleListDto) SetIsAll(v bool) {
-	o.IsAll = &v
 }
 
 // GetBillingStartDate returns the BillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -552,39 +552,6 @@ func (o *PrometheusRuleListDto) HasPartner() bool {
 // SetPartner gets a reference to the given PartnerDetailsDto and assigns it to the Partner field.
 func (o *PrometheusRuleListDto) SetPartner(v PartnerDetailsDto) {
 	o.Partner = &v
-}
-
-// GetBoundOrganizations returns the BoundOrganizations field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PrometheusRuleListDto) GetBoundOrganizations() []OrganizationForPrometheus {
-	if o == nil {
-		var ret []OrganizationForPrometheus
-		return ret
-	}
-	return o.BoundOrganizations
-}
-
-// GetBoundOrganizationsOk returns a tuple with the BoundOrganizations field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PrometheusRuleListDto) GetBoundOrganizationsOk() ([]OrganizationForPrometheus, bool) {
-	if o == nil || IsNil(o.BoundOrganizations) {
-		return nil, false
-	}
-	return o.BoundOrganizations, true
-}
-
-// HasBoundOrganizations returns a boolean if a field has been set.
-func (o *PrometheusRuleListDto) HasBoundOrganizations() bool {
-	if o != nil && IsNil(o.BoundOrganizations) {
-		return true
-	}
-
-	return false
-}
-
-// SetBoundOrganizations gets a reference to the given []OrganizationForPrometheus and assigns it to the BoundOrganizations field.
-func (o *PrometheusRuleListDto) SetBoundOrganizations(v []OrganizationForPrometheus) {
-	o.BoundOrganizations = v
 }
 
 // GetOperationCredential returns the OperationCredential field value if set, zero value otherwise.
@@ -776,14 +743,14 @@ func (o PrometheusRuleListDto) ToMap() (map[string]interface{}, error) {
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
+	if o.BoundOrganizations != nil {
+		toSerialize["boundOrganizations"] = o.BoundOrganizations
+	}
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
 	if !IsNil(o.Price) {
 		toSerialize["price"] = o.Price
-	}
-	if !IsNil(o.IsAll) {
-		toSerialize["isAll"] = o.IsAll
 	}
 	if o.BillingStartDate.IsSet() {
 		toSerialize["billingStartDate"] = o.BillingStartDate.Get()
@@ -793,9 +760,6 @@ func (o PrometheusRuleListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Partner) {
 		toSerialize["partner"] = o.Partner
-	}
-	if o.BoundOrganizations != nil {
-		toSerialize["boundOrganizations"] = o.BoundOrganizations
 	}
 	if !IsNil(o.OperationCredential) {
 		toSerialize["operationCredential"] = o.OperationCredential

@@ -21,16 +21,15 @@ var _ MappedNullable = &BindOrganizationsCommand{}
 // BindOrganizationsCommand struct for BindOrganizationsCommand
 type BindOrganizationsCommand struct {
 	Organizations []OrganizationDto `json:"organizations,omitempty"`
-	PartnerId int32 `json:"partnerId"`
+	PartnerId NullableInt32 `json:"partnerId,omitempty"`
 }
 
 // NewBindOrganizationsCommand instantiates a new BindOrganizationsCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindOrganizationsCommand(partnerId int32) *BindOrganizationsCommand {
+func NewBindOrganizationsCommand() *BindOrganizationsCommand {
 	this := BindOrganizationsCommand{}
-	this.PartnerId = partnerId
 	return &this
 }
 
@@ -75,28 +74,46 @@ func (o *BindOrganizationsCommand) SetOrganizations(v []OrganizationDto) {
 	o.Organizations = v
 }
 
-// GetPartnerId returns the PartnerId field value
+// GetPartnerId returns the PartnerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BindOrganizationsCommand) GetPartnerId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PartnerId.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.PartnerId
+	return *o.PartnerId.Get()
 }
 
-// GetPartnerIdOk returns a tuple with the PartnerId field value
+// GetPartnerIdOk returns a tuple with the PartnerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindOrganizationsCommand) GetPartnerIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PartnerId, true
+	return o.PartnerId.Get(), o.PartnerId.IsSet()
 }
 
-// SetPartnerId sets field value
+// HasPartnerId returns a boolean if a field has been set.
+func (o *BindOrganizationsCommand) HasPartnerId() bool {
+	if o != nil && o.PartnerId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPartnerId gets a reference to the given NullableInt32 and assigns it to the PartnerId field.
 func (o *BindOrganizationsCommand) SetPartnerId(v int32) {
-	o.PartnerId = v
+	o.PartnerId.Set(&v)
+}
+// SetPartnerIdNil sets the value for PartnerId to be an explicit nil
+func (o *BindOrganizationsCommand) SetPartnerIdNil() {
+	o.PartnerId.Set(nil)
+}
+
+// UnsetPartnerId ensures that no value is present for PartnerId, not even an explicit nil
+func (o *BindOrganizationsCommand) UnsetPartnerId() {
+	o.PartnerId.Unset()
 }
 
 func (o BindOrganizationsCommand) MarshalJSON() ([]byte, error) {
@@ -112,7 +129,9 @@ func (o BindOrganizationsCommand) ToMap() (map[string]interface{}, error) {
 	if o.Organizations != nil {
 		toSerialize["organizations"] = o.Organizations
 	}
-	toSerialize["partnerId"] = o.PartnerId
+	if o.PartnerId.IsSet() {
+		toSerialize["partnerId"] = o.PartnerId.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogAppId** | **int32** |  | 
+**CatalogAppId** | Pointer to **int32** |  | [optional] 
 **Parameters** | Pointer to [**[]CatalogAppParamsDto**](CatalogAppParamsDto.md) |  | [optional] 
 
 ## Methods
 
 ### NewEditCatalogAppParamCommand
 
-`func NewEditCatalogAppParamCommand(catalogAppId int32, ) *EditCatalogAppParamCommand`
+`func NewEditCatalogAppParamCommand() *EditCatalogAppParamCommand`
 
 NewEditCatalogAppParamCommand instantiates a new EditCatalogAppParamCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetCatalogAppId sets CatalogAppId field to given value.
 
+### HasCatalogAppId
+
+`func (o *EditCatalogAppParamCommand) HasCatalogAppId() bool`
+
+HasCatalogAppId returns a boolean if a field has been set.
 
 ### GetParameters
 

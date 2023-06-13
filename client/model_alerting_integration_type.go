@@ -17,26 +17,26 @@ import (
 )
 
 // AlertingIntegrationType the model 'AlertingIntegrationType'
-type AlertingIntegrationType int32
+type AlertingIntegrationType string
 
 // List of AlertingIntegrationType
 const (
-	ALERTINGINTEGRATIONTYPE__100 AlertingIntegrationType = 100
-	ALERTINGINTEGRATIONTYPE__200 AlertingIntegrationType = 200
-	ALERTINGINTEGRATIONTYPE__300 AlertingIntegrationType = 300
-	ALERTINGINTEGRATIONTYPE__400 AlertingIntegrationType = 400
+	ALERTINGINTEGRATIONTYPE_OPSGENIE AlertingIntegrationType = "Opsgenie"
+	ALERTINGINTEGRATIONTYPE_PAGERDUTY AlertingIntegrationType = "Pagerduty"
+	ALERTINGINTEGRATIONTYPE_SPLUNK AlertingIntegrationType = "Splunk"
+	ALERTINGINTEGRATIONTYPE_MICROSOFT_TEAMS AlertingIntegrationType = "MicrosoftTeams"
 )
 
 // All allowed values of AlertingIntegrationType enum
 var AllowedAlertingIntegrationTypeEnumValues = []AlertingIntegrationType{
-	100,
-	200,
-	300,
-	400,
+	"Opsgenie",
+	"Pagerduty",
+	"Splunk",
+	"MicrosoftTeams",
 }
 
 func (v *AlertingIntegrationType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -54,7 +54,7 @@ func (v *AlertingIntegrationType) UnmarshalJSON(src []byte) error {
 
 // NewAlertingIntegrationTypeFromValue returns a pointer to a valid AlertingIntegrationType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewAlertingIntegrationTypeFromValue(v int32) (*AlertingIntegrationType, error) {
+func NewAlertingIntegrationTypeFromValue(v string) (*AlertingIntegrationType, error) {
 	ev := AlertingIntegrationType(v)
 	if ev.IsValid() {
 		return &ev, nil

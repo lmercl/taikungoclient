@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **IpAddress** | Pointer to **NullableString** |  | [optional] 
 **PublicIp** | Pointer to **NullableString** |  | [optional] 
 **InstanceId** | Pointer to **NullableString** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateStandAloneVmCommand
 
-`func NewUpdateStandAloneVmCommand(id int32, ) *UpdateStandAloneVmCommand`
+`func NewUpdateStandAloneVmCommand() *UpdateStandAloneVmCommand`
 
 NewUpdateStandAloneVmCommand instantiates a new UpdateStandAloneVmCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *UpdateStandAloneVmCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetIpAddress
 

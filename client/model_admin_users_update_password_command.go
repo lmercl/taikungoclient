@@ -20,18 +20,16 @@ var _ MappedNullable = &AdminUsersUpdatePasswordCommand{}
 
 // AdminUsersUpdatePasswordCommand struct for AdminUsersUpdatePasswordCommand
 type AdminUsersUpdatePasswordCommand struct {
-	Id string `json:"id"`
-	Password interface{} `json:"password"`
+	Id NullableString `json:"id,omitempty"`
+	Password NullableString `json:"password,omitempty"`
 }
 
 // NewAdminUsersUpdatePasswordCommand instantiates a new AdminUsersUpdatePasswordCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdminUsersUpdatePasswordCommand(id string, password interface{}) *AdminUsersUpdatePasswordCommand {
+func NewAdminUsersUpdatePasswordCommand() *AdminUsersUpdatePasswordCommand {
 	this := AdminUsersUpdatePasswordCommand{}
-	this.Id = id
-	this.Password = password
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewAdminUsersUpdatePasswordCommandWithDefaults() *AdminUsersUpdatePasswordC
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminUsersUpdatePasswordCommand) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdminUsersUpdatePasswordCommand) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId sets field value
-func (o *AdminUsersUpdatePasswordCommand) SetId(v string) {
-	o.Id = v
-}
-
-// GetPassword returns the Password field value
-func (o *AdminUsersUpdatePasswordCommand) GetPassword() interface{} {
-	if o == nil {
-		var ret interface{}
-		return ret
+// HasId returns a boolean if a field has been set.
+func (o *AdminUsersUpdatePasswordCommand) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
 	}
 
-	return o.Password
+	return false
 }
 
-// GetPasswordOk returns a tuple with the Password field value
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
+func (o *AdminUsersUpdatePasswordCommand) SetId(v string) {
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AdminUsersUpdatePasswordCommand) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AdminUsersUpdatePasswordCommand) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AdminUsersUpdatePasswordCommand) GetPassword() string {
+	if o == nil || IsNil(o.Password.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Password.Get()
+}
+
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdminUsersUpdatePasswordCommand) GetPasswordOk() (*interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AdminUsersUpdatePasswordCommand) GetPasswordOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// SetPassword sets field value
-func (o *AdminUsersUpdatePasswordCommand) SetPassword(v interface{}) {
-	o.Password = v
+// HasPassword returns a boolean if a field has been set.
+func (o *AdminUsersUpdatePasswordCommand) HasPassword() bool {
+	if o != nil && o.Password.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+func (o *AdminUsersUpdatePasswordCommand) SetPassword(v string) {
+	o.Password.Set(&v)
+}
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *AdminUsersUpdatePasswordCommand) SetPasswordNil() {
+	o.Password.Set(nil)
+}
+
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *AdminUsersUpdatePasswordCommand) UnsetPassword() {
+	o.Password.Unset()
 }
 
 func (o AdminUsersUpdatePasswordCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o AdminUsersUpdatePasswordCommand) MarshalJSON() ([]byte, error) {
 
 func (o AdminUsersUpdatePasswordCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["password"] = o.Password
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *AWSCloudCredentialApi* | [**AwsOwners**](docs/AWSCloudCredentialApi.md#awsowners) | **Get** /api/v1/aws/owners | Retrieve aws verified owner list
 *AWSCloudCredentialApi* | [**AwsRegionlist**](docs/AWSCloudCredentialApi.md#awsregionlist) | **Post** /api/v1/aws/regions | Retrieve aws regions list
 *AWSCloudCredentialApi* | [**AwsUpdate**](docs/AWSCloudCredentialApi.md#awsupdate) | **Post** /api/v1/aws/update | Update AWS credentials
+*AWSCloudCredentialApi* | [**AwsValidateOwners**](docs/AWSCloudCredentialApi.md#awsvalidateowners) | **Post** /api/v1/aws/validate-owners | Aws validate owners
 *AWSCloudCredentialApi* | [**AwsZones**](docs/AWSCloudCredentialApi.md#awszones) | **Post** /api/v1/aws/zones | Fetch Aws zones
 *AccessProfilesApi* | [**AccessprofilesCreate**](docs/AccessProfilesApi.md#accessprofilescreate) | **Post** /api/v1/accessprofiles/create | Create access profile
 *AccessProfilesApi* | [**AccessprofilesDelete**](docs/AccessProfilesApi.md#accessprofilesdelete) | **Delete** /api/v1/accessprofiles/{id} | Delete access profile by Id
@@ -273,6 +274,7 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**ImagesGoogleImages**](docs/ImagesApi.md#imagesgoogleimages) | **Get** /api/v1/images/google/{cloudId}/{type} | 
 *ImagesApi* | [**ImagesImageDetails**](docs/ImagesApi.md#imagesimagedetails) | **Get** /api/v1/images/details | Get image details
 *ImagesApi* | [**ImagesOpenstackImages**](docs/ImagesApi.md#imagesopenstackimages) | **Get** /api/v1/images/openstack/{cloudId} | Retrieve openstack images
+*ImagesApi* | [**ImagesProxmoxImages**](docs/ImagesApi.md#imagesproxmoximages) | **Get** /api/v1/images/proxmox/{cloudId} | Retrieve proxmox images
 *ImagesApi* | [**ImagesSelectedImagesForProject**](docs/ImagesApi.md#imagesselectedimagesforproject) | **Get** /api/v1/images/projects/lis | Retrieve selected images for projects
 *ImagesApi* | [**ImagesTanzuImages**](docs/ImagesApi.md#imagestanzuimages) | **Get** /api/v1/images/tanzu/{cloudId} | Retrieve tanzu images
 *ImagesApi* | [**ImagesUnbindImagesFromProject**](docs/ImagesApi.md#imagesunbindimagesfromproject) | **Get** /api/v1/images/unbind | Unbind images from project
@@ -343,6 +345,7 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**KubernetesPodList**](docs/KubernetesApi.md#kubernetespodlist) | **Get** /api/v1/kubernetes/{projectId}/pod | Retrieve a list of k8s pod for all namespaces
 *KubernetesApi* | [**KubernetesPodLogs**](docs/KubernetesApi.md#kubernetespodlogs) | **Post** /api/v1/kubernetes/podLogs | Retrieve k8s pod logs
 *KubernetesApi* | [**KubernetesPvcList**](docs/KubernetesApi.md#kubernetespvclist) | **Get** /api/v1/kubernetes/{projectId}/pvc | Retrieve a list of k8s pvc for all namespaces
+*KubernetesApi* | [**KubernetesQuota**](docs/KubernetesApi.md#kubernetesquota) | **Get** /api/v1/kubernetes/{projectId}/quota | K8s quota usage
 *KubernetesApi* | [**KubernetesRemovealerts**](docs/KubernetesApi.md#kubernetesremovealerts) | **Post** /api/v1/kubernetes/removealerts | Remove k8s alerts
 *KubernetesApi* | [**KubernetesRestartDaemonSet**](docs/KubernetesApi.md#kubernetesrestartdaemonset) | **Post** /api/v1/kubernetes/restart/daemonset | Restart daemon set
 *KubernetesApi* | [**KubernetesRestartDeployment**](docs/KubernetesApi.md#kubernetesrestartdeployment) | **Post** /api/v1/kubernetes/restart/deployment | Restart deployment
@@ -400,6 +403,7 @@ Class | Method | HTTP request | Description
 *OrganizationSubscriptionsApi* | [**OrganizationsubcriptionsList**](docs/OrganizationSubscriptionsApi.md#organizationsubcriptionslist) | **Get** /api/v1/organizationsubcriptions | Retrieve all organization subscriptions
 *OrganizationSubscriptionsApi* | [**OrganizationsubcriptionsUpdate**](docs/OrganizationSubscriptionsApi.md#organizationsubcriptionsupdate) | **Post** /api/v1/organizationsubcriptions/update | Update subscription
 *OrganizationsApi* | [**OrganizationsAcceptOffer**](docs/OrganizationsApi.md#organizationsacceptoffer) | **Post** /api/v1/organizations/accept-offer | Accept discount offer
+*OrganizationsApi* | [**OrganizationsAccessForPartner**](docs/OrganizationsApi.md#organizationsaccessforpartner) | **Post** /api/v1/organizations/access-for partner | Give access to partner
 *OrganizationsApi* | [**OrganizationsCreate**](docs/OrganizationsApi.md#organizationscreate) | **Post** /api/v1/organizations | Add a new organization. Only available for admins.
 *OrganizationsApi* | [**OrganizationsDelete**](docs/OrganizationsApi.md#organizationsdelete) | **Delete** /api/v1/organizations/{id} | Delete the specified organization. Only available for admins.
 *OrganizationsApi* | [**OrganizationsDetawils**](docs/OrganizationsApi.md#organizationsdetawils) | **Get** /api/v1/organizations/details | Retrieve all data about current organization by Id
@@ -511,6 +515,8 @@ Class | Method | HTTP request | Description
 *ProxmoxCloudCredentialApi* | [**ProxmoxHypervisorList**](docs/ProxmoxCloudCredentialApi.md#proxmoxhypervisorlist) | **Post** /api/v1/proxmox/hypervisor-list | Fetch proxmox hypervisor list
 *ProxmoxCloudCredentialApi* | [**ProxmoxList**](docs/ProxmoxCloudCredentialApi.md#proxmoxlist) | **Get** /api/v1/proxmox/list | Retrieve list of proxmox cloud credentials
 *ProxmoxCloudCredentialApi* | [**ProxmoxStorageList**](docs/ProxmoxCloudCredentialApi.md#proxmoxstoragelist) | **Post** /api/v1/proxmox/storage-list | Fetch proxmox storage list
+*ProxmoxCloudCredentialApi* | [**ProxmoxUpdate**](docs/ProxmoxCloudCredentialApi.md#proxmoxupdate) | **Post** /api/v1/proxmox/update | Update proxmox credentials
+*ProxmoxCloudCredentialApi* | [**ProxmoxUpdateHypervisors**](docs/ProxmoxCloudCredentialApi.md#proxmoxupdatehypervisors) | **Post** /api/v1/proxmox/update/hypervisors | Update proxmox credentials
 *ProxmoxCloudCredentialApi* | [**ProxmoxVmTemplateList**](docs/ProxmoxCloudCredentialApi.md#proxmoxvmtemplatelist) | **Post** /api/v1/proxmox/vm-template-list | Fetch proxmox vm template list
 *S3CredentialsApi* | [**S3credentialsCreate**](docs/S3CredentialsApi.md#s3credentialscreate) | **Post** /api/v1/s3credentials | Add s3 credential
 *S3CredentialsApi* | [**S3credentialsDelete**](docs/S3CredentialsApi.md#s3credentialsdelete) | **Delete** /api/v1/s3credentials/{id} | Delete s3 credential
@@ -729,6 +735,7 @@ Class | Method | HTTP request | Description
  - [AwsOwnerDetails](docs/AwsOwnerDetails.md)
  - [AwsProjectAZSubnetDto](docs/AwsProjectAZSubnetDto.md)
  - [AwsRegionDto](docs/AwsRegionDto.md)
+ - [AwsValidateOwnerCommand](docs/AwsValidateOwnerCommand.md)
  - [AzResult](docs/AzResult.md)
  - [AzureCredentialList](docs/AzureCredentialList.md)
  - [AzureCredentialsForProjectDto](docs/AzureCredentialsForProjectDto.md)
@@ -782,6 +789,9 @@ Class | Method | HTTP request | Description
  - [BoundImagesForProjectsList](docs/BoundImagesForProjectsList.md)
  - [BoundImagesForProjectsListDto](docs/BoundImagesForProjectsListDto.md)
  - [BridgeListCommand](docs/BridgeListCommand.md)
+ - [CBackupDto](docs/CBackupDto.md)
+ - [CDeleteBackupRequestDto](docs/CDeleteBackupRequestDto.md)
+ - [CRestoreDto](docs/CRestoreDto.md)
  - [CScheduleDto](docs/CScheduleDto.md)
  - [CardInformationDto](docs/CardInformationDto.md)
  - [CatalogAppDetailsDto](docs/CatalogAppDetailsDto.md)
@@ -967,6 +977,7 @@ Class | Method | HTTP request | Description
  - [GetCatalogAppValueCommand](docs/GetCatalogAppValueCommand.md)
  - [GetProjectOperationCommand](docs/GetProjectOperationCommand.md)
  - [GetToken](docs/GetToken.md)
+ - [GiveAccessToPartnerCommand](docs/GiveAccessToPartnerCommand.md)
  - [GoogleCommonImages](docs/GoogleCommonImages.md)
  - [GoogleCredentialForProjectDto](docs/GoogleCredentialForProjectDto.md)
  - [GoogleCredentialList](docs/GoogleCredentialList.md)
@@ -1027,6 +1038,7 @@ Class | Method | HTTP request | Description
  - [KubernetesProfilesLockManagerCommand](docs/KubernetesProfilesLockManagerCommand.md)
  - [KubernetesProfilesSearchCommand](docs/KubernetesProfilesSearchCommand.md)
  - [KubernetesProfilesSearchList](docs/KubernetesProfilesSearchList.md)
+ - [KubernetesQuotaListDto](docs/KubernetesQuotaListDto.md)
  - [KubernetesVersionListDto](docs/KubernetesVersionListDto.md)
  - [KubesprayCreateCommand](docs/KubesprayCreateCommand.md)
  - [KubesprayListDto](docs/KubesprayListDto.md)
@@ -1034,6 +1046,9 @@ Class | Method | HTTP request | Description
  - [LeaveTaikunCommand](docs/LeaveTaikunCommand.md)
  - [LeaveTaikunDto](docs/LeaveTaikunDto.md)
  - [ListAllBackupStorageLocations](docs/ListAllBackupStorageLocations.md)
+ - [ListAllBackups](docs/ListAllBackups.md)
+ - [ListAllDeleteBackupRequests](docs/ListAllDeleteBackupRequests.md)
+ - [ListAllRestores](docs/ListAllRestores.md)
  - [ListAllSchedules](docs/ListAllSchedules.md)
  - [ListCatalogAppAvailableVersionsCommand](docs/ListCatalogAppAvailableVersionsCommand.md)
  - [ListForLandingPageDto](docs/ListForLandingPageDto.md)
@@ -1094,7 +1109,6 @@ Class | Method | HTTP request | Description
  - [OrganizationDetailsDto](docs/OrganizationDetailsDto.md)
  - [OrganizationDto](docs/OrganizationDto.md)
  - [OrganizationEntityForDashboard](docs/OrganizationEntityForDashboard.md)
- - [OrganizationForPrometheus](docs/OrganizationForPrometheus.md)
  - [OrganizationNameCheckerCommand](docs/OrganizationNameCheckerCommand.md)
  - [OrganizationSearchCommand](docs/OrganizationSearchCommand.md)
  - [OrganizationSearchList](docs/OrganizationSearchList.md)
@@ -1186,6 +1200,7 @@ Class | Method | HTTP request | Description
  - [PrometheusLabelListDto](docs/PrometheusLabelListDto.md)
  - [PrometheusLabelUpdateDto](docs/PrometheusLabelUpdateDto.md)
  - [PrometheusMetricsCommand](docs/PrometheusMetricsCommand.md)
+ - [PrometheusOrganizationDiscountDto](docs/PrometheusOrganizationDiscountDto.md)
  - [PrometheusRuleListDto](docs/PrometheusRuleListDto.md)
  - [PrometheusRulesList](docs/PrometheusRulesList.md)
  - [PrometheusRulesSearchCommand](docs/PrometheusRulesSearchCommand.md)
@@ -1196,6 +1211,8 @@ Class | Method | HTTP request | Description
  - [ProxmoxCredentialsForProjectDto](docs/ProxmoxCredentialsForProjectDto.md)
  - [ProxmoxFlavorData](docs/ProxmoxFlavorData.md)
  - [ProxmoxFlavorList](docs/ProxmoxFlavorList.md)
+ - [ProxmoxHypervisorDto](docs/ProxmoxHypervisorDto.md)
+ - [ProxmoxImageList](docs/ProxmoxImageList.md)
  - [ProxmoxList](docs/ProxmoxList.md)
  - [ProxmoxListDto](docs/ProxmoxListDto.md)
  - [ProxmoxNetworkListDto](docs/ProxmoxNetworkListDto.md)
@@ -1334,6 +1351,7 @@ Class | Method | HTTP request | Description
  - [UpdateAwsCommand](docs/UpdateAwsCommand.md)
  - [UpdateAzureCommand](docs/UpdateAzureCommand.md)
  - [UpdateCatalogDto](docs/UpdateCatalogDto.md)
+ - [UpdateHypervisorsCommand](docs/UpdateHypervisorsCommand.md)
  - [UpdateInvoiceDto](docs/UpdateInvoiceDto.md)
  - [UpdateKubernetesAlertDto](docs/UpdateKubernetesAlertDto.md)
  - [UpdateOpenStackCommand](docs/UpdateOpenStackCommand.md)
@@ -1343,6 +1361,7 @@ Class | Method | HTTP request | Description
  - [UpdateProjectGroupDto](docs/UpdateProjectGroupDto.md)
  - [UpdateProjectUserDto](docs/UpdateProjectUserDto.md)
  - [UpdateProjectUserGroupDto](docs/UpdateProjectUserGroupDto.md)
+ - [UpdateProxmoxCommand](docs/UpdateProxmoxCommand.md)
  - [UpdateQuotaCommand](docs/UpdateQuotaCommand.md)
  - [UpdateServerCommand](docs/UpdateServerCommand.md)
  - [UpdateServerHealthDto](docs/UpdateServerHealthDto.md)

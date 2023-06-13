@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessProfileId** | **int32** |  | 
+**AccessProfileId** | Pointer to **int32** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**IpAddress** | **string** |  | 
+**IpAddress** | Pointer to **NullableString** |  | [optional] 
 **MaskBits** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateAllowedHostCommand
 
-`func NewCreateAllowedHostCommand(accessProfileId int32, ipAddress string, ) *CreateAllowedHostCommand`
+`func NewCreateAllowedHostCommand() *CreateAllowedHostCommand`
 
 NewCreateAllowedHostCommand instantiates a new CreateAllowedHostCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetAccessProfileId sets AccessProfileId field to given value.
 
+### HasAccessProfileId
+
+`func (o *CreateAllowedHostCommand) HasAccessProfileId() bool`
+
+HasAccessProfileId returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -102,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetIpAddress sets IpAddress field to given value.
 
+### HasIpAddress
 
+`func (o *CreateAllowedHostCommand) HasIpAddress() bool`
+
+HasIpAddress returns a boolean if a field has been set.
+
+### SetIpAddressNil
+
+`func (o *CreateAllowedHostCommand) SetIpAddressNil(b bool)`
+
+ SetIpAddressNil sets the value for IpAddress to be an explicit nil
+
+### UnsetIpAddress
+`func (o *CreateAllowedHostCommand) UnsetIpAddress()`
+
+UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
 ### GetMaskBits
 
 `func (o *CreateAllowedHostCommand) GetMaskBits() int32`

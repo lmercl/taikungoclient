@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TicketId** | **string** |  | 
-**Name** | **string** |  | 
-**Description** | **string** |  | 
+**TicketId** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewEditTicketCommand
 
-`func NewEditTicketCommand(ticketId string, name string, description string, ) *EditTicketCommand`
+`func NewEditTicketCommand() *EditTicketCommand`
 
 NewEditTicketCommand instantiates a new EditTicketCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetTicketId sets TicketId field to given value.
 
+### HasTicketId
 
+`func (o *EditTicketCommand) HasTicketId() bool`
+
+HasTicketId returns a boolean if a field has been set.
+
+### SetTicketIdNil
+
+`func (o *EditTicketCommand) SetTicketIdNil(b bool)`
+
+ SetTicketIdNil sets the value for TicketId to be an explicit nil
+
+### UnsetTicketId
+`func (o *EditTicketCommand) UnsetTicketId()`
+
+UnsetTicketId ensures that no value is present for TicketId, not even an explicit nil
 ### GetName
 
 `func (o *EditTicketCommand) GetName() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *EditTicketCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *EditTicketCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditTicketCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *EditTicketCommand) GetDescription() string`
@@ -86,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
 
+`func (o *EditTicketCommand) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *EditTicketCommand) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *EditTicketCommand) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

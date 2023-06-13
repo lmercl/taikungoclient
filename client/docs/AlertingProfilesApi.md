@@ -38,7 +38,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    alertingEmailDto := []openapiclient.AlertingEmailDto{*openapiclient.NewAlertingEmailDto("Email_example")} // []AlertingEmailDto |  (optional)
+    alertingEmailDto := []openapiclient.AlertingEmailDto{*openapiclient.NewAlertingEmailDto()} // []AlertingEmailDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -235,7 +235,7 @@ import (
 )
 
 func main() {
-    createAlertingProfileCommand := *openapiclient.NewCreateAlertingProfileCommand("Name_example") // CreateAlertingProfileCommand |  (optional)
+    createAlertingProfileCommand := *openapiclient.NewCreateAlertingProfileCommand() // CreateAlertingProfileCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -493,7 +493,7 @@ import (
 )
 
 func main() {
-    updateAlertingProfileCommand := *openapiclient.NewUpdateAlertingProfileCommand(int32(123)) // UpdateAlertingProfileCommand |  (optional)
+    updateAlertingProfileCommand := *openapiclient.NewUpdateAlertingProfileCommand() // UpdateAlertingProfileCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -697,7 +697,7 @@ import (
 )
 
 func main() {
-    verifyWebhookCommand := *openapiclient.NewVerifyWebhookCommand("Url_example") // VerifyWebhookCommand |  (optional)
+    verifyWebhookCommand := *openapiclient.NewVerifyWebhookCommand() // VerifyWebhookCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

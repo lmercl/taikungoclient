@@ -22,7 +22,7 @@ var _ MappedNullable = &CreateStripeCustomerCommand{}
 type CreateStripeCustomerCommand struct {
 	LegalName NullableString `json:"legalName,omitempty"`
 	BillingEmail NullableString `json:"billingEmail,omitempty"`
-	Country string `json:"country"`
+	Country NullableString `json:"country,omitempty"`
 	Address NullableString `json:"address,omitempty"`
 	City NullableString `json:"city,omitempty"`
 	VatNumber NullableString `json:"vatNumber,omitempty"`
@@ -32,9 +32,8 @@ type CreateStripeCustomerCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateStripeCustomerCommand(country string) *CreateStripeCustomerCommand {
+func NewCreateStripeCustomerCommand() *CreateStripeCustomerCommand {
 	this := CreateStripeCustomerCommand{}
-	this.Country = country
 	return &this
 }
 
@@ -130,28 +129,46 @@ func (o *CreateStripeCustomerCommand) UnsetBillingEmail() {
 	o.BillingEmail.Unset()
 }
 
-// GetCountry returns the Country field value
+// GetCountry returns the Country field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateStripeCustomerCommand) GetCountry() string {
-	if o == nil {
+	if o == nil || IsNil(o.Country.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Country
+	return *o.Country.Get()
 }
 
-// GetCountryOk returns a tuple with the Country field value
+// GetCountryOk returns a tuple with the Country field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStripeCustomerCommand) GetCountryOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Country, true
+	return o.Country.Get(), o.Country.IsSet()
 }
 
-// SetCountry sets field value
+// HasCountry returns a boolean if a field has been set.
+func (o *CreateStripeCustomerCommand) HasCountry() bool {
+	if o != nil && o.Country.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCountry gets a reference to the given NullableString and assigns it to the Country field.
 func (o *CreateStripeCustomerCommand) SetCountry(v string) {
-	o.Country = v
+	o.Country.Set(&v)
+}
+// SetCountryNil sets the value for Country to be an explicit nil
+func (o *CreateStripeCustomerCommand) SetCountryNil() {
+	o.Country.Set(nil)
+}
+
+// UnsetCountry ensures that no value is present for Country, not even an explicit nil
+func (o *CreateStripeCustomerCommand) UnsetCountry() {
+	o.Country.Unset()
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -296,7 +313,9 @@ func (o CreateStripeCustomerCommand) ToMap() (map[string]interface{}, error) {
 	if o.BillingEmail.IsSet() {
 		toSerialize["billingEmail"] = o.BillingEmail.Get()
 	}
-	toSerialize["country"] = o.Country
+	if o.Country.IsSet() {
+		toSerialize["country"] = o.Country.Get()
+	}
 	if o.Address.IsSet() {
 		toSerialize["address"] = o.Address.Get()
 	}

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrganizationId** | **int32** |  | 
-**PrometheusRuleId** | **int32** |  | 
+**OrganizationId** | Pointer to **int32** |  | [optional] 
+**PrometheusRuleId** | Pointer to **int32** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewPrometheusBillingCreateCommand
 
-`func NewPrometheusBillingCreateCommand(organizationId int32, prometheusRuleId int32, ) *PrometheusBillingCreateCommand`
+`func NewPrometheusBillingCreateCommand() *PrometheusBillingCreateCommand`
 
 NewPrometheusBillingCreateCommand instantiates a new PrometheusBillingCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetOrganizationId sets OrganizationId field to given value.
 
+### HasOrganizationId
+
+`func (o *PrometheusBillingCreateCommand) HasOrganizationId() bool`
+
+HasOrganizationId returns a boolean if a field has been set.
 
 ### GetPrometheusRuleId
 
@@ -67,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetPrometheusRuleId sets PrometheusRuleId field to given value.
 
+### HasPrometheusRuleId
+
+`func (o *PrometheusBillingCreateCommand) HasPrometheusRuleId() bool`
+
+HasPrometheusRuleId returns a boolean if a field has been set.
 
 ### GetStartDate
 

@@ -21,8 +21,8 @@ var _ MappedNullable = &HypervisorListCommand{}
 // HypervisorListCommand struct for HypervisorListCommand
 type HypervisorListCommand struct {
 	Url NullableString `json:"url,omitempty"`
-	Username NullableString `json:"username,omitempty"`
-	Password NullableString `json:"password,omitempty"`
+	TokenId NullableString `json:"tokenId,omitempty"`
+	TokenSecret NullableString `json:"tokenSecret,omitempty"`
 	CloudId NullableInt32 `json:"cloudId,omitempty"`
 }
 
@@ -85,88 +85,88 @@ func (o *HypervisorListCommand) UnsetUrl() {
 	o.Url.Unset()
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorListCommand) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
+// GetTokenId returns the TokenId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorListCommand) GetTokenId() string {
+	if o == nil || IsNil(o.TokenId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username.Get()
+	return *o.TokenId.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorListCommand) GetUsernameOk() (*string, bool) {
+func (o *HypervisorListCommand) GetTokenIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Username.Get(), o.Username.IsSet()
+	return o.TokenId.Get(), o.TokenId.IsSet()
 }
 
-// HasUsername returns a boolean if a field has been set.
-func (o *HypervisorListCommand) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
+// HasTokenId returns a boolean if a field has been set.
+func (o *HypervisorListCommand) HasTokenId() bool {
+	if o != nil && o.TokenId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
-func (o *HypervisorListCommand) SetUsername(v string) {
-	o.Username.Set(&v)
+// SetTokenId gets a reference to the given NullableString and assigns it to the TokenId field.
+func (o *HypervisorListCommand) SetTokenId(v string) {
+	o.TokenId.Set(&v)
 }
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *HypervisorListCommand) SetUsernameNil() {
-	o.Username.Set(nil)
-}
-
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *HypervisorListCommand) UnsetUsername() {
-	o.Username.Unset()
+// SetTokenIdNil sets the value for TokenId to be an explicit nil
+func (o *HypervisorListCommand) SetTokenIdNil() {
+	o.TokenId.Set(nil)
 }
 
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorListCommand) GetPassword() string {
-	if o == nil || IsNil(o.Password.Get()) {
+// UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+func (o *HypervisorListCommand) UnsetTokenId() {
+	o.TokenId.Unset()
+}
+
+// GetTokenSecret returns the TokenSecret field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorListCommand) GetTokenSecret() string {
+	if o == nil || IsNil(o.TokenSecret.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Password.Get()
+	return *o.TokenSecret.Get()
 }
 
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// GetTokenSecretOk returns a tuple with the TokenSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorListCommand) GetPasswordOk() (*string, bool) {
+func (o *HypervisorListCommand) GetTokenSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return o.TokenSecret.Get(), o.TokenSecret.IsSet()
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *HypervisorListCommand) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
+// HasTokenSecret returns a boolean if a field has been set.
+func (o *HypervisorListCommand) HasTokenSecret() bool {
+	if o != nil && o.TokenSecret.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
-func (o *HypervisorListCommand) SetPassword(v string) {
-	o.Password.Set(&v)
+// SetTokenSecret gets a reference to the given NullableString and assigns it to the TokenSecret field.
+func (o *HypervisorListCommand) SetTokenSecret(v string) {
+	o.TokenSecret.Set(&v)
 }
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *HypervisorListCommand) SetPasswordNil() {
-	o.Password.Set(nil)
+// SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+func (o *HypervisorListCommand) SetTokenSecretNil() {
+	o.TokenSecret.Set(nil)
 }
 
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *HypervisorListCommand) UnsetPassword() {
-	o.Password.Unset()
+// UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
+func (o *HypervisorListCommand) UnsetTokenSecret() {
+	o.TokenSecret.Unset()
 }
 
 // GetCloudId returns the CloudId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,11 +224,11 @@ func (o HypervisorListCommand) ToMap() (map[string]interface{}, error) {
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
 	}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
+	if o.TokenId.IsSet() {
+		toSerialize["tokenId"] = o.TokenId.Get()
 	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
+	if o.TokenSecret.IsSet() {
+		toSerialize["tokenSecret"] = o.TokenSecret.Get()
 	}
 	if o.CloudId.IsSet() {
 		toSerialize["cloudId"] = o.CloudId.Get()

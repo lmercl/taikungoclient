@@ -18,9 +18,8 @@ Name | Type | Description | Notes
 **OrganizationName** | Pointer to **NullableString** |  | [optional] 
 **ContinentName** | Pointer to **NullableString** |  | [optional] 
 **Hypervisors** | Pointer to [**[]CommonDropdownDto**](CommonDropdownDto.md) |  | [optional] 
-**Username** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
 **Storage** | Pointer to **NullableString** |  | [optional] 
 **VmTemplateName** | Pointer to **NullableString** |  | [optional] 
 **ProxmoxNetworks** | Pointer to [**[]ProxmoxNetworkListDto**](ProxmoxNetworkListDto.md) |  | [optional] 
@@ -484,41 +483,41 @@ HasHypervisors returns a boolean if a field has been set.
 `func (o *ProxmoxListDto) UnsetHypervisors()`
 
 UnsetHypervisors ensures that no value is present for Hypervisors, not even an explicit nil
-### GetUsername
+### GetTokenId
 
-`func (o *ProxmoxListDto) GetUsername() string`
+`func (o *ProxmoxListDto) GetTokenId() string`
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
 
-### GetUsernameOk
+### GetTokenIdOk
 
-`func (o *ProxmoxListDto) GetUsernameOk() (*string, bool)`
+`func (o *ProxmoxListDto) GetTokenIdOk() (*string, bool)`
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *ProxmoxListDto) SetUsername(v string)`
+`func (o *ProxmoxListDto) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
-### HasUsername
+### HasTokenId
 
-`func (o *ProxmoxListDto) HasUsername() bool`
+`func (o *ProxmoxListDto) HasTokenId() bool`
 
-HasUsername returns a boolean if a field has been set.
+HasTokenId returns a boolean if a field has been set.
 
-### SetUsernameNil
+### SetTokenIdNil
 
-`func (o *ProxmoxListDto) SetUsernameNil(b bool)`
+`func (o *ProxmoxListDto) SetTokenIdNil(b bool)`
 
- SetUsernameNil sets the value for Username to be an explicit nil
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-### UnsetUsername
-`func (o *ProxmoxListDto) UnsetUsername()`
+### UnsetTokenId
+`func (o *ProxmoxListDto) UnsetTokenId()`
 
-UnsetUsername ensures that no value is present for Username, not even an explicit nil
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
 ### GetUrl
 
 `func (o *ProxmoxListDto) GetUrl() string`
@@ -554,41 +553,6 @@ HasUrl returns a boolean if a field has been set.
 `func (o *ProxmoxListDto) UnsetUrl()`
 
 UnsetUrl ensures that no value is present for Url, not even an explicit nil
-### GetPassword
-
-`func (o *ProxmoxListDto) GetPassword() string`
-
-GetPassword returns the Password field if non-nil, zero value otherwise.
-
-### GetPasswordOk
-
-`func (o *ProxmoxListDto) GetPasswordOk() (*string, bool)`
-
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPassword
-
-`func (o *ProxmoxListDto) SetPassword(v string)`
-
-SetPassword sets Password field to given value.
-
-### HasPassword
-
-`func (o *ProxmoxListDto) HasPassword() bool`
-
-HasPassword returns a boolean if a field has been set.
-
-### SetPasswordNil
-
-`func (o *ProxmoxListDto) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *ProxmoxListDto) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetStorage
 
 `func (o *ProxmoxListDto) GetStorage() string`

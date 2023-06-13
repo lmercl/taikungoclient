@@ -20,18 +20,16 @@ var _ MappedNullable = &MakeCsmCommand{}
 
 // MakeCsmCommand struct for MakeCsmCommand
 type MakeCsmCommand struct {
-	UserId string `json:"userId"`
-	Mode string `json:"mode"`
+	UserId NullableString `json:"userId,omitempty"`
+	Mode NullableString `json:"mode,omitempty"`
 }
 
 // NewMakeCsmCommand instantiates a new MakeCsmCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMakeCsmCommand(userId string, mode string) *MakeCsmCommand {
+func NewMakeCsmCommand() *MakeCsmCommand {
 	this := MakeCsmCommand{}
-	this.UserId = userId
-	this.Mode = mode
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewMakeCsmCommandWithDefaults() *MakeCsmCommand {
 	return &this
 }
 
-// GetUserId returns the UserId field value
+// GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MakeCsmCommand) GetUserId() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.UserId
+	return *o.UserId.Get()
 }
 
-// GetUserIdOk returns a tuple with the UserId field value
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MakeCsmCommand) GetUserIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.UserId, true
+	return o.UserId.Get(), o.UserId.IsSet()
 }
 
-// SetUserId sets field value
+// HasUserId returns a boolean if a field has been set.
+func (o *MakeCsmCommand) HasUserId() bool {
+	if o != nil && o.UserId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given NullableString and assigns it to the UserId field.
 func (o *MakeCsmCommand) SetUserId(v string) {
-	o.UserId = v
+	o.UserId.Set(&v)
+}
+// SetUserIdNil sets the value for UserId to be an explicit nil
+func (o *MakeCsmCommand) SetUserIdNil() {
+	o.UserId.Set(nil)
 }
 
-// GetMode returns the Mode field value
+// UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+func (o *MakeCsmCommand) UnsetUserId() {
+	o.UserId.Unset()
+}
+
+// GetMode returns the Mode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MakeCsmCommand) GetMode() string {
-	if o == nil {
+	if o == nil || IsNil(o.Mode.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Mode
+	return *o.Mode.Get()
 }
 
-// GetModeOk returns a tuple with the Mode field value
+// GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MakeCsmCommand) GetModeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Mode, true
+	return o.Mode.Get(), o.Mode.IsSet()
 }
 
-// SetMode sets field value
+// HasMode returns a boolean if a field has been set.
+func (o *MakeCsmCommand) HasMode() bool {
+	if o != nil && o.Mode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMode gets a reference to the given NullableString and assigns it to the Mode field.
 func (o *MakeCsmCommand) SetMode(v string) {
-	o.Mode = v
+	o.Mode.Set(&v)
+}
+// SetModeNil sets the value for Mode to be an explicit nil
+func (o *MakeCsmCommand) SetModeNil() {
+	o.Mode.Set(nil)
+}
+
+// UnsetMode ensures that no value is present for Mode, not even an explicit nil
+func (o *MakeCsmCommand) UnsetMode() {
+	o.Mode.Unset()
 }
 
 func (o MakeCsmCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o MakeCsmCommand) MarshalJSON() ([]byte, error) {
 
 func (o MakeCsmCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["userId"] = o.UserId
-	toSerialize["mode"] = o.Mode
+	if o.UserId.IsSet() {
+		toSerialize["userId"] = o.UserId.Get()
+	}
+	if o.Mode.IsSet() {
+		toSerialize["mode"] = o.Mode.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Gateway** | Pointer to **NullableString** |  | [optional] 
 **IpAddress** | Pointer to **NullableString** |  | [optional] 
 **NetMask** | Pointer to **int32** |  | [optional] 
+**BeginAllocationRange** | Pointer to **NullableString** |  | [optional] 
+**EndAllocationRange** | Pointer to **NullableString** |  | [optional] 
 **IsPrivate** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -159,6 +161,76 @@ SetNetMask sets NetMask field to given value.
 
 HasNetMask returns a boolean if a field has been set.
 
+### GetBeginAllocationRange
+
+`func (o *ProxmoxNetworkListDto) GetBeginAllocationRange() string`
+
+GetBeginAllocationRange returns the BeginAllocationRange field if non-nil, zero value otherwise.
+
+### GetBeginAllocationRangeOk
+
+`func (o *ProxmoxNetworkListDto) GetBeginAllocationRangeOk() (*string, bool)`
+
+GetBeginAllocationRangeOk returns a tuple with the BeginAllocationRange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBeginAllocationRange
+
+`func (o *ProxmoxNetworkListDto) SetBeginAllocationRange(v string)`
+
+SetBeginAllocationRange sets BeginAllocationRange field to given value.
+
+### HasBeginAllocationRange
+
+`func (o *ProxmoxNetworkListDto) HasBeginAllocationRange() bool`
+
+HasBeginAllocationRange returns a boolean if a field has been set.
+
+### SetBeginAllocationRangeNil
+
+`func (o *ProxmoxNetworkListDto) SetBeginAllocationRangeNil(b bool)`
+
+ SetBeginAllocationRangeNil sets the value for BeginAllocationRange to be an explicit nil
+
+### UnsetBeginAllocationRange
+`func (o *ProxmoxNetworkListDto) UnsetBeginAllocationRange()`
+
+UnsetBeginAllocationRange ensures that no value is present for BeginAllocationRange, not even an explicit nil
+### GetEndAllocationRange
+
+`func (o *ProxmoxNetworkListDto) GetEndAllocationRange() string`
+
+GetEndAllocationRange returns the EndAllocationRange field if non-nil, zero value otherwise.
+
+### GetEndAllocationRangeOk
+
+`func (o *ProxmoxNetworkListDto) GetEndAllocationRangeOk() (*string, bool)`
+
+GetEndAllocationRangeOk returns a tuple with the EndAllocationRange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndAllocationRange
+
+`func (o *ProxmoxNetworkListDto) SetEndAllocationRange(v string)`
+
+SetEndAllocationRange sets EndAllocationRange field to given value.
+
+### HasEndAllocationRange
+
+`func (o *ProxmoxNetworkListDto) HasEndAllocationRange() bool`
+
+HasEndAllocationRange returns a boolean if a field has been set.
+
+### SetEndAllocationRangeNil
+
+`func (o *ProxmoxNetworkListDto) SetEndAllocationRangeNil(b bool)`
+
+ SetEndAllocationRangeNil sets the value for EndAllocationRange to be an explicit nil
+
+### UnsetEndAllocationRange
+`func (o *ProxmoxNetworkListDto) UnsetEndAllocationRange()`
+
+UnsetEndAllocationRange ensures that no value is present for EndAllocationRange, not even an explicit nil
 ### GetIsPrivate
 
 `func (o *ProxmoxNetworkListDto) GetIsPrivate() bool`

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogAppId** | **int32** |  | 
-**Version** | **string** |  | 
+**CatalogAppId** | Pointer to **int32** |  | [optional] 
+**Version** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewEditCatalogAppVersionCommand
 
-`func NewEditCatalogAppVersionCommand(catalogAppId int32, version string, ) *EditCatalogAppVersionCommand`
+`func NewEditCatalogAppVersionCommand() *EditCatalogAppVersionCommand`
 
 NewEditCatalogAppVersionCommand instantiates a new EditCatalogAppVersionCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetCatalogAppId sets CatalogAppId field to given value.
 
+### HasCatalogAppId
+
+`func (o *EditCatalogAppVersionCommand) HasCatalogAppId() bool`
+
+HasCatalogAppId returns a boolean if a field has been set.
 
 ### GetVersion
 
@@ -65,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
 
+`func (o *EditCatalogAppVersionCommand) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### SetVersionNil
+
+`func (o *EditCatalogAppVersionCommand) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *EditCatalogAppVersionCommand) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,10 +21,10 @@ var _ MappedNullable = &CreateProjectCommand{}
 
 // CreateProjectCommand struct for CreateProjectCommand
 type CreateProjectCommand struct {
-	Name string `json:"name"`
+	Name NullableString `json:"name,omitempty"`
 	KubernetesVersion NullableString `json:"kubernetesVersion,omitempty"`
 	OrganizationId NullableInt32 `json:"organizationId,omitempty"`
-	CloudCredentialId int32 `json:"cloudCredentialId"`
+	CloudCredentialId *int32 `json:"cloudCredentialId,omitempty"`
 	S3CredentialId NullableInt32 `json:"s3CredentialId,omitempty"`
 	AccessProfileId NullableInt32 `json:"accessProfileId,omitempty"`
 	OpaProfileId NullableInt32 `json:"opaProfileId,omitempty"`
@@ -64,10 +64,8 @@ type CreateProjectCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateProjectCommand(name string, cloudCredentialId int32) *CreateProjectCommand {
+func NewCreateProjectCommand() *CreateProjectCommand {
 	this := CreateProjectCommand{}
-	this.Name = name
-	this.CloudCredentialId = cloudCredentialId
 	return &this
 }
 
@@ -79,28 +77,46 @@ func NewCreateProjectCommandWithDefaults() *CreateProjectCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateProjectCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateProjectCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateProjectCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateProjectCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateProjectCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateProjectCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetKubernetesVersion returns the KubernetesVersion field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -187,28 +203,36 @@ func (o *CreateProjectCommand) UnsetOrganizationId() {
 	o.OrganizationId.Unset()
 }
 
-// GetCloudCredentialId returns the CloudCredentialId field value
+// GetCloudCredentialId returns the CloudCredentialId field value if set, zero value otherwise.
 func (o *CreateProjectCommand) GetCloudCredentialId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CloudCredentialId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CloudCredentialId
+	return *o.CloudCredentialId
 }
 
-// GetCloudCredentialIdOk returns a tuple with the CloudCredentialId field value
+// GetCloudCredentialIdOk returns a tuple with the CloudCredentialId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateProjectCommand) GetCloudCredentialIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CloudCredentialId) {
 		return nil, false
 	}
-	return &o.CloudCredentialId, true
+	return o.CloudCredentialId, true
 }
 
-// SetCloudCredentialId sets field value
+// HasCloudCredentialId returns a boolean if a field has been set.
+func (o *CreateProjectCommand) HasCloudCredentialId() bool {
+	if o != nil && !IsNil(o.CloudCredentialId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudCredentialId gets a reference to the given int32 and assigns it to the CloudCredentialId field.
 func (o *CreateProjectCommand) SetCloudCredentialId(v int32) {
-	o.CloudCredentialId = v
+	o.CloudCredentialId = &v
 }
 
 // GetS3CredentialId returns the S3CredentialId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1430,14 +1454,18 @@ func (o CreateProjectCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateProjectCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if o.KubernetesVersion.IsSet() {
 		toSerialize["kubernetesVersion"] = o.KubernetesVersion.Get()
 	}
 	if o.OrganizationId.IsSet() {
 		toSerialize["organizationId"] = o.OrganizationId.Get()
 	}
-	toSerialize["cloudCredentialId"] = o.CloudCredentialId
+	if !IsNil(o.CloudCredentialId) {
+		toSerialize["cloudCredentialId"] = o.CloudCredentialId
+	}
 	if o.S3CredentialId.IsSet() {
 		toSerialize["s3CredentialId"] = o.S3CredentialId.Get()
 	}

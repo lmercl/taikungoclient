@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateAlertingProfileCommand{}
 
 // UpdateAlertingProfileCommand struct for UpdateAlertingProfileCommand
 type UpdateAlertingProfileCommand struct {
-	Id int32 `json:"id"`
+	Id *int32 `json:"id,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	SlackConfigurationId NullableInt32 `json:"slackConfigurationId,omitempty"`
 	OrganizationId NullableInt32 `json:"organizationId,omitempty"`
@@ -31,9 +31,8 @@ type UpdateAlertingProfileCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateAlertingProfileCommand(id int32) *UpdateAlertingProfileCommand {
+func NewUpdateAlertingProfileCommand() *UpdateAlertingProfileCommand {
 	this := UpdateAlertingProfileCommand{}
-	this.Id = id
 	return &this
 }
 
@@ -45,28 +44,36 @@ func NewUpdateAlertingProfileCommandWithDefaults() *UpdateAlertingProfileCommand
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateAlertingProfileCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateAlertingProfileCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateAlertingProfileCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateAlertingProfileCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -237,7 +244,9 @@ func (o UpdateAlertingProfileCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateAlertingProfileCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}

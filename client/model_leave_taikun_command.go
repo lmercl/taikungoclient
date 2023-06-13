@@ -20,7 +20,7 @@ var _ MappedNullable = &LeaveTaikunCommand{}
 
 // LeaveTaikunCommand struct for LeaveTaikunCommand
 type LeaveTaikunCommand struct {
-	Reason string `json:"reason"`
+	Reason NullableString `json:"reason,omitempty"`
 	Message NullableString `json:"message,omitempty"`
 }
 
@@ -28,9 +28,8 @@ type LeaveTaikunCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLeaveTaikunCommand(reason string) *LeaveTaikunCommand {
+func NewLeaveTaikunCommand() *LeaveTaikunCommand {
 	this := LeaveTaikunCommand{}
-	this.Reason = reason
 	return &this
 }
 
@@ -42,28 +41,46 @@ func NewLeaveTaikunCommandWithDefaults() *LeaveTaikunCommand {
 	return &this
 }
 
-// GetReason returns the Reason field value
+// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LeaveTaikunCommand) GetReason() string {
-	if o == nil {
+	if o == nil || IsNil(o.Reason.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Reason
+	return *o.Reason.Get()
 }
 
-// GetReasonOk returns a tuple with the Reason field value
+// GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LeaveTaikunCommand) GetReasonOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Reason, true
+	return o.Reason.Get(), o.Reason.IsSet()
 }
 
-// SetReason sets field value
+// HasReason returns a boolean if a field has been set.
+func (o *LeaveTaikunCommand) HasReason() bool {
+	if o != nil && o.Reason.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
 func (o *LeaveTaikunCommand) SetReason(v string) {
-	o.Reason = v
+	o.Reason.Set(&v)
+}
+// SetReasonNil sets the value for Reason to be an explicit nil
+func (o *LeaveTaikunCommand) SetReasonNil() {
+	o.Reason.Set(nil)
+}
+
+// UnsetReason ensures that no value is present for Reason, not even an explicit nil
+func (o *LeaveTaikunCommand) UnsetReason() {
+	o.Reason.Unset()
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -118,7 +135,9 @@ func (o LeaveTaikunCommand) MarshalJSON() ([]byte, error) {
 
 func (o LeaveTaikunCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["reason"] = o.Reason
+	if o.Reason.IsSet() {
+		toSerialize["reason"] = o.Reason.Get()
+	}
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()
 	}

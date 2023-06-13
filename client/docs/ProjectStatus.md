@@ -3,45 +3,45 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `DELETING` (value: `"Deleting"`)
 
-* `_145` (value: `145`)
+* `DISABLE_GATEKEEPER` (value: `"DisableGatekeeper"`)
 
-* `_150` (value: `150`)
+* `DELETING_BACKUP_POLICIES` (value: `"DeletingBackupPolicies"`)
 
-* `_154` (value: `154`)
+* `DISABLE_BACKUP` (value: `"DisableBackup"`)
 
-* `_155` (value: `155`)
+* `DISABLE_MONITORING` (value: `"DisableMonitoring"`)
 
-* `_156` (value: `156`)
+* `ENABLE_BACKUP` (value: `"EnableBackup"`)
 
-* `_160` (value: `160`)
+* `ENABLE_MONITORING` (value: `"EnableMonitoring"`)
 
-* `_165` (value: `165`)
+* `ENABLE_GATEKEEPER` (value: `"EnableGatekeeper"`)
 
-* `_200` (value: `200`)
+* `FAILURE` (value: `"Failure"`)
 
-* `_250` (value: `250`)
+* `FAILED_UPGRADE` (value: `"FailedUpgrade"`)
 
-* `_300` (value: `300`)
+* `PENDING` (value: `"Pending"`)
 
-* `_400` (value: `400`)
+* `PENDING_DELETE` (value: `"PendingDelete"`)
 
-* `_500` (value: `500`)
+* `PENDING_PURGE` (value: `"PendingPurge"`)
 
-* `_550` (value: `550`)
+* `PENDING_UPDATE_CREDENTIALS` (value: `"PendingUpdateCredentials"`)
 
-* `_600` (value: `600`)
+* `PENDING_UPGRADE` (value: `"PendingUpgrade"`)
 
-* `_700` (value: `700`)
+* `PURGING` (value: `"Purging"`)
 
-* `_800` (value: `800`)
+* `READY` (value: `"Ready"`)
 
-* `_900` (value: `900`)
+* `UPDATING` (value: `"Updating"`)
 
-* `_1000` (value: `1000`)
+* `UPGRADING` (value: `"Upgrading"`)
 
-* `_1100` (value: `1100`)
+* `UPDATING_CREDENTIALS` (value: `"UpdatingCredentials"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-    createAlertingIntegrationCommand := *openapiclient.NewCreateAlertingIntegrationCommand("Url_example", openapiclient.AlertingIntegrationType(100), int32(123)) // CreateAlertingIntegrationCommand | 
+    createAlertingIntegrationCommand := *openapiclient.NewCreateAlertingIntegrationCommand() // CreateAlertingIntegrationCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -161,7 +161,7 @@ import (
 )
 
 func main() {
-    editAlertingIntegrationCommand := *openapiclient.NewEditAlertingIntegrationCommand(int32(123), "Url_example", openapiclient.AlertingIntegrationType(100), int32(123)) // EditAlertingIntegrationCommand |  (optional)
+    editAlertingIntegrationCommand := *openapiclient.NewEditAlertingIntegrationCommand() // EditAlertingIntegrationCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

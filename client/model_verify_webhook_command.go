@@ -20,16 +20,15 @@ var _ MappedNullable = &VerifyWebhookCommand{}
 
 // VerifyWebhookCommand struct for VerifyWebhookCommand
 type VerifyWebhookCommand struct {
-	Url string `json:"url"`
+	Url NullableString `json:"url,omitempty"`
 }
 
 // NewVerifyWebhookCommand instantiates a new VerifyWebhookCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVerifyWebhookCommand(url string) *VerifyWebhookCommand {
+func NewVerifyWebhookCommand() *VerifyWebhookCommand {
 	this := VerifyWebhookCommand{}
-	this.Url = url
 	return &this
 }
 
@@ -41,28 +40,46 @@ func NewVerifyWebhookCommandWithDefaults() *VerifyWebhookCommand {
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VerifyWebhookCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyWebhookCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *VerifyWebhookCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *VerifyWebhookCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *VerifyWebhookCommand) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *VerifyWebhookCommand) UnsetUrl() {
+	o.Url.Unset()
 }
 
 func (o VerifyWebhookCommand) MarshalJSON() ([]byte, error) {
@@ -75,7 +92,9 @@ func (o VerifyWebhookCommand) MarshalJSON() ([]byte, error) {
 
 func (o VerifyWebhookCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
 	return toSerialize, nil
 }
 

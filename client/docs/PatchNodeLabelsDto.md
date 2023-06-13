@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** |  | 
+**Key** | Pointer to **NullableString** |  | [optional] 
 **Value** | Pointer to **NullableString** |  | [optional] 
-**Mode** | **string** |  | 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPatchNodeLabelsDto
 
-`func NewPatchNodeLabelsDto(key string, mode string, ) *PatchNodeLabelsDto`
+`func NewPatchNodeLabelsDto() *PatchNodeLabelsDto`
 
 NewPatchNodeLabelsDto instantiates a new PatchNodeLabelsDto object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+### HasKey
 
+`func (o *PatchNodeLabelsDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
+
+### SetKeyNil
+
+`func (o *PatchNodeLabelsDto) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *PatchNodeLabelsDto) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *PatchNodeLabelsDto) GetValue() string`
@@ -101,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *PatchNodeLabelsDto) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *PatchNodeLabelsDto) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *PatchNodeLabelsDto) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

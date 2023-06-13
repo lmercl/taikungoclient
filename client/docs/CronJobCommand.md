@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CronPeriod** | **string** |  | 
+**CronPeriod** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCronJobCommand
 
-`func NewCronJobCommand(cronPeriod string, ) *CronJobCommand`
+`func NewCronJobCommand() *CronJobCommand`
 
 NewCronJobCommand instantiates a new CronJobCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetCronPeriod sets CronPeriod field to given value.
 
+### HasCronPeriod
 
+`func (o *CronJobCommand) HasCronPeriod() bool`
+
+HasCronPeriod returns a boolean if a field has been set.
+
+### SetCronPeriodNil
+
+`func (o *CronJobCommand) SetCronPeriodNil(b bool)`
+
+ SetCronPeriodNil sets the value for CronPeriod to be an explicit nil
+
+### UnsetCronPeriod
+`func (o *CronJobCommand) UnsetCronPeriod()`
+
+UnsetCronPeriod ensures that no value is present for CronPeriod, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

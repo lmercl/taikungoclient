@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Password** | **string** |  | 
-**UserName** | **string** |  | 
-**Url** | **string** |  | 
+**Password** | Pointer to **NullableString** |  | [optional] 
+**UserName** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCheckPrometheusCommand
 
-`func NewCheckPrometheusCommand(password string, userName string, url string, ) *CheckPrometheusCommand`
+`func NewCheckPrometheusCommand() *CheckPrometheusCommand`
 
 NewCheckPrometheusCommand instantiates a new CheckPrometheusCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *CheckPrometheusCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *CheckPrometheusCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *CheckPrometheusCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetUserName
 
 `func (o *CheckPrometheusCommand) GetUserName() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetUserName sets UserName field to given value.
 
+### HasUserName
 
+`func (o *CheckPrometheusCommand) HasUserName() bool`
+
+HasUserName returns a boolean if a field has been set.
+
+### SetUserNameNil
+
+`func (o *CheckPrometheusCommand) SetUserNameNil(b bool)`
+
+ SetUserNameNil sets the value for UserName to be an explicit nil
+
+### UnsetUserName
+`func (o *CheckPrometheusCommand) UnsetUserName()`
+
+UnsetUserName ensures that no value is present for UserName, not even an explicit nil
 ### GetUrl
 
 `func (o *CheckPrometheusCommand) GetUrl() string`
@@ -86,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *CheckPrometheusCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *CheckPrometheusCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *CheckPrometheusCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

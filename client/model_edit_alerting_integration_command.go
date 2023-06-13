@@ -20,23 +20,19 @@ var _ MappedNullable = &EditAlertingIntegrationCommand{}
 
 // EditAlertingIntegrationCommand struct for EditAlertingIntegrationCommand
 type EditAlertingIntegrationCommand struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id *int32 `json:"id,omitempty"`
+	Url NullableString `json:"url,omitempty"`
 	Token NullableString `json:"token,omitempty"`
-	AlertingIntegrationType AlertingIntegrationType `json:"alertingIntegrationType"`
-	AlertingProfileId int32 `json:"alertingProfileId"`
+	AlertingIntegrationType *AlertingIntegrationType `json:"alertingIntegrationType,omitempty"`
+	AlertingProfileId *int32 `json:"alertingProfileId,omitempty"`
 }
 
 // NewEditAlertingIntegrationCommand instantiates a new EditAlertingIntegrationCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEditAlertingIntegrationCommand(id int32, url string, alertingIntegrationType AlertingIntegrationType, alertingProfileId int32) *EditAlertingIntegrationCommand {
+func NewEditAlertingIntegrationCommand() *EditAlertingIntegrationCommand {
 	this := EditAlertingIntegrationCommand{}
-	this.Id = id
-	this.Url = url
-	this.AlertingIntegrationType = alertingIntegrationType
-	this.AlertingProfileId = alertingProfileId
 	return &this
 }
 
@@ -48,52 +44,78 @@ func NewEditAlertingIntegrationCommandWithDefaults() *EditAlertingIntegrationCom
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *EditAlertingIntegrationCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditAlertingIntegrationCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *EditAlertingIntegrationCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *EditAlertingIntegrationCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditAlertingIntegrationCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EditAlertingIntegrationCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *EditAlertingIntegrationCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *EditAlertingIntegrationCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *EditAlertingIntegrationCommand) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *EditAlertingIntegrationCommand) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -138,52 +160,68 @@ func (o *EditAlertingIntegrationCommand) UnsetToken() {
 	o.Token.Unset()
 }
 
-// GetAlertingIntegrationType returns the AlertingIntegrationType field value
+// GetAlertingIntegrationType returns the AlertingIntegrationType field value if set, zero value otherwise.
 func (o *EditAlertingIntegrationCommand) GetAlertingIntegrationType() AlertingIntegrationType {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		var ret AlertingIntegrationType
 		return ret
 	}
-
-	return o.AlertingIntegrationType
+	return *o.AlertingIntegrationType
 }
 
-// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value
+// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditAlertingIntegrationCommand) GetAlertingIntegrationTypeOk() (*AlertingIntegrationType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		return nil, false
 	}
-	return &o.AlertingIntegrationType, true
+	return o.AlertingIntegrationType, true
 }
 
-// SetAlertingIntegrationType sets field value
+// HasAlertingIntegrationType returns a boolean if a field has been set.
+func (o *EditAlertingIntegrationCommand) HasAlertingIntegrationType() bool {
+	if o != nil && !IsNil(o.AlertingIntegrationType) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertingIntegrationType gets a reference to the given AlertingIntegrationType and assigns it to the AlertingIntegrationType field.
 func (o *EditAlertingIntegrationCommand) SetAlertingIntegrationType(v AlertingIntegrationType) {
-	o.AlertingIntegrationType = v
+	o.AlertingIntegrationType = &v
 }
 
-// GetAlertingProfileId returns the AlertingProfileId field value
+// GetAlertingProfileId returns the AlertingProfileId field value if set, zero value otherwise.
 func (o *EditAlertingIntegrationCommand) GetAlertingProfileId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingProfileId) {
 		var ret int32
 		return ret
 	}
-
-	return o.AlertingProfileId
+	return *o.AlertingProfileId
 }
 
-// GetAlertingProfileIdOk returns a tuple with the AlertingProfileId field value
+// GetAlertingProfileIdOk returns a tuple with the AlertingProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditAlertingIntegrationCommand) GetAlertingProfileIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingProfileId) {
 		return nil, false
 	}
-	return &o.AlertingProfileId, true
+	return o.AlertingProfileId, true
 }
 
-// SetAlertingProfileId sets field value
+// HasAlertingProfileId returns a boolean if a field has been set.
+func (o *EditAlertingIntegrationCommand) HasAlertingProfileId() bool {
+	if o != nil && !IsNil(o.AlertingProfileId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertingProfileId gets a reference to the given int32 and assigns it to the AlertingProfileId field.
 func (o *EditAlertingIntegrationCommand) SetAlertingProfileId(v int32) {
-	o.AlertingProfileId = v
+	o.AlertingProfileId = &v
 }
 
 func (o EditAlertingIntegrationCommand) MarshalJSON() ([]byte, error) {
@@ -196,13 +234,21 @@ func (o EditAlertingIntegrationCommand) MarshalJSON() ([]byte, error) {
 
 func (o EditAlertingIntegrationCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["url"] = o.Url
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
 	if o.Token.IsSet() {
 		toSerialize["token"] = o.Token.Get()
 	}
-	toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
-	toSerialize["alertingProfileId"] = o.AlertingProfileId
+	if !IsNil(o.AlertingIntegrationType) {
+		toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
+	}
+	if !IsNil(o.AlertingProfileId) {
+		toSerialize["alertingProfileId"] = o.AlertingProfileId
+	}
 	return toSerialize, nil
 }
 

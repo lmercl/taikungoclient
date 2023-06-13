@@ -17,30 +17,30 @@ import (
 )
 
 // StandAloneVmDiskStatus the model 'StandAloneVmDiskStatus'
-type StandAloneVmDiskStatus int32
+type StandAloneVmDiskStatus string
 
 // List of StandAloneVmDiskStatus
 const (
-	STANDALONEVMDISKSTATUS__100 StandAloneVmDiskStatus = 100
-	STANDALONEVMDISKSTATUS__200 StandAloneVmDiskStatus = 200
-	STANDALONEVMDISKSTATUS__300 StandAloneVmDiskStatus = 300
-	STANDALONEVMDISKSTATUS__400 StandAloneVmDiskStatus = 400
-	STANDALONEVMDISKSTATUS__500 StandAloneVmDiskStatus = 500
-	STANDALONEVMDISKSTATUS__600 StandAloneVmDiskStatus = 600
+	STANDALONEVMDISKSTATUS_DELETING StandAloneVmDiskStatus = "Deleting"
+	STANDALONEVMDISKSTATUS_FAILURE StandAloneVmDiskStatus = "Failure"
+	STANDALONEVMDISKSTATUS_WAITING StandAloneVmDiskStatus = "Waiting"
+	STANDALONEVMDISKSTATUS_PENDING_DELETE StandAloneVmDiskStatus = "PendingDelete"
+	STANDALONEVMDISKSTATUS_READY StandAloneVmDiskStatus = "Ready"
+	STANDALONEVMDISKSTATUS_UPDATING StandAloneVmDiskStatus = "Updating"
 )
 
 // All allowed values of StandAloneVmDiskStatus enum
 var AllowedStandAloneVmDiskStatusEnumValues = []StandAloneVmDiskStatus{
-	100,
-	200,
-	300,
-	400,
-	500,
-	600,
+	"Deleting",
+	"Failure",
+	"Waiting",
+	"PendingDelete",
+	"Ready",
+	"Updating",
 }
 
 func (v *StandAloneVmDiskStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -58,7 +58,7 @@ func (v *StandAloneVmDiskStatus) UnmarshalJSON(src []byte) error {
 
 // NewStandAloneVmDiskStatusFromValue returns a pointer to a valid StandAloneVmDiskStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewStandAloneVmDiskStatusFromValue(v int32) (*StandAloneVmDiskStatus, error) {
+func NewStandAloneVmDiskStatusFromValue(v string) (*StandAloneVmDiskStatus, error) {
 	ev := StandAloneVmDiskStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

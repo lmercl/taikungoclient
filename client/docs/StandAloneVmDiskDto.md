@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **DeviceName** | Pointer to **NullableString** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewStandAloneVmDiskDto
 
-`func NewStandAloneVmDiskDto(name string, ) *StandAloneVmDiskDto`
+`func NewStandAloneVmDiskDto() *StandAloneVmDiskDto`
 
 NewStandAloneVmDiskDto instantiates a new StandAloneVmDiskDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *StandAloneVmDiskDto) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *StandAloneVmDiskDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *StandAloneVmDiskDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSize
 
 `func (o *StandAloneVmDiskDto) GetSize() int64`

@@ -20,8 +20,8 @@ var _ MappedNullable = &OrganizationCreateCommand{}
 
 // OrganizationCreateCommand struct for OrganizationCreateCommand
 type OrganizationCreateCommand struct {
-	Name string `json:"name"`
-	FullName string `json:"fullName"`
+	Name NullableString `json:"name,omitempty"`
+	FullName NullableString `json:"fullName,omitempty"`
 	Phone NullableString `json:"phone,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	BillingEmail NullableString `json:"billingEmail,omitempty"`
@@ -38,10 +38,8 @@ type OrganizationCreateCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrganizationCreateCommand(name string, fullName string) *OrganizationCreateCommand {
+func NewOrganizationCreateCommand() *OrganizationCreateCommand {
 	this := OrganizationCreateCommand{}
-	this.Name = name
-	this.FullName = fullName
 	return &this
 }
 
@@ -53,52 +51,88 @@ func NewOrganizationCreateCommandWithDefaults() *OrganizationCreateCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OrganizationCreateCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationCreateCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *OrganizationCreateCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *OrganizationCreateCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *OrganizationCreateCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetFullName returns the FullName field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *OrganizationCreateCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetFullName returns the FullName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OrganizationCreateCommand) GetFullName() string {
-	if o == nil {
+	if o == nil || IsNil(o.FullName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.FullName
+	return *o.FullName.Get()
 }
 
-// GetFullNameOk returns a tuple with the FullName field value
+// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationCreateCommand) GetFullNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FullName, true
+	return o.FullName.Get(), o.FullName.IsSet()
 }
 
-// SetFullName sets field value
+// HasFullName returns a boolean if a field has been set.
+func (o *OrganizationCreateCommand) HasFullName() bool {
+	if o != nil && o.FullName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFullName gets a reference to the given NullableString and assigns it to the FullName field.
 func (o *OrganizationCreateCommand) SetFullName(v string) {
-	o.FullName = v
+	o.FullName.Set(&v)
+}
+// SetFullNameNil sets the value for FullName to be an explicit nil
+func (o *OrganizationCreateCommand) SetFullNameNil() {
+	o.FullName.Set(nil)
+}
+
+// UnsetFullName ensures that no value is present for FullName, not even an explicit nil
+func (o *OrganizationCreateCommand) UnsetFullName() {
+	o.FullName.Unset()
 }
 
 // GetPhone returns the Phone field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -521,8 +555,12 @@ func (o OrganizationCreateCommand) MarshalJSON() ([]byte, error) {
 
 func (o OrganizationCreateCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["fullName"] = o.FullName
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.FullName.IsSet() {
+		toSerialize["fullName"] = o.FullName.Get()
+	}
 	if o.Phone.IsSet() {
 		toSerialize["phone"] = o.Phone.Get()
 	}

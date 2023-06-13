@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | **string** |  | 
-**AccessProfileId** | **int32** |  | 
+**Address** | Pointer to **NullableString** |  | [optional] 
+**AccessProfileId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateDnsServerCommand
 
-`func NewCreateDnsServerCommand(address string, accessProfileId int32, ) *CreateDnsServerCommand`
+`func NewCreateDnsServerCommand() *CreateDnsServerCommand`
 
 NewCreateDnsServerCommand instantiates a new CreateDnsServerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+### HasAddress
 
+`func (o *CreateDnsServerCommand) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *CreateDnsServerCommand) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *CreateDnsServerCommand) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 ### GetAccessProfileId
 
 `func (o *CreateDnsServerCommand) GetAccessProfileId() int32`
@@ -65,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetAccessProfileId sets AccessProfileId field to given value.
 
+### HasAccessProfileId
+
+`func (o *CreateDnsServerCommand) HasAccessProfileId() bool`
+
+HasAccessProfileId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

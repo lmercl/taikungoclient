@@ -20,16 +20,15 @@ var _ MappedNullable = &AlertingEmailDto{}
 
 // AlertingEmailDto struct for AlertingEmailDto
 type AlertingEmailDto struct {
-	Email string `json:"email"`
+	Email NullableString `json:"email,omitempty"`
 }
 
 // NewAlertingEmailDto instantiates a new AlertingEmailDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAlertingEmailDto(email string) *AlertingEmailDto {
+func NewAlertingEmailDto() *AlertingEmailDto {
 	this := AlertingEmailDto{}
-	this.Email = email
 	return &this
 }
 
@@ -41,28 +40,46 @@ func NewAlertingEmailDtoWithDefaults() *AlertingEmailDto {
 	return &this
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertingEmailDto) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email.Get()
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertingEmailDto) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *AlertingEmailDto) HasEmail() bool {
+	if o != nil && o.Email.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *AlertingEmailDto) SetEmail(v string) {
-	o.Email = v
+	o.Email.Set(&v)
+}
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *AlertingEmailDto) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *AlertingEmailDto) UnsetEmail() {
+	o.Email.Unset()
 }
 
 func (o AlertingEmailDto) MarshalJSON() ([]byte, error) {
@@ -75,7 +92,9 @@ func (o AlertingEmailDto) MarshalJSON() ([]byte, error) {
 
 func (o AlertingEmailDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["email"] = o.Email
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
+	}
 	return toSerialize, nil
 }
 

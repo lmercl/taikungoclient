@@ -20,19 +20,17 @@ var _ MappedNullable = &AlertingIntegrationDto{}
 
 // AlertingIntegrationDto struct for AlertingIntegrationDto
 type AlertingIntegrationDto struct {
-	Url string `json:"url"`
+	Url NullableString `json:"url,omitempty"`
 	Token NullableString `json:"token,omitempty"`
-	AlertingIntegrationType AlertingIntegrationType `json:"alertingIntegrationType"`
+	AlertingIntegrationType *AlertingIntegrationType `json:"alertingIntegrationType,omitempty"`
 }
 
 // NewAlertingIntegrationDto instantiates a new AlertingIntegrationDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAlertingIntegrationDto(url string, alertingIntegrationType AlertingIntegrationType) *AlertingIntegrationDto {
+func NewAlertingIntegrationDto() *AlertingIntegrationDto {
 	this := AlertingIntegrationDto{}
-	this.Url = url
-	this.AlertingIntegrationType = alertingIntegrationType
 	return &this
 }
 
@@ -44,28 +42,46 @@ func NewAlertingIntegrationDtoWithDefaults() *AlertingIntegrationDto {
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertingIntegrationDto) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertingIntegrationDto) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *AlertingIntegrationDto) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *AlertingIntegrationDto) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *AlertingIntegrationDto) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *AlertingIntegrationDto) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -110,28 +126,36 @@ func (o *AlertingIntegrationDto) UnsetToken() {
 	o.Token.Unset()
 }
 
-// GetAlertingIntegrationType returns the AlertingIntegrationType field value
+// GetAlertingIntegrationType returns the AlertingIntegrationType field value if set, zero value otherwise.
 func (o *AlertingIntegrationDto) GetAlertingIntegrationType() AlertingIntegrationType {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		var ret AlertingIntegrationType
 		return ret
 	}
-
-	return o.AlertingIntegrationType
+	return *o.AlertingIntegrationType
 }
 
-// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value
+// GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AlertingIntegrationDto) GetAlertingIntegrationTypeOk() (*AlertingIntegrationType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertingIntegrationType) {
 		return nil, false
 	}
-	return &o.AlertingIntegrationType, true
+	return o.AlertingIntegrationType, true
 }
 
-// SetAlertingIntegrationType sets field value
+// HasAlertingIntegrationType returns a boolean if a field has been set.
+func (o *AlertingIntegrationDto) HasAlertingIntegrationType() bool {
+	if o != nil && !IsNil(o.AlertingIntegrationType) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertingIntegrationType gets a reference to the given AlertingIntegrationType and assigns it to the AlertingIntegrationType field.
 func (o *AlertingIntegrationDto) SetAlertingIntegrationType(v AlertingIntegrationType) {
-	o.AlertingIntegrationType = v
+	o.AlertingIntegrationType = &v
 }
 
 func (o AlertingIntegrationDto) MarshalJSON() ([]byte, error) {
@@ -144,11 +168,15 @@ func (o AlertingIntegrationDto) MarshalJSON() ([]byte, error) {
 
 func (o AlertingIntegrationDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
 	if o.Token.IsSet() {
 		toSerialize["token"] = o.Token.Get()
 	}
-	toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
+	if !IsNil(o.AlertingIntegrationType) {
+		toSerialize["alertingIntegrationType"] = o.AlertingIntegrationType
+	}
 	return toSerialize, nil
 }
 

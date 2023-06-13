@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrganizationName** | **string** |  | 
-**Name** | **string** |  | 
+**OrganizationName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewFilteringElementDto
 
-`func NewFilteringElementDto(organizationName string, name string, ) *FilteringElementDto`
+`func NewFilteringElementDto() *FilteringElementDto`
 
 NewFilteringElementDto instantiates a new FilteringElementDto object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetOrganizationName sets OrganizationName field to given value.
 
+### HasOrganizationName
 
+`func (o *FilteringElementDto) HasOrganizationName() bool`
+
+HasOrganizationName returns a boolean if a field has been set.
+
+### SetOrganizationNameNil
+
+`func (o *FilteringElementDto) SetOrganizationNameNil(b bool)`
+
+ SetOrganizationNameNil sets the value for OrganizationName to be an explicit nil
+
+### UnsetOrganizationName
+`func (o *FilteringElementDto) UnsetOrganizationName()`
+
+UnsetOrganizationName ensures that no value is present for OrganizationName, not even an explicit nil
 ### GetName
 
 `func (o *FilteringElementDto) GetName() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *FilteringElementDto) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *FilteringElementDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *FilteringElementDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

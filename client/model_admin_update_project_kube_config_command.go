@@ -20,16 +20,15 @@ var _ MappedNullable = &AdminUpdateProjectKubeConfigCommand{}
 
 // AdminUpdateProjectKubeConfigCommand struct for AdminUpdateProjectKubeConfigCommand
 type AdminUpdateProjectKubeConfigCommand struct {
-	ProjectId int32 `json:"projectId"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 }
 
 // NewAdminUpdateProjectKubeConfigCommand instantiates a new AdminUpdateProjectKubeConfigCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdminUpdateProjectKubeConfigCommand(projectId int32) *AdminUpdateProjectKubeConfigCommand {
+func NewAdminUpdateProjectKubeConfigCommand() *AdminUpdateProjectKubeConfigCommand {
 	this := AdminUpdateProjectKubeConfigCommand{}
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -41,28 +40,36 @@ func NewAdminUpdateProjectKubeConfigCommandWithDefaults() *AdminUpdateProjectKub
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *AdminUpdateProjectKubeConfigCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateProjectKubeConfigCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *AdminUpdateProjectKubeConfigCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *AdminUpdateProjectKubeConfigCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 func (o AdminUpdateProjectKubeConfigCommand) MarshalJSON() ([]byte, error) {
@@ -75,7 +82,9 @@ func (o AdminUpdateProjectKubeConfigCommand) MarshalJSON() ([]byte, error) {
 
 func (o AdminUpdateProjectKubeConfigCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	return toSerialize, nil
 }
 

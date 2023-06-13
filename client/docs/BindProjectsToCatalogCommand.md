@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Projects** | [**[]UpdateCatalogDto**](UpdateCatalogDto.md) |  | 
-**CatalogId** | **int32** |  | 
+**Projects** | Pointer to [**[]UpdateCatalogDto**](UpdateCatalogDto.md) |  | [optional] 
+**CatalogId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewBindProjectsToCatalogCommand
 
-`func NewBindProjectsToCatalogCommand(projects []UpdateCatalogDto, catalogId int32, ) *BindProjectsToCatalogCommand`
+`func NewBindProjectsToCatalogCommand() *BindProjectsToCatalogCommand`
 
 NewBindProjectsToCatalogCommand instantiates a new BindProjectsToCatalogCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetProjects sets Projects field to given value.
 
+### HasProjects
 
+`func (o *BindProjectsToCatalogCommand) HasProjects() bool`
+
+HasProjects returns a boolean if a field has been set.
+
+### SetProjectsNil
+
+`func (o *BindProjectsToCatalogCommand) SetProjectsNil(b bool)`
+
+ SetProjectsNil sets the value for Projects to be an explicit nil
+
+### UnsetProjects
+`func (o *BindProjectsToCatalogCommand) UnsetProjects()`
+
+UnsetProjects ensures that no value is present for Projects, not even an explicit nil
 ### GetCatalogId
 
 `func (o *BindProjectsToCatalogCommand) GetCatalogId() int32`
@@ -65,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetCatalogId sets CatalogId field to given value.
 
+### HasCatalogId
+
+`func (o *BindProjectsToCatalogCommand) HasCatalogId() bool`
+
+HasCatalogId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LegalName** | Pointer to **NullableString** |  | [optional] 
 **BillingEmail** | Pointer to **NullableString** |  | [optional] 
-**Country** | **string** |  | 
+**Country** | Pointer to **NullableString** |  | [optional] 
 **Address** | Pointer to **NullableString** |  | [optional] 
 **City** | Pointer to **NullableString** |  | [optional] 
 **VatNumber** | Pointer to **NullableString** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewCreateStripeCustomerCommand
 
-`func NewCreateStripeCustomerCommand(country string, ) *CreateStripeCustomerCommand`
+`func NewCreateStripeCustomerCommand() *CreateStripeCustomerCommand`
 
 NewCreateStripeCustomerCommand instantiates a new CreateStripeCustomerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -119,7 +119,22 @@ and a boolean to check if the value has been set.
 
 SetCountry sets Country field to given value.
 
+### HasCountry
 
+`func (o *CreateStripeCustomerCommand) HasCountry() bool`
+
+HasCountry returns a boolean if a field has been set.
+
+### SetCountryNil
+
+`func (o *CreateStripeCustomerCommand) SetCountryNil(b bool)`
+
+ SetCountryNil sets the value for Country to be an explicit nil
+
+### UnsetCountry
+`func (o *CreateStripeCustomerCommand) UnsetCountry()`
+
+UnsetCountry ensures that no value is present for Country, not even an explicit nil
 ### GetAddress
 
 `func (o *CreateStripeCustomerCommand) GetAddress() string`

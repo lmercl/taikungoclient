@@ -20,8 +20,8 @@ var _ MappedNullable = &UpdateServerCommand{}
 
 // UpdateServerCommand struct for UpdateServerCommand
 type UpdateServerCommand struct {
-	Id int32 `json:"id"`
-	Ip string `json:"ip"`
+	Id *int32 `json:"id,omitempty"`
+	Ip NullableString `json:"ip,omitempty"`
 	InstanceId NullableString `json:"instanceId,omitempty"`
 	ProviderID NullableString `json:"providerID,omitempty"`
 	AwsHostName NullableString `json:"awsHostName,omitempty"`
@@ -31,10 +31,8 @@ type UpdateServerCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateServerCommand(id int32, ip string) *UpdateServerCommand {
+func NewUpdateServerCommand() *UpdateServerCommand {
 	this := UpdateServerCommand{}
-	this.Id = id
-	this.Ip = ip
 	return &this
 }
 
@@ -46,52 +44,78 @@ func NewUpdateServerCommandWithDefaults() *UpdateServerCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateServerCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateServerCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateServerCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateServerCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetIp returns the Ip field value
+// GetIp returns the Ip field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateServerCommand) GetIp() string {
-	if o == nil {
+	if o == nil || IsNil(o.Ip.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Ip
+	return *o.Ip.Get()
 }
 
-// GetIpOk returns a tuple with the Ip field value
+// GetIpOk returns a tuple with the Ip field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateServerCommand) GetIpOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Ip, true
+	return o.Ip.Get(), o.Ip.IsSet()
 }
 
-// SetIp sets field value
+// HasIp returns a boolean if a field has been set.
+func (o *UpdateServerCommand) HasIp() bool {
+	if o != nil && o.Ip.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIp gets a reference to the given NullableString and assigns it to the Ip field.
 func (o *UpdateServerCommand) SetIp(v string) {
-	o.Ip = v
+	o.Ip.Set(&v)
+}
+// SetIpNil sets the value for Ip to be an explicit nil
+func (o *UpdateServerCommand) SetIpNil() {
+	o.Ip.Set(nil)
+}
+
+// UnsetIp ensures that no value is present for Ip, not even an explicit nil
+func (o *UpdateServerCommand) UnsetIp() {
+	o.Ip.Unset()
 }
 
 // GetInstanceId returns the InstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -230,8 +254,12 @@ func (o UpdateServerCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateServerCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["ip"] = o.Ip
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Ip.IsSet() {
+		toSerialize["ip"] = o.Ip.Get()
+	}
 	if o.InstanceId.IsSet() {
 		toSerialize["instanceId"] = o.InstanceId.Get()
 	}

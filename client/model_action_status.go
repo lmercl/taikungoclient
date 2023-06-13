@@ -17,24 +17,24 @@ import (
 )
 
 // ActionStatus the model 'ActionStatus'
-type ActionStatus int32
+type ActionStatus string
 
 // List of ActionStatus
 const (
-	ACTIONSTATUS__0 ActionStatus = 0
-	ACTIONSTATUS__1 ActionStatus = 1
-	ACTIONSTATUS__2 ActionStatus = 2
+	ACTIONSTATUS_SUCCEEDED ActionStatus = "succeeded"
+	ACTIONSTATUS_FAILED ActionStatus = "failed"
+	ACTIONSTATUS_WARNING ActionStatus = "warning"
 )
 
 // All allowed values of ActionStatus enum
 var AllowedActionStatusEnumValues = []ActionStatus{
-	0,
-	1,
-	2,
+	"succeeded",
+	"failed",
+	"warning",
 }
 
 func (v *ActionStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -52,7 +52,7 @@ func (v *ActionStatus) UnmarshalJSON(src []byte) error {
 
 // NewActionStatusFromValue returns a pointer to a valid ActionStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewActionStatusFromValue(v int32) (*ActionStatus, error) {
+func NewActionStatusFromValue(v string) (*ActionStatus, error) {
 	ev := ActionStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

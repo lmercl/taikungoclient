@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **BillingAccountId** | Pointer to **NullableString** |  | [optional] 
 **Zones** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZonesCount** | Pointer to **int32** |  | [optional] 
 **Region** | Pointer to **NullableString** |  | [optional] 
 **IsLocked** | Pointer to **bool** |  | [optional] 
 **IsDefault** | Pointer to **bool** |  | [optional] 
@@ -406,6 +407,31 @@ HasZones returns a boolean if a field has been set.
 `func (o *GoogleCredentialsListDto) UnsetZones()`
 
 UnsetZones ensures that no value is present for Zones, not even an explicit nil
+### GetAvailabilityZonesCount
+
+`func (o *GoogleCredentialsListDto) GetAvailabilityZonesCount() int32`
+
+GetAvailabilityZonesCount returns the AvailabilityZonesCount field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesCountOk
+
+`func (o *GoogleCredentialsListDto) GetAvailabilityZonesCountOk() (*int32, bool)`
+
+GetAvailabilityZonesCountOk returns a tuple with the AvailabilityZonesCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZonesCount
+
+`func (o *GoogleCredentialsListDto) SetAvailabilityZonesCount(v int32)`
+
+SetAvailabilityZonesCount sets AvailabilityZonesCount field to given value.
+
+### HasAvailabilityZonesCount
+
+`func (o *GoogleCredentialsListDto) HasAvailabilityZonesCount() bool`
+
+HasAvailabilityZonesCount returns a boolean if a field has been set.
+
 ### GetRegion
 
 `func (o *GoogleCredentialsListDto) GetRegion() string`

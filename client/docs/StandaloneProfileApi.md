@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    standAloneProfileCreateCommand := *openapiclient.NewStandAloneProfileCreateCommand("Name_example", "PublicKey_example") // StandAloneProfileCreateCommand |  (optional)
+    standAloneProfileCreateCommand := *openapiclient.NewStandAloneProfileCreateCommand() // StandAloneProfileCreateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -224,7 +224,7 @@ import (
 )
 
 func main() {
-    standAloneProfileUpdateCommand := *openapiclient.NewStandAloneProfileUpdateCommand(int32(123), "Name_example") // StandAloneProfileUpdateCommand | 
+    standAloneProfileUpdateCommand := *openapiclient.NewStandAloneProfileUpdateCommand() // StandAloneProfileUpdateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

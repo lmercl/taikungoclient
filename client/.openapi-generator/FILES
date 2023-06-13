@@ -153,6 +153,7 @@ docs/AwsImagesPostListCommand.md
 docs/AwsOwnerDetails.md
 docs/AwsProjectAZSubnetDto.md
 docs/AwsRegionDto.md
+docs/AwsValidateOwnerCommand.md
 docs/AzResult.md
 docs/AzureCloudCredentialApi.md
 docs/AzureCredentialList.md
@@ -209,6 +210,9 @@ docs/BoundFlavorsForProjectsListDto.md
 docs/BoundImagesForProjectsList.md
 docs/BoundImagesForProjectsListDto.md
 docs/BridgeListCommand.md
+docs/CBackupDto.md
+docs/CDeleteBackupRequestDto.md
+docs/CRestoreDto.md
 docs/CScheduleDto.md
 docs/CardInformationDto.md
 docs/CatalogApi.md
@@ -402,6 +406,7 @@ docs/GetCatalogAppValueAutocompleteCommand.md
 docs/GetCatalogAppValueCommand.md
 docs/GetProjectOperationCommand.md
 docs/GetToken.md
+docs/GiveAccessToPartnerCommand.md
 docs/GoogleApi.md
 docs/GoogleCommonImages.md
 docs/GoogleCredentialForProjectDto.md
@@ -470,6 +475,7 @@ docs/KubernetesProfilesListDto.md
 docs/KubernetesProfilesLockManagerCommand.md
 docs/KubernetesProfilesSearchCommand.md
 docs/KubernetesProfilesSearchList.md
+docs/KubernetesQuotaListDto.md
 docs/KubernetesVersionListDto.md
 docs/KubesprayApi.md
 docs/KubesprayCreateCommand.md
@@ -478,6 +484,9 @@ docs/Kubesprays.md
 docs/LeaveTaikunCommand.md
 docs/LeaveTaikunDto.md
 docs/ListAllBackupStorageLocations.md
+docs/ListAllBackups.md
+docs/ListAllDeleteBackupRequests.md
+docs/ListAllRestores.md
 docs/ListAllSchedules.md
 docs/ListCatalogAppAvailableVersionsCommand.md
 docs/ListForLandingPageDto.md
@@ -543,7 +552,6 @@ docs/OrganizationCreateCommand.md
 docs/OrganizationDetailsDto.md
 docs/OrganizationDto.md
 docs/OrganizationEntityForDashboard.md
-docs/OrganizationForPrometheus.md
 docs/OrganizationNameCheckerCommand.md
 docs/OrganizationSearchCommand.md
 docs/OrganizationSearchList.md
@@ -652,6 +660,7 @@ docs/PrometheusLabelDeleteDto.md
 docs/PrometheusLabelListDto.md
 docs/PrometheusLabelUpdateDto.md
 docs/PrometheusMetricsCommand.md
+docs/PrometheusOrganizationDiscountDto.md
 docs/PrometheusOrganizationsApi.md
 docs/PrometheusRuleListDto.md
 docs/PrometheusRulesApi.md
@@ -665,6 +674,8 @@ docs/ProxmoxCloudCredentialApi.md
 docs/ProxmoxCredentialsForProjectDto.md
 docs/ProxmoxFlavorData.md
 docs/ProxmoxFlavorList.md
+docs/ProxmoxHypervisorDto.md
+docs/ProxmoxImageList.md
 docs/ProxmoxList.md
 docs/ProxmoxListDto.md
 docs/ProxmoxNetworkListDto.md
@@ -816,6 +827,7 @@ docs/UpdateAlertingProfileCommand.md
 docs/UpdateAwsCommand.md
 docs/UpdateAzureCommand.md
 docs/UpdateCatalogDto.md
+docs/UpdateHypervisorsCommand.md
 docs/UpdateInvoiceDto.md
 docs/UpdateKubernetesAlertDto.md
 docs/UpdateOpenStackCommand.md
@@ -825,6 +837,7 @@ docs/UpdatePaymentIdCommand.md
 docs/UpdateProjectGroupDto.md
 docs/UpdateProjectUserDto.md
 docs/UpdateProjectUserGroupDto.md
+docs/UpdateProxmoxCommand.md
 docs/UpdateQuotaCommand.md
 docs/UpdateServerCommand.md
 docs/UpdateServerHealthDto.md
@@ -944,6 +957,7 @@ model_aws_images_post_list_command.go
 model_aws_owner_details.go
 model_aws_project_az_subnet_dto.go
 model_aws_region_dto.go
+model_aws_validate_owner_command.go
 model_az_result.go
 model_azure_credential_list.go
 model_azure_credentials_for_project_dto.go
@@ -997,6 +1011,9 @@ model_bound_flavors_for_projects_list_dto.go
 model_bound_images_for_projects_list.go
 model_bound_images_for_projects_list_dto.go
 model_bridge_list_command.go
+model_c_backup_dto.go
+model_c_delete_backup_request_dto.go
+model_c_restore_dto.go
 model_c_schedule_dto.go
 model_card_information_dto.go
 model_catalog_app_details_dto.go
@@ -1182,6 +1199,7 @@ model_get_catalog_app_value_autocomplete_command.go
 model_get_catalog_app_value_command.go
 model_get_project_operation_command.go
 model_get_token.go
+model_give_access_to_partner_command.go
 model_google_common_images.go
 model_google_credential_for_project_dto.go
 model_google_credential_list.go
@@ -1242,6 +1260,7 @@ model_kubernetes_profiles_list_dto.go
 model_kubernetes_profiles_lock_manager_command.go
 model_kubernetes_profiles_search_command.go
 model_kubernetes_profiles_search_list.go
+model_kubernetes_quota_list_dto.go
 model_kubernetes_version_list_dto.go
 model_kubespray_create_command.go
 model_kubespray_list_dto.go
@@ -1249,6 +1268,9 @@ model_kubesprays.go
 model_leave_taikun_command.go
 model_leave_taikun_dto.go
 model_list_all_backup_storage_locations.go
+model_list_all_backups.go
+model_list_all_delete_backup_requests.go
+model_list_all_restores.go
 model_list_all_schedules.go
 model_list_catalog_app_available_versions_command.go
 model_list_for_landing_page_dto.go
@@ -1309,7 +1331,6 @@ model_organization_create_command.go
 model_organization_details_dto.go
 model_organization_dto.go
 model_organization_entity_for_dashboard.go
-model_organization_for_prometheus.go
 model_organization_name_checker_command.go
 model_organization_search_command.go
 model_organization_search_list.go
@@ -1401,6 +1422,7 @@ model_prometheus_label_delete_dto.go
 model_prometheus_label_list_dto.go
 model_prometheus_label_update_dto.go
 model_prometheus_metrics_command.go
+model_prometheus_organization_discount_dto.go
 model_prometheus_rule_list_dto.go
 model_prometheus_rules_list.go
 model_prometheus_rules_search_command.go
@@ -1411,6 +1433,8 @@ model_proxmox_checker_command.go
 model_proxmox_credentials_for_project_dto.go
 model_proxmox_flavor_data.go
 model_proxmox_flavor_list.go
+model_proxmox_hypervisor_dto.go
+model_proxmox_image_list.go
 model_proxmox_list.go
 model_proxmox_list_dto.go
 model_proxmox_network_list_dto.go
@@ -1549,6 +1573,7 @@ model_update_alerting_profile_command.go
 model_update_aws_command.go
 model_update_azure_command.go
 model_update_catalog_dto.go
+model_update_hypervisors_command.go
 model_update_invoice_dto.go
 model_update_kubernetes_alert_dto.go
 model_update_open_stack_command.go
@@ -1558,6 +1583,7 @@ model_update_payment_id_command.go
 model_update_project_group_dto.go
 model_update_project_user_dto.go
 model_update_project_user_group_dto.go
+model_update_proxmox_command.go
 model_update_quota_command.go
 model_update_server_command.go
 model_update_server_health_dto.go

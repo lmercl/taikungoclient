@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**KubeConfigId** | **int32** |  | 
-**Token** | **string** |  | 
-**ProjectId** | **int32** |  | 
+**KubeConfigId** | Pointer to **int32** |  | [optional] 
+**Token** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewKubeConfigInteractiveShellCommand
 
-`func NewKubeConfigInteractiveShellCommand(kubeConfigId int32, token string, projectId int32, ) *KubeConfigInteractiveShellCommand`
+`func NewKubeConfigInteractiveShellCommand() *KubeConfigInteractiveShellCommand`
 
 NewKubeConfigInteractiveShellCommand instantiates a new KubeConfigInteractiveShellCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetKubeConfigId sets KubeConfigId field to given value.
 
+### HasKubeConfigId
+
+`func (o *KubeConfigInteractiveShellCommand) HasKubeConfigId() bool`
+
+HasKubeConfigId returns a boolean if a field has been set.
 
 ### GetToken
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+### HasToken
 
+`func (o *KubeConfigInteractiveShellCommand) HasToken() bool`
+
+HasToken returns a boolean if a field has been set.
+
+### SetTokenNil
+
+`func (o *KubeConfigInteractiveShellCommand) SetTokenNil(b bool)`
+
+ SetTokenNil sets the value for Token to be an explicit nil
+
+### UnsetToken
+`func (o *KubeConfigInteractiveShellCommand) UnsetToken()`
+
+UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetProjectId
 
 `func (o *KubeConfigInteractiveShellCommand) GetProjectId() int32`
@@ -86,6 +106,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *KubeConfigInteractiveShellCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

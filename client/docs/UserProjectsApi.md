@@ -92,7 +92,7 @@ import (
 )
 
 func main() {
-    bindUsersCommand := *openapiclient.NewBindUsersCommand(int32(123)) // BindUsersCommand |  (optional)
+    bindUsersCommand := *openapiclient.NewBindUsersCommand() // BindUsersCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

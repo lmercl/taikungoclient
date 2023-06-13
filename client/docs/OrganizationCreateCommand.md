@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**FullName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**FullName** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **BillingEmail** | Pointer to **NullableString** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewOrganizationCreateCommand
 
-`func NewOrganizationCreateCommand(name string, fullName string, ) *OrganizationCreateCommand`
+`func NewOrganizationCreateCommand() *OrganizationCreateCommand`
 
 NewOrganizationCreateCommand instantiates a new OrganizationCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -55,7 +55,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *OrganizationCreateCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *OrganizationCreateCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *OrganizationCreateCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFullName
 
 `func (o *OrganizationCreateCommand) GetFullName() string`
@@ -75,7 +90,22 @@ and a boolean to check if the value has been set.
 
 SetFullName sets FullName field to given value.
 
+### HasFullName
 
+`func (o *OrganizationCreateCommand) HasFullName() bool`
+
+HasFullName returns a boolean if a field has been set.
+
+### SetFullNameNil
+
+`func (o *OrganizationCreateCommand) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *OrganizationCreateCommand) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetPhone
 
 `func (o *OrganizationCreateCommand) GetPhone() string`

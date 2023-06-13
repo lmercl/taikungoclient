@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**S3Name** | **string** |  | 
-**S3AccessKeyId** | **string** |  | 
-**S3SecretKey** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**S3Name** | Pointer to **NullableString** |  | [optional] 
+**S3AccessKeyId** | Pointer to **NullableString** |  | [optional] 
+**S3SecretKey** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewBackupCredentialsUpdateCommand
 
-`func NewBackupCredentialsUpdateCommand(id int32, s3Name string, s3AccessKeyId string, s3SecretKey string, ) *BackupCredentialsUpdateCommand`
+`func NewBackupCredentialsUpdateCommand() *BackupCredentialsUpdateCommand`
 
 NewBackupCredentialsUpdateCommand instantiates a new BackupCredentialsUpdateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *BackupCredentialsUpdateCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetS3Name
 
@@ -67,7 +72,22 @@ and a boolean to check if the value has been set.
 
 SetS3Name sets S3Name field to given value.
 
+### HasS3Name
 
+`func (o *BackupCredentialsUpdateCommand) HasS3Name() bool`
+
+HasS3Name returns a boolean if a field has been set.
+
+### SetS3NameNil
+
+`func (o *BackupCredentialsUpdateCommand) SetS3NameNil(b bool)`
+
+ SetS3NameNil sets the value for S3Name to be an explicit nil
+
+### UnsetS3Name
+`func (o *BackupCredentialsUpdateCommand) UnsetS3Name()`
+
+UnsetS3Name ensures that no value is present for S3Name, not even an explicit nil
 ### GetS3AccessKeyId
 
 `func (o *BackupCredentialsUpdateCommand) GetS3AccessKeyId() string`
@@ -87,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetS3AccessKeyId sets S3AccessKeyId field to given value.
 
+### HasS3AccessKeyId
 
+`func (o *BackupCredentialsUpdateCommand) HasS3AccessKeyId() bool`
+
+HasS3AccessKeyId returns a boolean if a field has been set.
+
+### SetS3AccessKeyIdNil
+
+`func (o *BackupCredentialsUpdateCommand) SetS3AccessKeyIdNil(b bool)`
+
+ SetS3AccessKeyIdNil sets the value for S3AccessKeyId to be an explicit nil
+
+### UnsetS3AccessKeyId
+`func (o *BackupCredentialsUpdateCommand) UnsetS3AccessKeyId()`
+
+UnsetS3AccessKeyId ensures that no value is present for S3AccessKeyId, not even an explicit nil
 ### GetS3SecretKey
 
 `func (o *BackupCredentialsUpdateCommand) GetS3SecretKey() string`
@@ -107,7 +142,22 @@ and a boolean to check if the value has been set.
 
 SetS3SecretKey sets S3SecretKey field to given value.
 
+### HasS3SecretKey
 
+`func (o *BackupCredentialsUpdateCommand) HasS3SecretKey() bool`
+
+HasS3SecretKey returns a boolean if a field has been set.
+
+### SetS3SecretKeyNil
+
+`func (o *BackupCredentialsUpdateCommand) SetS3SecretKeyNil(b bool)`
+
+ SetS3SecretKeyNil sets the value for S3SecretKey to be an explicit nil
+
+### UnsetS3SecretKey
+`func (o *BackupCredentialsUpdateCommand) UnsetS3SecretKey()`
+
+UnsetS3SecretKey ensures that no value is present for S3SecretKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

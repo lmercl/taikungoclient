@@ -21,7 +21,7 @@ var _ MappedNullable = &BindUserGroupsToProjectGroupCommand{}
 // BindUserGroupsToProjectGroupCommand struct for BindUserGroupsToProjectGroupCommand
 type BindUserGroupsToProjectGroupCommand struct {
 	UserGroups []UpdateProjectUserGroupDto `json:"userGroups,omitempty"`
-	ProjectGroupId int32 `json:"projectGroupId"`
+	ProjectGroupId *int32 `json:"projectGroupId,omitempty"`
 	ProjectGroupName NullableString `json:"projectGroupName,omitempty"`
 }
 
@@ -29,9 +29,8 @@ type BindUserGroupsToProjectGroupCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindUserGroupsToProjectGroupCommand(projectGroupId int32) *BindUserGroupsToProjectGroupCommand {
+func NewBindUserGroupsToProjectGroupCommand() *BindUserGroupsToProjectGroupCommand {
 	this := BindUserGroupsToProjectGroupCommand{}
-	this.ProjectGroupId = projectGroupId
 	return &this
 }
 
@@ -76,28 +75,36 @@ func (o *BindUserGroupsToProjectGroupCommand) SetUserGroups(v []UpdateProjectUse
 	o.UserGroups = v
 }
 
-// GetProjectGroupId returns the ProjectGroupId field value
+// GetProjectGroupId returns the ProjectGroupId field value if set, zero value otherwise.
 func (o *BindUserGroupsToProjectGroupCommand) GetProjectGroupId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectGroupId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectGroupId
+	return *o.ProjectGroupId
 }
 
-// GetProjectGroupIdOk returns a tuple with the ProjectGroupId field value
+// GetProjectGroupIdOk returns a tuple with the ProjectGroupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindUserGroupsToProjectGroupCommand) GetProjectGroupIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectGroupId) {
 		return nil, false
 	}
-	return &o.ProjectGroupId, true
+	return o.ProjectGroupId, true
 }
 
-// SetProjectGroupId sets field value
+// HasProjectGroupId returns a boolean if a field has been set.
+func (o *BindUserGroupsToProjectGroupCommand) HasProjectGroupId() bool {
+	if o != nil && !IsNil(o.ProjectGroupId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectGroupId gets a reference to the given int32 and assigns it to the ProjectGroupId field.
 func (o *BindUserGroupsToProjectGroupCommand) SetProjectGroupId(v int32) {
-	o.ProjectGroupId = v
+	o.ProjectGroupId = &v
 }
 
 // GetProjectGroupName returns the ProjectGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -155,7 +162,9 @@ func (o BindUserGroupsToProjectGroupCommand) ToMap() (map[string]interface{}, er
 	if o.UserGroups != nil {
 		toSerialize["userGroups"] = o.UserGroups
 	}
-	toSerialize["projectGroupId"] = o.ProjectGroupId
+	if !IsNil(o.ProjectGroupId) {
+		toSerialize["projectGroupId"] = o.ProjectGroupId
+	}
 	if o.ProjectGroupName.IsSet() {
 		toSerialize["projectGroupName"] = o.ProjectGroupName.Get()
 	}

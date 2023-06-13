@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Name** | **string** |  | 
-**AwsSecretAccessKey** | **string** |  | 
-**AwsAccessKeyId** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**AwsSecretAccessKey** | Pointer to **NullableString** |  | [optional] 
+**AwsAccessKeyId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewUpdateAwsCommand
 
-`func NewUpdateAwsCommand(id int32, name string, awsSecretAccessKey string, awsAccessKeyId string, ) *UpdateAwsCommand`
+`func NewUpdateAwsCommand() *UpdateAwsCommand`
 
 NewUpdateAwsCommand instantiates a new UpdateAwsCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *UpdateAwsCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -67,7 +72,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *UpdateAwsCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *UpdateAwsCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UpdateAwsCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAwsSecretAccessKey
 
 `func (o *UpdateAwsCommand) GetAwsSecretAccessKey() string`
@@ -87,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetAwsSecretAccessKey sets AwsSecretAccessKey field to given value.
 
+### HasAwsSecretAccessKey
 
+`func (o *UpdateAwsCommand) HasAwsSecretAccessKey() bool`
+
+HasAwsSecretAccessKey returns a boolean if a field has been set.
+
+### SetAwsSecretAccessKeyNil
+
+`func (o *UpdateAwsCommand) SetAwsSecretAccessKeyNil(b bool)`
+
+ SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
+
+### UnsetAwsSecretAccessKey
+`func (o *UpdateAwsCommand) UnsetAwsSecretAccessKey()`
+
+UnsetAwsSecretAccessKey ensures that no value is present for AwsSecretAccessKey, not even an explicit nil
 ### GetAwsAccessKeyId
 
 `func (o *UpdateAwsCommand) GetAwsAccessKeyId() string`
@@ -107,7 +142,22 @@ and a boolean to check if the value has been set.
 
 SetAwsAccessKeyId sets AwsAccessKeyId field to given value.
 
+### HasAwsAccessKeyId
 
+`func (o *UpdateAwsCommand) HasAwsAccessKeyId() bool`
+
+HasAwsAccessKeyId returns a boolean if a field has been set.
+
+### SetAwsAccessKeyIdNil
+
+`func (o *UpdateAwsCommand) SetAwsAccessKeyIdNil(b bool)`
+
+ SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
+
+### UnsetAwsAccessKeyId
+`func (o *UpdateAwsCommand) UnsetAwsAccessKeyId()`
+
+UnsetAwsAccessKeyId ensures that no value is present for AwsAccessKeyId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,18 +20,16 @@ var _ MappedNullable = &BecomePartnerCommand{}
 
 // BecomePartnerCommand struct for BecomePartnerCommand
 type BecomePartnerCommand struct {
-	FullName string `json:"fullName"`
-	Email string `json:"email"`
+	FullName NullableString `json:"fullName,omitempty"`
+	Email NullableString `json:"email,omitempty"`
 }
 
 // NewBecomePartnerCommand instantiates a new BecomePartnerCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBecomePartnerCommand(fullName string, email string) *BecomePartnerCommand {
+func NewBecomePartnerCommand() *BecomePartnerCommand {
 	this := BecomePartnerCommand{}
-	this.FullName = fullName
-	this.Email = email
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewBecomePartnerCommandWithDefaults() *BecomePartnerCommand {
 	return &this
 }
 
-// GetFullName returns the FullName field value
+// GetFullName returns the FullName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BecomePartnerCommand) GetFullName() string {
-	if o == nil {
+	if o == nil || IsNil(o.FullName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.FullName
+	return *o.FullName.Get()
 }
 
-// GetFullNameOk returns a tuple with the FullName field value
+// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BecomePartnerCommand) GetFullNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FullName, true
+	return o.FullName.Get(), o.FullName.IsSet()
 }
 
-// SetFullName sets field value
+// HasFullName returns a boolean if a field has been set.
+func (o *BecomePartnerCommand) HasFullName() bool {
+	if o != nil && o.FullName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFullName gets a reference to the given NullableString and assigns it to the FullName field.
 func (o *BecomePartnerCommand) SetFullName(v string) {
-	o.FullName = v
+	o.FullName.Set(&v)
+}
+// SetFullNameNil sets the value for FullName to be an explicit nil
+func (o *BecomePartnerCommand) SetFullNameNil() {
+	o.FullName.Set(nil)
 }
 
-// GetEmail returns the Email field value
+// UnsetFullName ensures that no value is present for FullName, not even an explicit nil
+func (o *BecomePartnerCommand) UnsetFullName() {
+	o.FullName.Unset()
+}
+
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BecomePartnerCommand) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email.Get()
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BecomePartnerCommand) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *BecomePartnerCommand) HasEmail() bool {
+	if o != nil && o.Email.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *BecomePartnerCommand) SetEmail(v string) {
-	o.Email = v
+	o.Email.Set(&v)
+}
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *BecomePartnerCommand) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *BecomePartnerCommand) UnsetEmail() {
+	o.Email.Unset()
 }
 
 func (o BecomePartnerCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o BecomePartnerCommand) MarshalJSON() ([]byte, error) {
 
 func (o BecomePartnerCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["fullName"] = o.FullName
-	toSerialize["email"] = o.Email
+	if o.FullName.IsSet() {
+		toSerialize["fullName"] = o.FullName.Get()
+	}
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
+	}
 	return toSerialize, nil
 }
 

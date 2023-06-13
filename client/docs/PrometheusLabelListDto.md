@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Label** | Pointer to **NullableString** |  | [optional] 
-**Value** | **string** |  | 
+**Value** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPrometheusLabelListDto
 
-`func NewPrometheusLabelListDto(value string, ) *PrometheusLabelListDto`
+`func NewPrometheusLabelListDto() *PrometheusLabelListDto`
 
 NewPrometheusLabelListDto instantiates a new PrometheusLabelListDto object
 This constructor will assign default values to properties that have it defined,
@@ -80,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
+### HasValue
 
+`func (o *PrometheusLabelListDto) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
+
+### SetValueNil
+
+`func (o *PrometheusLabelListDto) SetValueNil(b bool)`
+
+ SetValueNil sets the value for Value to be an explicit nil
+
+### UnsetValue
+`func (o *PrometheusLabelListDto) UnsetValue()`
+
+UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

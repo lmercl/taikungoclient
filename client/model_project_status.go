@@ -17,58 +17,58 @@ import (
 )
 
 // ProjectStatus the model 'ProjectStatus'
-type ProjectStatus int32
+type ProjectStatus string
 
 // List of ProjectStatus
 const (
-	PROJECTSTATUS__100 ProjectStatus = 100
-	PROJECTSTATUS__145 ProjectStatus = 145
-	PROJECTSTATUS__150 ProjectStatus = 150
-	PROJECTSTATUS__154 ProjectStatus = 154
-	PROJECTSTATUS__155 ProjectStatus = 155
-	PROJECTSTATUS__156 ProjectStatus = 156
-	PROJECTSTATUS__160 ProjectStatus = 160
-	PROJECTSTATUS__165 ProjectStatus = 165
-	PROJECTSTATUS__200 ProjectStatus = 200
-	PROJECTSTATUS__250 ProjectStatus = 250
-	PROJECTSTATUS__300 ProjectStatus = 300
-	PROJECTSTATUS__400 ProjectStatus = 400
-	PROJECTSTATUS__500 ProjectStatus = 500
-	PROJECTSTATUS__550 ProjectStatus = 550
-	PROJECTSTATUS__600 ProjectStatus = 600
-	PROJECTSTATUS__700 ProjectStatus = 700
-	PROJECTSTATUS__800 ProjectStatus = 800
-	PROJECTSTATUS__900 ProjectStatus = 900
-	PROJECTSTATUS__1000 ProjectStatus = 1000
-	PROJECTSTATUS__1100 ProjectStatus = 1100
+	PROJECTSTATUS_DELETING ProjectStatus = "Deleting"
+	PROJECTSTATUS_DISABLE_GATEKEEPER ProjectStatus = "DisableGatekeeper"
+	PROJECTSTATUS_DELETING_BACKUP_POLICIES ProjectStatus = "DeletingBackupPolicies"
+	PROJECTSTATUS_DISABLE_BACKUP ProjectStatus = "DisableBackup"
+	PROJECTSTATUS_DISABLE_MONITORING ProjectStatus = "DisableMonitoring"
+	PROJECTSTATUS_ENABLE_BACKUP ProjectStatus = "EnableBackup"
+	PROJECTSTATUS_ENABLE_MONITORING ProjectStatus = "EnableMonitoring"
+	PROJECTSTATUS_ENABLE_GATEKEEPER ProjectStatus = "EnableGatekeeper"
+	PROJECTSTATUS_FAILURE ProjectStatus = "Failure"
+	PROJECTSTATUS_FAILED_UPGRADE ProjectStatus = "FailedUpgrade"
+	PROJECTSTATUS_PENDING ProjectStatus = "Pending"
+	PROJECTSTATUS_PENDING_DELETE ProjectStatus = "PendingDelete"
+	PROJECTSTATUS_PENDING_PURGE ProjectStatus = "PendingPurge"
+	PROJECTSTATUS_PENDING_UPDATE_CREDENTIALS ProjectStatus = "PendingUpdateCredentials"
+	PROJECTSTATUS_PENDING_UPGRADE ProjectStatus = "PendingUpgrade"
+	PROJECTSTATUS_PURGING ProjectStatus = "Purging"
+	PROJECTSTATUS_READY ProjectStatus = "Ready"
+	PROJECTSTATUS_UPDATING ProjectStatus = "Updating"
+	PROJECTSTATUS_UPGRADING ProjectStatus = "Upgrading"
+	PROJECTSTATUS_UPDATING_CREDENTIALS ProjectStatus = "UpdatingCredentials"
 )
 
 // All allowed values of ProjectStatus enum
 var AllowedProjectStatusEnumValues = []ProjectStatus{
-	100,
-	145,
-	150,
-	154,
-	155,
-	156,
-	160,
-	165,
-	200,
-	250,
-	300,
-	400,
-	500,
-	550,
-	600,
-	700,
-	800,
-	900,
-	1000,
-	1100,
+	"Deleting",
+	"DisableGatekeeper",
+	"DeletingBackupPolicies",
+	"DisableBackup",
+	"DisableMonitoring",
+	"EnableBackup",
+	"EnableMonitoring",
+	"EnableGatekeeper",
+	"Failure",
+	"FailedUpgrade",
+	"Pending",
+	"PendingDelete",
+	"PendingPurge",
+	"PendingUpdateCredentials",
+	"PendingUpgrade",
+	"Purging",
+	"Ready",
+	"Updating",
+	"Upgrading",
+	"UpdatingCredentials",
 }
 
 func (v *ProjectStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -86,7 +86,7 @@ func (v *ProjectStatus) UnmarshalJSON(src []byte) error {
 
 // NewProjectStatusFromValue returns a pointer to a valid ProjectStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewProjectStatusFromValue(v int32) (*ProjectStatus, error) {
+func NewProjectStatusFromValue(v string) (*ProjectStatus, error) {
 	ev := ProjectStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

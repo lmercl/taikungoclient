@@ -116,7 +116,7 @@ import (
 )
 
 func main() {
-    updateQuotaCommand := *openapiclient.NewUpdateQuotaCommand(int32(123)) // UpdateQuotaCommand |  (optional)
+    updateQuotaCommand := *openapiclient.NewUpdateQuotaCommand() // UpdateQuotaCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

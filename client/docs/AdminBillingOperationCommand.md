@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudCredentialId** | **int32** |  | 
+**CloudCredentialId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewAdminBillingOperationCommand
 
-`func NewAdminBillingOperationCommand(cloudCredentialId int32, ) *AdminBillingOperationCommand`
+`func NewAdminBillingOperationCommand() *AdminBillingOperationCommand`
 
 NewAdminBillingOperationCommand instantiates a new AdminBillingOperationCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetCloudCredentialId sets CloudCredentialId field to given value.
 
+### HasCloudCredentialId
+
+`func (o *AdminBillingOperationCommand) HasCloudCredentialId() bool`
+
+HasCloudCredentialId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

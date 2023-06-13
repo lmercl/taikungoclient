@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createBillingSummaryCommand := *openapiclient.NewCreateBillingSummaryCommand(int32(123), int32(123)) // CreateBillingSummaryCommand |  (optional)
+    createBillingSummaryCommand := *openapiclient.NewCreateBillingSummaryCommand() // CreateBillingSummaryCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

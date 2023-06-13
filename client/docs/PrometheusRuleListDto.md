@@ -11,13 +11,12 @@ Name | Type | Description | Notes
 **Url** | Pointer to **NullableString** |  | [optional] 
 **MetricName** | Pointer to **NullableString** |  | [optional] 
 **Labels** | Pointer to [**[]PrometheusLabelUpdateDto**](PrometheusLabelUpdateDto.md) |  | [optional] 
+**BoundOrganizations** | Pointer to [**[]PrometheusOrganizationDiscountDto**](PrometheusOrganizationDiscountDto.md) |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
-**IsAll** | Pointer to **bool** |  | [optional] 
 **BillingStartDate** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
 **Partner** | Pointer to [**PartnerDetailsDto**](PartnerDetailsDto.md) |  | [optional] 
-**BoundOrganizations** | Pointer to [**[]OrganizationForPrometheus**](OrganizationForPrometheus.md) |  | [optional] 
 **OperationCredential** | Pointer to [**OperationCredentialsForOrganizationEntity**](OperationCredentialsForOrganizationEntity.md) |  | [optional] 
 **CreatedBy** | Pointer to **NullableString** |  | [optional] 
 **LastModified** | Pointer to **NullableString** |  | [optional] 
@@ -277,6 +276,41 @@ HasLabels returns a boolean if a field has been set.
 `func (o *PrometheusRuleListDto) UnsetLabels()`
 
 UnsetLabels ensures that no value is present for Labels, not even an explicit nil
+### GetBoundOrganizations
+
+`func (o *PrometheusRuleListDto) GetBoundOrganizations() []PrometheusOrganizationDiscountDto`
+
+GetBoundOrganizations returns the BoundOrganizations field if non-nil, zero value otherwise.
+
+### GetBoundOrganizationsOk
+
+`func (o *PrometheusRuleListDto) GetBoundOrganizationsOk() (*[]PrometheusOrganizationDiscountDto, bool)`
+
+GetBoundOrganizationsOk returns a tuple with the BoundOrganizations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBoundOrganizations
+
+`func (o *PrometheusRuleListDto) SetBoundOrganizations(v []PrometheusOrganizationDiscountDto)`
+
+SetBoundOrganizations sets BoundOrganizations field to given value.
+
+### HasBoundOrganizations
+
+`func (o *PrometheusRuleListDto) HasBoundOrganizations() bool`
+
+HasBoundOrganizations returns a boolean if a field has been set.
+
+### SetBoundOrganizationsNil
+
+`func (o *PrometheusRuleListDto) SetBoundOrganizationsNil(b bool)`
+
+ SetBoundOrganizationsNil sets the value for BoundOrganizations to be an explicit nil
+
+### UnsetBoundOrganizations
+`func (o *PrometheusRuleListDto) UnsetBoundOrganizations()`
+
+UnsetBoundOrganizations ensures that no value is present for BoundOrganizations, not even an explicit nil
 ### GetType
 
 `func (o *PrometheusRuleListDto) GetType() string`
@@ -336,31 +370,6 @@ SetPrice sets Price field to given value.
 `func (o *PrometheusRuleListDto) HasPrice() bool`
 
 HasPrice returns a boolean if a field has been set.
-
-### GetIsAll
-
-`func (o *PrometheusRuleListDto) GetIsAll() bool`
-
-GetIsAll returns the IsAll field if non-nil, zero value otherwise.
-
-### GetIsAllOk
-
-`func (o *PrometheusRuleListDto) GetIsAllOk() (*bool, bool)`
-
-GetIsAllOk returns a tuple with the IsAll field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsAll
-
-`func (o *PrometheusRuleListDto) SetIsAll(v bool)`
-
-SetIsAll sets IsAll field to given value.
-
-### HasIsAll
-
-`func (o *PrometheusRuleListDto) HasIsAll() bool`
-
-HasIsAll returns a boolean if a field has been set.
 
 ### GetBillingStartDate
 
@@ -457,41 +466,6 @@ SetPartner sets Partner field to given value.
 
 HasPartner returns a boolean if a field has been set.
 
-### GetBoundOrganizations
-
-`func (o *PrometheusRuleListDto) GetBoundOrganizations() []OrganizationForPrometheus`
-
-GetBoundOrganizations returns the BoundOrganizations field if non-nil, zero value otherwise.
-
-### GetBoundOrganizationsOk
-
-`func (o *PrometheusRuleListDto) GetBoundOrganizationsOk() (*[]OrganizationForPrometheus, bool)`
-
-GetBoundOrganizationsOk returns a tuple with the BoundOrganizations field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBoundOrganizations
-
-`func (o *PrometheusRuleListDto) SetBoundOrganizations(v []OrganizationForPrometheus)`
-
-SetBoundOrganizations sets BoundOrganizations field to given value.
-
-### HasBoundOrganizations
-
-`func (o *PrometheusRuleListDto) HasBoundOrganizations() bool`
-
-HasBoundOrganizations returns a boolean if a field has been set.
-
-### SetBoundOrganizationsNil
-
-`func (o *PrometheusRuleListDto) SetBoundOrganizationsNil(b bool)`
-
- SetBoundOrganizationsNil sets the value for BoundOrganizations to be an explicit nil
-
-### UnsetBoundOrganizations
-`func (o *PrometheusRuleListDto) UnsetBoundOrganizations()`
-
-UnsetBoundOrganizations ensures that no value is present for BoundOrganizations, not even an explicit nil
 ### GetOperationCredential
 
 `func (o *PrometheusRuleListDto) GetOperationCredential() OperationCredentialsForOrganizationEntity`

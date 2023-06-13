@@ -3,15 +3,15 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `HEALTHY` (value: `"Healthy"`)
 
-* `_150` (value: `150`)
+* `NONE` (value: `"None"`)
 
-* `_200` (value: `200`)
+* `UNHEALTHY` (value: `"Unhealthy"`)
 
-* `_300` (value: `300`)
+* `UNKNOWN` (value: `"Unknown"`)
 
-* `_400` (value: `400`)
+* `WARNING` (value: `"Warning"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

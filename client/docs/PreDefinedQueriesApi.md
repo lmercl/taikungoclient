@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-    prometheusDashboardCreateCommand := *openapiclient.NewPrometheusDashboardCreateCommand("Name_example", "Expression_example", "Description_example", "CategoryName_example") // PrometheusDashboardCreateCommand | 
+    prometheusDashboardCreateCommand := *openapiclient.NewPrometheusDashboardCreateCommand() // PrometheusDashboardCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -295,7 +295,7 @@ import (
 )
 
 func main() {
-    prometheusDashboardUpdateCommand := *openapiclient.NewPrometheusDashboardUpdateCommand(int32(123), "Name_example", "Expression_example", "Description_example", "CategoryName_example") // PrometheusDashboardUpdateCommand | 
+    prometheusDashboardUpdateCommand := *openapiclient.NewPrometheusDashboardUpdateCommand() // PrometheusDashboardUpdateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

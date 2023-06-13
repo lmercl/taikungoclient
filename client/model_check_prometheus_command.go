@@ -20,20 +20,17 @@ var _ MappedNullable = &CheckPrometheusCommand{}
 
 // CheckPrometheusCommand struct for CheckPrometheusCommand
 type CheckPrometheusCommand struct {
-	Password string `json:"password"`
-	UserName string `json:"userName"`
-	Url string `json:"url"`
+	Password NullableString `json:"password,omitempty"`
+	UserName NullableString `json:"userName,omitempty"`
+	Url NullableString `json:"url,omitempty"`
 }
 
 // NewCheckPrometheusCommand instantiates a new CheckPrometheusCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCheckPrometheusCommand(password string, userName string, url string) *CheckPrometheusCommand {
+func NewCheckPrometheusCommand() *CheckPrometheusCommand {
 	this := CheckPrometheusCommand{}
-	this.Password = password
-	this.UserName = userName
-	this.Url = url
 	return &this
 }
 
@@ -45,76 +42,130 @@ func NewCheckPrometheusCommandWithDefaults() *CheckPrometheusCommand {
 	return &this
 }
 
-// GetPassword returns the Password field value
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckPrometheusCommand) GetPassword() string {
-	if o == nil {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Password
+	return *o.Password.Get()
 }
 
-// GetPasswordOk returns a tuple with the Password field value
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckPrometheusCommand) GetPasswordOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// SetPassword sets field value
+// HasPassword returns a boolean if a field has been set.
+func (o *CheckPrometheusCommand) HasPassword() bool {
+	if o != nil && o.Password.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
 func (o *CheckPrometheusCommand) SetPassword(v string) {
-	o.Password = v
+	o.Password.Set(&v)
+}
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *CheckPrometheusCommand) SetPasswordNil() {
+	o.Password.Set(nil)
 }
 
-// GetUserName returns the UserName field value
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *CheckPrometheusCommand) UnsetPassword() {
+	o.Password.Unset()
+}
+
+// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckPrometheusCommand) GetUserName() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.UserName
+	return *o.UserName.Get()
 }
 
-// GetUserNameOk returns a tuple with the UserName field value
+// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckPrometheusCommand) GetUserNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.UserName, true
+	return o.UserName.Get(), o.UserName.IsSet()
 }
 
-// SetUserName sets field value
+// HasUserName returns a boolean if a field has been set.
+func (o *CheckPrometheusCommand) HasUserName() bool {
+	if o != nil && o.UserName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
 func (o *CheckPrometheusCommand) SetUserName(v string) {
-	o.UserName = v
+	o.UserName.Set(&v)
+}
+// SetUserNameNil sets the value for UserName to be an explicit nil
+func (o *CheckPrometheusCommand) SetUserNameNil() {
+	o.UserName.Set(nil)
 }
 
-// GetUrl returns the Url field value
+// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
+func (o *CheckPrometheusCommand) UnsetUserName() {
+	o.UserName.Unset()
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckPrometheusCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckPrometheusCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *CheckPrometheusCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *CheckPrometheusCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *CheckPrometheusCommand) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *CheckPrometheusCommand) UnsetUrl() {
+	o.Url.Unset()
 }
 
 func (o CheckPrometheusCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +178,15 @@ func (o CheckPrometheusCommand) MarshalJSON() ([]byte, error) {
 
 func (o CheckPrometheusCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["password"] = o.Password
-	toSerialize["userName"] = o.UserName
-	toSerialize["url"] = o.Url
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
+	}
+	if o.UserName.IsSet() {
+		toSerialize["userName"] = o.UserName.Get()
+	}
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
 	return toSerialize, nil
 }
 

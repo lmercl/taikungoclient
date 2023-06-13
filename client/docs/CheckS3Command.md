@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**S3AccessKeyId** | **string** |  | 
-**S3SecretKey** | **string** |  | 
-**S3Endpoint** | **string** |  | 
-**S3Region** | **string** |  | 
+**S3AccessKeyId** | Pointer to **NullableString** |  | [optional] 
+**S3SecretKey** | Pointer to **NullableString** |  | [optional] 
+**S3Endpoint** | Pointer to **NullableString** |  | [optional] 
+**S3Region** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCheckS3Command
 
-`func NewCheckS3Command(s3AccessKeyId string, s3SecretKey string, s3Endpoint string, s3Region string, ) *CheckS3Command`
+`func NewCheckS3Command() *CheckS3Command`
 
 NewCheckS3Command instantiates a new CheckS3Command object
 This constructor will assign default values to properties that have it defined,
@@ -47,7 +47,22 @@ and a boolean to check if the value has been set.
 
 SetS3AccessKeyId sets S3AccessKeyId field to given value.
 
+### HasS3AccessKeyId
 
+`func (o *CheckS3Command) HasS3AccessKeyId() bool`
+
+HasS3AccessKeyId returns a boolean if a field has been set.
+
+### SetS3AccessKeyIdNil
+
+`func (o *CheckS3Command) SetS3AccessKeyIdNil(b bool)`
+
+ SetS3AccessKeyIdNil sets the value for S3AccessKeyId to be an explicit nil
+
+### UnsetS3AccessKeyId
+`func (o *CheckS3Command) UnsetS3AccessKeyId()`
+
+UnsetS3AccessKeyId ensures that no value is present for S3AccessKeyId, not even an explicit nil
 ### GetS3SecretKey
 
 `func (o *CheckS3Command) GetS3SecretKey() string`
@@ -67,7 +82,22 @@ and a boolean to check if the value has been set.
 
 SetS3SecretKey sets S3SecretKey field to given value.
 
+### HasS3SecretKey
 
+`func (o *CheckS3Command) HasS3SecretKey() bool`
+
+HasS3SecretKey returns a boolean if a field has been set.
+
+### SetS3SecretKeyNil
+
+`func (o *CheckS3Command) SetS3SecretKeyNil(b bool)`
+
+ SetS3SecretKeyNil sets the value for S3SecretKey to be an explicit nil
+
+### UnsetS3SecretKey
+`func (o *CheckS3Command) UnsetS3SecretKey()`
+
+UnsetS3SecretKey ensures that no value is present for S3SecretKey, not even an explicit nil
 ### GetS3Endpoint
 
 `func (o *CheckS3Command) GetS3Endpoint() string`
@@ -87,7 +117,22 @@ and a boolean to check if the value has been set.
 
 SetS3Endpoint sets S3Endpoint field to given value.
 
+### HasS3Endpoint
 
+`func (o *CheckS3Command) HasS3Endpoint() bool`
+
+HasS3Endpoint returns a boolean if a field has been set.
+
+### SetS3EndpointNil
+
+`func (o *CheckS3Command) SetS3EndpointNil(b bool)`
+
+ SetS3EndpointNil sets the value for S3Endpoint to be an explicit nil
+
+### UnsetS3Endpoint
+`func (o *CheckS3Command) UnsetS3Endpoint()`
+
+UnsetS3Endpoint ensures that no value is present for S3Endpoint, not even an explicit nil
 ### GetS3Region
 
 `func (o *CheckS3Command) GetS3Region() string`
@@ -107,7 +152,22 @@ and a boolean to check if the value has been set.
 
 SetS3Region sets S3Region field to given value.
 
+### HasS3Region
 
+`func (o *CheckS3Command) HasS3Region() bool`
+
+HasS3Region returns a boolean if a field has been set.
+
+### SetS3RegionNil
+
+`func (o *CheckS3Command) SetS3RegionNil(b bool)`
+
+ SetS3RegionNil sets the value for S3Region to be an explicit nil
+
+### UnsetS3Region
+`func (o *CheckS3Command) UnsetS3Region()`
+
+UnsetS3Region ensures that no value is present for S3Region, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

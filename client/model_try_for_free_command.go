@@ -20,20 +20,17 @@ var _ MappedNullable = &TryForFreeCommand{}
 
 // TryForFreeCommand struct for TryForFreeCommand
 type TryForFreeCommand struct {
-	OrganizationName string `json:"organizationName"`
-	Username string `json:"username"`
-	Email string `json:"email"`
+	OrganizationName NullableString `json:"organizationName,omitempty"`
+	Username NullableString `json:"username,omitempty"`
+	Email NullableString `json:"email,omitempty"`
 }
 
 // NewTryForFreeCommand instantiates a new TryForFreeCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTryForFreeCommand(organizationName string, username string, email string) *TryForFreeCommand {
+func NewTryForFreeCommand() *TryForFreeCommand {
 	this := TryForFreeCommand{}
-	this.OrganizationName = organizationName
-	this.Username = username
-	this.Email = email
 	return &this
 }
 
@@ -45,76 +42,130 @@ func NewTryForFreeCommandWithDefaults() *TryForFreeCommand {
 	return &this
 }
 
-// GetOrganizationName returns the OrganizationName field value
+// GetOrganizationName returns the OrganizationName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TryForFreeCommand) GetOrganizationName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.OrganizationName
+	return *o.OrganizationName.Get()
 }
 
-// GetOrganizationNameOk returns a tuple with the OrganizationName field value
+// GetOrganizationNameOk returns a tuple with the OrganizationName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TryForFreeCommand) GetOrganizationNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.OrganizationName, true
+	return o.OrganizationName.Get(), o.OrganizationName.IsSet()
 }
 
-// SetOrganizationName sets field value
+// HasOrganizationName returns a boolean if a field has been set.
+func (o *TryForFreeCommand) HasOrganizationName() bool {
+	if o != nil && o.OrganizationName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationName gets a reference to the given NullableString and assigns it to the OrganizationName field.
 func (o *TryForFreeCommand) SetOrganizationName(v string) {
-	o.OrganizationName = v
+	o.OrganizationName.Set(&v)
+}
+// SetOrganizationNameNil sets the value for OrganizationName to be an explicit nil
+func (o *TryForFreeCommand) SetOrganizationNameNil() {
+	o.OrganizationName.Set(nil)
 }
 
-// GetUsername returns the Username field value
+// UnsetOrganizationName ensures that no value is present for OrganizationName, not even an explicit nil
+func (o *TryForFreeCommand) UnsetOrganizationName() {
+	o.OrganizationName.Unset()
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TryForFreeCommand) GetUsername() string {
-	if o == nil {
+	if o == nil || IsNil(o.Username.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Username
+	return *o.Username.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TryForFreeCommand) GetUsernameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Username, true
+	return o.Username.Get(), o.Username.IsSet()
 }
 
-// SetUsername sets field value
+// HasUsername returns a boolean if a field has been set.
+func (o *TryForFreeCommand) HasUsername() bool {
+	if o != nil && o.Username.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
 func (o *TryForFreeCommand) SetUsername(v string) {
-	o.Username = v
+	o.Username.Set(&v)
+}
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *TryForFreeCommand) SetUsernameNil() {
+	o.Username.Set(nil)
 }
 
-// GetEmail returns the Email field value
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *TryForFreeCommand) UnsetUsername() {
+	o.Username.Unset()
+}
+
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TryForFreeCommand) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email.Get()
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TryForFreeCommand) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *TryForFreeCommand) HasEmail() bool {
+	if o != nil && o.Email.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *TryForFreeCommand) SetEmail(v string) {
-	o.Email = v
+	o.Email.Set(&v)
+}
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *TryForFreeCommand) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *TryForFreeCommand) UnsetEmail() {
+	o.Email.Unset()
 }
 
 func (o TryForFreeCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +178,15 @@ func (o TryForFreeCommand) MarshalJSON() ([]byte, error) {
 
 func (o TryForFreeCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["organizationName"] = o.OrganizationName
-	toSerialize["username"] = o.Username
-	toSerialize["email"] = o.Email
+	if o.OrganizationName.IsSet() {
+		toSerialize["organizationName"] = o.OrganizationName.Get()
+	}
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
+	}
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
+	}
 	return toSerialize, nil
 }
 

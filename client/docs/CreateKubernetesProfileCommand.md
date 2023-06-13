@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **OctaviaEnabled** | Pointer to **bool** |  | [optional] 
 **ExposeNodePortOnBastion** | Pointer to **bool** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCreateKubernetesProfileCommand
 
-`func NewCreateKubernetesProfileCommand(name string, ) *CreateKubernetesProfileCommand`
+`func NewCreateKubernetesProfileCommand() *CreateKubernetesProfileCommand`
 
 NewCreateKubernetesProfileCommand instantiates a new CreateKubernetesProfileCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateKubernetesProfileCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateKubernetesProfileCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateKubernetesProfileCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetOctaviaEnabled
 
 `func (o *CreateKubernetesProfileCommand) GetOctaviaEnabled() bool`

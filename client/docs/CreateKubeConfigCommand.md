@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**ProjectId** | **int32** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 **IsAccessibleForAll** | Pointer to **bool** |  | [optional] 
 **IsAccessibleForManager** | Pointer to **bool** |  | [optional] 
 **KubeConfigRoleId** | Pointer to **int32** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCreateKubeConfigCommand
 
-`func NewCreateKubeConfigCommand(name string, projectId int32, ) *CreateKubeConfigCommand`
+`func NewCreateKubeConfigCommand() *CreateKubeConfigCommand`
 
 NewCreateKubeConfigCommand instantiates a new CreateKubeConfigCommand object
 This constructor will assign default values to properties that have it defined,
@@ -51,7 +51,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateKubeConfigCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateKubeConfigCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateKubeConfigCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProjectId
 
 `func (o *CreateKubeConfigCommand) GetProjectId() int32`
@@ -71,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *CreateKubeConfigCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetIsAccessibleForAll
 

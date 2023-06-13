@@ -20,9 +20,9 @@ var _ MappedNullable = &CreateUserCommand{}
 
 // CreateUserCommand struct for CreateUserCommand
 type CreateUserCommand struct {
-	Username string `json:"username"`
+	Username NullableString `json:"username,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
-	Email string `json:"email"`
+	Email NullableString `json:"email,omitempty"`
 	OrganizationId NullableInt32 `json:"organizationId,omitempty"`
 	Role *UserRole `json:"role,omitempty"`
 }
@@ -31,10 +31,8 @@ type CreateUserCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateUserCommand(username string, email string) *CreateUserCommand {
+func NewCreateUserCommand() *CreateUserCommand {
 	this := CreateUserCommand{}
-	this.Username = username
-	this.Email = email
 	return &this
 }
 
@@ -46,28 +44,46 @@ func NewCreateUserCommandWithDefaults() *CreateUserCommand {
 	return &this
 }
 
-// GetUsername returns the Username field value
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateUserCommand) GetUsername() string {
-	if o == nil {
+	if o == nil || IsNil(o.Username.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Username
+	return *o.Username.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUserCommand) GetUsernameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Username, true
+	return o.Username.Get(), o.Username.IsSet()
 }
 
-// SetUsername sets field value
+// HasUsername returns a boolean if a field has been set.
+func (o *CreateUserCommand) HasUsername() bool {
+	if o != nil && o.Username.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
 func (o *CreateUserCommand) SetUsername(v string) {
-	o.Username = v
+	o.Username.Set(&v)
+}
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *CreateUserCommand) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *CreateUserCommand) UnsetUsername() {
+	o.Username.Unset()
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -112,28 +128,46 @@ func (o *CreateUserCommand) UnsetDisplayName() {
 	o.DisplayName.Unset()
 }
 
-// GetEmail returns the Email field value
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateUserCommand) GetEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Email
+	return *o.Email.Get()
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUserCommand) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail sets field value
+// HasEmail returns a boolean if a field has been set.
+func (o *CreateUserCommand) HasEmail() bool {
+	if o != nil && o.Email.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *CreateUserCommand) SetEmail(v string) {
-	o.Email = v
+	o.Email.Set(&v)
+}
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *CreateUserCommand) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *CreateUserCommand) UnsetEmail() {
+	o.Email.Unset()
 }
 
 // GetOrganizationId returns the OrganizationId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -220,11 +254,15 @@ func (o CreateUserCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateUserCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["username"] = o.Username
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
+	}
 	if o.DisplayName.IsSet() {
 		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	toSerialize["email"] = o.Email
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
+	}
 	if o.OrganizationId.IsSet() {
 		toSerialize["organizationId"] = o.OrganizationId.Get()
 	}

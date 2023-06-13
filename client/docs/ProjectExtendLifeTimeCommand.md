@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 **ExpireAt** | Pointer to **NullableTime** |  | [optional] 
 **DeleteOnExpiration** | Pointer to **bool** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewProjectExtendLifeTimeCommand
 
-`func NewProjectExtendLifeTimeCommand(projectId int32, ) *ProjectExtendLifeTimeCommand`
+`func NewProjectExtendLifeTimeCommand() *ProjectExtendLifeTimeCommand`
 
 NewProjectExtendLifeTimeCommand instantiates a new ProjectExtendLifeTimeCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *ProjectExtendLifeTimeCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetExpireAt
 

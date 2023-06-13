@@ -28,7 +28,7 @@ import (
 
 func main() {
     projectAppId := int32(56) // int32 | 
-    editProjectAppParamsDto := []openapiclient.EditProjectAppParamsDto{*openapiclient.NewEditProjectAppParamsDto("Key_example")} // []EditProjectAppParamsDto |  (optional)
+    editProjectAppParamsDto := []openapiclient.EditProjectAppParamsDto{*openapiclient.NewEditProjectAppParamsDto()} // []EditProjectAppParamsDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Password** | **interface{}** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAdminUsersUpdatePasswordCommand
 
-`func NewAdminUsersUpdatePasswordCommand(id string, password interface{}, ) *AdminUsersUpdatePasswordCommand`
+`func NewAdminUsersUpdatePasswordCommand() *AdminUsersUpdatePasswordCommand`
 
 NewAdminUsersUpdatePasswordCommand instantiates a new AdminUsersUpdatePasswordCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,27 +45,57 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *AdminUsersUpdatePasswordCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *AdminUsersUpdatePasswordCommand) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AdminUsersUpdatePasswordCommand) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetPassword
 
-`func (o *AdminUsersUpdatePasswordCommand) GetPassword() interface{}`
+`func (o *AdminUsersUpdatePasswordCommand) GetPassword() string`
 
 GetPassword returns the Password field if non-nil, zero value otherwise.
 
 ### GetPasswordOk
 
-`func (o *AdminUsersUpdatePasswordCommand) GetPasswordOk() (*interface{}, bool)`
+`func (o *AdminUsersUpdatePasswordCommand) GetPasswordOk() (*string, bool)`
 
 GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPassword
 
-`func (o *AdminUsersUpdatePasswordCommand) SetPassword(v interface{})`
+`func (o *AdminUsersUpdatePasswordCommand) SetPassword(v string)`
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *AdminUsersUpdatePasswordCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *AdminUsersUpdatePasswordCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *AdminUsersUpdatePasswordCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

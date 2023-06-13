@@ -21,16 +21,15 @@ var _ MappedNullable = &BindRulesCommand{}
 // BindRulesCommand struct for BindRulesCommand
 type BindRulesCommand struct {
 	Rules []BindRulesToOrganizationDto `json:"rules,omitempty"`
-	OrganizationId int32 `json:"organizationId"`
+	OrganizationId *int32 `json:"organizationId,omitempty"`
 }
 
 // NewBindRulesCommand instantiates a new BindRulesCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindRulesCommand(organizationId int32) *BindRulesCommand {
+func NewBindRulesCommand() *BindRulesCommand {
 	this := BindRulesCommand{}
-	this.OrganizationId = organizationId
 	return &this
 }
 
@@ -75,28 +74,36 @@ func (o *BindRulesCommand) SetRules(v []BindRulesToOrganizationDto) {
 	o.Rules = v
 }
 
-// GetOrganizationId returns the OrganizationId field value
+// GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
 func (o *BindRulesCommand) GetOrganizationId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrganizationId
+	return *o.OrganizationId
 }
 
-// GetOrganizationIdOk returns a tuple with the OrganizationId field value
+// GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindRulesCommand) GetOrganizationIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationId) {
 		return nil, false
 	}
-	return &o.OrganizationId, true
+	return o.OrganizationId, true
 }
 
-// SetOrganizationId sets field value
+// HasOrganizationId returns a boolean if a field has been set.
+func (o *BindRulesCommand) HasOrganizationId() bool {
+	if o != nil && !IsNil(o.OrganizationId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationId gets a reference to the given int32 and assigns it to the OrganizationId field.
 func (o *BindRulesCommand) SetOrganizationId(v int32) {
-	o.OrganizationId = v
+	o.OrganizationId = &v
 }
 
 func (o BindRulesCommand) MarshalJSON() ([]byte, error) {
@@ -112,7 +119,9 @@ func (o BindRulesCommand) ToMap() (map[string]interface{}, error) {
 	if o.Rules != nil {
 		toSerialize["rules"] = o.Rules
 	}
-	toSerialize["organizationId"] = o.OrganizationId
+	if !IsNil(o.OrganizationId) {
+		toSerialize["organizationId"] = o.OrganizationId
+	}
 	return toSerialize, nil
 }
 

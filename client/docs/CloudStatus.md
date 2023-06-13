@@ -3,23 +3,23 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `DELETING` (value: `"Deleting"`)
 
-* `_200` (value: `200`)
+* `FAILURE` (value: `"Failure"`)
 
-* `_250` (value: `250`)
+* `FAILED_UPGRADE` (value: `"FailedUpgrade"`)
 
-* `_300` (value: `300`)
+* `WAITING` (value: `"Waiting"`)
 
-* `_400` (value: `400`)
+* `PENDING_DELETE` (value: `"PendingDelete"`)
 
-* `_500` (value: `500`)
+* `PENDING_UPGRADE` (value: `"PendingUpgrade"`)
 
-* `_600` (value: `600`)
+* `READY` (value: `"Ready"`)
 
-* `_700` (value: `700`)
+* `UPDATING` (value: `"Updating"`)
 
-* `_800` (value: `800`)
+* `UPGRADING` (value: `"Upgrading"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

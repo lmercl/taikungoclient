@@ -21,16 +21,15 @@ var _ MappedNullable = &BindUsersCommand{}
 // BindUsersCommand struct for BindUsersCommand
 type BindUsersCommand struct {
 	Users []UpdateProjectUserDto `json:"users,omitempty"`
-	ProjectId int32 `json:"projectId"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 }
 
 // NewBindUsersCommand instantiates a new BindUsersCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBindUsersCommand(projectId int32) *BindUsersCommand {
+func NewBindUsersCommand() *BindUsersCommand {
 	this := BindUsersCommand{}
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -75,28 +74,36 @@ func (o *BindUsersCommand) SetUsers(v []UpdateProjectUserDto) {
 	o.Users = v
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *BindUsersCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindUsersCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *BindUsersCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *BindUsersCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 func (o BindUsersCommand) MarshalJSON() ([]byte, error) {
@@ -112,7 +119,9 @@ func (o BindUsersCommand) ToMap() (map[string]interface{}, error) {
 	if o.Users != nil {
 		toSerialize["users"] = o.Users
 	}
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	return toSerialize, nil
 }
 

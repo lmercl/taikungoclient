@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Priority** | Pointer to [**TicketPriority**](TicketPriority.md) |  | [optional] 
 
 ## Methods
 
 ### NewSetTicketPriorityCommand
 
-`func NewSetTicketPriorityCommand(id string, ) *SetTicketPriorityCommand`
+`func NewSetTicketPriorityCommand() *SetTicketPriorityCommand`
 
 NewSetTicketPriorityCommand instantiates a new SetTicketPriorityCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *SetTicketPriorityCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *SetTicketPriorityCommand) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *SetTicketPriorityCommand) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetPriority
 
 `func (o *SetTicketPriorityCommand) GetPriority() TicketPriority`

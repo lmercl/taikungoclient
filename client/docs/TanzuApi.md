@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-    createTanzuCommand := *openapiclient.NewCreateTanzuCommand("Name_example", "Username_example", "Url_example", "Password_example", "VolumeType_example", "Namespace_example") // CreateTanzuCommand | 
+    createTanzuCommand := *openapiclient.NewCreateTanzuCommand() // CreateTanzuCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -305,7 +305,7 @@ import (
 )
 
 func main() {
-    updateTanzuCommand := *openapiclient.NewUpdateTanzuCommand(int32(123), "Name_example", "Password_example") // UpdateTanzuCommand | 
+    updateTanzuCommand := *openapiclient.NewUpdateTanzuCommand() // UpdateTanzuCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

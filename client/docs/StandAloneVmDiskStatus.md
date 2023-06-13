@@ -3,17 +3,17 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `DELETING` (value: `"Deleting"`)
 
-* `_200` (value: `200`)
+* `FAILURE` (value: `"Failure"`)
 
-* `_300` (value: `300`)
+* `WAITING` (value: `"Waiting"`)
 
-* `_400` (value: `400`)
+* `PENDING_DELETE` (value: `"PendingDelete"`)
 
-* `_500` (value: `500`)
+* `READY` (value: `"Ready"`)
 
-* `_600` (value: `600`)
+* `UPDATING` (value: `"Updating"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

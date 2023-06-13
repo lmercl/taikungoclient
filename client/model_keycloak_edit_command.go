@@ -20,26 +20,20 @@ var _ MappedNullable = &KeycloakEditCommand{}
 
 // KeycloakEditCommand struct for KeycloakEditCommand
 type KeycloakEditCommand struct {
-	Id int32 `json:"id"`
-	Name string `json:"name"`
-	Url string `json:"url"`
-	RealmsName string `json:"realmsName"`
-	ClientId string `json:"clientId"`
-	ClientSecret string `json:"clientSecret"`
+	Id *int32 `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Url NullableString `json:"url,omitempty"`
+	RealmsName NullableString `json:"realmsName,omitempty"`
+	ClientId NullableString `json:"clientId,omitempty"`
+	ClientSecret NullableString `json:"clientSecret,omitempty"`
 }
 
 // NewKeycloakEditCommand instantiates a new KeycloakEditCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewKeycloakEditCommand(id int32, name string, url string, realmsName string, clientId string, clientSecret string) *KeycloakEditCommand {
+func NewKeycloakEditCommand() *KeycloakEditCommand {
 	this := KeycloakEditCommand{}
-	this.Id = id
-	this.Name = name
-	this.Url = url
-	this.RealmsName = realmsName
-	this.ClientId = clientId
-	this.ClientSecret = clientSecret
 	return &this
 }
 
@@ -51,148 +45,246 @@ func NewKeycloakEditCommandWithDefaults() *KeycloakEditCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *KeycloakEditCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *KeycloakEditCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *KeycloakEditCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KeycloakEditCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeycloakEditCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *KeycloakEditCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *KeycloakEditCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetUrl returns the Url field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *KeycloakEditCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KeycloakEditCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeycloakEditCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *KeycloakEditCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *KeycloakEditCommand) SetUrlNil() {
+	o.Url.Set(nil)
 }
 
-// GetRealmsName returns the RealmsName field value
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *KeycloakEditCommand) UnsetUrl() {
+	o.Url.Unset()
+}
+
+// GetRealmsName returns the RealmsName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KeycloakEditCommand) GetRealmsName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RealmsName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.RealmsName
+	return *o.RealmsName.Get()
 }
 
-// GetRealmsNameOk returns a tuple with the RealmsName field value
+// GetRealmsNameOk returns a tuple with the RealmsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeycloakEditCommand) GetRealmsNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RealmsName, true
+	return o.RealmsName.Get(), o.RealmsName.IsSet()
 }
 
-// SetRealmsName sets field value
+// HasRealmsName returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasRealmsName() bool {
+	if o != nil && o.RealmsName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRealmsName gets a reference to the given NullableString and assigns it to the RealmsName field.
 func (o *KeycloakEditCommand) SetRealmsName(v string) {
-	o.RealmsName = v
+	o.RealmsName.Set(&v)
+}
+// SetRealmsNameNil sets the value for RealmsName to be an explicit nil
+func (o *KeycloakEditCommand) SetRealmsNameNil() {
+	o.RealmsName.Set(nil)
 }
 
-// GetClientId returns the ClientId field value
+// UnsetRealmsName ensures that no value is present for RealmsName, not even an explicit nil
+func (o *KeycloakEditCommand) UnsetRealmsName() {
+	o.RealmsName.Unset()
+}
+
+// GetClientId returns the ClientId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KeycloakEditCommand) GetClientId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClientId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ClientId
+	return *o.ClientId.Get()
 }
 
-// GetClientIdOk returns a tuple with the ClientId field value
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeycloakEditCommand) GetClientIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ClientId, true
+	return o.ClientId.Get(), o.ClientId.IsSet()
 }
 
-// SetClientId sets field value
+// HasClientId returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasClientId() bool {
+	if o != nil && o.ClientId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientId gets a reference to the given NullableString and assigns it to the ClientId field.
 func (o *KeycloakEditCommand) SetClientId(v string) {
-	o.ClientId = v
+	o.ClientId.Set(&v)
+}
+// SetClientIdNil sets the value for ClientId to be an explicit nil
+func (o *KeycloakEditCommand) SetClientIdNil() {
+	o.ClientId.Set(nil)
 }
 
-// GetClientSecret returns the ClientSecret field value
+// UnsetClientId ensures that no value is present for ClientId, not even an explicit nil
+func (o *KeycloakEditCommand) UnsetClientId() {
+	o.ClientId.Unset()
+}
+
+// GetClientSecret returns the ClientSecret field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KeycloakEditCommand) GetClientSecret() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClientSecret.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ClientSecret
+	return *o.ClientSecret.Get()
 }
 
-// GetClientSecretOk returns a tuple with the ClientSecret field value
+// GetClientSecretOk returns a tuple with the ClientSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KeycloakEditCommand) GetClientSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ClientSecret, true
+	return o.ClientSecret.Get(), o.ClientSecret.IsSet()
 }
 
-// SetClientSecret sets field value
+// HasClientSecret returns a boolean if a field has been set.
+func (o *KeycloakEditCommand) HasClientSecret() bool {
+	if o != nil && o.ClientSecret.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientSecret gets a reference to the given NullableString and assigns it to the ClientSecret field.
 func (o *KeycloakEditCommand) SetClientSecret(v string) {
-	o.ClientSecret = v
+	o.ClientSecret.Set(&v)
+}
+// SetClientSecretNil sets the value for ClientSecret to be an explicit nil
+func (o *KeycloakEditCommand) SetClientSecretNil() {
+	o.ClientSecret.Set(nil)
+}
+
+// UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
+func (o *KeycloakEditCommand) UnsetClientSecret() {
+	o.ClientSecret.Unset()
 }
 
 func (o KeycloakEditCommand) MarshalJSON() ([]byte, error) {
@@ -205,12 +297,24 @@ func (o KeycloakEditCommand) MarshalJSON() ([]byte, error) {
 
 func (o KeycloakEditCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
-	toSerialize["url"] = o.Url
-	toSerialize["realmsName"] = o.RealmsName
-	toSerialize["clientId"] = o.ClientId
-	toSerialize["clientSecret"] = o.ClientSecret
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
+	if o.RealmsName.IsSet() {
+		toSerialize["realmsName"] = o.RealmsName.Get()
+	}
+	if o.ClientId.IsSet() {
+		toSerialize["clientId"] = o.ClientId.Get()
+	}
+	if o.ClientSecret.IsSet() {
+		toSerialize["clientSecret"] = o.ClientSecret.Get()
+	}
 	return toSerialize, nil
 }
 

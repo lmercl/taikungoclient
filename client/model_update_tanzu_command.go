@@ -20,20 +20,17 @@ var _ MappedNullable = &UpdateTanzuCommand{}
 
 // UpdateTanzuCommand struct for UpdateTanzuCommand
 type UpdateTanzuCommand struct {
-	Id int32 `json:"id"`
-	Name string `json:"name"`
-	Password string `json:"password"`
+	Id *int32 `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Password NullableString `json:"password,omitempty"`
 }
 
 // NewUpdateTanzuCommand instantiates a new UpdateTanzuCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateTanzuCommand(id int32, name string, password string) *UpdateTanzuCommand {
+func NewUpdateTanzuCommand() *UpdateTanzuCommand {
 	this := UpdateTanzuCommand{}
-	this.Id = id
-	this.Name = name
-	this.Password = password
 	return &this
 }
 
@@ -45,76 +42,120 @@ func NewUpdateTanzuCommandWithDefaults() *UpdateTanzuCommand {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateTanzuCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateTanzuCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateTanzuCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateTanzuCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateTanzuCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateTanzuCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *UpdateTanzuCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *UpdateTanzuCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *UpdateTanzuCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetPassword returns the Password field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *UpdateTanzuCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateTanzuCommand) GetPassword() string {
-	if o == nil {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Password
+	return *o.Password.Get()
 }
 
-// GetPasswordOk returns a tuple with the Password field value
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateTanzuCommand) GetPasswordOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// SetPassword sets field value
+// HasPassword returns a boolean if a field has been set.
+func (o *UpdateTanzuCommand) HasPassword() bool {
+	if o != nil && o.Password.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
 func (o *UpdateTanzuCommand) SetPassword(v string) {
-	o.Password = v
+	o.Password.Set(&v)
+}
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *UpdateTanzuCommand) SetPasswordNil() {
+	o.Password.Set(nil)
+}
+
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *UpdateTanzuCommand) UnsetPassword() {
+	o.Password.Unset()
 }
 
 func (o UpdateTanzuCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +168,15 @@ func (o UpdateTanzuCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateTanzuCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
-	toSerialize["password"] = o.Password
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
+	}
 	return toSerialize, nil
 }
 

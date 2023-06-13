@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createInvoiceCommand := *openapiclient.NewCreateInvoiceCommand("Name_example", int32(123)) // CreateInvoiceCommand |  (optional)
+    createInvoiceCommand := *openapiclient.NewCreateInvoiceCommand() // CreateInvoiceCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

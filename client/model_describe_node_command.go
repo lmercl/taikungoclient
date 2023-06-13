@@ -20,18 +20,16 @@ var _ MappedNullable = &DescribeNodeCommand{}
 
 // DescribeNodeCommand struct for DescribeNodeCommand
 type DescribeNodeCommand struct {
-	ProjectId int32 `json:"projectId"`
-	Name string `json:"name"`
+	ProjectId *int32 `json:"projectId,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 }
 
 // NewDescribeNodeCommand instantiates a new DescribeNodeCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDescribeNodeCommand(projectId int32, name string) *DescribeNodeCommand {
+func NewDescribeNodeCommand() *DescribeNodeCommand {
 	this := DescribeNodeCommand{}
-	this.ProjectId = projectId
-	this.Name = name
 	return &this
 }
 
@@ -43,52 +41,78 @@ func NewDescribeNodeCommandWithDefaults() *DescribeNodeCommand {
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *DescribeNodeCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DescribeNodeCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *DescribeNodeCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *DescribeNodeCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DescribeNodeCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DescribeNodeCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *DescribeNodeCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *DescribeNodeCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *DescribeNodeCommand) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *DescribeNodeCommand) UnsetName() {
+	o.Name.Unset()
 }
 
 func (o DescribeNodeCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +125,12 @@ func (o DescribeNodeCommand) MarshalJSON() ([]byte, error) {
 
 func (o DescribeNodeCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["name"] = o.Name
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	return toSerialize, nil
 }
 

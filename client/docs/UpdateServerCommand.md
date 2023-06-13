@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Ip** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Ip** | Pointer to **NullableString** |  | [optional] 
 **InstanceId** | Pointer to **NullableString** |  | [optional] 
 **ProviderID** | Pointer to **NullableString** |  | [optional] 
 **AwsHostName** | Pointer to **NullableString** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateServerCommand
 
-`func NewUpdateServerCommand(id int32, ip string, ) *UpdateServerCommand`
+`func NewUpdateServerCommand() *UpdateServerCommand`
 
 NewUpdateServerCommand instantiates a new UpdateServerCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *UpdateServerCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetIp
 
@@ -68,7 +73,22 @@ and a boolean to check if the value has been set.
 
 SetIp sets Ip field to given value.
 
+### HasIp
 
+`func (o *UpdateServerCommand) HasIp() bool`
+
+HasIp returns a boolean if a field has been set.
+
+### SetIpNil
+
+`func (o *UpdateServerCommand) SetIpNil(b bool)`
+
+ SetIpNil sets the value for Ip to be an explicit nil
+
+### UnsetIp
+`func (o *UpdateServerCommand) UnsetIp()`
+
+UnsetIp ensures that no value is present for Ip, not even an explicit nil
 ### GetInstanceId
 
 `func (o *UpdateServerCommand) GetInstanceId() string`

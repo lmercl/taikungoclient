@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bridge** | **string** |  | 
+**Bridge** | Pointer to **NullableString** |  | [optional] 
 **Gateway** | Pointer to **NullableString** |  | [optional] 
 **IpAddress** | Pointer to **NullableString** |  | [optional] 
 **NetMask** | Pointer to **int32** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewCreateProxmoxNetworkDto
 
-`func NewCreateProxmoxNetworkDto(bridge string, ) *CreateProxmoxNetworkDto`
+`func NewCreateProxmoxNetworkDto() *CreateProxmoxNetworkDto`
 
 NewCreateProxmoxNetworkDto instantiates a new CreateProxmoxNetworkDto object
 This constructor will assign default values to properties that have it defined,
@@ -49,7 +49,22 @@ and a boolean to check if the value has been set.
 
 SetBridge sets Bridge field to given value.
 
+### HasBridge
 
+`func (o *CreateProxmoxNetworkDto) HasBridge() bool`
+
+HasBridge returns a boolean if a field has been set.
+
+### SetBridgeNil
+
+`func (o *CreateProxmoxNetworkDto) SetBridgeNil(b bool)`
+
+ SetBridgeNil sets the value for Bridge to be an explicit nil
+
+### UnsetBridge
+`func (o *CreateProxmoxNetworkDto) UnsetBridge()`
+
+UnsetBridge ensures that no value is present for Bridge, not even an explicit nil
 ### GetGateway
 
 `func (o *CreateProxmoxNetworkDto) GetGateway() string`

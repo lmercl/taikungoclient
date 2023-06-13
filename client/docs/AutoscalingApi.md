@@ -92,7 +92,7 @@ import (
 )
 
 func main() {
-    editAutoscalingCommand := *openapiclient.NewEditAutoscalingCommand(int32(123)) // EditAutoscalingCommand | 
+    editAutoscalingCommand := *openapiclient.NewEditAutoscalingCommand() // EditAutoscalingCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -154,7 +154,7 @@ import (
 )
 
 func main() {
-    enableAutoscalingCommand := *openapiclient.NewEnableAutoscalingCommand(int32(123), "AutoscalingGroupName_example", "Flavor_example") // EnableAutoscalingCommand | 
+    enableAutoscalingCommand := *openapiclient.NewEnableAutoscalingCommand() // EnableAutoscalingCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

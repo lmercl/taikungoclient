@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **KubesprayCurrentVersion** | Pointer to **NullableString** |  | [optional] 
 **AccessIp** | Pointer to **NullableString** |  | [optional] 
 **ImageName** | Pointer to **NullableString** |  | [optional] 
+**MonitoringIp** | Pointer to **NullableString** |  | [optional] 
 **TanzuReleaseCurrentVersion** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to [**ProjectStatus**](ProjectStatus.md) |  | [optional] 
 **Health** | Pointer to [**ProjectHealth**](ProjectHealth.md) |  | [optional] 
@@ -179,6 +180,41 @@ HasImageName returns a boolean if a field has been set.
 `func (o *ProjectForUpdateDto) UnsetImageName()`
 
 UnsetImageName ensures that no value is present for ImageName, not even an explicit nil
+### GetMonitoringIp
+
+`func (o *ProjectForUpdateDto) GetMonitoringIp() string`
+
+GetMonitoringIp returns the MonitoringIp field if non-nil, zero value otherwise.
+
+### GetMonitoringIpOk
+
+`func (o *ProjectForUpdateDto) GetMonitoringIpOk() (*string, bool)`
+
+GetMonitoringIpOk returns a tuple with the MonitoringIp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMonitoringIp
+
+`func (o *ProjectForUpdateDto) SetMonitoringIp(v string)`
+
+SetMonitoringIp sets MonitoringIp field to given value.
+
+### HasMonitoringIp
+
+`func (o *ProjectForUpdateDto) HasMonitoringIp() bool`
+
+HasMonitoringIp returns a boolean if a field has been set.
+
+### SetMonitoringIpNil
+
+`func (o *ProjectForUpdateDto) SetMonitoringIpNil(b bool)`
+
+ SetMonitoringIpNil sets the value for MonitoringIp to be an explicit nil
+
+### UnsetMonitoringIp
+`func (o *ProjectForUpdateDto) UnsetMonitoringIp()`
+
+UnsetMonitoringIp ensures that no value is present for MonitoringIp, not even an explicit nil
 ### GetTanzuReleaseCurrentVersion
 
 `func (o *ProjectForUpdateDto) GetTanzuReleaseCurrentVersion() string`

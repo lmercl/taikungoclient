@@ -36,7 +36,7 @@ import (
 )
 
 func main() {
-    createAzureCloudCommand := *openapiclient.NewCreateAzureCloudCommand("Name_example", "AzureSubscriptionId_example", "AzureClientId_example", "AzureClientSecret_example", "AzureTenantId_example", "AzureLocation_example") // CreateAzureCloudCommand |  (optional)
+    createAzureCloudCommand := *openapiclient.NewCreateAzureCloudCommand() // CreateAzureCloudCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -549,7 +549,7 @@ import (
 )
 
 func main() {
-    azureSubscriptionListCommand := *openapiclient.NewAzureSubscriptionListCommand("ClientId_example", "ClientSecret_example", "TenantId_example") // AzureSubscriptionListCommand | 
+    azureSubscriptionListCommand := *openapiclient.NewAzureSubscriptionListCommand() // AzureSubscriptionListCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -613,7 +613,7 @@ import (
 )
 
 func main() {
-    updateAzureCommand := *openapiclient.NewUpdateAzureCommand(int32(123), "Name_example", "AzureClientSecret_example", "AzureClientId_example") // UpdateAzureCommand |  (optional)
+    updateAzureCommand := *openapiclient.NewUpdateAzureCommand() // UpdateAzureCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

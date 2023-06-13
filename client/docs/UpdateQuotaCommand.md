@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QuotaId** | **int32** |  | 
+**QuotaId** | Pointer to **int32** |  | [optional] 
 **ServerCpu** | Pointer to **int64** |  | [optional] 
 **ServerRam** | Pointer to **int64** |  | [optional] 
 **ServerDiskSize** | Pointer to **int64** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateQuotaCommand
 
-`func NewUpdateQuotaCommand(quotaId int32, ) *UpdateQuotaCommand`
+`func NewUpdateQuotaCommand() *UpdateQuotaCommand`
 
 NewUpdateQuotaCommand instantiates a new UpdateQuotaCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,11 @@ and a boolean to check if the value has been set.
 
 SetQuotaId sets QuotaId field to given value.
 
+### HasQuotaId
+
+`func (o *UpdateQuotaCommand) HasQuotaId() bool`
+
+HasQuotaId returns a boolean if a field has been set.
 
 ### GetServerCpu
 

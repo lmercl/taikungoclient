@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TicketId** | **string** |  | 
-**UserId** | **string** |  | 
+**TicketId** | Pointer to **NullableString** |  | [optional] 
+**UserId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewTransferTicketCommand
 
-`func NewTransferTicketCommand(ticketId string, userId string, ) *TransferTicketCommand`
+`func NewTransferTicketCommand() *TransferTicketCommand`
 
 NewTransferTicketCommand instantiates a new TransferTicketCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetTicketId sets TicketId field to given value.
 
+### HasTicketId
 
+`func (o *TransferTicketCommand) HasTicketId() bool`
+
+HasTicketId returns a boolean if a field has been set.
+
+### SetTicketIdNil
+
+`func (o *TransferTicketCommand) SetTicketIdNil(b bool)`
+
+ SetTicketIdNil sets the value for TicketId to be an explicit nil
+
+### UnsetTicketId
+`func (o *TransferTicketCommand) UnsetTicketId()`
+
+UnsetTicketId ensures that no value is present for TicketId, not even an explicit nil
 ### GetUserId
 
 `func (o *TransferTicketCommand) GetUserId() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
 
+`func (o *TransferTicketCommand) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### SetUserIdNil
+
+`func (o *TransferTicketCommand) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *TransferTicketCommand) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

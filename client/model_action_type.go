@@ -17,134 +17,134 @@ import (
 )
 
 // ActionType the model 'ActionType'
-type ActionType int32
+type ActionType string
 
 // List of ActionType
 const (
-	ACTIONTYPE__10 ActionType = 10
-	ACTIONTYPE__20 ActionType = 20
-	ACTIONTYPE__30 ActionType = 30
-	ACTIONTYPE__32 ActionType = 32
-	ACTIONTYPE__34 ActionType = 34
-	ACTIONTYPE__36 ActionType = 36
-	ACTIONTYPE__38 ActionType = 38
-	ACTIONTYPE__40 ActionType = 40
-	ACTIONTYPE__42 ActionType = 42
-	ACTIONTYPE__44 ActionType = 44
-	ACTIONTYPE__50 ActionType = 50
-	ACTIONTYPE__60 ActionType = 60
-	ACTIONTYPE__70 ActionType = 70
-	ACTIONTYPE__80 ActionType = 80
-	ACTIONTYPE__90 ActionType = 90
-	ACTIONTYPE__100 ActionType = 100
-	ACTIONTYPE__105 ActionType = 105
-	ACTIONTYPE__106 ActionType = 106
-	ACTIONTYPE__107 ActionType = 107
-	ACTIONTYPE__108 ActionType = 108
-	ACTIONTYPE__109 ActionType = 109
-	ACTIONTYPE__110 ActionType = 110
-	ACTIONTYPE__120 ActionType = 120
-	ACTIONTYPE__130 ActionType = 130
-	ACTIONTYPE__140 ActionType = 140
-	ACTIONTYPE__150 ActionType = 150
-	ACTIONTYPE__155 ActionType = 155
-	ACTIONTYPE__156 ActionType = 156
-	ACTIONTYPE__160 ActionType = 160
-	ACTIONTYPE__165 ActionType = 165
-	ACTIONTYPE__170 ActionType = 170
-	ACTIONTYPE__175 ActionType = 175
-	ACTIONTYPE__176 ActionType = 176
-	ACTIONTYPE__177 ActionType = 177
-	ACTIONTYPE__180 ActionType = 180
-	ACTIONTYPE__190 ActionType = 190
-	ACTIONTYPE__200 ActionType = 200
-	ACTIONTYPE__210 ActionType = 210
-	ACTIONTYPE__220 ActionType = 220
-	ACTIONTYPE__230 ActionType = 230
-	ACTIONTYPE__240 ActionType = 240
-	ACTIONTYPE__250 ActionType = 250
-	ACTIONTYPE__260 ActionType = 260
-	ACTIONTYPE__270 ActionType = 270
-	ACTIONTYPE__280 ActionType = 280
-	ACTIONTYPE__290 ActionType = 290
-	ACTIONTYPE__300 ActionType = 300
-	ACTIONTYPE__310 ActionType = 310
-	ACTIONTYPE__320 ActionType = 320
-	ACTIONTYPE__330 ActionType = 330
-	ACTIONTYPE__340 ActionType = 340
-	ACTIONTYPE__350 ActionType = 350
-	ACTIONTYPE__360 ActionType = 360
-	ACTIONTYPE__370 ActionType = 370
-	ACTIONTYPE__380 ActionType = 380
-	ACTIONTYPE__390 ActionType = 390
-	ACTIONTYPE__400 ActionType = 400
-	ACTIONTYPE__410 ActionType = 410
+	ACTIONTYPE_START_ADD_SERVER ActionType = "StartAddServer"
+	ACTIONTYPE_ADDED_SERVER ActionType = "AddedServer"
+	ACTIONTYPE_START_ADD_VM ActionType = "StartAddVm"
+	ACTIONTYPE_START_ADD_VM_DISK ActionType = "StartAddVmDisk"
+	ACTIONTYPE_ADDED_VM_DISK ActionType = "AddedVmDisk"
+	ACTIONTYPE_START_DELETE_VM_DISK ActionType = "StartDeleteVmDisk"
+	ACTIONTYPE_DELETED_VM_DISK ActionType = "DeletedVmDisk"
+	ACTIONTYPE_ADDED_VM ActionType = "AddedVm"
+	ACTIONTYPE_START_DELETE_VM ActionType = "StartDeleteVm"
+	ACTIONTYPE_DELETED_VM ActionType = "DeletedVm"
+	ACTIONTYPE_START_DELETE_SERVER ActionType = "StartDeleteServer"
+	ACTIONTYPE_DELETED_SERVER ActionType = "DeletedServer"
+	ACTIONTYPE_COMMIT_CHANGES ActionType = "CommitChanges"
+	ACTIONTYPE_CREATED_PROJECT ActionType = "CreatedProject"
+	ACTIONTYPE_START_PURGE_PROJECT ActionType = "StartPurgeProject"
+	ACTIONTYPE_PURGED_PROJECT ActionType = "PurgedProject"
+	ACTIONTYPE_CAPACITY_NOT_AVAILABLE ActionType = "CapacityNotAvailable"
+	ACTIONTYPE_SPOT_FAILURE ActionType = "SpotFailure"
+	ACTIONTYPE_CREATE_INFRA_FAILURE ActionType = "CreateInfraFailure"
+	ACTIONTYPE_DESTROY_INFRA_FAILURE ActionType = "DestroyInfraFailure"
+	ACTIONTYPE_LOGIN_FAILED ActionType = "LoginFailed"
+	ACTIONTYPE_KUBERNETES_ERROR ActionType = "KubernetesError"
+	ACTIONTYPE_START_UPGRADE_PROJECT ActionType = "StartUpgradeProject"
+	ACTIONTYPE_UPGRADED_PROJECT ActionType = "UpgradedProject"
+	ACTIONTYPE_START_UPDATE_CLOUD_CREDENTIALS ActionType = "StartUpdateCloudCredentials"
+	ACTIONTYPE_UPDATED_CLOUD_CREDENTIALS ActionType = "UpdatedCloudCredentials"
+	ACTIONTYPE_STARTED_ENABLE_GATEKEEPER ActionType = "StartedEnableGatekeeper"
+	ACTIONTYPE_STARTED_DISABLE_GATEKEEPER ActionType = "StartedDisableGatekeeper"
+	ACTIONTYPE_STARTED_ENABLE_BACKUP ActionType = "StartedEnableBackup"
+	ACTIONTYPE_STARTED_DISABLE_BACKUP ActionType = "StartedDisableBackup"
+	ACTIONTYPE_ENABLED_BACKUP ActionType = "EnabledBackup"
+	ACTIONTYPE_DISABLED_BACKUP ActionType = "DisabledBackup"
+	ACTIONTYPE_ENABLED_GATEKEEPER ActionType = "EnabledGatekeeper"
+	ACTIONTYPE_DISABLED_GATEKEEPER ActionType = "DisabledGatekeeper"
+	ACTIONTYPE_ADDED_BACKUP_POLICY ActionType = "AddedBackupPolicy"
+	ACTIONTYPE_DELETED_BACKUP_POLICY ActionType = "DeletedBackupPolicy"
+	ACTIONTYPE_START_ENABLE_MONITORING ActionType = "StartEnableMonitoring"
+	ACTIONTYPE_ENABLED_MONITORING ActionType = "EnabledMonitoring"
+	ACTIONTYPE_START_DISABLE_MONITORING ActionType = "StartDisableMonitoring"
+	ACTIONTYPE_DISABLED_MONITORING ActionType = "DisabledMonitoring"
+	ACTIONTYPE_HEALTH_STATUS ActionType = "HealthStatus"
+	ACTIONTYPE_SERVER_REBOOTED ActionType = "ServerRebooted"
+	ACTIONTYPE_SILENCE_ALERT ActionType = "SilenceAlert"
+	ACTIONTYPE_ADDED_PROJECT ActionType = "AddedProject"
+	ACTIONTYPE_ADDED_USER ActionType = "AddedUser"
+	ACTIONTYPE_SERVER_STOPPED ActionType = "ServerStopped"
+	ACTIONTYPE_SERVER_STARTED ActionType = "ServerStarted"
+	ACTIONTYPE_SERVER_SHELVED ActionType = "ServerShelved"
+	ACTIONTYPE_SERVER_UNSHELVED ActionType = "ServerUnshelved"
+	ACTIONTYPE_SERVER_CONSOLE ActionType = "ServerConsole"
+	ACTIONTYPE_SERVER_STATUS ActionType = "ServerStatus"
+	ACTIONTYPE_PATCH_KUBERNETES ActionType = "PatchKubernetes"
+	ACTIONTYPE_INSTALL_APPLICATION ActionType = "InstallApplication"
+	ACTIONTYPE_UNINSTALL_APPLICATION ActionType = "UninstallApplication"
+	ACTIONTYPE_ENABLE_AUTOSCALING ActionType = "EnableAutoscaling"
+	ACTIONTYPE_DISABLE_AUTOSCALING ActionType = "DisableAutoscaling"
+	ACTIONTYPE_BOUND_PROJECT ActionType = "BoundProject"
+	ACTIONTYPE_LOCK_UNLOCK_PROJECT ActionType = "LockUnlockProject"
 )
 
 // All allowed values of ActionType enum
 var AllowedActionTypeEnumValues = []ActionType{
-	10,
-	20,
-	30,
-	32,
-	34,
-	36,
-	38,
-	40,
-	42,
-	44,
-	50,
-	60,
-	70,
-	80,
-	90,
-	100,
-	105,
-	106,
-	107,
-	108,
-	109,
-	110,
-	120,
-	130,
-	140,
-	150,
-	155,
-	156,
-	160,
-	165,
-	170,
-	175,
-	176,
-	177,
-	180,
-	190,
-	200,
-	210,
-	220,
-	230,
-	240,
-	250,
-	260,
-	270,
-	280,
-	290,
-	300,
-	310,
-	320,
-	330,
-	340,
-	350,
-	360,
-	370,
-	380,
-	390,
-	400,
-	410,
+	"StartAddServer",
+	"AddedServer",
+	"StartAddVm",
+	"StartAddVmDisk",
+	"AddedVmDisk",
+	"StartDeleteVmDisk",
+	"DeletedVmDisk",
+	"AddedVm",
+	"StartDeleteVm",
+	"DeletedVm",
+	"StartDeleteServer",
+	"DeletedServer",
+	"CommitChanges",
+	"CreatedProject",
+	"StartPurgeProject",
+	"PurgedProject",
+	"CapacityNotAvailable",
+	"SpotFailure",
+	"CreateInfraFailure",
+	"DestroyInfraFailure",
+	"LoginFailed",
+	"KubernetesError",
+	"StartUpgradeProject",
+	"UpgradedProject",
+	"StartUpdateCloudCredentials",
+	"UpdatedCloudCredentials",
+	"StartedEnableGatekeeper",
+	"StartedDisableGatekeeper",
+	"StartedEnableBackup",
+	"StartedDisableBackup",
+	"EnabledBackup",
+	"DisabledBackup",
+	"EnabledGatekeeper",
+	"DisabledGatekeeper",
+	"AddedBackupPolicy",
+	"DeletedBackupPolicy",
+	"StartEnableMonitoring",
+	"EnabledMonitoring",
+	"StartDisableMonitoring",
+	"DisabledMonitoring",
+	"HealthStatus",
+	"ServerRebooted",
+	"SilenceAlert",
+	"AddedProject",
+	"AddedUser",
+	"ServerStopped",
+	"ServerStarted",
+	"ServerShelved",
+	"ServerUnshelved",
+	"ServerConsole",
+	"ServerStatus",
+	"PatchKubernetes",
+	"InstallApplication",
+	"UninstallApplication",
+	"EnableAutoscaling",
+	"DisableAutoscaling",
+	"BoundProject",
+	"LockUnlockProject",
 }
 
 func (v *ActionType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -162,7 +162,7 @@ func (v *ActionType) UnmarshalJSON(src []byte) error {
 
 // NewActionTypeFromValue returns a pointer to a valid ActionType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewActionTypeFromValue(v int32) (*ActionType, error) {
+func NewActionTypeFromValue(v string) (*ActionType, error) {
 	ev := ActionType(v)
 	if ev.IsValid() {
 		return &ev, nil

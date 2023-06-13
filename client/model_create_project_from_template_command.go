@@ -20,8 +20,8 @@ var _ MappedNullable = &CreateProjectFromTemplateCommand{}
 
 // CreateProjectFromTemplateCommand struct for CreateProjectFromTemplateCommand
 type CreateProjectFromTemplateCommand struct {
-	Id int32 `json:"id"`
-	ProjectName string `json:"projectName"`
+	Id *int32 `json:"id,omitempty"`
+	ProjectName NullableString `json:"projectName,omitempty"`
 	CanCommit *bool `json:"canCommit,omitempty"`
 }
 
@@ -29,10 +29,8 @@ type CreateProjectFromTemplateCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateProjectFromTemplateCommand(id int32, projectName string) *CreateProjectFromTemplateCommand {
+func NewCreateProjectFromTemplateCommand() *CreateProjectFromTemplateCommand {
 	this := CreateProjectFromTemplateCommand{}
-	this.Id = id
-	this.ProjectName = projectName
 	return &this
 }
 
@@ -44,52 +42,78 @@ func NewCreateProjectFromTemplateCommandWithDefaults() *CreateProjectFromTemplat
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *CreateProjectFromTemplateCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateProjectFromTemplateCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *CreateProjectFromTemplateCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *CreateProjectFromTemplateCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetProjectName returns the ProjectName field value
+// GetProjectName returns the ProjectName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateProjectFromTemplateCommand) GetProjectName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ProjectName
+	return *o.ProjectName.Get()
 }
 
-// GetProjectNameOk returns a tuple with the ProjectName field value
+// GetProjectNameOk returns a tuple with the ProjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateProjectFromTemplateCommand) GetProjectNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ProjectName, true
+	return o.ProjectName.Get(), o.ProjectName.IsSet()
 }
 
-// SetProjectName sets field value
+// HasProjectName returns a boolean if a field has been set.
+func (o *CreateProjectFromTemplateCommand) HasProjectName() bool {
+	if o != nil && o.ProjectName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectName gets a reference to the given NullableString and assigns it to the ProjectName field.
 func (o *CreateProjectFromTemplateCommand) SetProjectName(v string) {
-	o.ProjectName = v
+	o.ProjectName.Set(&v)
+}
+// SetProjectNameNil sets the value for ProjectName to be an explicit nil
+func (o *CreateProjectFromTemplateCommand) SetProjectNameNil() {
+	o.ProjectName.Set(nil)
+}
+
+// UnsetProjectName ensures that no value is present for ProjectName, not even an explicit nil
+func (o *CreateProjectFromTemplateCommand) UnsetProjectName() {
+	o.ProjectName.Unset()
 }
 
 // GetCanCommit returns the CanCommit field value if set, zero value otherwise.
@@ -134,8 +158,12 @@ func (o CreateProjectFromTemplateCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateProjectFromTemplateCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["projectName"] = o.ProjectName
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.ProjectName.IsSet() {
+		toSerialize["projectName"] = o.ProjectName.Get()
+	}
 	if !IsNil(o.CanCommit) {
 		toSerialize["canCommit"] = o.CanCommit
 	}

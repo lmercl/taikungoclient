@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**ProjectName** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**ProjectName** | Pointer to **NullableString** |  | [optional] 
 **CanCommit** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewCreateProjectFromTemplateCommand
 
-`func NewCreateProjectFromTemplateCommand(id int32, projectName string, ) *CreateProjectFromTemplateCommand`
+`func NewCreateProjectFromTemplateCommand() *CreateProjectFromTemplateCommand`
 
 NewCreateProjectFromTemplateCommand instantiates a new CreateProjectFromTemplateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *CreateProjectFromTemplateCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetProjectName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetProjectName sets ProjectName field to given value.
 
+### HasProjectName
 
+`func (o *CreateProjectFromTemplateCommand) HasProjectName() bool`
+
+HasProjectName returns a boolean if a field has been set.
+
+### SetProjectNameNil
+
+`func (o *CreateProjectFromTemplateCommand) SetProjectNameNil(b bool)`
+
+ SetProjectNameNil sets the value for ProjectName to be an explicit nil
+
+### UnsetProjectName
+`func (o *CreateProjectFromTemplateCommand) UnsetProjectName()`
+
+UnsetProjectName ensures that no value is present for ProjectName, not even an explicit nil
 ### GetCanCommit
 
 `func (o *CreateProjectFromTemplateCommand) GetCanCommit() bool`

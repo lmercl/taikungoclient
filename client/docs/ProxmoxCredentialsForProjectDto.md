@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
 **Storage** | Pointer to **NullableString** |  | [optional] 
@@ -30,41 +31,76 @@ NewProxmoxCredentialsForProjectDtoWithDefaults instantiates a new ProxmoxCredent
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetUsername
+### GetTokenId
 
-`func (o *ProxmoxCredentialsForProjectDto) GetUsername() string`
+`func (o *ProxmoxCredentialsForProjectDto) GetTokenId() string`
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
 
-### GetUsernameOk
+### GetTokenIdOk
 
-`func (o *ProxmoxCredentialsForProjectDto) GetUsernameOk() (*string, bool)`
+`func (o *ProxmoxCredentialsForProjectDto) GetTokenIdOk() (*string, bool)`
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *ProxmoxCredentialsForProjectDto) SetUsername(v string)`
+`func (o *ProxmoxCredentialsForProjectDto) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
-### HasUsername
+### HasTokenId
 
-`func (o *ProxmoxCredentialsForProjectDto) HasUsername() bool`
+`func (o *ProxmoxCredentialsForProjectDto) HasTokenId() bool`
 
-HasUsername returns a boolean if a field has been set.
+HasTokenId returns a boolean if a field has been set.
 
-### SetUsernameNil
+### SetTokenIdNil
 
-`func (o *ProxmoxCredentialsForProjectDto) SetUsernameNil(b bool)`
+`func (o *ProxmoxCredentialsForProjectDto) SetTokenIdNil(b bool)`
 
- SetUsernameNil sets the value for Username to be an explicit nil
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-### UnsetUsername
-`func (o *ProxmoxCredentialsForProjectDto) UnsetUsername()`
+### UnsetTokenId
+`func (o *ProxmoxCredentialsForProjectDto) UnsetTokenId()`
 
-UnsetUsername ensures that no value is present for Username, not even an explicit nil
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+### GetTokenSecret
+
+`func (o *ProxmoxCredentialsForProjectDto) GetTokenSecret() string`
+
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
+
+### GetTokenSecretOk
+
+`func (o *ProxmoxCredentialsForProjectDto) GetTokenSecretOk() (*string, bool)`
+
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenSecret
+
+`func (o *ProxmoxCredentialsForProjectDto) SetTokenSecret(v string)`
+
+SetTokenSecret sets TokenSecret field to given value.
+
+### HasTokenSecret
+
+`func (o *ProxmoxCredentialsForProjectDto) HasTokenSecret() bool`
+
+HasTokenSecret returns a boolean if a field has been set.
+
+### SetTokenSecretNil
+
+`func (o *ProxmoxCredentialsForProjectDto) SetTokenSecretNil(b bool)`
+
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+
+### UnsetTokenSecret
+`func (o *ProxmoxCredentialsForProjectDto) UnsetTokenSecret()`
+
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 ### GetUrl
 
 `func (o *ProxmoxCredentialsForProjectDto) GetUrl() string`

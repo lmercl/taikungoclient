@@ -20,7 +20,7 @@ var _ MappedNullable = &CreateProxmoxNetworkDto{}
 
 // CreateProxmoxNetworkDto struct for CreateProxmoxNetworkDto
 type CreateProxmoxNetworkDto struct {
-	Bridge string `json:"bridge"`
+	Bridge NullableString `json:"bridge,omitempty"`
 	Gateway NullableString `json:"gateway,omitempty"`
 	IpAddress NullableString `json:"ipAddress,omitempty"`
 	NetMask *int32 `json:"netMask,omitempty"`
@@ -32,9 +32,8 @@ type CreateProxmoxNetworkDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateProxmoxNetworkDto(bridge string) *CreateProxmoxNetworkDto {
+func NewCreateProxmoxNetworkDto() *CreateProxmoxNetworkDto {
 	this := CreateProxmoxNetworkDto{}
-	this.Bridge = bridge
 	return &this
 }
 
@@ -46,28 +45,46 @@ func NewCreateProxmoxNetworkDtoWithDefaults() *CreateProxmoxNetworkDto {
 	return &this
 }
 
-// GetBridge returns the Bridge field value
+// GetBridge returns the Bridge field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateProxmoxNetworkDto) GetBridge() string {
-	if o == nil {
+	if o == nil || IsNil(o.Bridge.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Bridge
+	return *o.Bridge.Get()
 }
 
-// GetBridgeOk returns a tuple with the Bridge field value
+// GetBridgeOk returns a tuple with the Bridge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateProxmoxNetworkDto) GetBridgeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Bridge, true
+	return o.Bridge.Get(), o.Bridge.IsSet()
 }
 
-// SetBridge sets field value
+// HasBridge returns a boolean if a field has been set.
+func (o *CreateProxmoxNetworkDto) HasBridge() bool {
+	if o != nil && o.Bridge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBridge gets a reference to the given NullableString and assigns it to the Bridge field.
 func (o *CreateProxmoxNetworkDto) SetBridge(v string) {
-	o.Bridge = v
+	o.Bridge.Set(&v)
+}
+// SetBridgeNil sets the value for Bridge to be an explicit nil
+func (o *CreateProxmoxNetworkDto) SetBridgeNil() {
+	o.Bridge.Set(nil)
+}
+
+// UnsetBridge ensures that no value is present for Bridge, not even an explicit nil
+func (o *CreateProxmoxNetworkDto) UnsetBridge() {
+	o.Bridge.Unset()
 }
 
 // GetGateway returns the Gateway field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -280,7 +297,9 @@ func (o CreateProxmoxNetworkDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateProxmoxNetworkDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["bridge"] = o.Bridge
+	if o.Bridge.IsSet() {
+		toSerialize["bridge"] = o.Bridge.Get()
+	}
 	if o.Gateway.IsSet() {
 		toSerialize["gateway"] = o.Gateway.Get()
 	}

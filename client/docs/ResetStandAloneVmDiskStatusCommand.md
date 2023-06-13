@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StandAloneVmId** | **int32** |  | 
+**StandAloneVmId** | Pointer to **int32** |  | [optional] 
 **DiskIds** | Pointer to **[]int32** |  | [optional] 
 **Status** | Pointer to [**StandAloneVmDiskStatus**](StandAloneVmDiskStatus.md) |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewResetStandAloneVmDiskStatusCommand
 
-`func NewResetStandAloneVmDiskStatusCommand(standAloneVmId int32, ) *ResetStandAloneVmDiskStatusCommand`
+`func NewResetStandAloneVmDiskStatusCommand() *ResetStandAloneVmDiskStatusCommand`
 
 NewResetStandAloneVmDiskStatusCommand instantiates a new ResetStandAloneVmDiskStatusCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetStandAloneVmId sets StandAloneVmId field to given value.
 
+### HasStandAloneVmId
+
+`func (o *ResetStandAloneVmDiskStatusCommand) HasStandAloneVmId() bool`
+
+HasStandAloneVmId returns a boolean if a field has been set.
 
 ### GetDiskIds
 

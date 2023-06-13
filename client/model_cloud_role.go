@@ -17,26 +17,26 @@ import (
 )
 
 // CloudRole the model 'CloudRole'
-type CloudRole int32
+type CloudRole string
 
 // List of CloudRole
 const (
-	CLOUDROLE__100 CloudRole = 100
-	CLOUDROLE__200 CloudRole = 200
-	CLOUDROLE__300 CloudRole = 300
-	CLOUDROLE__400 CloudRole = 400
+	CLOUDROLE_BASTION CloudRole = "Bastion"
+	CLOUDROLE_KUBEMASTER CloudRole = "Kubemaster"
+	CLOUDROLE_KUBEWORKER CloudRole = "Kubeworker"
+	CLOUDROLE_ALL_IN_ONE CloudRole = "AllInOne"
 )
 
 // All allowed values of CloudRole enum
 var AllowedCloudRoleEnumValues = []CloudRole{
-	100,
-	200,
-	300,
-	400,
+	"Bastion",
+	"Kubemaster",
+	"Kubeworker",
+	"AllInOne",
 }
 
 func (v *CloudRole) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -54,7 +54,7 @@ func (v *CloudRole) UnmarshalJSON(src []byte) error {
 
 // NewCloudRoleFromValue returns a pointer to a valid CloudRole
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCloudRoleFromValue(v int32) (*CloudRole, error) {
+func NewCloudRoleFromValue(v string) (*CloudRole, error) {
 	ev := CloudRole(v)
 	if ev.IsValid() {
 		return &ev, nil

@@ -2917,6 +2917,49 @@ paths:
       summary: Sync autoscaling
       tags:
       - Autoscaling
+  /api/v1/aws/validate-owners:
+    post:
+      operationId: aws-validate-owners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AwsValidateOwnerCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Aws validate owners
+      tags:
+      - AWS cloud credential
   /api/v1/aws/zones:
     post:
       operationId: aws-zones
@@ -4641,94 +4684,6 @@ paths:
           description: Server Error
       tags:
       - Backup policy
-  /api/v1/backup/backups/{projectId}:
-    get:
-      operationId: backup-list-all-backups
-      parameters:
-      - explode: false
-        in: path
-        name: projectId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: simple
-      - explode: true
-        in: query
-        name: Limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: Offset
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: SortBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: SortDirection
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Search
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListAllBackups'
-          description: Success
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
-      tags:
-      - Backup policy
   /api/v1/backup/location/{projectId}:
     get:
       operationId: backup-list-all-backup-storages
@@ -4784,6 +4739,182 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllBackupStorageLocations'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Server Error
+      tags:
+      - Backup policy
+  /api/v1/backup/schedules/{projectId}:
+    get:
+      operationId: backup-list-all-schedules
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: Limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: SortBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortDirection
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAllSchedules'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Server Error
+      tags:
+      - Backup policy
+  /api/v1/backup/backups/{projectId}:
+    get:
+      operationId: backup-list-all-backups
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: Limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: SortBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortDirection
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAllBackups'
           description: Success
         "400":
           content:
@@ -4960,94 +5091,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllRestores'
-          description: Success
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
-      tags:
-      - Backup policy
-  /api/v1/backup/schedules/{projectId}:
-    get:
-      operationId: backup-list-all-schedules
-      parameters:
-      - explode: false
-        in: path
-        name: projectId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: simple
-      - explode: true
-        in: query
-        name: Limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: Offset
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: SortBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: SortDirection
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Search
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListAllSchedules'
           description: Success
         "400":
           content:
@@ -9565,7 +9608,7 @@ paths:
         name: StartRam
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - explode: true
@@ -9573,7 +9616,7 @@ paths:
         name: EndRam
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - explode: true
@@ -10892,6 +10935,95 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Azure personal images
+      tags:
+      - Images
+  /api/v1/images/proxmox/{cloudId}:
+    get:
+      operationId: images-proxmox-images
+      parameters:
+      - explode: false
+        in: path
+        name: cloudId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: Limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: SortBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortDirection
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProxmoxImageList'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Retrieve proxmox images
       tags:
       - Images
   /api/v1/images/tanzu/{cloudId}:
@@ -14418,6 +14550,58 @@ paths:
       summary: Retrieve a list of k8s pod for all namespaces
       tags:
       - Kubernetes
+  /api/v1/kubernetes/{projectId}/quota:
+    get:
+      operationId: kubernetes-quota
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KubernetesQuotaListDto'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: K8s quota usage
+      tags:
+      - Kubernetes
   /api/v1/kubernetes/{projectId}/secret:
     get:
       operationId: kubernetes-secret-list
@@ -15819,7 +16003,50 @@ paths:
           description: Internal Server Error
       summary: Add kubernetes profile
       tags:
-      - Kubernetes Profiles
+      - Kubernetes profiles
+  /api/v1/kubernetesprofiles/lockmanager:
+    post:
+      operationId: kubernetesprofiles-lock-manager
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KubernetesProfilesLockManagerCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Kubernetes profile lock/unlock
+      tags:
+      - Kubernetes profiles
   /api/v1/kubernetesprofiles/list:
     get:
       operationId: kubernetesprofiles-list
@@ -16102,49 +16329,6 @@ paths:
       summary: Retrieve all notifications
       tags:
       - Kubernetes profiles
-  /api/v1/kubernetesprofiles/lockmanager:
-    post:
-      operationId: kubernetesprofiles-lock-manager
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KubernetesProfilesLockManagerCommand'
-        required: true
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Kubernetes profile lock/unlock
-      tags:
-      - Kubernetes Profiles
   /api/v1/kubespray:
     post:
       operationId: kubespray-create
@@ -18499,6 +18683,49 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Add a new organization. Only available for admins.
+      tags:
+      - Organizations
+  /api/v1/organizations/access-for partner:
+    post:
+      operationId: organizations-access-for-partner
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GiveAccessToPartnerCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Give access to partner
       tags:
       - Organizations
   /api/v1/organizations/leave:
@@ -23295,6 +23522,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: Ready
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -24348,7 +24582,7 @@ paths:
             application/json:
               schema:
                 items:
-                  type: string
+                  $ref: '#/components/schemas/ProxmoxHypervisorDto'
                 type: array
           description: OK
         "400":
@@ -24435,6 +24669,90 @@ paths:
       summary: Fetch proxmox storage list
       tags:
       - Proxmox cloud credential
+  /api/v1/proxmox/update:
+    post:
+      operationId: proxmox-update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProxmoxCommand'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Update proxmox credentials
+      tags:
+      - Proxmox cloud credential
+  /api/v1/proxmox/update/hypervisors:
+    post:
+      operationId: proxmox-update-hypervisors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHypervisorsCommand'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Update proxmox credentials
+      tags:
+      - Proxmox cloud credential
   /api/v1/proxmox/vm-template-list:
     post:
       operationId: proxmox-vm-template-list
@@ -24450,8 +24768,7 @@ paths:
             application/json:
               schema:
                 items:
-                  format: int64
-                  type: integer
+                  $ref: '#/components/schemas/CommonDropdownDto'
                 type: array
           description: OK
         "400":
@@ -32432,16 +32749,11 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         mode:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - id
-      - mode
       type: object
     AccessProfilesSearchCommand:
       additionalProperties: false
@@ -32487,89 +32799,83 @@ components:
       type: object
     ActionStatus:
       enum:
-      - 0
-      - 1
-      - 2
-      format: int32
-      type: integer
+      - succeeded
+      - failed
+      - warning
+      type: string
     ActionType:
       enum:
-      - 10
-      - 20
-      - 30
-      - 32
-      - 34
-      - 36
-      - 38
-      - 40
-      - 42
-      - 44
-      - 50
-      - 60
-      - 70
-      - 80
-      - 90
-      - 100
-      - 105
-      - 106
-      - 107
-      - 108
-      - 109
-      - 110
-      - 120
-      - 130
-      - 140
-      - 150
-      - 155
-      - 156
-      - 160
-      - 165
-      - 170
-      - 175
-      - 176
-      - 177
-      - 180
-      - 190
-      - 200
-      - 210
-      - 220
-      - 230
-      - 240
-      - 250
-      - 260
-      - 270
-      - 280
-      - 290
-      - 300
-      - 310
-      - 320
-      - 330
-      - 340
-      - 350
-      - 360
-      - 370
-      - 380
-      - 390
-      - 400
-      - 410
-      format: int32
-      type: integer
+      - StartAddServer
+      - AddedServer
+      - StartAddVm
+      - StartAddVmDisk
+      - AddedVmDisk
+      - StartDeleteVmDisk
+      - DeletedVmDisk
+      - AddedVm
+      - StartDeleteVm
+      - DeletedVm
+      - StartDeleteServer
+      - DeletedServer
+      - CommitChanges
+      - CreatedProject
+      - StartPurgeProject
+      - PurgedProject
+      - CapacityNotAvailable
+      - SpotFailure
+      - CreateInfraFailure
+      - DestroyInfraFailure
+      - LoginFailed
+      - KubernetesError
+      - StartUpgradeProject
+      - UpgradedProject
+      - StartUpdateCloudCredentials
+      - UpdatedCloudCredentials
+      - StartedEnableGatekeeper
+      - StartedDisableGatekeeper
+      - StartedEnableBackup
+      - StartedDisableBackup
+      - EnabledBackup
+      - DisabledBackup
+      - EnabledGatekeeper
+      - DisabledGatekeeper
+      - AddedBackupPolicy
+      - DeletedBackupPolicy
+      - StartEnableMonitoring
+      - EnabledMonitoring
+      - StartDisableMonitoring
+      - DisabledMonitoring
+      - HealthStatus
+      - ServerRebooted
+      - SilenceAlert
+      - AddedProject
+      - AddedUser
+      - ServerStopped
+      - ServerStarted
+      - ServerShelved
+      - ServerUnshelved
+      - ServerConsole
+      - ServerStatus
+      - PatchKubernetes
+      - InstallApplication
+      - UninstallApplication
+      - EnableAutoscaling
+      - DisableAutoscaling
+      - BoundProject
+      - LockUnlockProject
+      type: string
     AdminAddBalanceCommand:
       additionalProperties: false
       example:
-        balance: 8009
+        balance: 0
         customerId: customerId
       properties:
         customerId:
-          minLength: 1
+          nullable: true
           type: string
         balance:
           format: int64
-          maximum: 100000
-          minimum: 1
           type: integer
-      required:
-      - customerId
       type: object
     AdminBillingOperationCommand:
       additionalProperties: false
@@ -32577,12 +32883,8 @@ components:
         cloudCredentialId: 0
       properties:
         cloudCredentialId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - cloudCredentialId
       type: object
     AdminOrganizationsDeleteCommand:
       additionalProperties: false
@@ -32651,24 +32953,14 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         kubernetesCurrentVersion:
-          maxLength: 15
-          minLength: 3
-          pattern: "^v\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+          nullable: true
           type: string
         kubesprayCurrentVersion:
-          maxLength: 15
-          minLength: 3
-          pattern: "^v\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+          nullable: true
           type: string
-      required:
-      - id
-      - kubernetesCurrentVersion
-      - kubesprayCurrentVersion
       type: object
     AdminProjectsList:
       additionalProperties: false
@@ -32755,12 +33047,8 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - projectId
       type: object
     AdminUpdateUserKubeConfigCommand:
       additionalProperties: false
@@ -32768,12 +33056,8 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - id
       type: object
     AdminUserCreateCommand:
       additionalProperties: false
@@ -32785,23 +33069,13 @@ components:
         username: username
       properties:
         email:
-          format: email
-          maxLength: 2000
-          minLength: 3
+          nullable: true
           type: string
         username:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         password:
-          allOf:
-          - pattern: "[A-Z]"
-          - pattern: "[a-z]"
-          - pattern: "[0-9]"
-          - pattern: \W|_
-          maxLength: 200
-          minLength: 6
+          nullable: true
           type: string
         role:
           $ref: '#/components/schemas/UserRole'
@@ -32809,10 +33083,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - email
-      - password
-      - username
       type: object
     AdminUsersList:
       additionalProperties: false
@@ -32881,14 +33151,11 @@ components:
         email: email
       properties:
         id:
-          minLength: 1
-          type: string
-        email:
-          format: email
           nullable: true
           type: string
-      required:
-      - id
+        email:
+          nullable: true
+          type: string
       type: object
     AdminUsersUpdatePasswordCommand:
       additionalProperties: false
@@ -32897,19 +33164,11 @@ components:
         id: id
       properties:
         id:
-          minLength: 1
+          nullable: true
           type: string
         password:
-          allOf:
-          - pattern: "[A-Z]"
-          - pattern: "[a-z]"
-          - pattern: "[0-9]"
-          - pattern: \W|_
-          minLength: 6
+          nullable: true
           type: string
-      required:
-      - id
-      - password
       type: object
     AlertingEmailDto:
       additionalProperties: false
@@ -32917,11 +33176,8 @@ components:
         email: email
       properties:
         email:
-          format: email
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - email
       type: object
     AlertingIntegrationDto:
       additionalProperties: false
@@ -32931,25 +33187,21 @@ components:
         alertingIntegrationType: null
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
         token:
           nullable: true
           type: string
         alertingIntegrationType:
           $ref: '#/components/schemas/AlertingIntegrationType'
-      required:
-      - alertingIntegrationType
-      - url
       type: object
     AlertingIntegrationType:
       enum:
-      - 100
-      - 200
-      - 300
-      - 400
-      format: int32
-      type: integer
+      - Opsgenie
+      - Pagerduty
+      - Splunk
+      - MicrosoftTeams
+      type: string
     AlertingIntegrationsListDto:
       additionalProperties: false
       example:
@@ -33179,12 +33431,11 @@ components:
       type: object
     AlertingReminder:
       enum:
-      - 100
-      - 200
-      - 300
-      - -1
-      format: int32
-      type: integer
+      - HalfHour
+      - Hourly
+      - Daily
+      - None
+      type: string
     AlertingWebhookDto:
       additionalProperties: false
       example:
@@ -33348,21 +33599,17 @@ components:
       example:
         ipAddress: ipAddress
         description: description
-        maskBits: 19
+        maskBits: 6
       properties:
         description:
           nullable: true
           type: string
         ipAddress:
-          minLength: 1
+          nullable: true
           type: string
         maskBits:
           format: int32
-          maximum: 32
-          minimum: 0
           type: integer
-      required:
-      - ipAddress
       type: object
     AllowedHostList:
       additionalProperties: false
@@ -33456,12 +33703,13 @@ components:
         availabilityZones:
         - availabilityZones
         - availabilityZones
-        organizationId: 1
+        organizationId: 5
         createdAt: createdAt
         isDefault: true
         createdBy: createdBy
         isLocked: true
         name: name
+        availabilityZonesCount: 1
         id: 0
         lastModified: lastModified
         region: region
@@ -33486,6 +33734,9 @@ components:
             type: string
           nullable: true
           type: array
+        availabilityZonesCount:
+          format: int32
+          type: integer
         projects:
           items:
             $ref: '#/components/schemas/CommonDropdownDto'
@@ -33594,10 +33845,8 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - ticketId
       type: object
     ArticleList:
       additionalProperties: false
@@ -33706,14 +33955,10 @@ components:
       properties:
         url:
           nullable: true
-          pattern: "^(http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\\
-            /([\\w#!:.?+=&%@!\\-\\/]))?"
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
       type: object
     AttachDetachAlertingProfileCommand:
       additionalProperties: false
@@ -34080,12 +34325,13 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
+          availabilityZonesCount: 1
           id: 0
           lastModified: lastModified
           region: region
@@ -34101,12 +34347,13 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
+          availabilityZonesCount: 1
           id: 0
           lastModified: lastModified
           region: region
@@ -34359,6 +34606,23 @@ components:
           nullable: true
           type: string
       type: object
+    AwsValidateOwnerCommand:
+      additionalProperties: false
+      example:
+        cloudId: 0
+        owners:
+        - owners
+        - owners
+      properties:
+        cloudId:
+          format: int32
+          type: integer
+        owners:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
     AzResult:
       additionalProperties: false
       example:
@@ -34391,13 +34655,14 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
           tenantId: tenantId
+          availabilityZonesCount: 1
           location: location
           id: 0
           lastModified: lastModified
@@ -34413,13 +34678,14 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
           tenantId: tenantId
+          availabilityZonesCount: 1
           location: location
           id: 0
           lastModified: lastModified
@@ -34474,13 +34740,14 @@ components:
         availabilityZones:
         - availabilityZones
         - availabilityZones
-        organizationId: 1
+        organizationId: 5
         createdAt: createdAt
         isDefault: true
         createdBy: createdBy
         isLocked: true
         name: name
         tenantId: tenantId
+        availabilityZonesCount: 1
         location: location
         id: 0
         lastModified: lastModified
@@ -34508,6 +34775,9 @@ components:
             type: string
           nullable: true
           type: array
+        availabilityZonesCount:
+          format: int32
+          type: integer
         projects:
           items:
             $ref: '#/components/schemas/CommonDropdownDto'
@@ -34740,18 +35010,14 @@ components:
         clientSecret: clientSecret
       properties:
         clientId:
-          minLength: 1
+          nullable: true
           type: string
         clientSecret:
-          minLength: 1
+          nullable: true
           type: string
         tenantId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - clientId
-      - clientSecret
-      - tenantId
       type: object
     AzureZonesCommand:
       additionalProperties: false
@@ -34845,17 +35111,16 @@ components:
         s3Name: s3Name
       properties:
         s3Name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         s3AccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
         s3SecretKey:
-          minLength: 1
+          nullable: true
           type: string
         s3Endpoint:
-          minLength: 1
+          nullable: true
           type: string
         s3Region:
           nullable: true
@@ -34864,11 +35129,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - s3AccessKeyId
-      - s3Endpoint
-      - s3Name
-      - s3SecretKey
       type: object
     BackupCredentialsForOrganizationEntity:
       additionalProperties: false
@@ -35003,25 +35263,17 @@ components:
         s3Name: s3Name
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         s3Name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         s3AccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
         s3SecretKey:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - id
-      - s3AccessKeyId
-      - s3Name
-      - s3SecretKey
       type: object
     BackupDto:
       additionalProperties: false
@@ -35113,16 +35365,11 @@ components:
         email: email
       properties:
         fullName:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         email:
-          format: email
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - email
-      - fullName
       type: object
     BillingCredentialsSearchCommand:
       additionalProperties: false
@@ -35321,9 +35568,8 @@ components:
           type: array
         partnerId:
           format: int32
+          nullable: true
           type: integer
-      required:
-      - partnerId
       type: object
     BindOrganizationsToRuleDto:
       additionalProperties: false
@@ -35402,21 +35648,16 @@ components:
           projectId: 0
         - isBound: true
           projectId: 0
-        catalogId: 0
+        catalogId: 6
       properties:
         projects:
           items:
             $ref: '#/components/schemas/UpdateCatalogDto'
-          minItems: 1
+          nullable: true
           type: array
         catalogId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - catalogId
-      - projects
       type: object
     BindPrometheusOrganizationsCommand:
       additionalProperties: false
@@ -35444,7 +35685,7 @@ components:
     BindRulesCommand:
       additionalProperties: false
       example:
-        organizationId: 0
+        organizationId: 1
         rules:
         - discountRate: 6.027456183070403
           isBound: true
@@ -35461,12 +35702,8 @@ components:
           nullable: true
           type: array
         organizationId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - organizationId
       type: object
     BindRulesToOrganizationDto:
       additionalProperties: false
@@ -35496,14 +35733,10 @@ components:
         yearly: true
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yearly:
           type: boolean
-      required:
-      - id
       type: object
     BindSubscriptionResponseDto:
       additionalProperties: false
@@ -35566,7 +35799,7 @@ components:
           isBound: true
         - userGroupId: 0
           isBound: true
-        projectGroupId: 0
+        projectGroupId: 6
         projectGroupName: projectGroupName
       properties:
         userGroups:
@@ -35575,15 +35808,11 @@ components:
           nullable: true
           type: array
         projectGroupId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         projectGroupName:
           nullable: true
           type: string
-      required:
-      - projectGroupId
       type: object
     BindUsersCommand:
       additionalProperties: false
@@ -35605,8 +35834,6 @@ components:
         projectId:
           format: int32
           type: integer
-      required:
-      - projectId
       type: object
     BlockOrganizationCommand:
       additionalProperties: false
@@ -35616,14 +35843,13 @@ components:
       example:
         data:
         - isGoogle: true
-          isLinuxSpotPrice: true
           cpu: 6
           windowsPrice: windowsPrice
           isAws: true
           maxDataDiskCount: 5
-          isWindowsSpotPrice: true
           windowsSpotPrice: windowsSpotPrice
           isOpenstack: true
+          existsLinuxSpotPrice: true
           name: name
           id: 0
           projectName: projectName
@@ -35631,16 +35857,16 @@ components:
           projectId: 5
           isAzure: true
           ram: 1
+          existsWindowsSpotPrice: true
           linuxSpotPrice: linuxSpotPrice
         - isGoogle: true
-          isLinuxSpotPrice: true
           cpu: 6
           windowsPrice: windowsPrice
           isAws: true
           maxDataDiskCount: 5
-          isWindowsSpotPrice: true
           windowsSpotPrice: windowsSpotPrice
           isOpenstack: true
+          existsLinuxSpotPrice: true
           name: name
           id: 0
           projectName: projectName
@@ -35648,6 +35874,7 @@ components:
           projectId: 5
           isAzure: true
           ram: 1
+          existsWindowsSpotPrice: true
           linuxSpotPrice: linuxSpotPrice
         totalCount: 2
       properties:
@@ -35664,14 +35891,13 @@ components:
       additionalProperties: false
       example:
         isGoogle: true
-        isLinuxSpotPrice: true
         cpu: 6
         windowsPrice: windowsPrice
         isAws: true
         maxDataDiskCount: 5
-        isWindowsSpotPrice: true
         windowsSpotPrice: windowsSpotPrice
         isOpenstack: true
+        existsLinuxSpotPrice: true
         name: name
         id: 0
         projectName: projectName
@@ -35679,6 +35905,7 @@ components:
         projectId: 5
         isAzure: true
         ram: 1
+        existsWindowsSpotPrice: true
         linuxSpotPrice: linuxSpotPrice
       properties:
         id:
@@ -35712,9 +35939,9 @@ components:
           format: int32
           nullable: true
           type: integer
-        isLinuxSpotPrice:
+        existsLinuxSpotPrice:
           type: boolean
-        isWindowsSpotPrice:
+        existsWindowsSpotPrice:
           type: boolean
         linuxSpotPrice:
           nullable: true
@@ -35817,28 +36044,142 @@ components:
     BridgeListCommand:
       additionalProperties: false
       example:
-        password: password
+        tokenId: tokenId
         hypervisor: hypervisor
         url: url
-        username: username
+        tokenSecret: tokenSecret
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
-        username:
-          minLength: 1
+        tokenId:
+          nullable: true
           type: string
-        password:
-          minLength: 1
+        tokenSecret:
+          nullable: true
           type: string
         hypervisor:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - hypervisor
-      - password
-      - url
-      - username
+      type: object
+    CBackupDto:
+      additionalProperties: false
+      example:
+        scheduleName: scheduleName
+        phase: phase
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        namespace: namespace
+        metadataName: metadataName
+        expiration: 2000-01-23T04:56:07.000+00:00
+        location: location
+      properties:
+        metadataName:
+          nullable: true
+          type: string
+        createdAt:
+          format: date-time
+          nullable: true
+          type: string
+        expiration:
+          format: date-time
+          nullable: true
+          type: string
+        scheduleName:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        phase:
+          nullable: true
+          type: string
+      type: object
+    CDeleteBackupRequestDto:
+      additionalProperties: false
+      example:
+        phase: phase
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        namespace: namespace
+        metadataName: metadataName
+        backupName: backupName
+      properties:
+        metadataName:
+          nullable: true
+          type: string
+        createdAt:
+          format: date-time
+          nullable: true
+          type: string
+        backupName:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        phase:
+          nullable: true
+          type: string
+      type: object
+    CRestoreDto:
+      additionalProperties: false
+      example:
+        scheduleName: scheduleName
+        phase: phase
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        startTimeStamp: 2000-01-23T04:56:07.000+00:00
+        warnings: 0
+        namespace: namespace
+        excludeNamespaces:
+        - excludeNamespaces
+        - excludeNamespaces
+        completionDateTime: 2000-01-23T04:56:07.000+00:00
+        metadataName: metadataName
+        backupName: backupName
+        includeNamespaces:
+        - includeNamespaces
+        - includeNamespaces
+      properties:
+        metadataName:
+          nullable: true
+          type: string
+        backupName:
+          nullable: true
+          type: string
+        scheduleName:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        excludeNamespaces:
+          items:
+            type: string
+          nullable: true
+          type: array
+        includeNamespaces:
+          items:
+            type: string
+          nullable: true
+          type: array
+        completionDateTime:
+          format: date-time
+          type: string
+        startTimeStamp:
+          format: date-time
+          type: string
+        createdAt:
+          format: date-time
+          nullable: true
+          type: string
+        warnings:
+          format: int64
+          type: integer
+        phase:
+          nullable: true
+          type: string
       type: object
     CScheduleDto:
       additionalProperties: false
@@ -36081,7 +36422,7 @@ components:
         isEditableAfterInstallation: true
       properties:
         key:
-          minLength: 1
+          nullable: true
           type: string
         value:
           nullable: true
@@ -36092,8 +36433,6 @@ components:
           type: boolean
         isMandatory:
           type: boolean
-      required:
-      - key
       type: object
     CatalogDropdownDto:
       additionalProperties: false
@@ -36406,10 +36745,8 @@ components:
         paymentMethodId: paymentMethodId
       properties:
         paymentMethodId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - paymentMethodId
       type: object
     ChangePasswordCommand:
       additionalProperties: false
@@ -36418,24 +36755,11 @@ components:
         newPassword: newPassword
       properties:
         password:
-          allOf:
-          - pattern: "[A-Z]"
-          - pattern: "[a-z]"
-          - pattern: "[0-9]"
-          - pattern: \W|_
-          minLength: 6
+          nullable: true
           type: string
         newPassword:
-          allOf:
-          - pattern: "[A-Z]"
-          - pattern: "[a-z]"
-          - pattern: "[0-9]"
-          - pattern: \W|_
-          minLength: 6
+          nullable: true
           type: string
-      required:
-      - newPassword
-      - password
       type: object
     Chart:
       additionalProperties: false
@@ -36481,18 +36805,14 @@ components:
         awsSecretAccessKey: awsSecretAccessKey
       properties:
         awsAccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
         awsSecretAccessKey:
-          minLength: 1
+          nullable: true
           type: string
         region:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - awsAccessKeyId
-      - awsSecretAccessKey
-      - region
       type: object
     CheckAzureCommand:
       additionalProperties: false
@@ -36502,18 +36822,14 @@ components:
         azureTenantId: azureTenantId
       properties:
         azureClientId:
-          minLength: 1
+          nullable: true
           type: string
         azureClientSecret:
-          minLength: 1
+          nullable: true
           type: string
         azureTenantId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - azureClientId
-      - azureClientSecret
-      - azureTenantId
       type: object
     CheckAzureCpuQuotaCommand:
       additionalProperties: false
@@ -36521,12 +36837,8 @@ components:
         cloudId: 0
       properties:
         cloudId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - cloudId
       type: object
     CheckOpenstackCommand:
       additionalProperties: false
@@ -36538,24 +36850,19 @@ components:
         isAdmin: true
       properties:
         openStackUser:
-          minLength: 1
+          nullable: true
           type: string
         openStackPassword:
-          minLength: 1
+          nullable: true
           type: string
         openStackUrl:
-          minLength: 1
+          nullable: true
           type: string
         openStackDomain:
-          minLength: 1
+          nullable: true
           type: string
         isAdmin:
           type: boolean
-      required:
-      - openStackDomain
-      - openStackPassword
-      - openStackUrl
-      - openStackUser
       type: object
     CheckPrometheusCommand:
       additionalProperties: false
@@ -36565,18 +36872,14 @@ components:
         url: url
       properties:
         password:
-          minLength: 1
+          nullable: true
           type: string
         userName:
-          minLength: 1
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - password
-      - url
-      - userName
       type: object
     CheckS3Command:
       additionalProperties: false
@@ -36587,22 +36890,17 @@ components:
         s3Region: s3Region
       properties:
         s3AccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
         s3SecretKey:
-          minLength: 1
+          nullable: true
           type: string
         s3Endpoint:
-          minLength: 1
+          nullable: true
           type: string
         s3Region:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - s3AccessKeyId
-      - s3Endpoint
-      - s3Region
-      - s3SecretKey
       type: object
     CheckTanzuCommand:
       additionalProperties: false
@@ -36615,38 +36913,24 @@ components:
         username: username
       properties:
         username:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         url:
-          maxLength: 150
-          minLength: 3
-          pattern: "^(http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\\
-            /([\\w#!:.?+=&%@!\\-\\/]))?"
+          nullable: true
           type: string
         password:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         namespace:
-          maxLength: 63
-          minLength: 3
-          pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?"
+          nullable: true
           type: string
         port:
           format: int32
           nullable: true
           type: integer
         volumeType:
-          maxLength: 100
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - namespace
-      - password
-      - url
-      - username
-      - volumeType
       type: object
     CidrCommand:
       additionalProperties: false
@@ -36654,10 +36938,8 @@ components:
         cidr: cidr
       properties:
         cidr:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - cidr
       type: object
     ClearCanceledPaymentMethodCommand:
       additionalProperties: false
@@ -36677,10 +36959,8 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - ticketId
       type: object
     CloudCredentialsDropdownRecordDto:
       additionalProperties: false
@@ -36844,35 +37124,32 @@ components:
       type: object
     CloudRole:
       enum:
-      - 100
-      - 200
-      - 300
-      - 400
-      format: int32
-      type: integer
+      - Bastion
+      - Kubemaster
+      - Kubeworker
+      - AllInOne
+      type: string
     CloudStatus:
       enum:
-      - 100
-      - 200
-      - 250
-      - 300
-      - 400
-      - 500
-      - 600
-      - 700
-      - 800
-      format: int32
-      type: integer
+      - Deleting
+      - Failure
+      - FailedUpgrade
+      - Waiting
+      - PendingDelete
+      - PendingUpgrade
+      - Ready
+      - Updating
+      - Upgrading
+      type: string
     CloudType:
       enum:
-      - 100
-      - 200
-      - 300
-      - 400
-      - 500
-      - 600
-      format: int32
-      type: integer
+      - AWS
+      - AZURE
+      - GOOGLE
+      - OPENSTACK
+      - PROXMOX
+      - TANZU
+      type: string
     CommitStandAloneVmCommand:
       additionalProperties: false
       example:
@@ -37155,15 +37432,11 @@ components:
         newEmail: newEmail
       properties:
         newEmail:
-          format: email
-          minLength: 1
+          nullable: true
           type: string
         mode:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - mode
-      - newEmail
       type: object
     ConsoleScreenshotCommand:
       additionalProperties: false
@@ -37183,24 +37456,17 @@ components:
         comment: comment
       properties:
         name:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         businessEmail:
-          format: email
-          minLength: 1
+          nullable: true
           type: string
         companyName:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         comment:
           nullable: true
           type: string
-      required:
-      - businessEmail
-      - companyName
-      - name
       type: object
     CostComponent:
       additionalProperties: false
@@ -37254,10 +37520,10 @@ components:
         allowedHosts:
         - ipAddress: ipAddress
           description: description
-          maskBits: 19
+          maskBits: 6
         - ipAddress: ipAddress
           description: description
-          maskBits: 19
+          maskBits: 6
         httpProxy: httpProxy
         ntpServers:
         - address: address
@@ -37273,9 +37539,7 @@ components:
           name: name
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         httpProxy:
           nullable: true
@@ -37304,8 +37568,6 @@ components:
             $ref: '#/components/schemas/AllowedHostCreateDto'
           nullable: true
           type: array
-      required:
-      - name
       type: object
     CreateAlertDto:
       additionalProperties: false
@@ -37347,7 +37609,7 @@ components:
         alertingIntegrationType: null
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
         token:
           nullable: true
@@ -37355,14 +37617,8 @@ components:
         alertingIntegrationType:
           $ref: '#/components/schemas/AlertingIntegrationType'
         alertingProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - alertingIntegrationType
-      - alertingProfileId
-      - url
       type: object
     CreateAlertingProfileCommand:
       additionalProperties: false
@@ -37402,9 +37658,7 @@ components:
           alertingIntegrationType: null
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         slackConfigurationId:
           format: int32
@@ -37431,8 +37685,6 @@ components:
           type: array
         reminder:
           $ref: '#/components/schemas/AlertingReminder'
-      required:
-      - name
       type: object
     CreateAllowedHostCommand:
       additionalProperties: false
@@ -37440,27 +37692,20 @@ components:
         ipAddress: ipAddress
         accessProfileId: 0
         description: description
-        maskBits: 19
+        maskBits: 6
       properties:
         accessProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         description:
           nullable: true
           type: string
         ipAddress:
-          minLength: 1
+          nullable: true
           type: string
         maskBits:
           format: int32
-          maximum: 32
-          minimum: 0
           type: integer
-      required:
-      - accessProfileId
-      - ipAddress
       type: object
     CreateAwsCloudCommand:
       additionalProperties: false
@@ -37473,31 +37718,24 @@ components:
         awsSecretAccessKey: awsSecretAccessKey
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         awsSecretAccessKey:
-          minLength: 1
+          nullable: true
           type: string
         awsAccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
         azCount:
           format: int32
           type: integer
         awsRegion:
-          minLength: 1
+          nullable: true
           type: string
         organizationId:
           format: int32
           nullable: true
           type: integer
-      required:
-      - awsAccessKeyId
-      - awsRegion
-      - awsSecretAccessKey
-      - name
       type: object
     CreateAzureCloudCommand:
       additionalProperties: false
@@ -37512,24 +37750,22 @@ components:
         azureSubscriptionId: azureSubscriptionId
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         azureSubscriptionId:
-          minLength: 1
+          nullable: true
           type: string
         azureClientId:
-          minLength: 1
+          nullable: true
           type: string
         azureClientSecret:
-          minLength: 1
+          nullable: true
           type: string
         azureTenantId:
-          minLength: 1
+          nullable: true
           type: string
         azureLocation:
-          minLength: 1
+          nullable: true
           type: string
         azCount:
           format: int32
@@ -37538,13 +37774,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - azureClientId
-      - azureClientSecret
-      - azureLocation
-      - azureSubscriptionId
-      - azureTenantId
-      - name
       type: object
     CreateBackupPolicyCommand:
       additionalProperties: false
@@ -37558,9 +37787,7 @@ components:
         retentionPeriod: retentionPeriod
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         includeNamespaces:
           items:
@@ -37568,46 +37795,31 @@ components:
           nullable: true
           type: array
         cronPeriod:
-          minLength: 1
+          nullable: true
           type: string
         retentionPeriod:
-          minLength: 1
-          pattern: ^(\d+h)?(\d+m)?(\d+s)?$
+          nullable: true
           type: string
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - cronPeriod
-      - name
-      - projectId
-      - retentionPeriod
       type: object
     CreateBillingSummaryCommand:
       additionalProperties: false
       example:
         beginApply: 2000-01-23T04:56:07.000+00:00
         icu: 0
-        projectId: 0
+        projectId: 6
       properties:
         icu:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         beginApply:
           format: date-time
           type: string
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - icu
-      - projectId
       type: object
     CreateCatalogAppCommand:
       additionalProperties: false
@@ -37629,15 +37841,13 @@ components:
           isEditableAfterInstallation: true
       properties:
         repoName:
-          minLength: 1
+          nullable: true
           type: string
         packageName:
-          minLength: 1
+          nullable: true
           type: string
         catalogId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         version:
           nullable: true
@@ -37647,10 +37857,6 @@ components:
             $ref: '#/components/schemas/CatalogAppParamsDto'
           nullable: true
           type: array
-      required:
-      - catalogId
-      - packageName
-      - repoName
       type: object
     CreateCatalogCommand:
       additionalProperties: false
@@ -37659,15 +37865,11 @@ components:
         description: description
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         description:
           nullable: true
           type: string
-      required:
-      - name
       type: object
     CreateDnsServerCommand:
       additionalProperties: false
@@ -37676,23 +37878,18 @@ components:
         accessProfileId: 0
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
         accessProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - accessProfileId
-      - address
       type: object
     CreateInvoiceCommand:
       additionalProperties: false
       example:
         isPaid: true
         endDate: 2000-01-23T04:56:07.000+00:00
-        price: 18082368.946465593
+        price: 6.027456183070403
         dueDate: 2000-01-23T04:56:07.000+00:00
         name: name
         organizationSubscriptionId: 0
@@ -37701,12 +37898,10 @@ components:
         startDate: 2000-01-23T04:56:07.000+00:00
       properties:
         name:
-          minLength: 1
+          nullable: true
           type: string
         organizationSubscriptionId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         startDate:
           format: date-time
@@ -37726,12 +37921,7 @@ components:
           type: string
         price:
           format: double
-          maximum: 30000000
-          minimum: 1
           type: number
-      required:
-      - name
-      - organizationSubscriptionId
       type: object
     CreateKeyPoolCommand:
       additionalProperties: false
@@ -37749,14 +37939,10 @@ components:
         ttl: 1
       properties:
         name:
-          maxLength: 230
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-z][a-z0-9-]*[a-z0-9]$"
+          nullable: true
           type: string
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         isAccessibleForAll:
           type: boolean
@@ -37775,9 +37961,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
-      - projectId
       type: object
     CreateKubernetesProfileCommand:
       additionalProperties: false
@@ -37791,8 +37974,7 @@ components:
         taikunLBEnabled: true
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         octaviaEnabled:
           type: boolean
@@ -37808,8 +37990,6 @@ components:
           type: boolean
         uniqueClusterName:
           type: boolean
-      required:
-      - name
       type: object
     CreateNtpServerCommand:
       additionalProperties: false
@@ -37818,20 +37998,16 @@ components:
         accessProfileId: 0
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
         accessProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - accessProfileId
-      - address
       type: object
     CreateOpaProfileCommand:
       additionalProperties: false
       example:
+        forcePodResource: true
         organizationId: 0
         forbidHttpIngress: true
         allowedRepo:
@@ -37850,9 +38026,7 @@ components:
         - ingressWhitelist
       properties:
         name:
-          maxLength: 50
-          minLength: 2
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         forbidNodePort:
           type: boolean
@@ -37863,6 +38037,8 @@ components:
         uniqueIngresses:
           type: boolean
         uniqueServiceSelector:
+          type: boolean
+        forcePodResource:
           type: boolean
         allowedRepo:
           items:
@@ -37883,8 +38059,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
       type: object
     CreateOpenstackCloudCommand:
       additionalProperties: false
@@ -37907,24 +38081,22 @@ components:
         openStackPublicNetwork: openStackPublicNetwork
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         openStackUser:
-          minLength: 1
+          nullable: true
           type: string
         openStackPassword:
-          minLength: 1
+          nullable: true
           type: string
         openStackUrl:
-          minLength: 1
+          nullable: true
           type: string
         openStackProject:
           nullable: true
           type: string
         openStackPublicNetwork:
-          minLength: 1
+          nullable: true
           type: string
         openStackAvailabilityZone:
           nullable: true
@@ -37933,7 +38105,7 @@ components:
           nullable: true
           type: string
         openStackRegion:
-          minLength: 1
+          nullable: true
           type: string
         openStackContinent:
           nullable: true
@@ -37954,13 +38126,6 @@ components:
           type: boolean
         isAdmin:
           type: boolean
-      required:
-      - name
-      - openStackPassword
-      - openStackPublicNetwork
-      - openStackRegion
-      - openStackUrl
-      - openStackUser
       type: object
     CreateProjectAppCommand:
       additionalProperties: false
@@ -37970,7 +38135,7 @@ components:
         namespace: namespace
         autoSync: true
         projectId: 0
-        catalogAppId: 0
+        catalogAppId: 6
         parameters:
         - value: value
           key: key
@@ -37978,24 +38143,16 @@ components:
           key: key
       properties:
         name:
-          maxLength: 63
-          minLength: 3
-          pattern: "^[a-z]([-a-z0-9]*[a-z0-9])?"
+          nullable: true
           type: string
         namespace:
-          maxLength: 63
-          minLength: 1
-          pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?"
+          nullable: true
           type: string
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         catalogAppId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         extraValues:
           nullable: true
@@ -38007,11 +38164,6 @@ components:
             $ref: '#/components/schemas/ProjectAppParamsDto'
           nullable: true
           type: array
-      required:
-      - catalogAppId
-      - name
-      - namespace
-      - projectId
       type: object
     CreateProjectCommand:
       additionalProperties: false
@@ -38056,23 +38208,21 @@ components:
         saveAsTemplate: true
         templateName: templateName
         name: name
-        cloudCredentialId: 0
+        cloudCredentialId: 6
         isBackupEnabled: true
         allowFullSpotKubernetes: true
         serverTemplates:
         - flavor: flavor
-          diskSize: 1337518599436.1604
+          diskSize: 1.4894159098541704
           role: null
           count: 6
         - flavor: flavor
-          diskSize: 1337518599436.1604
+          diskSize: 1.4894159098541704
           role: null
           count: 6
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         kubernetesVersion:
           nullable: true
@@ -38082,9 +38232,7 @@ components:
           nullable: true
           type: integer
         cloudCredentialId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         s3CredentialId:
           format: int32
@@ -38189,9 +38337,6 @@ components:
             $ref: '#/components/schemas/ServerTemplateDto'
           nullable: true
           type: array
-      required:
-      - cloudCredentialId
-      - name
       type: object
     CreateProjectFromTemplateCommand:
       additionalProperties: false
@@ -38201,20 +38346,13 @@ components:
         canCommit: true
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         projectName:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         canCommit:
           type: boolean
-      required:
-      - id
-      - projectName
       type: object
     CreateProjectGroupCommand:
       additionalProperties: false
@@ -38226,9 +38364,7 @@ components:
         - 6
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         organizationId:
           format: int32
@@ -38240,18 +38376,16 @@ components:
             type: integer
           nullable: true
           type: array
-      required:
-      - name
       type: object
     CreateProxmoxCommand:
       additionalProperties: false
       example:
         continent: continent
         organizationId: 0
-        password: password
+        tokenId: tokenId
         privateNetwork:
           endAllocationRange: endAllocationRange
-          netMask: 23
+          netMask: 6
           ipAddress: ipAddress
           bridge: bridge
           beginAllocationRange: beginAllocationRange
@@ -38263,34 +38397,32 @@ components:
         storage: storage
         vmTemplateName: vmTemplateName
         url: url
+        tokenSecret: tokenSecret
         publicNetwork:
           endAllocationRange: endAllocationRange
-          netMask: 23
+          netMask: 6
           ipAddress: ipAddress
           bridge: bridge
           beginAllocationRange: beginAllocationRange
           gateway: gateway
-        username: username
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
-        username:
-          minLength: 1
+        tokenId:
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
-        password:
-          minLength: 1
+        tokenSecret:
+          nullable: true
           type: string
         storage:
-          minLength: 1
+          nullable: true
           type: string
         vmTemplateName:
-          minLength: 1
+          nullable: true
           type: string
         continent:
           nullable: true
@@ -38308,65 +38440,48 @@ components:
           $ref: '#/components/schemas/CreateProxmoxNetworkDto'
         privateNetwork:
           $ref: '#/components/schemas/CreateProxmoxNetworkDto'
-      required:
-      - name
-      - password
-      - storage
-      - url
-      - username
-      - vmTemplateName
       type: object
     CreateProxmoxNetworkDto:
       additionalProperties: false
       example:
         endAllocationRange: endAllocationRange
-        netMask: 23
+        netMask: 6
         ipAddress: ipAddress
         bridge: bridge
         beginAllocationRange: beginAllocationRange
         gateway: gateway
       properties:
         bridge:
-          minLength: 1
+          nullable: true
           type: string
         gateway:
           nullable: true
-          pattern: "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
           type: string
         ipAddress:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
         netMask:
           format: int32
-          maximum: 28
-          minimum: 16
           type: integer
         beginAllocationRange:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
         endAllocationRange:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
-      required:
-      - bridge
       type: object
     CreateSecurityGroupCommand:
       additionalProperties: false
       example:
         protocol: null
         name: name
-        standAloneProfileId: 0
+        standAloneProfileId: 1
         portMinRange: 0
         portMaxRange: 6
         remoteIpPrefix: remoteIpPrefix
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         protocol:
           $ref: '#/components/schemas/SecurityGroupProtocol'
@@ -38377,17 +38492,11 @@ components:
           format: int32
           type: integer
         remoteIpPrefix:
-          minLength: 1
+          nullable: true
           type: string
         standAloneProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - name
-      - remoteIpPrefix
-      - standAloneProfileId
       type: object
     CreateSlackConfigurationCommand:
       additionalProperties: false
@@ -38403,24 +38512,16 @@ components:
           nullable: true
           type: integer
         name:
-          maxLength: 40
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
         channel:
-          maxLength: 500
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         slackType:
           $ref: '#/components/schemas/SlackType'
-      required:
-      - channel
-      - name
-      - url
       type: object
     CreateSshUserCommand:
       additionalProperties: false
@@ -38430,47 +38531,33 @@ components:
         accessProfileId: 0
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^[a-z_][a-z0-9_-]*[$]?$"
+          nullable: true
           type: string
         sshPublicKey:
-          minLength: 1
+          nullable: true
           type: string
         accessProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - accessProfileId
-      - name
-      - sshPublicKey
       type: object
     CreateStandAloneDiskCommand:
       additionalProperties: false
       example:
         volumeType: volumeType
-        size: 6027
+        size: 6
         standaloneVmId: 0
         name: name
         lunId: 1
         deviceName: deviceName
       properties:
         standaloneVmId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         size:
           format: int64
-          maximum: 10000
-          minimum: 1
           type: integer
         volumeType:
           nullable: true
@@ -38482,21 +38569,18 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
-      - standaloneVmId
       type: object
     CreateStandAloneVmCommand:
       additionalProperties: false
       example:
         standAloneVmDisks:
         - volumeType: volumeType
-          size: 2302
+          size: 2
           name: name
           lunId: 7
           deviceName: deviceName
         - volumeType: volumeType
-          size: 2302
+          size: 2
           name: name
           lunId: 7
           deviceName: deviceName
@@ -38505,9 +38589,9 @@ components:
         image: image
         spotPrice: 5.637376656633329
         publicIpEnabled: true
-        count: 30
+        count: 5
         availabilityZone: availabilityZone
-        volumeSize: 656
+        volumeSize: 0
         standAloneMetaDatas:
         - value: value
           key: key
@@ -38518,22 +38602,18 @@ components:
         password: password
         hypervisor: hypervisor
         name: name
-        standAloneProfileId: 0
-        projectId: 0
+        standAloneProfileId: 6
+        projectId: 1
         username: username
       properties:
         name:
-          maxLength: 52
-          minLength: 1
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         flavorName:
-          minLength: 1
+          nullable: true
           type: string
         volumeSize:
           format: int64
-          maximum: 8192
-          minimum: 1
           type: integer
         volumeType:
           nullable: true
@@ -38547,25 +38627,19 @@ components:
         publicIpEnabled:
           type: boolean
         image:
-          minLength: 1
+          nullable: true
           type: string
         cloudInit:
           nullable: true
           type: string
         standAloneProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         count:
           format: int32
-          maximum: 50
-          minimum: 1
           type: integer
         spotPrice:
           format: double
@@ -38589,12 +38663,6 @@ components:
             $ref: '#/components/schemas/StandAloneMetaDataDto'
           nullable: true
           type: array
-      required:
-      - flavorName
-      - image
-      - name
-      - projectId
-      - standAloneProfileId
       type: object
     CreateStripeCustomerCommand:
       additionalProperties: false
@@ -38613,8 +38681,7 @@ components:
           nullable: true
           type: string
         country:
-          maxLength: 90
-          minLength: 3
+          nullable: true
           type: string
         address:
           nullable: true
@@ -38625,45 +38692,34 @@ components:
         vatNumber:
           nullable: true
           type: string
-      required:
-      - country
       type: object
     CreateSubscriptionCommand:
       additionalProperties: false
       example:
-        serverLimit: 6027
+        serverLimit: 6
         yearlyPrice: 9.301444243932576
-        projectLimit: 799
+        projectLimit: 0
         trialDays: 5
-        cloudCredentialLimit: 5961
+        cloudCredentialLimit: 5
         tcuPrice: 7.061401241503109
         name: name
-        userLimit: 1464
+        userLimit: 1
         monthlyPrice: 2.3021358869347655
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         projectLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         serverLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         userLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         cloudCredentialLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         trialDays:
           format: int32
@@ -38680,8 +38736,6 @@ components:
           format: double
           nullable: true
           type: number
-      required:
-      - name
       type: object
     CreateTanzuCommand:
       additionalProperties: false
@@ -38701,32 +38755,22 @@ components:
           nullable: true
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         username:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         url:
-          maxLength: 150
-          minLength: 3
-          pattern: "^(http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\\
-            /([\\w#!:.?+=&%@!\\-\\/]))?"
+          nullable: true
           type: string
         password:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         volumeType:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         namespace:
-          maxLength: 63
-          minLength: 3
-          pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?"
+          nullable: true
           type: string
         tanzuContinent:
           nullable: true
@@ -38735,13 +38779,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
-      - namespace
-      - password
-      - url
-      - username
-      - volumeType
       type: object
     CreateTicketCommand:
       additionalProperties: false
@@ -38752,12 +38789,10 @@ components:
         priority: null
       properties:
         name:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         description:
-          maxLength: 2000
-          minLength: 3
+          nullable: true
           type: string
         organizationId:
           format: int32
@@ -38765,9 +38800,6 @@ components:
           type: integer
         priority:
           $ref: '#/components/schemas/TicketPriority'
-      required:
-      - description
-      - name
       type: object
     CreateUserCommand:
       additionalProperties: false
@@ -38779,17 +38811,13 @@ components:
         username: username
       properties:
         username:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         displayName:
           nullable: true
           type: string
         email:
-          format: email
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         organizationId:
           format: int32
@@ -38797,9 +38825,6 @@ components:
           type: integer
         role:
           $ref: '#/components/schemas/UserRole'
-      required:
-      - email
-      - username
       type: object
     CreateUserGroupCommand:
       additionalProperties: false
@@ -38811,8 +38836,7 @@ components:
         name: name
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         organizationId:
           format: int32
@@ -38823,8 +38847,6 @@ components:
             type: string
           nullable: true
           type: array
-      required:
-      - name
       type: object
     CredentialChartDto:
       additionalProperties: false
@@ -38879,12 +38901,13 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
+          availabilityZonesCount: 1
           id: 0
           lastModified: lastModified
           region: region
@@ -38900,18 +38923,19 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
+          availabilityZonesCount: 1
           id: 0
           lastModified: lastModified
           region: region
           continentName: continentName
-        totalCountOpenstack: 2
-        totalCountAws: 4
+        totalCountOpenstack: 4
+        totalCountAws: 7
         openstack:
         - volumeType: volumeType
           projectCount: 6
@@ -38990,6 +39014,7 @@ components:
           isDefault: true
           isLocked: true
           name: name
+          availabilityZonesCount: 2
           billingAccountName: billingAccountName
           id: 5
           region: region
@@ -39013,6 +39038,7 @@ components:
           isDefault: true
           isLocked: true
           name: name
+          availabilityZonesCount: 2
           billingAccountName: billingAccountName
           id: 5
           region: region
@@ -39021,7 +39047,7 @@ components:
         totalCountTanzu: 1
         tanzu:
         - volumeType: volumeType
-          projectCount: 7
+          projectCount: 9
           projects:
           - name: name
             id: 0
@@ -39030,20 +39056,20 @@ components:
           organizationName: organizationName
           lastModifiedBy: lastModifiedBy
           url: url
-          organizationId: 3
+          organizationId: 2
           createdAt: createdAt
           isDefault: true
-          port: 9
+          port: 3
           createdBy: createdBy
           isLocked: true
           name: name
           namespace: namespace
-          id: 2
+          id: 7
           lastModified: lastModified
           continentName: continentName
           username: username
         - volumeType: volumeType
-          projectCount: 7
+          projectCount: 9
           projects:
           - name: name
             id: 0
@@ -39052,15 +39078,15 @@ components:
           organizationName: organizationName
           lastModifiedBy: lastModifiedBy
           url: url
-          organizationId: 3
+          organizationId: 2
           createdAt: createdAt
           isDefault: true
-          port: 9
+          port: 3
           createdBy: createdBy
           isLocked: true
           name: name
           namespace: namespace
-          id: 2
+          id: 7
           lastModified: lastModified
           continentName: continentName
           username: username
@@ -39077,13 +39103,14 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
           tenantId: tenantId
+          availabilityZonesCount: 1
           location: location
           id: 0
           lastModified: lastModified
@@ -39099,18 +39126,19 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 1
+          organizationId: 5
           createdAt: createdAt
           isDefault: true
           createdBy: createdBy
           isLocked: true
           name: name
           tenantId: tenantId
+          availabilityZonesCount: 1
           location: location
           id: 0
           lastModified: lastModified
           continentName: continentName
-        totalCountAzure: 7
+        totalCountAzure: 1
       properties:
         amazon:
           items:
@@ -39250,21 +39278,26 @@ components:
         requiresVPN: true
         proxmox:
           password: password
+          tokenId: tokenId
           proxmoxNetworks:
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
           storage: storage
           vmTemplateName: vmTemplateName
+          tokenSecret: tokenSecret
           url: url
-          username: username
         azure:
           azureClientSecret: azureClientSecret
           azureClientId: azureClientId
@@ -39303,10 +39336,8 @@ components:
         cronPeriod: cronPeriod
       properties:
         cronPeriod:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - cronPeriod
       type: object
     DaemonSetDto:
       additionalProperties: false
@@ -39720,12 +39751,8 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - projectId
       type: object
     DeleteBackupCommand:
       additionalProperties: false
@@ -40075,20 +40102,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeCrdCommand:
       additionalProperties: false
@@ -40097,16 +40118,11 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - projectId
       type: object
     DescribeCronJobCommand:
       additionalProperties: false
@@ -40116,20 +40132,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeDaemonSetCommand:
       additionalProperties: false
@@ -40139,20 +40149,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeDeploymentCommand:
       additionalProperties: false
@@ -40162,20 +40166,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeIngressCommand:
       additionalProperties: false
@@ -40185,20 +40183,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeJobCommand:
       additionalProperties: false
@@ -40208,20 +40200,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeNetworkPolicyCommand:
       additionalProperties: false
@@ -40231,20 +40217,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeNodeCommand:
       additionalProperties: false
@@ -40253,16 +40233,11 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - projectId
       type: object
     DescribePodCommand:
       additionalProperties: false
@@ -40272,20 +40247,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribePodDisruptionCommand:
       additionalProperties: false
@@ -40295,20 +40264,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribePvcCommand:
       additionalProperties: false
@@ -40318,20 +40281,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeSecretCommand:
       additionalProperties: false
@@ -40341,20 +40298,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeServiceCommand:
       additionalProperties: false
@@ -40364,20 +40315,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DescribeStorageClassCommand:
       additionalProperties: false
@@ -40386,16 +40331,11 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - projectId
       type: object
     DescribeStsCommand:
       additionalProperties: false
@@ -40405,20 +40345,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     DisableAutoscalingCommand:
       additionalProperties: false
@@ -40453,10 +40387,8 @@ components:
         repoName: repoName
       properties:
         repoName:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - repoName
       type: object
     DisableUserCommand:
       additionalProperties: false
@@ -40476,10 +40408,8 @@ components:
         address: address
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - address
       type: object
     DnsNtpAddressEditDto:
       additionalProperties: false
@@ -40496,10 +40426,8 @@ components:
         address: address
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - address
       type: object
     DnsServerListDto:
       additionalProperties: false
@@ -40613,31 +40541,26 @@ components:
           nullable: true
           type: integer
         type:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - type
       type: object
     EditAlertingIntegrationCommand:
       additionalProperties: false
       example:
-        alertingProfileId: 0
+        alertingProfileId: 6
         id: 0
         url: url
         token: token
         alertingIntegrationType: null
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         url:
-          minLength: 1
+          nullable: true
           type: string
         token:
           nullable: true
@@ -40645,15 +40568,8 @@ components:
         alertingIntegrationType:
           $ref: '#/components/schemas/AlertingIntegrationType'
         alertingProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - alertingIntegrationType
-      - alertingProfileId
-      - id
-      - url
       type: object
     EditAllowedHostDto:
       additionalProperties: false
@@ -40679,40 +40595,28 @@ components:
         body: body
       properties:
         messageId:
-          minLength: 1
+          nullable: true
           type: string
         body:
-          maxLength: 2000
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - body
-      - messageId
       type: object
     EditAutoscalingCommand:
       additionalProperties: false
       example:
-        minSize: 60
-        maxSize: 14
+        minSize: 6
+        maxSize: 1
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         minSize:
           format: int32
-          maximum: 100
-          minimum: 0
           type: integer
         maxSize:
           format: int32
-          maximum: 100
-          minimum: 0
           type: integer
-      required:
-      - projectId
       type: object
     EditCatalogAppParamCommand:
       additionalProperties: false
@@ -40731,17 +40635,13 @@ components:
           isEditableAfterInstallation: true
       properties:
         catalogAppId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         parameters:
           items:
             $ref: '#/components/schemas/CatalogAppParamsDto'
           nullable: true
           type: array
-      required:
-      - catalogAppId
       type: object
     EditCatalogAppVersionCommand:
       additionalProperties: false
@@ -40750,16 +40650,11 @@ components:
         version: version
       properties:
         catalogAppId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         version:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - catalogAppId
-      - version
       type: object
     EditCatalogCommand:
       additionalProperties: false
@@ -40769,21 +40664,14 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         description:
           nullable: true
           type: string
-      required:
-      - id
-      - name
       type: object
     EditProjectAppParamsDto:
       additionalProperties: false
@@ -40792,13 +40680,11 @@ components:
         key: key
       properties:
         key:
-          minLength: 1
+          nullable: true
           type: string
         value:
           nullable: true
           type: string
-      required:
-      - key
       type: object
     EditSecurityGroupCommand:
       additionalProperties: false
@@ -40811,13 +40697,10 @@ components:
         remoteIpPrefix: remoteIpPrefix
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         protocol:
           $ref: '#/components/schemas/SecurityGroupProtocol'
@@ -40828,44 +40711,29 @@ components:
           format: int32
           type: integer
         remoteIpPrefix:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - id
-      - name
-      - remoteIpPrefix
       type: object
     EditSshUserCommand:
       additionalProperties: false
       example:
         sshPublicKey: sshPublicKey
         name: name
-        accessProfileId: 0
+        accessProfileId: 6
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^[a-z_][a-z0-9_-]*[$]?$"
+          nullable: true
           type: string
         sshPublicKey:
-          minLength: 1
+          nullable: true
           type: string
         accessProfileId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - accessProfileId
-      - id
-      - name
-      - sshPublicKey
       type: object
     EditTicketCommand:
       additionalProperties: false
@@ -40875,64 +40743,46 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         description:
-          maxLength: 2000
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - description
-      - name
-      - ticketId
       type: object
     EnableAutoscalingCommand:
       additionalProperties: false
       example:
         flavor: flavor
-        diskSize: 5257355331280.957
+        diskSize: 5.962133916683182
         spotEnabled: true
-        minSize: 60
-        maxSize: 14
+        minSize: 6
+        maxSize: 1
         id: 0
         autoscalingGroupName: autoscalingGroupName
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         autoscalingGroupName:
-          minLength: 1
+          nullable: true
           type: string
         minSize:
           format: int32
-          maximum: 100
-          minimum: 0
           type: integer
         maxSize:
           format: int32
-          maximum: 100
-          minimum: 0
           type: integer
         diskSize:
           format: double
-          maximum: 8796093022209
-          minimum: 32212254719
           type: number
         flavor:
-          minLength: 1
+          nullable: true
           type: string
         spotEnabled:
           type: boolean
-      required:
-      - autoscalingGroupName
-      - flavor
-      - id
       type: object
     EnableBackupCommand:
       additionalProperties: false
@@ -41486,14 +41336,11 @@ components:
         name: name
       properties:
         organizationName:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - organizationName
       type: object
     FinalPriceCommand:
       additionalProperties: false
@@ -41597,18 +41444,15 @@ components:
         catalogAppId: 0
       properties:
         packageId:
-          minLength: 1
+          nullable: true
           type: string
         version:
-          minLength: 1
+          nullable: true
           type: string
         catalogAppId:
           format: int32
           nullable: true
           type: integer
-      required:
-      - packageId
-      - version
       type: object
     GetCatalogAppValueCommand:
       additionalProperties: false
@@ -41617,14 +41461,11 @@ components:
         version: version
       properties:
         packageId:
-          minLength: 1
+          nullable: true
           type: string
         version:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - packageId
-      - version
       type: object
     GetProjectOperationCommand:
       additionalProperties: false
@@ -41650,6 +41491,15 @@ components:
           type: string
         refreshTokenExpireTime:
           format: date-time
+          type: string
+      type: object
+    GiveAccessToPartnerCommand:
+      additionalProperties: false
+      example:
+        mode: mode
+      properties:
+        mode:
+          nullable: true
           type: string
       type: object
     GoogleCommonImages:
@@ -41712,6 +41562,7 @@ components:
           isDefault: true
           isLocked: true
           name: name
+          availabilityZonesCount: 2
           billingAccountName: billingAccountName
           id: 5
           region: region
@@ -41735,6 +41586,7 @@ components:
           isDefault: true
           isLocked: true
           name: name
+          availabilityZonesCount: 2
           billingAccountName: billingAccountName
           id: 5
           region: region
@@ -41772,6 +41624,7 @@ components:
         isDefault: true
         isLocked: true
         name: name
+        availabilityZonesCount: 2
         billingAccountName: billingAccountName
         id: 5
         region: region
@@ -41815,6 +41668,9 @@ components:
             type: string
           nullable: true
           type: array
+        availabilityZonesCount:
+          format: int32
+          type: integer
         region:
           nullable: true
           type: string
@@ -42217,18 +42073,18 @@ components:
     HypervisorListCommand:
       additionalProperties: false
       example:
-        password: password
+        tokenId: tokenId
         cloudId: 0
         url: url
-        username: username
+        tokenSecret: tokenSecret
       properties:
         url:
           nullable: true
           type: string
-        username:
+        tokenId:
           nullable: true
           type: string
-        password:
+        tokenSecret:
           nullable: true
           type: string
         cloudId:
@@ -42273,22 +42129,14 @@ components:
         url: url
       properties:
         name:
-          maxLength: 200
-          minLength: 3
-          pattern: "^[a-z][a-z0-9-]*$"
+          nullable: true
           type: string
         url:
           nullable: true
-          pattern: "^(http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\\
-            /([\\w#!:.?+=&%@!\\-\\/]))?"
           type: string
         displayName:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - displayName
-      - name
       type: object
     IngressDto:
       additionalProperties: false
@@ -42387,16 +42235,11 @@ components:
         token: token
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         token:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - projectId
-      - token
       type: object
     InvoiceDto:
       additionalProperties: false
@@ -42555,32 +42398,26 @@ components:
       properties:
         begin:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
         end:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
       type: object
     IpAddressRangeListCommand:
       additionalProperties: false
       example:
-        netMask: 16
+        netMask: 0
         ipAddress: ipAddress
         gateway: gateway
       properties:
         ipAddress:
           nullable: true
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
           type: string
         netMask:
           format: int32
-          maximum: 28
-          minimum: 16
           type: integer
         gateway:
           nullable: true
-          pattern: "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
           type: string
       type: object
     JsonNode:
@@ -42616,27 +42453,20 @@ components:
         realmsName: realmsName
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
         realmsName:
-          minLength: 1
+          nullable: true
           type: string
         clientId:
-          minLength: 1
+          nullable: true
           type: string
         clientSecret:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - clientId
-      - clientSecret
-      - name
-      - realmsName
-      - url
       type: object
     KeycloakCreateCommand:
       additionalProperties: false
@@ -42648,27 +42478,20 @@ components:
         realmsName: realmsName
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
         realmsName:
-          minLength: 1
+          nullable: true
           type: string
         clientId:
-          minLength: 1
+          nullable: true
           type: string
         clientSecret:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - clientId
-      - clientSecret
-      - name
-      - realmsName
-      - url
       type: object
     KeycloakDeleteCommand:
       additionalProperties: false
@@ -42690,32 +42513,23 @@ components:
         realmsName: realmsName
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         url:
-          minLength: 1
+          nullable: true
           type: string
         realmsName:
-          minLength: 1
+          nullable: true
           type: string
         clientId:
-          minLength: 1
+          nullable: true
           type: string
         clientSecret:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - clientId
-      - clientSecret
-      - id
-      - name
-      - realmsName
-      - url
       type: object
     KeycloakListDto:
       additionalProperties: false
@@ -42855,26 +42669,18 @@ components:
       additionalProperties: false
       example:
         kubeConfigId: 0
-        projectId: 0
+        projectId: 6
         token: token
       properties:
         kubeConfigId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         token:
-          minLength: 1
+          nullable: true
           type: string
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - kubeConfigId
-      - projectId
-      - token
       type: object
     KubeConfigResponse:
       additionalProperties: false
@@ -43056,10 +42862,15 @@ components:
     KubernetesCliCommand:
       additionalProperties: false
       example:
+        kubeConfigId: 6
         projectId: 0
       properties:
         projectId:
           format: int32
+          type: integer
+        kubeConfigId:
+          format: int32
+          nullable: true
           type: integer
       type: object
     KubernetesCronJobDto:
@@ -43216,15 +43027,11 @@ components:
         key: key
       properties:
         key:
-          maxLength: 63
-          minLength: 1
-          pattern: "^[a-zA-Z0-9-_./]+$"
+          nullable: true
           type: string
         value:
           nullable: true
           type: string
-      required:
-      - key
       type: object
     KubernetesPodLogsCommand:
       additionalProperties: false
@@ -43497,6 +43304,35 @@ components:
           format: int32
           type: integer
       type: object
+    KubernetesQuotaListDto:
+      additionalProperties: false
+      example:
+        sumOfCpuUsage: 1.4658129805029452
+        podsCapacity: 5
+        sumOfRamInGb: 6.027456183070403
+        podsTotalCount: 2
+        sumOfRamUsage: 5.962133916683182
+        sumOfCpu: 0.8008281904610115
+      properties:
+        sumOfCpu:
+          format: double
+          type: number
+        sumOfRamInGb:
+          format: double
+          type: number
+        sumOfCpuUsage:
+          format: double
+          type: number
+        sumOfRamUsage:
+          format: double
+          type: number
+        podsCapacity:
+          format: int32
+          type: integer
+        podsTotalCount:
+          format: int32
+          type: integer
+      type: object
     KubernetesVersionListDto:
       additionalProperties: false
       example:
@@ -43516,18 +43352,11 @@ components:
         kubernetesVersion: kubernetesVersion
       properties:
         version:
-          maxLength: 15
-          minLength: 3
-          pattern: "^v\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+          nullable: true
           type: string
         kubernetesVersion:
-          maxLength: 15
-          minLength: 3
-          pattern: "^v\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+          nullable: true
           type: string
-      required:
-      - kubernetesVersion
-      - version
       type: object
     KubesprayListDto:
       additionalProperties: false
@@ -43579,13 +43408,11 @@ components:
         message: message
       properties:
         reason:
-          minLength: 1
+          nullable: true
           type: string
         message:
           nullable: true
           type: string
-      required:
-      - reason
       type: object
     LeaveTaikunDto:
       additionalProperties: false
@@ -43636,12 +43463,102 @@ components:
       type: object
     ListAllBackups:
       additionalProperties: false
+      example:
+        data:
+        - scheduleName: scheduleName
+          phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          namespace: namespace
+          metadataName: metadataName
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: location
+        - scheduleName: scheduleName
+          phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          namespace: namespace
+          metadataName: metadataName
+          expiration: 2000-01-23T04:56:07.000+00:00
+          location: location
+        totalCount: 0
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CBackupDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int32
+          type: integer
       type: object
     ListAllDeleteBackupRequests:
       additionalProperties: false
+      example:
+        data:
+        - phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          namespace: namespace
+          metadataName: metadataName
+          backupName: backupName
+        - phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          namespace: namespace
+          metadataName: metadataName
+          backupName: backupName
+        totalCount: 0
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CDeleteBackupRequestDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int32
+          type: integer
       type: object
     ListAllRestores:
       additionalProperties: false
+      example:
+        data:
+        - scheduleName: scheduleName
+          phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          startTimeStamp: 2000-01-23T04:56:07.000+00:00
+          warnings: 0
+          namespace: namespace
+          excludeNamespaces:
+          - excludeNamespaces
+          - excludeNamespaces
+          completionDateTime: 2000-01-23T04:56:07.000+00:00
+          metadataName: metadataName
+          backupName: backupName
+          includeNamespaces:
+          - includeNamespaces
+          - includeNamespaces
+        - scheduleName: scheduleName
+          phase: phase
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          startTimeStamp: 2000-01-23T04:56:07.000+00:00
+          warnings: 0
+          namespace: namespace
+          excludeNamespaces:
+          - excludeNamespaces
+          - excludeNamespaces
+          completionDateTime: 2000-01-23T04:56:07.000+00:00
+          metadataName: metadataName
+          backupName: backupName
+          includeNamespaces:
+          - includeNamespaces
+          - includeNamespaces
+        totalCount: 6
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CRestoreDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int32
+          type: integer
       type: object
     ListAllSchedules:
       additionalProperties: false
@@ -43885,14 +43802,11 @@ components:
         userId: userId
       properties:
         userId:
-          minLength: 1
+          nullable: true
           type: string
         mode:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - mode
-      - userId
       type: object
     MakeOwnerCommand:
       additionalProperties: false
@@ -43900,10 +43814,8 @@ components:
         userId: userId
       properties:
         userId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - userId
       type: object
     Metadata:
       additionalProperties: false
@@ -44048,16 +43960,11 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - projectId
       type: object
     NodeSearchResponseData:
       additionalProperties: false
@@ -44228,10 +44135,8 @@ components:
         address: address
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - address
       type: object
     NtpServerCreateDto:
       additionalProperties: false
@@ -44239,10 +44144,8 @@ components:
         address: address
       properties:
         address:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - address
       type: object
     NtpServerListDto:
       additionalProperties: false
@@ -44455,12 +44358,8 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - projectId
       type: object
     OpaProfileUpdateCommand:
       additionalProperties: false
@@ -44483,14 +44382,10 @@ components:
         - ingressWhitelist
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 50
-          minLength: 2
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         forbidNodePort:
           nullable: true
@@ -44522,9 +44417,6 @@ components:
             type: string
           nullable: true
           type: array
-      required:
-      - id
-      - name
       type: object
     OpenStackNetworkListQuery:
       additionalProperties: false
@@ -44656,10 +44548,8 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - ticketId
       type: object
     OpenstackComputeQuotaDto:
       additionalProperties: false
@@ -45275,28 +45165,21 @@ components:
         prometheusPassword: prometheusPassword
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         prometheusUsername:
-          minLength: 1
+          nullable: true
           type: string
         prometheusPassword:
-          minLength: 1
+          nullable: true
           type: string
         prometheusUrl:
-          minLength: 1
+          nullable: true
           type: string
         organizationId:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
-      - prometheusPassword
-      - prometheusUrl
-      - prometheusUsername
       type: object
     OperationCredentialsForOrganizationEntity:
       additionalProperties: false
@@ -45403,13 +45286,10 @@ components:
         vatNumber: vatNumber
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         fullName:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         phone:
           nullable: true
@@ -45442,9 +45322,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - fullName
-      - name
       type: object
     OrganizationDetailsDto:
       additionalProperties: false
@@ -45582,37 +45459,14 @@ components:
           format: int32
           type: integer
       type: object
-    OrganizationForPrometheus:
-      additionalProperties: false
-      example:
-        organizationId: 5
-        globalDiscountRate: 2.3021358869347655
-        organizationName: organizationName
-        ruleDiscountRate: 5.637376656633329
-      properties:
-        organizationId:
-          format: int32
-          type: integer
-        organizationName:
-          nullable: true
-          type: string
-        ruleDiscountRate:
-          format: double
-          type: number
-        globalDiscountRate:
-          format: double
-          type: number
-      type: object
     OrganizationNameCheckerCommand:
       additionalProperties: false
       example:
         name: name
       properties:
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
       type: object
     OrganizationSearchCommand:
       additionalProperties: false
@@ -46202,20 +46056,14 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - projectId
-      - yaml
       type: object
     PatchCronJobCommand:
       additionalProperties: false
@@ -46226,24 +46074,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchIngressCommand:
       additionalProperties: false
@@ -46254,24 +46095,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchJobCommand:
       additionalProperties: false
@@ -46282,24 +46116,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchNodeCommand:
       additionalProperties: false
@@ -46315,21 +46142,16 @@ components:
           key: key
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         parameters:
           items:
             $ref: '#/components/schemas/PatchNodeLabelsDto'
           nullable: true
           type: array
-      required:
-      - name
-      - projectId
       type: object
     PatchNodeLabelsDto:
       additionalProperties: false
@@ -46339,20 +46161,14 @@ components:
         key: key
       properties:
         key:
-          maxLength: 63
-          minLength: 1
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         value:
           nullable: true
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
           type: string
         mode:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - key
-      - mode
       type: object
     PatchPdbCommand:
       additionalProperties: false
@@ -46363,24 +46179,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchPodCommand:
       additionalProperties: false
@@ -46391,24 +46200,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchPvcCommand:
       additionalProperties: false
@@ -46419,24 +46221,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchSecretCommand:
       additionalProperties: false
@@ -46447,24 +46242,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PatchStsCommand:
       additionalProperties: false
@@ -46475,24 +46263,17 @@ components:
         yaml: yaml
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         yaml:
-          minLength: 1
+          nullable: true
           type: string
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
-      - yaml
       type: object
     PayInvoiceCommand:
       additionalProperties: false
@@ -47142,13 +46923,11 @@ components:
         key: key
       properties:
         key:
-          minLength: 1
+          nullable: true
           type: string
         value:
           nullable: true
           type: string
-      required:
-      - key
       type: object
     ProjectButtonStatusDto:
       additionalProperties: false
@@ -47249,6 +47028,9 @@ components:
         isOpaEnabled: true
         projectRevision: 2
         opaProfileId: 0
+        availabilityZones:
+        - availabilityZones
+        - availabilityZones
         hasAlertingProfile: true
         organizationId: 7
         diskSize: 8.969578798196912
@@ -47299,6 +47081,7 @@ components:
         quotaMessage: quotaMessage
         expiredAt: expiredAt
         alertingProfileName: alertingProfileName
+        hasNfsServer: true
         projectHealth: projectHealth
         totalHourlyCost: 6.519180951018382
         ramLimit: 4
@@ -47321,6 +47104,9 @@ components:
         accessProfileRevision: 6
         isBackupEnabled: true
         hasExpirationWarning: true
+        hypervisors:
+        - hypervisors
+        - hypervisors
         certificationExpiredAt: certificationExpiredAt
         isMaintenanceModeEnabled: true
       properties:
@@ -47553,6 +47339,18 @@ components:
           type: boolean
         hasExpirationWarning:
           type: boolean
+        hasNfsServer:
+          type: boolean
+        availabilityZones:
+          items:
+            type: string
+          nullable: true
+          type: array
+        hypervisors:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     ProjectDetailsForVmsDto:
       additionalProperties: false
@@ -47561,6 +47359,9 @@ components:
         hasSelectedFlavors: true
         allowSpotVMs: true
         cloudCredentialRevision: 1
+        availabilityZones:
+        - availabilityZones
+        - availabilityZones
         allowSpotWorkers: true
         maxSpotPrice: 6.84685269835264
         organizationId: 1
@@ -47570,6 +47371,9 @@ components:
         cloudId: 7
         isLocked: true
         allowFullSpotKubernetes: true
+        hypervisors:
+        - hypervisors
+        - hypervisors
         totalHourlyCost: 7.457744773683766
         projectName: projectName
         projectCloudRevision: 1
@@ -47629,6 +47433,16 @@ components:
         totalHourlyCost:
           format: double
           type: number
+        availabilityZones:
+          items:
+            type: string
+          nullable: true
+          type: array
+        hypervisors:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     ProjectDto:
       additionalProperties: false
@@ -47651,9 +47465,7 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         expireAt:
           format: date-time
@@ -47661,8 +47473,6 @@ components:
           type: string
         deleteOnExpiration:
           type: boolean
-      required:
-      - projectId
       type: object
     ProjectForListDto:
       additionalProperties: false
@@ -48083,6 +47893,7 @@ components:
         isAutoUpgrade: true
         tanzuReleaseCurrentVersion: tanzuReleaseCurrentVersion
         imageName: imageName
+        monitoringIp: monitoringIp
         isKubevapEnabled: true
         accessIp: accessIp
         isOpaEnabled: true
@@ -48106,6 +47917,9 @@ components:
           nullable: true
           type: string
         imageName:
+          nullable: true
+          type: string
+        monitoringIp:
           nullable: true
           type: string
         tanzuReleaseCurrentVersion:
@@ -48524,13 +48338,12 @@ components:
       type: object
     ProjectHealth:
       enum:
-      - 100
-      - 150
-      - 200
-      - 300
-      - 400
-      format: int32
-      type: integer
+      - Healthy
+      - None
+      - Unhealthy
+      - Unknown
+      - Warning
+      type: string
     ProjectInfracostUpsertDto:
       additionalProperties: false
       example:
@@ -49311,28 +49124,27 @@ components:
       type: object
     ProjectStatus:
       enum:
-      - 100
-      - 145
-      - 150
-      - 154
-      - 155
-      - 156
-      - 160
-      - 165
-      - 200
-      - 250
-      - 300
-      - 400
-      - 500
-      - 550
-      - 600
-      - 700
-      - 800
-      - 900
-      - 1000
-      - 1100
-      format: int32
-      type: integer
+      - Deleting
+      - DisableGatekeeper
+      - DeletingBackupPolicies
+      - DisableBackup
+      - DisableMonitoring
+      - EnableBackup
+      - EnableMonitoring
+      - EnableGatekeeper
+      - Failure
+      - FailedUpgrade
+      - Pending
+      - PendingDelete
+      - PendingPurge
+      - PendingUpdateCredentials
+      - PendingUpgrade
+      - Purging
+      - Ready
+      - Updating
+      - Upgrading
+      - UpdatingCredentials
+      type: string
     ProjectTemplateDropdownListDto:
       additionalProperties: false
       example:
@@ -49427,10 +49239,9 @@ components:
       type: object
     ProjectType:
       enum:
-      - 100
-      - 200
-      format: int32
-      type: integer
+      - K8S
+      - VIRT
+      type: string
     ProjectWithFlavorsAndImagesDto:
       additionalProperties: false
       example:
@@ -49673,32 +49484,22 @@ components:
       additionalProperties: false
       example:
         organizationId: 0
-        price: 43974389.415088356
+        price: 1.4658129805029452
         startDate: 2000-01-23T04:56:07.000+00:00
-        prometheusRuleId: 0
+        prometheusRuleId: 6
       properties:
         organizationId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         prometheusRuleId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         startDate:
           format: date-time
           type: string
         price:
-          exclusiveMinimum: true
           format: double
-          maximum: 300000000
-          minimum: 0
           type: number
-      required:
-      - organizationId
-      - prometheusRuleId
       type: object
     PrometheusBillingInfo:
       additionalProperties: false
@@ -49786,26 +49587,17 @@ components:
           format: int32
           type: integer
         name:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         expression:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         description:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         categoryName:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - categoryName
-      - description
-      - expression
-      - name
       type: object
     PrometheusDashboardDto:
       additionalProperties: false
@@ -49872,32 +49664,20 @@ components:
         categoryName: categoryName
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         expression:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         description:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
         categoryName:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - categoryName
-      - description
-      - expression
-      - id
-      - name
       type: object
     PrometheusEntity:
       additionalProperties: false
@@ -49933,14 +49713,10 @@ components:
       properties:
         label:
           nullable: true
-          pattern: "[a-zA-Z_][a-zA-Z0-9_]*"
           type: string
         value:
-          maxLength: 300
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - value
       type: object
     PrometheusLabelUpdateDto:
       additionalProperties: false
@@ -49997,25 +49773,39 @@ components:
           nullable: true
           type: string
       type: object
+    PrometheusOrganizationDiscountDto:
+      additionalProperties: false
+      example:
+        discountRate: 5.962133916683182
+        name: name
+        id: 1
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          nullable: true
+          type: string
+        discountRate:
+          format: double
+          type: number
+      type: object
     PrometheusRuleListDto:
       additionalProperties: false
       example:
         metricName: metricName
         lastModifiedBy: lastModifiedBy
-        isAll: true
         userName: userName
         type: type
         url: url
-        billingStartDate: billingStartDate
         boundOrganizations:
-        - organizationId: 5
-          globalDiscountRate: 2.3021358869347655
-          organizationName: organizationName
-          ruleDiscountRate: 5.637376656633329
-        - organizationId: 5
-          globalDiscountRate: 2.3021358869347655
-          organizationName: organizationName
-          ruleDiscountRate: 5.637376656633329
+        - discountRate: 5.962133916683182
+          name: name
+          id: 1
+        - discountRate: 5.962133916683182
+          name: name
+          id: 1
+        billingStartDate: billingStartDate
         labels:
         - id: 6
           label: label
@@ -50055,7 +49845,7 @@ components:
           email: email
           vatNumber: vatNumber
         createdBy: createdBy
-        price: 1.4658129805029452
+        price: 5.637376656633329
         name: name
         id: 0
         lastModified: lastModified
@@ -50083,14 +49873,17 @@ components:
             $ref: '#/components/schemas/PrometheusLabelUpdateDto'
           nullable: true
           type: array
+        boundOrganizations:
+          items:
+            $ref: '#/components/schemas/PrometheusOrganizationDiscountDto'
+          nullable: true
+          type: array
         type:
           nullable: true
           type: string
         price:
           format: double
           type: number
-        isAll:
-          type: boolean
         billingStartDate:
           nullable: true
           type: string
@@ -50099,11 +49892,6 @@ components:
           type: string
         partner:
           $ref: '#/components/schemas/PartnerDetailsDto'
-        boundOrganizations:
-          items:
-            $ref: '#/components/schemas/OrganizationForPrometheus'
-          nullable: true
-          type: array
         operationCredential:
           $ref: '#/components/schemas/OperationCredentialsForOrganizationEntity'
         createdBy:
@@ -50122,20 +49910,17 @@ components:
         data:
         - metricName: metricName
           lastModifiedBy: lastModifiedBy
-          isAll: true
           userName: userName
           type: type
           url: url
-          billingStartDate: billingStartDate
           boundOrganizations:
-          - organizationId: 5
-            globalDiscountRate: 2.3021358869347655
-            organizationName: organizationName
-            ruleDiscountRate: 5.637376656633329
-          - organizationId: 5
-            globalDiscountRate: 2.3021358869347655
-            organizationName: organizationName
-            ruleDiscountRate: 5.637376656633329
+          - discountRate: 5.962133916683182
+            name: name
+            id: 1
+          - discountRate: 5.962133916683182
+            name: name
+            id: 1
+          billingStartDate: billingStartDate
           labels:
           - id: 6
             label: label
@@ -50175,26 +49960,23 @@ components:
             email: email
             vatNumber: vatNumber
           createdBy: createdBy
-          price: 1.4658129805029452
+          price: 5.637376656633329
           name: name
           id: 0
           lastModified: lastModified
         - metricName: metricName
           lastModifiedBy: lastModifiedBy
-          isAll: true
           userName: userName
           type: type
           url: url
-          billingStartDate: billingStartDate
           boundOrganizations:
-          - organizationId: 5
-            globalDiscountRate: 2.3021358869347655
-            organizationName: organizationName
-            ruleDiscountRate: 5.637376656633329
-          - organizationId: 5
-            globalDiscountRate: 2.3021358869347655
-            organizationName: organizationName
-            ruleDiscountRate: 5.637376656633329
+          - discountRate: 5.962133916683182
+            name: name
+            id: 1
+          - discountRate: 5.962133916683182
+            name: name
+            id: 1
+          billingStartDate: billingStartDate
           labels:
           - id: 6
             label: label
@@ -50234,11 +50016,11 @@ components:
             email: email
             vatNumber: vatNumber
           createdBy: createdBy
-          price: 1.4658129805029452
+          price: 5.637376656633329
           name: name
           id: 0
           lastModified: lastModified
-        totalCount: 7
+        totalCount: 2
       properties:
         data:
           items:
@@ -50308,52 +50090,55 @@ components:
       type: object
     PrometheusType:
       enum:
-      - 100
-      - 200
-      format: int32
-      type: integer
+      - Count
+      - Sum
+      type: string
     ProxmoxCheckerCommand:
       additionalProperties: false
       example:
-        password: password
+        tokenId: tokenId
         url: url
-        username: username
+        tokenSecret: tokenSecret
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
-        username:
-          minLength: 1
+        tokenId:
+          nullable: true
           type: string
-        password:
-          minLength: 1
+        tokenSecret:
+          nullable: true
           type: string
-      required:
-      - password
-      - url
-      - username
       type: object
     ProxmoxCredentialsForProjectDto:
       additionalProperties: false
       example:
         password: password
+        tokenId: tokenId
         proxmoxNetworks:
-        - netMask: 1
+        - endAllocationRange: endAllocationRange
+          netMask: 1
           ipAddress: ipAddress
           bridge: bridge
           isPrivate: true
+          beginAllocationRange: beginAllocationRange
           gateway: gateway
-        - netMask: 1
+        - endAllocationRange: endAllocationRange
+          netMask: 1
           ipAddress: ipAddress
           bridge: bridge
           isPrivate: true
+          beginAllocationRange: beginAllocationRange
           gateway: gateway
         storage: storage
         vmTemplateName: vmTemplateName
+        tokenSecret: tokenSecret
         url: url
-        username: username
       properties:
-        username:
+        tokenId:
+          nullable: true
+          type: string
+        tokenSecret:
           nullable: true
           type: string
         url:
@@ -50412,6 +50197,40 @@ components:
           format: int32
           type: integer
       type: object
+    ProxmoxHypervisorDto:
+      additionalProperties: false
+      example:
+        isBound: true
+        name: name
+        usedByServer: true
+      properties:
+        name:
+          nullable: true
+          type: string
+        isBound:
+          type: boolean
+        usedByServer:
+          type: boolean
+      type: object
+    ProxmoxImageList:
+      additionalProperties: false
+      example:
+        data:
+        - name: name
+          id: 0
+        - name: name
+          id: 0
+        totalCount: 0
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CommonDropdownDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int32
+          type: integer
+      type: object
     ProxmoxList:
       additionalProperties: false
       example:
@@ -50423,26 +50242,30 @@ components:
           - name: name
             id: 0
           organizationName: organizationName
+          tokenId: tokenId
           lastModifiedBy: lastModifiedBy
           storage: storage
           url: url
           organizationId: 1
           createdAt: createdAt
           isDefault: true
-          password: password
           createdBy: createdBy
           isLocked: true
           name: name
           proxmoxNetworks:
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
           hypervisors:
           - name: name
@@ -50453,7 +50276,6 @@ components:
           lastModified: lastModified
           continentName: continentName
           vmTemplateName: vmTemplateName
-          username: username
         - projectCount: 6
           projects:
           - name: name
@@ -50461,26 +50283,30 @@ components:
           - name: name
             id: 0
           organizationName: organizationName
+          tokenId: tokenId
           lastModifiedBy: lastModifiedBy
           storage: storage
           url: url
           organizationId: 1
           createdAt: createdAt
           isDefault: true
-          password: password
           createdBy: createdBy
           isLocked: true
           name: name
           proxmoxNetworks:
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
-          - netMask: 1
+          - endAllocationRange: endAllocationRange
+            netMask: 1
             ipAddress: ipAddress
             bridge: bridge
             isPrivate: true
+            beginAllocationRange: beginAllocationRange
             gateway: gateway
           hypervisors:
           - name: name
@@ -50491,7 +50317,6 @@ components:
           lastModified: lastModified
           continentName: continentName
           vmTemplateName: vmTemplateName
-          username: username
         totalCount: 5
       properties:
         data:
@@ -50513,26 +50338,30 @@ components:
         - name: name
           id: 0
         organizationName: organizationName
+        tokenId: tokenId
         lastModifiedBy: lastModifiedBy
         storage: storage
         url: url
         organizationId: 1
         createdAt: createdAt
         isDefault: true
-        password: password
         createdBy: createdBy
         isLocked: true
         name: name
         proxmoxNetworks:
-        - netMask: 1
+        - endAllocationRange: endAllocationRange
+          netMask: 1
           ipAddress: ipAddress
           bridge: bridge
           isPrivate: true
+          beginAllocationRange: beginAllocationRange
           gateway: gateway
-        - netMask: 1
+        - endAllocationRange: endAllocationRange
+          netMask: 1
           ipAddress: ipAddress
           bridge: bridge
           isPrivate: true
+          beginAllocationRange: beginAllocationRange
           gateway: gateway
         hypervisors:
         - name: name
@@ -50543,7 +50372,6 @@ components:
         lastModified: lastModified
         continentName: continentName
         vmTemplateName: vmTemplateName
-        username: username
       properties:
         id:
           format: int32
@@ -50589,13 +50417,10 @@ components:
             $ref: '#/components/schemas/CommonDropdownDto'
           nullable: true
           type: array
-        username:
+        tokenId:
           nullable: true
           type: string
         url:
-          nullable: true
-          type: string
-        password:
           nullable: true
           type: string
         storage:
@@ -50613,10 +50438,12 @@ components:
     ProxmoxNetworkListDto:
       additionalProperties: false
       example:
+        endAllocationRange: endAllocationRange
         netMask: 1
         ipAddress: ipAddress
         bridge: bridge
         isPrivate: true
+        beginAllocationRange: beginAllocationRange
         gateway: gateway
       properties:
         bridge:
@@ -50631,15 +50458,20 @@ components:
         netMask:
           format: int32
           type: integer
+        beginAllocationRange:
+          nullable: true
+          type: string
+        endAllocationRange:
+          nullable: true
+          type: string
         isPrivate:
           type: boolean
       type: object
     ProxmoxRole:
       enum:
-      - 0
-      - 100
-      format: int32
-      type: integer
+      - NONE
+      - NFS
+      type: string
     PurgeCommand:
       additionalProperties: false
       example:
@@ -50873,15 +50705,11 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
         body:
-          maxLength: 2000
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - body
-      - ticketId
       type: object
     Repository:
       additionalProperties: false
@@ -50929,23 +50757,14 @@ components:
         token: token
       properties:
         token:
-          minLength: 1
+          nullable: true
           type: string
         email:
-          format: email
           nullable: true
           type: string
         newPassword:
-          allOf:
-          - pattern: "[A-Z]"
-          - pattern: "[a-z]"
-          - pattern: "[0-9]"
-          - pattern: \W|_
-          minLength: 6
+          nullable: true
           type: string
-      required:
-      - newPassword
-      - token
       type: object
     ResetServerStatusCommand:
       additionalProperties: false
@@ -50957,9 +50776,7 @@ components:
         status: null
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         serverIds:
           items:
@@ -50969,8 +50786,6 @@ components:
           type: array
         status:
           $ref: '#/components/schemas/CloudStatus'
-      required:
-      - projectId
       type: object
     ResetStandAloneVmDiskStatusCommand:
       additionalProperties: false
@@ -50982,9 +50797,7 @@ components:
         status: null
       properties:
         standAloneVmId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         diskIds:
           items:
@@ -50994,8 +50807,6 @@ components:
           type: array
         status:
           $ref: '#/components/schemas/StandAloneVmDiskStatus'
-      required:
-      - standAloneVmId
       type: object
     ResetStandAloneVmStatusCommand:
       additionalProperties: false
@@ -51007,9 +50818,7 @@ components:
         status: null
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         vmIds:
           items:
@@ -51019,8 +50828,6 @@ components:
           type: array
         status:
           $ref: '#/components/schemas/StandAloneVmStatus'
-      required:
-      - projectId
       type: object
     Resource:
       additionalProperties: false
@@ -51147,20 +50954,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     RestartDeploymentCommand:
       additionalProperties: false
@@ -51170,20 +50971,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     RestartStsCommand:
       additionalProperties: false
@@ -51193,20 +50988,14 @@ components:
         projectId: 0
       properties:
         projectId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          minLength: 1
+          nullable: true
           type: string
         namespace:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - namespace
-      - projectId
       type: object
     RestoreBackupCommand:
       additionalProperties: false
@@ -51226,11 +51015,9 @@ components:
           type: integer
         backupName:
           nullable: true
-          pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?"
           type: string
         restoreName:
           nullable: true
-          pattern: "^[a-z0-9]([-a-z0-9]*[a-z0-9])?"
           type: string
         includeNamespaces:
           items:
@@ -51250,7 +51037,7 @@ components:
         - 5
         - 5
         metricName: metricName
-        price: 24024845.713830344
+        price: 0.8008281904610115
         ruleDiscountRate: 5
         name: name
         operationCredentialId: 1
@@ -51263,27 +51050,20 @@ components:
           value: value
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         metricName:
-          maxLength: 256
-          minLength: 3
-          pattern: "[a-zA-Z_:][a-zA-Z0-9_:]*"
+          nullable: true
           type: string
         labels:
           items:
             $ref: '#/components/schemas/PrometheusLabelListDto'
-          minItems: 1
+          nullable: true
           type: array
         type:
           $ref: '#/components/schemas/PrometheusType'
         price:
-          exclusiveMinimum: true
           format: double
-          maximum: 300000000
-          minimum: 0
           type: number
         partnerId:
           format: int32
@@ -51302,11 +51082,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - labels
-      - metricName
-      - name
-      - type
       type: object
     RuleForUpdateDto:
       additionalProperties: false
@@ -51493,11 +51268,10 @@ components:
       type: object
     SecurityGroupProtocol:
       enum:
-      - 100
-      - 200
-      - 300
-      format: int32
-      type: integer
+      - ICMP
+      - TCP
+      - UDP
+      type: string
     SecurityReportSummary:
       additionalProperties: false
       example:
@@ -52038,7 +51812,7 @@ components:
       additionalProperties: false
       example:
         flavor: flavor
-        diskSize: 1337518599436.1604
+        diskSize: 1.4894159098541704
         role: null
         count: 6
       properties:
@@ -52049,8 +51823,6 @@ components:
           type: string
         diskSize:
           format: double
-          maximum: 8796093022208
-          minimum: 32212254720
           type: number
         count:
           format: int32
@@ -52267,6 +52039,9 @@ components:
           isOpaEnabled: true
           projectRevision: 2
           opaProfileId: 0
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           hasAlertingProfile: true
           organizationId: 7
           diskSize: 8.969578798196912
@@ -52317,6 +52092,7 @@ components:
           quotaMessage: quotaMessage
           expiredAt: expiredAt
           alertingProfileName: alertingProfileName
+          hasNfsServer: true
           projectHealth: projectHealth
           totalHourlyCost: 6.519180951018382
           ramLimit: 4
@@ -52339,6 +52115,9 @@ components:
           accessProfileRevision: 6
           isBackupEnabled: true
           hasExpirationWarning: true
+          hypervisors:
+          - hypervisors
+          - hypervisors
           certificationExpiredAt: certificationExpiredAt
           isMaintenanceModeEnabled: true
       properties:
@@ -52528,12 +52307,10 @@ components:
         priority: null
       properties:
         id:
-          minLength: 1
+          nullable: true
           type: string
         priority:
           $ref: '#/components/schemas/TicketPriority'
-      required:
-      - id
       type: object
     ShelveStandAloneVmCommand:
       additionalProperties: false
@@ -52552,19 +52329,14 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         mode:
-          minLength: 1
+          nullable: true
           type: string
         reason:
           nullable: true
           type: string
-      required:
-      - id
-      - mode
       type: object
     SimplePrometheusEntity:
       additionalProperties: false
@@ -52644,10 +52416,9 @@ components:
       type: object
     SlackType:
       enum:
-      - 100
-      - 200
-      format: int32
-      type: integer
+      - Alert
+      - General
+      type: string
     SourceRef:
       additionalProperties: false
       example:
@@ -52693,10 +52464,8 @@ components:
         sshPublicKey: sshPublicKey
       properties:
         sshPublicKey:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - sshPublicKey
       type: object
     SshUserCreateDto:
       additionalProperties: false
@@ -52705,16 +52474,11 @@ components:
         name: name
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^[a-z_][a-z0-9_-]*[$]?$"
+          nullable: true
           type: string
         sshPublicKey:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - sshPublicKey
       type: object
     SshUserListDto:
       additionalProperties: false
@@ -52764,16 +52528,11 @@ components:
         key: key
       properties:
         key:
-          maxLength: 63
-          minLength: 1
+          nullable: true
           type: string
         value:
-          maxLength: 63
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - key
-      - value
       type: object
     StandAloneMetaDataDtoForVm:
       additionalProperties: false
@@ -52811,13 +52570,10 @@ components:
         publicKey: publicKey
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         publicKey:
-          maxLength: 3000
-          minLength: 3
+          nullable: true
           type: string
         securityGroups:
           items:
@@ -52828,9 +52584,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
-      - publicKey
       type: object
     StandAloneProfileForDetailsDto:
       additionalProperties: false
@@ -52933,8 +52686,7 @@ components:
         remoteIpPrefix: remoteIpPrefix
       properties:
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         protocol:
           $ref: '#/components/schemas/SecurityGroupProtocol'
@@ -52945,11 +52697,8 @@ components:
           format: int32
           type: integer
         remoteIpPrefix:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - name
-      - remoteIpPrefix
       type: object
     StandAloneProfileSecurityGroupForDetailsDto:
       additionalProperties: false
@@ -53024,18 +52773,11 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
-      required:
-      - id
-      - name
       type: object
     StandAloneProfiles:
       additionalProperties: false
@@ -53176,20 +52918,16 @@ components:
       additionalProperties: false
       example:
         volumeType: volumeType
-        size: 2302
+        size: 2
         name: name
         lunId: 7
         deviceName: deviceName
       properties:
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         size:
           format: int64
-          maximum: 10000
-          minimum: 1
           type: integer
         volumeType:
           nullable: true
@@ -53201,8 +52939,6 @@ components:
           format: int32
           nullable: true
           type: integer
-      required:
-      - name
       type: object
     StandAloneVmDiskForDetailsDto:
       additionalProperties: false
@@ -53276,14 +53012,13 @@ components:
       type: object
     StandAloneVmDiskStatus:
       enum:
-      - 100
-      - 200
-      - 300
-      - 400
-      - 500
-      - 600
-      format: int32
-      type: integer
+      - Deleting
+      - Failure
+      - Waiting
+      - PendingDelete
+      - Ready
+      - Updating
+      type: string
     StandAloneVmFullDto:
       additionalProperties: false
       example:
@@ -53430,16 +53165,11 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         mode:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - id
-      - mode
       type: object
     StandAloneVmListForDetails:
       additionalProperties: false
@@ -53594,6 +53324,9 @@ components:
           hasSelectedFlavors: true
           allowSpotVMs: true
           cloudCredentialRevision: 1
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           allowSpotWorkers: true
           maxSpotPrice: 6.84685269835264
           organizationId: 1
@@ -53603,6 +53336,9 @@ components:
           cloudId: 7
           isLocked: true
           allowFullSpotKubernetes: true
+          hypervisors:
+          - hypervisors
+          - hypervisors
           totalHourlyCost: 7.457744773683766
           projectName: projectName
           projectCloudRevision: 1
@@ -53636,14 +53372,13 @@ components:
       type: object
     StandAloneVmStatus:
       enum:
-      - 100
-      - 200
-      - 300
-      - 400
-      - 500
-      - 600
-      format: int32
-      type: integer
+      - Deleting
+      - Failure
+      - Waiting
+      - PendingDelete
+      - Ready
+      - Updating
+      type: string
     StandaloneProfileListDto:
       additionalProperties: false
       example:
@@ -54330,23 +54065,19 @@ components:
     StorageListCommand:
       additionalProperties: false
       example:
-        password: password
+        tokenId: tokenId
         url: url
-        username: username
+        tokenSecret: tokenSecret
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
-        username:
-          minLength: 1
+        tokenId:
+          nullable: true
           type: string
-        password:
-          minLength: 1
+        tokenSecret:
+          nullable: true
           type: string
-      required:
-      - password
-      - url
-      - username
       type: object
     StripeInvoiceListDto:
       additionalProperties: false
@@ -54579,12 +54310,8 @@ components:
         projectAppId: 0
       properties:
         projectAppId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
-      required:
-      - projectAppId
       type: object
     SyncProjectAppsCommand:
       additionalProperties: false
@@ -54627,7 +54354,7 @@ components:
       example:
         data:
         - volumeType: volumeType
-          projectCount: 7
+          projectCount: 9
           projects:
           - name: name
             id: 0
@@ -54636,20 +54363,20 @@ components:
           organizationName: organizationName
           lastModifiedBy: lastModifiedBy
           url: url
-          organizationId: 3
+          organizationId: 2
           createdAt: createdAt
           isDefault: true
-          port: 9
+          port: 3
           createdBy: createdBy
           isLocked: true
           name: name
           namespace: namespace
-          id: 2
+          id: 7
           lastModified: lastModified
           continentName: continentName
           username: username
         - volumeType: volumeType
-          projectCount: 7
+          projectCount: 9
           projects:
           - name: name
             id: 0
@@ -54658,15 +54385,15 @@ components:
           organizationName: organizationName
           lastModifiedBy: lastModifiedBy
           url: url
-          organizationId: 3
+          organizationId: 2
           createdAt: createdAt
           isDefault: true
-          port: 9
+          port: 3
           createdBy: createdBy
           isLocked: true
           name: name
           namespace: namespace
-          id: 2
+          id: 7
           lastModified: lastModified
           continentName: continentName
           username: username
@@ -54685,7 +54412,7 @@ components:
       additionalProperties: false
       example:
         volumeType: volumeType
-        projectCount: 7
+        projectCount: 9
         projects:
         - name: name
           id: 0
@@ -54694,15 +54421,15 @@ components:
         organizationName: organizationName
         lastModifiedBy: lastModifiedBy
         url: url
-        organizationId: 3
+        organizationId: 2
         createdAt: createdAt
         isDefault: true
-        port: 9
+        port: 3
         createdBy: createdBy
         isLocked: true
         name: name
         namespace: namespace
-        id: 2
+        id: 7
         lastModified: lastModified
         continentName: continentName
         username: username
@@ -54878,11 +54605,10 @@ components:
       type: object
     TicketPriority:
       enum:
-      - 100
-      - 200
-      - 300
-      format: int32
-      type: integer
+      - Low
+      - Medium
+      - High
+      type: string
     ToggleDemoModeCommand:
       additionalProperties: false
       example:
@@ -54939,14 +54665,11 @@ components:
         ticketId: ticketId
       properties:
         ticketId:
-          minLength: 1
+          nullable: true
           type: string
         userId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - ticketId
-      - userId
       type: object
     TriggerTemplateCommand:
       additionalProperties: false
@@ -54959,24 +54682,14 @@ components:
         username: username
       properties:
         organizationName:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         username:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         email:
-          format: email
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - email
-      - organizationName
-      - username
       type: object
     UnbindAppRepositoryCommand:
       additionalProperties: false
@@ -55037,9 +54750,7 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
           nullable: true
@@ -55054,8 +54765,6 @@ components:
           type: integer
         reminder:
           $ref: '#/components/schemas/AlertingReminder'
-      required:
-      - id
       type: object
     UpdateAwsCommand:
       additionalProperties: false
@@ -55066,26 +54775,17 @@ components:
         awsSecretAccessKey: awsSecretAccessKey
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         awsSecretAccessKey:
-          minLength: 1
+          nullable: true
           type: string
         awsAccessKeyId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - awsAccessKeyId
-      - awsSecretAccessKey
-      - id
-      - name
       type: object
     UpdateAzureCommand:
       additionalProperties: false
@@ -55096,26 +54796,17 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         azureClientSecret:
-          minLength: 1
+          nullable: true
           type: string
         azureClientId:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - azureClientId
-      - azureClientSecret
-      - id
-      - name
       type: object
     UpdateCatalogDto:
       additionalProperties: false
@@ -55128,6 +54819,23 @@ components:
           type: integer
         isBound:
           type: boolean
+      type: object
+    UpdateHypervisorsCommand:
+      additionalProperties: false
+      example:
+        hypervisors:
+        - hypervisors
+        - hypervisors
+        id: 0
+      properties:
+        id:
+          format: int32
+          type: integer
+        hypervisors:
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     UpdateInvoiceDto:
       additionalProperties: false
@@ -55216,26 +54924,17 @@ components:
         openStackUser: openStackUser
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         openStackUser:
-          minLength: 1
+          nullable: true
           type: string
         openStackPassword:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - id
-      - name
-      - openStackPassword
-      - openStackUser
       type: object
     UpdateOrganizationCommand:
       additionalProperties: false
@@ -55258,12 +54957,10 @@ components:
           format: int32
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         fullName:
-          minLength: 1
+          nullable: true
           type: string
         phone:
           nullable: true
@@ -55294,9 +54991,6 @@ components:
           type: number
         isEligibleUpdateSubscription:
           type: boolean
-      required:
-      - fullName
-      - name
       type: object
     UpdateOrganizationSubscriptionCommand:
       additionalProperties: false
@@ -55369,54 +55063,59 @@ components:
         isBound:
           type: boolean
       type: object
+    UpdateProxmoxCommand:
+      additionalProperties: false
+      example:
+        tokenId: tokenId
+        name: name
+        id: 0
+        tokenSecret: tokenSecret
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          nullable: true
+          type: string
+        tokenId:
+          nullable: true
+          type: string
+        tokenSecret:
+          nullable: true
+          type: string
+      type: object
     UpdateQuotaCommand:
       additionalProperties: false
       example:
-        serverRam: 16118616864787
-        vmCpu: 563738
-        serverDiskSize: 65567362554588
-        vmRam: 25313078315917
+        serverRam: 1
+        vmCpu: 5
+        serverDiskSize: 5
+        vmRam: 2
         quotaId: 0
-        vmVolumeSize: 72309
-        serverCpu: 602746
+        vmVolumeSize: 7
+        serverCpu: 6
       properties:
         quotaId:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         serverCpu:
           format: int64
-          maximum: 1000000
-          minimum: 2
           type: integer
         serverRam:
           format: int64
-          maximum: 109951162777600
-          minimum: 2147483648
           type: integer
         serverDiskSize:
           format: int64
-          maximum: 109951162777600
-          minimum: 32212254720
           type: integer
         vmCpu:
           format: int64
-          maximum: 1000000
-          minimum: 1
           type: integer
         vmRam:
           format: int64
-          maximum: 109951162777600
-          minimum: 1073741824
           type: integer
         vmVolumeSize:
           format: int64
-          maximum: 102400
-          minimum: 1
           type: integer
-      required:
-      - quotaId
       type: object
     UpdateServerCommand:
       additionalProperties: false
@@ -55428,14 +55127,10 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         ip:
-          maxLength: 300
-          minLength: 3
-          pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+          nullable: true
           type: string
         instanceId:
           nullable: true
@@ -55446,9 +55141,6 @@ components:
         awsHostName:
           nullable: true
           type: string
-      required:
-      - id
-      - ip
       type: object
     UpdateServerHealthDto:
       additionalProperties: false
@@ -55506,9 +55198,7 @@ components:
         revision: 6
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         ipAddress:
           nullable: true
@@ -55531,8 +55221,6 @@ components:
             $ref: '#/components/schemas/UpdateStandAloneVmDiskDto'
           nullable: true
           type: array
-      required:
-      - id
       type: object
     UpdateStandAloneVmDiskDto:
       additionalProperties: false
@@ -55558,16 +55246,11 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         flavor:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - flavor
-      - id
       type: object
     UpdateStandaloneVmDiskCommand:
       additionalProperties: false
@@ -55598,64 +55281,47 @@ components:
     UpdateSubscriptionCommand:
       additionalProperties: false
       example:
-        serverLimit: 1464
-        yearlyPrice: 70614.01241503109
-        projectLimit: 6027
+        serverLimit: 1
+        yearlyPrice: 7.061401241503109
+        projectLimit: 6
         trialDays: 3
-        cloudCredentialLimit: 5636
-        tcuPrice: 930144.4243932576
+        cloudCredentialLimit: 5
+        tcuPrice: 9.301444243932576
         name: name
         id: 0
-        userLimit: 5961
-        monthlyPrice: 23021.358869347652
+        userLimit: 5
+        monthlyPrice: 2.3021358869347655
       properties:
         id:
           format: int32
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
+          nullable: true
           type: string
         projectLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         serverLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         userLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         cloudCredentialLimit:
           format: int32
-          maximum: 10000
-          minimum: -1
           type: integer
         monthlyPrice:
           format: double
-          maximum: 100000
-          minimum: 0
           type: number
         yearlyPrice:
           format: double
-          maximum: 100000
-          minimum: 0
           type: number
         tcuPrice:
           format: double
-          maximum: 1000000
-          minimum: 0
           type: number
         trialDays:
           format: int32
           type: integer
-      required:
-      - name
       type: object
     UpdateTanzuCommand:
       additionalProperties: false
@@ -55665,23 +55331,14 @@ components:
         id: 0
       properties:
         id:
-          exclusiveMinimum: true
           format: int32
-          minimum: 0
           type: integer
         name:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         password:
-          maxLength: 100
-          minLength: 3
+          nullable: true
           type: string
-      required:
-      - id
-      - name
-      - password
       type: object
     UpdateUserCommand:
       additionalProperties: false
@@ -55696,21 +55353,16 @@ components:
         username: username
       properties:
         id:
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         displayName:
           nullable: true
           type: string
         username:
-          maxLength: 30
-          minLength: 3
-          pattern: "^(?!.*([-])\\1)(?!.*[.-]$)(?!.*(-\\.|\\.-|\\.\\.))[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+          nullable: true
           type: string
         email:
-          format: email
-          maxLength: 200
-          minLength: 3
+          nullable: true
           type: string
         role:
           $ref: '#/components/schemas/UserRole'
@@ -55720,10 +55372,6 @@ components:
           type: boolean
         isApprovedByPartner:
           type: boolean
-      required:
-      - email
-      - id
-      - username
       type: object
     UpdateUserGroupDto:
       additionalProperties: false
@@ -55768,7 +55416,7 @@ components:
         trialDays: 5
         data:
           owner: true
-          role: role
+          role: null
           organizationName: organizationName
           hasRepo: true
           displayName: displayName
@@ -55845,7 +55493,7 @@ components:
       additionalProperties: false
       example:
         owner: true
-        role: role
+        role: null
         organizationName: organizationName
         hasRepo: true
         displayName: displayName
@@ -55894,8 +55542,7 @@ components:
           format: int32
           type: integer
         role:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/UserRole'
         email:
           nullable: true
           type: string
@@ -56103,13 +55750,12 @@ components:
       type: object
     UserRole:
       enum:
-      - 100
-      - 200
-      - 250
-      - 400
-      - 6000
-      format: int32
-      type: integer
+      - Admin
+      - Manager
+      - Partner
+      - User
+      - Autoscaler
+      type: string
     UserTokenCreateCommand:
       additionalProperties: false
       example:
@@ -56192,7 +55838,7 @@ components:
       example:
         data:
         - owner: true
-          role: role
+          role: null
           organizationName: organizationName
           hasRepo: true
           displayName: displayName
@@ -56224,7 +55870,7 @@ components:
           username: username
           isEmailConfirmed: true
         - owner: true
-          role: role
+          role: null
           organizationName: organizationName
           hasRepo: true
           displayName: displayName
@@ -56372,10 +56018,8 @@ components:
         url: url
       properties:
         url:
-          minLength: 1
+          nullable: true
           type: string
-      required:
-      - url
       type: object
     VmConsoleScreenshotCommand:
       additionalProperties: false
@@ -56389,23 +56033,24 @@ components:
     VmTemplateListCommand:
       additionalProperties: false
       example:
-        password: password
+        tokenId: tokenId
+        cloudId: 0
         url: url
-        username: username
+        tokenSecret: tokenSecret
       properties:
+        cloudId:
+          format: int32
+          nullable: true
+          type: integer
         url:
-          minLength: 1
+          nullable: true
           type: string
-        username:
-          minLength: 1
+        tokenId:
+          nullable: true
           type: string
-        password:
-          minLength: 1
+        tokenSecret:
+          nullable: true
           type: string
-      required:
-      - password
-      - url
-      - username
       type: object
     WebhookHeaderDto:
       additionalProperties: false

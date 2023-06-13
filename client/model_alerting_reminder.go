@@ -17,26 +17,26 @@ import (
 )
 
 // AlertingReminder the model 'AlertingReminder'
-type AlertingReminder int32
+type AlertingReminder string
 
 // List of AlertingReminder
 const (
-	ALERTINGREMINDER__100 AlertingReminder = 100
-	ALERTINGREMINDER__200 AlertingReminder = 200
-	ALERTINGREMINDER__300 AlertingReminder = 300
-	ALERTINGREMINDER__MINUS_1 AlertingReminder = -1
+	ALERTINGREMINDER_HALF_HOUR AlertingReminder = "HalfHour"
+	ALERTINGREMINDER_HOURLY AlertingReminder = "Hourly"
+	ALERTINGREMINDER_DAILY AlertingReminder = "Daily"
+	ALERTINGREMINDER_NONE AlertingReminder = "None"
 )
 
 // All allowed values of AlertingReminder enum
 var AllowedAlertingReminderEnumValues = []AlertingReminder{
-	100,
-	200,
-	300,
-	-1,
+	"HalfHour",
+	"Hourly",
+	"Daily",
+	"None",
 }
 
 func (v *AlertingReminder) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -54,7 +54,7 @@ func (v *AlertingReminder) UnmarshalJSON(src []byte) error {
 
 // NewAlertingReminderFromValue returns a pointer to a valid AlertingReminder
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewAlertingReminderFromValue(v int32) (*AlertingReminder, error) {
+func NewAlertingReminderFromValue(v string) (*AlertingReminder, error) {
 	ev := AlertingReminder(v)
 	if ev.IsValid() {
 		return &ev, nil

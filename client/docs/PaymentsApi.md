@@ -94,7 +94,7 @@ import (
 )
 
 func main() {
-    createStripeCustomerCommand := *openapiclient.NewCreateStripeCustomerCommand("Country_example") // CreateStripeCustomerCommand |  (optional)
+    createStripeCustomerCommand := *openapiclient.NewCreateStripeCustomerCommand() // CreateStripeCustomerCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -284,7 +284,7 @@ import (
 )
 
 func main() {
-    changeCardCommand := *openapiclient.NewChangeCardCommand("PaymentMethodId_example") // ChangeCardCommand | 
+    changeCardCommand := *openapiclient.NewChangeCardCommand() // ChangeCardCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

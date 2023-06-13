@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createSshUserCommand := *openapiclient.NewCreateSshUserCommand("Name_example", "SshPublicKey_example", int32(123)) // CreateSshUserCommand | 
+    createSshUserCommand := *openapiclient.NewCreateSshUserCommand() // CreateSshUserCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -156,7 +156,7 @@ import (
 )
 
 func main() {
-    editSshUserCommand := *openapiclient.NewEditSshUserCommand(int32(123), "Name_example", "SshPublicKey_example", int32(123)) // EditSshUserCommand |  (optional)
+    editSshUserCommand := *openapiclient.NewEditSshUserCommand() // EditSshUserCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

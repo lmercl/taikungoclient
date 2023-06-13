@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Url** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
 **Token** | Pointer to **NullableString** |  | [optional] 
-**AlertingIntegrationType** | [**AlertingIntegrationType**](AlertingIntegrationType.md) |  | 
-**AlertingProfileId** | **int32** |  | 
+**AlertingIntegrationType** | Pointer to [**AlertingIntegrationType**](AlertingIntegrationType.md) |  | [optional] 
+**AlertingProfileId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewEditAlertingIntegrationCommand
 
-`func NewEditAlertingIntegrationCommand(id int32, url string, alertingIntegrationType AlertingIntegrationType, alertingProfileId int32, ) *EditAlertingIntegrationCommand`
+`func NewEditAlertingIntegrationCommand() *EditAlertingIntegrationCommand`
 
 NewEditAlertingIntegrationCommand instantiates a new EditAlertingIntegrationCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *EditAlertingIntegrationCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -68,7 +73,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *EditAlertingIntegrationCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *EditAlertingIntegrationCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *EditAlertingIntegrationCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetToken
 
 `func (o *EditAlertingIntegrationCommand) GetToken() string`
@@ -123,6 +143,11 @@ and a boolean to check if the value has been set.
 
 SetAlertingIntegrationType sets AlertingIntegrationType field to given value.
 
+### HasAlertingIntegrationType
+
+`func (o *EditAlertingIntegrationCommand) HasAlertingIntegrationType() bool`
+
+HasAlertingIntegrationType returns a boolean if a field has been set.
 
 ### GetAlertingProfileId
 
@@ -143,6 +168,11 @@ and a boolean to check if the value has been set.
 
 SetAlertingProfileId sets AlertingProfileId field to given value.
 
+### HasAlertingProfileId
+
+`func (o *EditAlertingIntegrationCommand) HasAlertingProfileId() bool`
+
+HasAlertingProfileId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

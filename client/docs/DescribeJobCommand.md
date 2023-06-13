@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Name** | **string** |  | 
-**Namespace** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewDescribeJobCommand
 
-`func NewDescribeJobCommand(projectId int32, name string, namespace string, ) *DescribeJobCommand`
+`func NewDescribeJobCommand() *DescribeJobCommand`
 
 NewDescribeJobCommand instantiates a new DescribeJobCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *DescribeJobCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *DescribeJobCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *DescribeJobCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DescribeJobCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *DescribeJobCommand) GetNamespace() string`
@@ -86,7 +106,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *DescribeJobCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *DescribeJobCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *DescribeJobCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,11 +3,11 @@
 ## Enum
 
 
-* `_0` (value: `0`)
+* `SUCCEEDED` (value: `"succeeded"`)
 
-* `_1` (value: `1`)
+* `FAILED` (value: `"failed"`)
 
-* `_2` (value: `2`)
+* `WARNING` (value: `"warning"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

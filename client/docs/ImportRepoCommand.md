@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
-**DisplayName** | **string** |  | 
+**DisplayName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewImportRepoCommand
 
-`func NewImportRepoCommand(name string, displayName string, ) *ImportRepoCommand`
+`func NewImportRepoCommand() *ImportRepoCommand`
 
 NewImportRepoCommand instantiates a new ImportRepoCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *ImportRepoCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *ImportRepoCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ImportRepoCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUrl
 
 `func (o *ImportRepoCommand) GetUrl() string`
@@ -101,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetDisplayName sets DisplayName field to given value.
 
+### HasDisplayName
 
+`func (o *ImportRepoCommand) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
+
+### SetDisplayNameNil
+
+`func (o *ImportRepoCommand) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *ImportRepoCommand) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

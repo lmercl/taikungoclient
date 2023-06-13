@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **ForbidNodePort** | Pointer to **bool** |  | [optional] 
 **ForbidHttpIngress** | Pointer to **bool** |  | [optional] 
 **RequireProbe** | Pointer to **bool** |  | [optional] 
 **UniqueIngresses** | Pointer to **bool** |  | [optional] 
 **UniqueServiceSelector** | Pointer to **bool** |  | [optional] 
+**ForcePodResource** | Pointer to **bool** |  | [optional] 
 **AllowedRepo** | Pointer to **[]string** |  | [optional] 
 **ForbidSpecificTags** | Pointer to **[]string** |  | [optional] 
 **IngressWhitelist** | Pointer to **[]string** |  | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCreateOpaProfileCommand
 
-`func NewCreateOpaProfileCommand(name string, ) *CreateOpaProfileCommand`
+`func NewCreateOpaProfileCommand() *CreateOpaProfileCommand`
 
 NewCreateOpaProfileCommand instantiates a new CreateOpaProfileCommand object
 This constructor will assign default values to properties that have it defined,
@@ -53,7 +54,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateOpaProfileCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateOpaProfileCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateOpaProfileCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetForbidNodePort
 
 `func (o *CreateOpaProfileCommand) GetForbidNodePort() bool`
@@ -178,6 +194,31 @@ SetUniqueServiceSelector sets UniqueServiceSelector field to given value.
 `func (o *CreateOpaProfileCommand) HasUniqueServiceSelector() bool`
 
 HasUniqueServiceSelector returns a boolean if a field has been set.
+
+### GetForcePodResource
+
+`func (o *CreateOpaProfileCommand) GetForcePodResource() bool`
+
+GetForcePodResource returns the ForcePodResource field if non-nil, zero value otherwise.
+
+### GetForcePodResourceOk
+
+`func (o *CreateOpaProfileCommand) GetForcePodResourceOk() (*bool, bool)`
+
+GetForcePodResourceOk returns a tuple with the ForcePodResource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForcePodResource
+
+`func (o *CreateOpaProfileCommand) SetForcePodResource(v bool)`
+
+SetForcePodResource sets ForcePodResource field to given value.
+
+### HasForcePodResource
+
+`func (o *CreateOpaProfileCommand) HasForcePodResource() bool`
+
+HasForcePodResource returns a boolean if a field has been set.
 
 ### GetAllowedRepo
 

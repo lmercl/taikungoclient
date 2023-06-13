@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **HttpProxy** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **SshUsers** | Pointer to [**[]SshUserCreateDto**](SshUserCreateDto.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCreateAccessProfileCommand
 
-`func NewCreateAccessProfileCommand(name string, ) *CreateAccessProfileCommand`
+`func NewCreateAccessProfileCommand() *CreateAccessProfileCommand`
 
 NewCreateAccessProfileCommand instantiates a new CreateAccessProfileCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateAccessProfileCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateAccessProfileCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateAccessProfileCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetHttpProxy
 
 `func (o *CreateAccessProfileCommand) GetHttpProxy() string`

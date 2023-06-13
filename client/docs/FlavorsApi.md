@@ -513,8 +513,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := int32(56) // int32 |  (optional)
-    endRam := int32(56) // int32 |  (optional)
+    startRam := int64(789) // int64 |  (optional)
+    endRam := int64(789) // int64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -551,8 +551,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **int32** |  | 
- **endRam** | **int32** |  | 
+ **startRam** | **int64** |  | 
+ **endRam** | **int64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 

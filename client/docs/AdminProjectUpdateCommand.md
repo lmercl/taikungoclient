@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**KubernetesCurrentVersion** | **string** |  | 
-**KubesprayCurrentVersion** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**KubernetesCurrentVersion** | Pointer to **NullableString** |  | [optional] 
+**KubesprayCurrentVersion** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAdminProjectUpdateCommand
 
-`func NewAdminProjectUpdateCommand(id int32, kubernetesCurrentVersion string, kubesprayCurrentVersion string, ) *AdminProjectUpdateCommand`
+`func NewAdminProjectUpdateCommand() *AdminProjectUpdateCommand`
 
 NewAdminProjectUpdateCommand instantiates a new AdminProjectUpdateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *AdminProjectUpdateCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetKubernetesCurrentVersion
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetKubernetesCurrentVersion sets KubernetesCurrentVersion field to given value.
 
+### HasKubernetesCurrentVersion
 
+`func (o *AdminProjectUpdateCommand) HasKubernetesCurrentVersion() bool`
+
+HasKubernetesCurrentVersion returns a boolean if a field has been set.
+
+### SetKubernetesCurrentVersionNil
+
+`func (o *AdminProjectUpdateCommand) SetKubernetesCurrentVersionNil(b bool)`
+
+ SetKubernetesCurrentVersionNil sets the value for KubernetesCurrentVersion to be an explicit nil
+
+### UnsetKubernetesCurrentVersion
+`func (o *AdminProjectUpdateCommand) UnsetKubernetesCurrentVersion()`
+
+UnsetKubernetesCurrentVersion ensures that no value is present for KubernetesCurrentVersion, not even an explicit nil
 ### GetKubesprayCurrentVersion
 
 `func (o *AdminProjectUpdateCommand) GetKubesprayCurrentVersion() string`
@@ -86,7 +106,22 @@ and a boolean to check if the value has been set.
 
 SetKubesprayCurrentVersion sets KubesprayCurrentVersion field to given value.
 
+### HasKubesprayCurrentVersion
 
+`func (o *AdminProjectUpdateCommand) HasKubesprayCurrentVersion() bool`
+
+HasKubesprayCurrentVersion returns a boolean if a field has been set.
+
+### SetKubesprayCurrentVersionNil
+
+`func (o *AdminProjectUpdateCommand) SetKubesprayCurrentVersionNil(b bool)`
+
+ SetKubesprayCurrentVersionNil sets the value for KubesprayCurrentVersion to be an explicit nil
+
+### UnsetKubesprayCurrentVersion
+`func (o *AdminProjectUpdateCommand) UnsetKubesprayCurrentVersion()`
+
+UnsetKubesprayCurrentVersion ensures that no value is present for KubesprayCurrentVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

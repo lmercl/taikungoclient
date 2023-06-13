@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | 
-**Username** | **string** |  | 
-**Password** | **string** |  | 
-**Hypervisor** | **string** |  | 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
+**Hypervisor** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewBridgeListCommand
 
-`func NewBridgeListCommand(url string, username string, password string, hypervisor string, ) *BridgeListCommand`
+`func NewBridgeListCommand() *BridgeListCommand`
 
 NewBridgeListCommand instantiates a new BridgeListCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,47 +47,92 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
-### GetUsername
+`func (o *BridgeListCommand) HasUrl() bool`
 
-`func (o *BridgeListCommand) GetUsername() string`
+HasUrl returns a boolean if a field has been set.
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+### SetUrlNil
 
-### GetUsernameOk
+`func (o *BridgeListCommand) SetUrlNil(b bool)`
 
-`func (o *BridgeListCommand) GetUsernameOk() (*string, bool)`
+ SetUrlNil sets the value for Url to be an explicit nil
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+### UnsetUrl
+`func (o *BridgeListCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
+### GetTokenId
+
+`func (o *BridgeListCommand) GetTokenId() string`
+
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
+
+### GetTokenIdOk
+
+`func (o *BridgeListCommand) GetTokenIdOk() (*string, bool)`
+
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *BridgeListCommand) SetUsername(v string)`
+`func (o *BridgeListCommand) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
+### HasTokenId
 
-### GetPassword
+`func (o *BridgeListCommand) HasTokenId() bool`
 
-`func (o *BridgeListCommand) GetPassword() string`
+HasTokenId returns a boolean if a field has been set.
 
-GetPassword returns the Password field if non-nil, zero value otherwise.
+### SetTokenIdNil
 
-### GetPasswordOk
+`func (o *BridgeListCommand) SetTokenIdNil(b bool)`
 
-`func (o *BridgeListCommand) GetPasswordOk() (*string, bool)`
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+### UnsetTokenId
+`func (o *BridgeListCommand) UnsetTokenId()`
+
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+### GetTokenSecret
+
+`func (o *BridgeListCommand) GetTokenSecret() string`
+
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
+
+### GetTokenSecretOk
+
+`func (o *BridgeListCommand) GetTokenSecretOk() (*string, bool)`
+
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPassword
+### SetTokenSecret
 
-`func (o *BridgeListCommand) SetPassword(v string)`
+`func (o *BridgeListCommand) SetTokenSecret(v string)`
 
-SetPassword sets Password field to given value.
+SetTokenSecret sets TokenSecret field to given value.
 
+### HasTokenSecret
 
+`func (o *BridgeListCommand) HasTokenSecret() bool`
+
+HasTokenSecret returns a boolean if a field has been set.
+
+### SetTokenSecretNil
+
+`func (o *BridgeListCommand) SetTokenSecretNil(b bool)`
+
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+
+### UnsetTokenSecret
+`func (o *BridgeListCommand) UnsetTokenSecret()`
+
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 ### GetHypervisor
 
 `func (o *BridgeListCommand) GetHypervisor() string`
@@ -107,7 +152,22 @@ and a boolean to check if the value has been set.
 
 SetHypervisor sets Hypervisor field to given value.
 
+### HasHypervisor
 
+`func (o *BridgeListCommand) HasHypervisor() bool`
+
+HasHypervisor returns a boolean if a field has been set.
+
+### SetHypervisorNil
+
+`func (o *BridgeListCommand) SetHypervisorNil(b bool)`
+
+ SetHypervisorNil sets the value for Hypervisor to be an explicit nil
+
+### UnsetHypervisor
+`func (o *BridgeListCommand) UnsetHypervisor()`
+
+UnsetHypervisor ensures that no value is present for Hypervisor, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

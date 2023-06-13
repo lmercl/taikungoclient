@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateQuotaCommand{}
 
 // UpdateQuotaCommand struct for UpdateQuotaCommand
 type UpdateQuotaCommand struct {
-	QuotaId int32 `json:"quotaId"`
+	QuotaId *int32 `json:"quotaId,omitempty"`
 	ServerCpu *int64 `json:"serverCpu,omitempty"`
 	ServerRam *int64 `json:"serverRam,omitempty"`
 	ServerDiskSize *int64 `json:"serverDiskSize,omitempty"`
@@ -33,9 +33,8 @@ type UpdateQuotaCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateQuotaCommand(quotaId int32) *UpdateQuotaCommand {
+func NewUpdateQuotaCommand() *UpdateQuotaCommand {
 	this := UpdateQuotaCommand{}
-	this.QuotaId = quotaId
 	return &this
 }
 
@@ -47,28 +46,36 @@ func NewUpdateQuotaCommandWithDefaults() *UpdateQuotaCommand {
 	return &this
 }
 
-// GetQuotaId returns the QuotaId field value
+// GetQuotaId returns the QuotaId field value if set, zero value otherwise.
 func (o *UpdateQuotaCommand) GetQuotaId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.QuotaId) {
 		var ret int32
 		return ret
 	}
-
-	return o.QuotaId
+	return *o.QuotaId
 }
 
-// GetQuotaIdOk returns a tuple with the QuotaId field value
+// GetQuotaIdOk returns a tuple with the QuotaId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateQuotaCommand) GetQuotaIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.QuotaId) {
 		return nil, false
 	}
-	return &o.QuotaId, true
+	return o.QuotaId, true
 }
 
-// SetQuotaId sets field value
+// HasQuotaId returns a boolean if a field has been set.
+func (o *UpdateQuotaCommand) HasQuotaId() bool {
+	if o != nil && !IsNil(o.QuotaId) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuotaId gets a reference to the given int32 and assigns it to the QuotaId field.
 func (o *UpdateQuotaCommand) SetQuotaId(v int32) {
-	o.QuotaId = v
+	o.QuotaId = &v
 }
 
 // GetServerCpu returns the ServerCpu field value if set, zero value otherwise.
@@ -273,7 +280,9 @@ func (o UpdateQuotaCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateQuotaCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["quotaId"] = o.QuotaId
+	if !IsNil(o.QuotaId) {
+		toSerialize["quotaId"] = o.QuotaId
+	}
 	if !IsNil(o.ServerCpu) {
 		toSerialize["serverCpu"] = o.ServerCpu
 	}

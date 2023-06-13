@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    createSlackConfigurationCommand := *openapiclient.NewCreateSlackConfigurationCommand("Name_example", "Url_example", "Channel_example") // CreateSlackConfigurationCommand | 
+    createSlackConfigurationCommand := *openapiclient.NewCreateSlackConfigurationCommand() // CreateSlackConfigurationCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -120,7 +120,7 @@ import (
 )
 
 func main() {
-    createProjectCommand := *openapiclient.NewCreateProjectCommand("Name_example", int32(123)) // CreateProjectCommand |  (optional)
+    createProjectCommand := *openapiclient.NewCreateProjectCommand() // CreateProjectCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ## ProjectsDropdown
 
-> []CommonDropdownIsBoundDtoForProject ProjectsDropdown(ctx).OrganizationId(organizationId).Search(search).CatalogId(catalogId).Healthy(healthy).UserId(userId).Execute()
+> []CommonDropdownIsBoundDtoForProject ProjectsDropdown(ctx).OrganizationId(organizationId).Search(search).CatalogId(catalogId).Healthy(healthy).UserId(userId).Ready(ready).Execute()
 
 Retrieve list of projects for dropdown
 
@@ -451,10 +451,11 @@ func main() {
     catalogId := int32(56) // int32 |  (optional)
     healthy := true // bool |  (optional)
     userId := "userId_example" // string |  (optional)
+    ready := true // bool |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ProjectsDropdown(context.Background()).OrganizationId(organizationId).Search(search).CatalogId(catalogId).Healthy(healthy).UserId(userId).Execute()
+    resp, r, err := apiClient.ProjectsApi.ProjectsDropdown(context.Background()).OrganizationId(organizationId).Search(search).CatalogId(catalogId).Healthy(healthy).UserId(userId).Ready(ready).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ProjectsDropdown``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -480,6 +481,7 @@ Name | Type | Description  | Notes
  **catalogId** | **int32** |  | 
  **healthy** | **bool** |  | 
  **userId** | **string** |  | 
+ **ready** | **bool** |  | 
 
 ### Return type
 
@@ -587,7 +589,7 @@ import (
 
 func main() {
     projectId := int32(56) // int32 | 
-    body := int32(56) // int32 | 
+    body := string(987) // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -615,7 +617,7 @@ Other parameters are passed through a pointer to a apiProjectsEditHealthRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | **int32** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -655,7 +657,7 @@ import (
 
 func main() {
     projectId := int32(56) // int32 | 
-    body := int32(56) // int32 | 
+    body := string(987) // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -683,7 +685,7 @@ Other parameters are passed through a pointer to a apiProjectsEditStatusRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | **int32** |  | 
+ **body** | **string** |  | 
 
 ### Return type
 
@@ -722,7 +724,7 @@ import (
 )
 
 func main() {
-    projectExtendLifeTimeCommand := *openapiclient.NewProjectExtendLifeTimeCommand(int32(123)) // ProjectExtendLifeTimeCommand | 
+    projectExtendLifeTimeCommand := *openapiclient.NewProjectExtendLifeTimeCommand() // ProjectExtendLifeTimeCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

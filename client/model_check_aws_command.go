@@ -20,20 +20,17 @@ var _ MappedNullable = &CheckAwsCommand{}
 
 // CheckAwsCommand struct for CheckAwsCommand
 type CheckAwsCommand struct {
-	AwsAccessKeyId string `json:"awsAccessKeyId"`
-	AwsSecretAccessKey string `json:"awsSecretAccessKey"`
-	Region string `json:"region"`
+	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty"`
+	AwsSecretAccessKey NullableString `json:"awsSecretAccessKey,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 }
 
 // NewCheckAwsCommand instantiates a new CheckAwsCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCheckAwsCommand(awsAccessKeyId string, awsSecretAccessKey string, region string) *CheckAwsCommand {
+func NewCheckAwsCommand() *CheckAwsCommand {
 	this := CheckAwsCommand{}
-	this.AwsAccessKeyId = awsAccessKeyId
-	this.AwsSecretAccessKey = awsSecretAccessKey
-	this.Region = region
 	return &this
 }
 
@@ -45,76 +42,130 @@ func NewCheckAwsCommandWithDefaults() *CheckAwsCommand {
 	return &this
 }
 
-// GetAwsAccessKeyId returns the AwsAccessKeyId field value
+// GetAwsAccessKeyId returns the AwsAccessKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckAwsCommand) GetAwsAccessKeyId() string {
-	if o == nil {
+	if o == nil || IsNil(o.AwsAccessKeyId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.AwsAccessKeyId
+	return *o.AwsAccessKeyId.Get()
 }
 
-// GetAwsAccessKeyIdOk returns a tuple with the AwsAccessKeyId field value
+// GetAwsAccessKeyIdOk returns a tuple with the AwsAccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckAwsCommand) GetAwsAccessKeyIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AwsAccessKeyId, true
+	return o.AwsAccessKeyId.Get(), o.AwsAccessKeyId.IsSet()
 }
 
-// SetAwsAccessKeyId sets field value
+// HasAwsAccessKeyId returns a boolean if a field has been set.
+func (o *CheckAwsCommand) HasAwsAccessKeyId() bool {
+	if o != nil && o.AwsAccessKeyId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsAccessKeyId gets a reference to the given NullableString and assigns it to the AwsAccessKeyId field.
 func (o *CheckAwsCommand) SetAwsAccessKeyId(v string) {
-	o.AwsAccessKeyId = v
+	o.AwsAccessKeyId.Set(&v)
+}
+// SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
+func (o *CheckAwsCommand) SetAwsAccessKeyIdNil() {
+	o.AwsAccessKeyId.Set(nil)
 }
 
-// GetAwsSecretAccessKey returns the AwsSecretAccessKey field value
+// UnsetAwsAccessKeyId ensures that no value is present for AwsAccessKeyId, not even an explicit nil
+func (o *CheckAwsCommand) UnsetAwsAccessKeyId() {
+	o.AwsAccessKeyId.Unset()
+}
+
+// GetAwsSecretAccessKey returns the AwsSecretAccessKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckAwsCommand) GetAwsSecretAccessKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.AwsSecretAccessKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.AwsSecretAccessKey
+	return *o.AwsSecretAccessKey.Get()
 }
 
-// GetAwsSecretAccessKeyOk returns a tuple with the AwsSecretAccessKey field value
+// GetAwsSecretAccessKeyOk returns a tuple with the AwsSecretAccessKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckAwsCommand) GetAwsSecretAccessKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AwsSecretAccessKey, true
+	return o.AwsSecretAccessKey.Get(), o.AwsSecretAccessKey.IsSet()
 }
 
-// SetAwsSecretAccessKey sets field value
+// HasAwsSecretAccessKey returns a boolean if a field has been set.
+func (o *CheckAwsCommand) HasAwsSecretAccessKey() bool {
+	if o != nil && o.AwsSecretAccessKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsSecretAccessKey gets a reference to the given NullableString and assigns it to the AwsSecretAccessKey field.
 func (o *CheckAwsCommand) SetAwsSecretAccessKey(v string) {
-	o.AwsSecretAccessKey = v
+	o.AwsSecretAccessKey.Set(&v)
+}
+// SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
+func (o *CheckAwsCommand) SetAwsSecretAccessKeyNil() {
+	o.AwsSecretAccessKey.Set(nil)
 }
 
-// GetRegion returns the Region field value
+// UnsetAwsSecretAccessKey ensures that no value is present for AwsSecretAccessKey, not even an explicit nil
+func (o *CheckAwsCommand) UnsetAwsSecretAccessKey() {
+	o.AwsSecretAccessKey.Unset()
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CheckAwsCommand) GetRegion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Region
+	return *o.Region.Get()
 }
 
-// GetRegionOk returns a tuple with the Region field value
+// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CheckAwsCommand) GetRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion sets field value
+// HasRegion returns a boolean if a field has been set.
+func (o *CheckAwsCommand) HasRegion() bool {
+	if o != nil && o.Region.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *CheckAwsCommand) SetRegion(v string) {
-	o.Region = v
+	o.Region.Set(&v)
+}
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *CheckAwsCommand) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *CheckAwsCommand) UnsetRegion() {
+	o.Region.Unset()
 }
 
 func (o CheckAwsCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +178,15 @@ func (o CheckAwsCommand) MarshalJSON() ([]byte, error) {
 
 func (o CheckAwsCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["awsAccessKeyId"] = o.AwsAccessKeyId
-	toSerialize["awsSecretAccessKey"] = o.AwsSecretAccessKey
-	toSerialize["region"] = o.Region
+	if o.AwsAccessKeyId.IsSet() {
+		toSerialize["awsAccessKeyId"] = o.AwsAccessKeyId.Get()
+	}
+	if o.AwsSecretAccessKey.IsSet() {
+		toSerialize["awsSecretAccessKey"] = o.AwsSecretAccessKey.Get()
+	}
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
+	}
 	return toSerialize, nil
 }
 

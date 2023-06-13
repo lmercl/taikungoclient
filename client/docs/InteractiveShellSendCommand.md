@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Token** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Token** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewInteractiveShellSendCommand
 
-`func NewInteractiveShellSendCommand(projectId int32, token string, ) *InteractiveShellSendCommand`
+`func NewInteractiveShellSendCommand() *InteractiveShellSendCommand`
 
 NewInteractiveShellSendCommand instantiates a new InteractiveShellSendCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *InteractiveShellSendCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetToken
 
@@ -65,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+### HasToken
 
+`func (o *InteractiveShellSendCommand) HasToken() bool`
+
+HasToken returns a boolean if a field has been set.
+
+### SetTokenNil
+
+`func (o *InteractiveShellSendCommand) SetTokenNil(b bool)`
+
+ SetTokenNil sets the value for Token to be an explicit nil
+
+### UnsetToken
+`func (o *InteractiveShellSendCommand) UnsetToken()`
+
+UnsetToken ensures that no value is present for Token, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

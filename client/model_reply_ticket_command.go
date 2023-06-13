@@ -20,18 +20,16 @@ var _ MappedNullable = &ReplyTicketCommand{}
 
 // ReplyTicketCommand struct for ReplyTicketCommand
 type ReplyTicketCommand struct {
-	TicketId string `json:"ticketId"`
-	Body string `json:"body"`
+	TicketId NullableString `json:"ticketId,omitempty"`
+	Body NullableString `json:"body,omitempty"`
 }
 
 // NewReplyTicketCommand instantiates a new ReplyTicketCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReplyTicketCommand(ticketId string, body string) *ReplyTicketCommand {
+func NewReplyTicketCommand() *ReplyTicketCommand {
 	this := ReplyTicketCommand{}
-	this.TicketId = ticketId
-	this.Body = body
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewReplyTicketCommandWithDefaults() *ReplyTicketCommand {
 	return &this
 }
 
-// GetTicketId returns the TicketId field value
+// GetTicketId returns the TicketId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ReplyTicketCommand) GetTicketId() string {
-	if o == nil {
+	if o == nil || IsNil(o.TicketId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.TicketId
+	return *o.TicketId.Get()
 }
 
-// GetTicketIdOk returns a tuple with the TicketId field value
+// GetTicketIdOk returns a tuple with the TicketId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReplyTicketCommand) GetTicketIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TicketId, true
+	return o.TicketId.Get(), o.TicketId.IsSet()
 }
 
-// SetTicketId sets field value
+// HasTicketId returns a boolean if a field has been set.
+func (o *ReplyTicketCommand) HasTicketId() bool {
+	if o != nil && o.TicketId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTicketId gets a reference to the given NullableString and assigns it to the TicketId field.
 func (o *ReplyTicketCommand) SetTicketId(v string) {
-	o.TicketId = v
+	o.TicketId.Set(&v)
+}
+// SetTicketIdNil sets the value for TicketId to be an explicit nil
+func (o *ReplyTicketCommand) SetTicketIdNil() {
+	o.TicketId.Set(nil)
 }
 
-// GetBody returns the Body field value
+// UnsetTicketId ensures that no value is present for TicketId, not even an explicit nil
+func (o *ReplyTicketCommand) UnsetTicketId() {
+	o.TicketId.Unset()
+}
+
+// GetBody returns the Body field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ReplyTicketCommand) GetBody() string {
-	if o == nil {
+	if o == nil || IsNil(o.Body.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Body
+	return *o.Body.Get()
 }
 
-// GetBodyOk returns a tuple with the Body field value
+// GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReplyTicketCommand) GetBodyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Body, true
+	return o.Body.Get(), o.Body.IsSet()
 }
 
-// SetBody sets field value
+// HasBody returns a boolean if a field has been set.
+func (o *ReplyTicketCommand) HasBody() bool {
+	if o != nil && o.Body.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBody gets a reference to the given NullableString and assigns it to the Body field.
 func (o *ReplyTicketCommand) SetBody(v string) {
-	o.Body = v
+	o.Body.Set(&v)
+}
+// SetBodyNil sets the value for Body to be an explicit nil
+func (o *ReplyTicketCommand) SetBodyNil() {
+	o.Body.Set(nil)
+}
+
+// UnsetBody ensures that no value is present for Body, not even an explicit nil
+func (o *ReplyTicketCommand) UnsetBody() {
+	o.Body.Unset()
 }
 
 func (o ReplyTicketCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o ReplyTicketCommand) MarshalJSON() ([]byte, error) {
 
 func (o ReplyTicketCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["ticketId"] = o.TicketId
-	toSerialize["body"] = o.Body
+	if o.TicketId.IsSet() {
+		toSerialize["ticketId"] = o.TicketId.Get()
+	}
+	if o.Body.IsSet() {
+		toSerialize["body"] = o.Body.Get()
+	}
 	return toSerialize, nil
 }
 

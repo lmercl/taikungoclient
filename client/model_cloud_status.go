@@ -17,36 +17,36 @@ import (
 )
 
 // CloudStatus the model 'CloudStatus'
-type CloudStatus int32
+type CloudStatus string
 
 // List of CloudStatus
 const (
-	CLOUDSTATUS__100 CloudStatus = 100
-	CLOUDSTATUS__200 CloudStatus = 200
-	CLOUDSTATUS__250 CloudStatus = 250
-	CLOUDSTATUS__300 CloudStatus = 300
-	CLOUDSTATUS__400 CloudStatus = 400
-	CLOUDSTATUS__500 CloudStatus = 500
-	CLOUDSTATUS__600 CloudStatus = 600
-	CLOUDSTATUS__700 CloudStatus = 700
-	CLOUDSTATUS__800 CloudStatus = 800
+	CLOUDSTATUS_DELETING CloudStatus = "Deleting"
+	CLOUDSTATUS_FAILURE CloudStatus = "Failure"
+	CLOUDSTATUS_FAILED_UPGRADE CloudStatus = "FailedUpgrade"
+	CLOUDSTATUS_WAITING CloudStatus = "Waiting"
+	CLOUDSTATUS_PENDING_DELETE CloudStatus = "PendingDelete"
+	CLOUDSTATUS_PENDING_UPGRADE CloudStatus = "PendingUpgrade"
+	CLOUDSTATUS_READY CloudStatus = "Ready"
+	CLOUDSTATUS_UPDATING CloudStatus = "Updating"
+	CLOUDSTATUS_UPGRADING CloudStatus = "Upgrading"
 )
 
 // All allowed values of CloudStatus enum
 var AllowedCloudStatusEnumValues = []CloudStatus{
-	100,
-	200,
-	250,
-	300,
-	400,
-	500,
-	600,
-	700,
-	800,
+	"Deleting",
+	"Failure",
+	"FailedUpgrade",
+	"Waiting",
+	"PendingDelete",
+	"PendingUpgrade",
+	"Ready",
+	"Updating",
+	"Upgrading",
 }
 
 func (v *CloudStatus) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -64,7 +64,7 @@ func (v *CloudStatus) UnmarshalJSON(src []byte) error {
 
 // NewCloudStatusFromValue returns a pointer to a valid CloudStatus
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCloudStatusFromValue(v int32) (*CloudStatus, error) {
+func NewCloudStatusFromValue(v string) (*CloudStatus, error) {
 	ev := CloudStatus(v)
 	if ev.IsValid() {
 		return &ev, nil

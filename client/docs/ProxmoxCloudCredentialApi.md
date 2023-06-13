@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**ProxmoxHypervisorList**](ProxmoxCloudCredentialApi.md#ProxmoxHypervisorList) | **Post** /api/v1/proxmox/hypervisor-list | Fetch proxmox hypervisor list
 [**ProxmoxList**](ProxmoxCloudCredentialApi.md#ProxmoxList) | **Get** /api/v1/proxmox/list | Retrieve list of proxmox cloud credentials
 [**ProxmoxStorageList**](ProxmoxCloudCredentialApi.md#ProxmoxStorageList) | **Post** /api/v1/proxmox/storage-list | Fetch proxmox storage list
+[**ProxmoxUpdate**](ProxmoxCloudCredentialApi.md#ProxmoxUpdate) | **Post** /api/v1/proxmox/update | Update proxmox credentials
+[**ProxmoxUpdateHypervisors**](ProxmoxCloudCredentialApi.md#ProxmoxUpdateHypervisors) | **Post** /api/v1/proxmox/update/hypervisors | Update proxmox credentials
 [**ProxmoxVmTemplateList**](ProxmoxCloudCredentialApi.md#ProxmoxVmTemplateList) | **Post** /api/v1/proxmox/vm-template-list | Fetch proxmox vm template list
 
 
@@ -32,7 +34,7 @@ import (
 )
 
 func main() {
-    bridgeListCommand := *openapiclient.NewBridgeListCommand("Url_example", "Username_example", "Password_example", "Hypervisor_example") // BridgeListCommand | 
+    bridgeListCommand := *openapiclient.NewBridgeListCommand() // BridgeListCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -96,7 +98,7 @@ import (
 )
 
 func main() {
-    createProxmoxCommand := *openapiclient.NewCreateProxmoxCommand("Name_example", "Username_example", "Url_example", "Password_example", "Storage_example", "VmTemplateName_example") // CreateProxmoxCommand |  (optional)
+    createProxmoxCommand := *openapiclient.NewCreateProxmoxCommand() // CreateProxmoxCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -143,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## ProxmoxHypervisorList
 
-> []string ProxmoxHypervisorList(ctx).HypervisorListCommand(hypervisorListCommand).Execute()
+> []ProxmoxHypervisorDto ProxmoxHypervisorList(ctx).HypervisorListCommand(hypervisorListCommand).Execute()
 
 Fetch proxmox hypervisor list
 
@@ -169,7 +171,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProxmoxCloudCredentialApi.ProxmoxHypervisorList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProxmoxHypervisorList`: []string
+    // response from `ProxmoxHypervisorList`: []ProxmoxHypervisorDto
     fmt.Fprintf(os.Stdout, "Response from `ProxmoxCloudCredentialApi.ProxmoxHypervisorList`: %v\n", resp)
 }
 ```
@@ -189,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]string**
+[**[]ProxmoxHypervisorDto**](ProxmoxHypervisorDto.md)
 
 ### Authorization
 
@@ -302,7 +304,7 @@ import (
 )
 
 func main() {
-    storageListCommand := *openapiclient.NewStorageListCommand("Url_example", "Username_example", "Password_example") // StorageListCommand | 
+    storageListCommand := *openapiclient.NewStorageListCommand() // StorageListCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -347,9 +349,133 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ProxmoxUpdate
+
+> ProxmoxUpdate(ctx).UpdateProxmoxCommand(updateProxmoxCommand).Execute()
+
+Update proxmox credentials
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    updateProxmoxCommand := *openapiclient.NewUpdateProxmoxCommand() // UpdateProxmoxCommand |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProxmoxCloudCredentialApi.ProxmoxUpdate(context.Background()).UpdateProxmoxCommand(updateProxmoxCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProxmoxCloudCredentialApi.ProxmoxUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProxmoxUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateProxmoxCommand** | [**UpdateProxmoxCommand**](UpdateProxmoxCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProxmoxUpdateHypervisors
+
+> ProxmoxUpdateHypervisors(ctx).UpdateHypervisorsCommand(updateHypervisorsCommand).Execute()
+
+Update proxmox credentials
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    updateHypervisorsCommand := *openapiclient.NewUpdateHypervisorsCommand() // UpdateHypervisorsCommand |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProxmoxCloudCredentialApi.ProxmoxUpdateHypervisors(context.Background()).UpdateHypervisorsCommand(updateHypervisorsCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProxmoxCloudCredentialApi.ProxmoxUpdateHypervisors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProxmoxUpdateHypervisorsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateHypervisorsCommand** | [**UpdateHypervisorsCommand**](UpdateHypervisorsCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ProxmoxVmTemplateList
 
-> []int64 ProxmoxVmTemplateList(ctx).VmTemplateListCommand(vmTemplateListCommand).Execute()
+> []CommonDropdownDto ProxmoxVmTemplateList(ctx).VmTemplateListCommand(vmTemplateListCommand).Execute()
 
 Fetch proxmox vm template list
 
@@ -366,7 +492,7 @@ import (
 )
 
 func main() {
-    vmTemplateListCommand := *openapiclient.NewVmTemplateListCommand("Url_example", "Username_example", "Password_example") // VmTemplateListCommand | 
+    vmTemplateListCommand := *openapiclient.NewVmTemplateListCommand() // VmTemplateListCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -375,7 +501,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ProxmoxCloudCredentialApi.ProxmoxVmTemplateList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProxmoxVmTemplateList`: []int64
+    // response from `ProxmoxVmTemplateList`: []CommonDropdownDto
     fmt.Fprintf(os.Stdout, "Response from `ProxmoxCloudCredentialApi.ProxmoxVmTemplateList`: %v\n", resp)
 }
 ```
@@ -395,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]int64**
+[**[]CommonDropdownDto**](CommonDropdownDto.md)
 
 ### Authorization
 

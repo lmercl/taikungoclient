@@ -26,6 +26,7 @@ type AmazonCredentialsListDto struct {
 	Name NullableString `json:"name,omitempty"`
 	Region NullableString `json:"region,omitempty"`
 	AvailabilityZones []string `json:"availabilityZones,omitempty"`
+	AvailabilityZonesCount *int32 `json:"availabilityZonesCount,omitempty"`
 	Projects []CommonDropdownDto `json:"projects,omitempty"`
 	CreatedBy NullableString `json:"createdBy,omitempty"`
 	LastModified NullableString `json:"lastModified,omitempty"`
@@ -265,6 +266,38 @@ func (o *AmazonCredentialsListDto) HasAvailabilityZones() bool {
 // SetAvailabilityZones gets a reference to the given []string and assigns it to the AvailabilityZones field.
 func (o *AmazonCredentialsListDto) SetAvailabilityZones(v []string) {
 	o.AvailabilityZones = v
+}
+
+// GetAvailabilityZonesCount returns the AvailabilityZonesCount field value if set, zero value otherwise.
+func (o *AmazonCredentialsListDto) GetAvailabilityZonesCount() int32 {
+	if o == nil || IsNil(o.AvailabilityZonesCount) {
+		var ret int32
+		return ret
+	}
+	return *o.AvailabilityZonesCount
+}
+
+// GetAvailabilityZonesCountOk returns a tuple with the AvailabilityZonesCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AmazonCredentialsListDto) GetAvailabilityZonesCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.AvailabilityZonesCount) {
+		return nil, false
+	}
+	return o.AvailabilityZonesCount, true
+}
+
+// HasAvailabilityZonesCount returns a boolean if a field has been set.
+func (o *AmazonCredentialsListDto) HasAvailabilityZonesCount() bool {
+	if o != nil && !IsNil(o.AvailabilityZonesCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZonesCount gets a reference to the given int32 and assigns it to the AvailabilityZonesCount field.
+func (o *AmazonCredentialsListDto) SetAvailabilityZonesCount(v int32) {
+	o.AvailabilityZonesCount = &v
 }
 
 // GetProjects returns the Projects field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -643,6 +676,9 @@ func (o AmazonCredentialsListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AvailabilityZones != nil {
 		toSerialize["availabilityZones"] = o.AvailabilityZones
+	}
+	if !IsNil(o.AvailabilityZonesCount) {
+		toSerialize["availabilityZonesCount"] = o.AvailabilityZonesCount
 	}
 	if o.Projects != nil {
 		toSerialize["projects"] = o.Projects

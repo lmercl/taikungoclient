@@ -20,7 +20,7 @@ var _ MappedNullable = &ResetStandAloneVmDiskStatusCommand{}
 
 // ResetStandAloneVmDiskStatusCommand struct for ResetStandAloneVmDiskStatusCommand
 type ResetStandAloneVmDiskStatusCommand struct {
-	StandAloneVmId int32 `json:"standAloneVmId"`
+	StandAloneVmId *int32 `json:"standAloneVmId,omitempty"`
 	DiskIds []int32 `json:"diskIds,omitempty"`
 	Status *StandAloneVmDiskStatus `json:"status,omitempty"`
 }
@@ -29,9 +29,8 @@ type ResetStandAloneVmDiskStatusCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResetStandAloneVmDiskStatusCommand(standAloneVmId int32) *ResetStandAloneVmDiskStatusCommand {
+func NewResetStandAloneVmDiskStatusCommand() *ResetStandAloneVmDiskStatusCommand {
 	this := ResetStandAloneVmDiskStatusCommand{}
-	this.StandAloneVmId = standAloneVmId
 	return &this
 }
 
@@ -43,28 +42,36 @@ func NewResetStandAloneVmDiskStatusCommandWithDefaults() *ResetStandAloneVmDiskS
 	return &this
 }
 
-// GetStandAloneVmId returns the StandAloneVmId field value
+// GetStandAloneVmId returns the StandAloneVmId field value if set, zero value otherwise.
 func (o *ResetStandAloneVmDiskStatusCommand) GetStandAloneVmId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StandAloneVmId) {
 		var ret int32
 		return ret
 	}
-
-	return o.StandAloneVmId
+	return *o.StandAloneVmId
 }
 
-// GetStandAloneVmIdOk returns a tuple with the StandAloneVmId field value
+// GetStandAloneVmIdOk returns a tuple with the StandAloneVmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResetStandAloneVmDiskStatusCommand) GetStandAloneVmIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StandAloneVmId) {
 		return nil, false
 	}
-	return &o.StandAloneVmId, true
+	return o.StandAloneVmId, true
 }
 
-// SetStandAloneVmId sets field value
+// HasStandAloneVmId returns a boolean if a field has been set.
+func (o *ResetStandAloneVmDiskStatusCommand) HasStandAloneVmId() bool {
+	if o != nil && !IsNil(o.StandAloneVmId) {
+		return true
+	}
+
+	return false
+}
+
+// SetStandAloneVmId gets a reference to the given int32 and assigns it to the StandAloneVmId field.
 func (o *ResetStandAloneVmDiskStatusCommand) SetStandAloneVmId(v int32) {
-	o.StandAloneVmId = v
+	o.StandAloneVmId = &v
 }
 
 // GetDiskIds returns the DiskIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -142,7 +149,9 @@ func (o ResetStandAloneVmDiskStatusCommand) MarshalJSON() ([]byte, error) {
 
 func (o ResetStandAloneVmDiskStatusCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["standAloneVmId"] = o.StandAloneVmId
+	if !IsNil(o.StandAloneVmId) {
+		toSerialize["standAloneVmId"] = o.StandAloneVmId
+	}
 	if o.DiskIds != nil {
 		toSerialize["diskIds"] = o.DiskIds
 	}

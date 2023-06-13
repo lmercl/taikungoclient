@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Name** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Parameters** | Pointer to [**[]PatchNodeLabelsDto**](PatchNodeLabelsDto.md) |  | [optional] 
 
 ## Methods
 
 ### NewPatchNodeCommand
 
-`func NewPatchNodeCommand(projectId int32, name string, ) *PatchNodeCommand`
+`func NewPatchNodeCommand() *PatchNodeCommand`
 
 NewPatchNodeCommand instantiates a new PatchNodeCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *PatchNodeCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *PatchNodeCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *PatchNodeCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PatchNodeCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetParameters
 
 `func (o *PatchNodeCommand) GetParameters() []PatchNodeLabelsDto`

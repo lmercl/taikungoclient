@@ -3,121 +3,121 @@
 ## Enum
 
 
-* `_10` (value: `10`)
+* `START_ADD_SERVER` (value: `"StartAddServer"`)
 
-* `_20` (value: `20`)
+* `ADDED_SERVER` (value: `"AddedServer"`)
 
-* `_30` (value: `30`)
+* `START_ADD_VM` (value: `"StartAddVm"`)
 
-* `_32` (value: `32`)
+* `START_ADD_VM_DISK` (value: `"StartAddVmDisk"`)
 
-* `_34` (value: `34`)
+* `ADDED_VM_DISK` (value: `"AddedVmDisk"`)
 
-* `_36` (value: `36`)
+* `START_DELETE_VM_DISK` (value: `"StartDeleteVmDisk"`)
 
-* `_38` (value: `38`)
+* `DELETED_VM_DISK` (value: `"DeletedVmDisk"`)
 
-* `_40` (value: `40`)
+* `ADDED_VM` (value: `"AddedVm"`)
 
-* `_42` (value: `42`)
+* `START_DELETE_VM` (value: `"StartDeleteVm"`)
 
-* `_44` (value: `44`)
+* `DELETED_VM` (value: `"DeletedVm"`)
 
-* `_50` (value: `50`)
+* `START_DELETE_SERVER` (value: `"StartDeleteServer"`)
 
-* `_60` (value: `60`)
+* `DELETED_SERVER` (value: `"DeletedServer"`)
 
-* `_70` (value: `70`)
+* `COMMIT_CHANGES` (value: `"CommitChanges"`)
 
-* `_80` (value: `80`)
+* `CREATED_PROJECT` (value: `"CreatedProject"`)
 
-* `_90` (value: `90`)
+* `START_PURGE_PROJECT` (value: `"StartPurgeProject"`)
 
-* `_100` (value: `100`)
+* `PURGED_PROJECT` (value: `"PurgedProject"`)
 
-* `_105` (value: `105`)
+* `CAPACITY_NOT_AVAILABLE` (value: `"CapacityNotAvailable"`)
 
-* `_106` (value: `106`)
+* `SPOT_FAILURE` (value: `"SpotFailure"`)
 
-* `_107` (value: `107`)
+* `CREATE_INFRA_FAILURE` (value: `"CreateInfraFailure"`)
 
-* `_108` (value: `108`)
+* `DESTROY_INFRA_FAILURE` (value: `"DestroyInfraFailure"`)
 
-* `_109` (value: `109`)
+* `LOGIN_FAILED` (value: `"LoginFailed"`)
 
-* `_110` (value: `110`)
+* `KUBERNETES_ERROR` (value: `"KubernetesError"`)
 
-* `_120` (value: `120`)
+* `START_UPGRADE_PROJECT` (value: `"StartUpgradeProject"`)
 
-* `_130` (value: `130`)
+* `UPGRADED_PROJECT` (value: `"UpgradedProject"`)
 
-* `_140` (value: `140`)
+* `START_UPDATE_CLOUD_CREDENTIALS` (value: `"StartUpdateCloudCredentials"`)
 
-* `_150` (value: `150`)
+* `UPDATED_CLOUD_CREDENTIALS` (value: `"UpdatedCloudCredentials"`)
 
-* `_155` (value: `155`)
+* `STARTED_ENABLE_GATEKEEPER` (value: `"StartedEnableGatekeeper"`)
 
-* `_156` (value: `156`)
+* `STARTED_DISABLE_GATEKEEPER` (value: `"StartedDisableGatekeeper"`)
 
-* `_160` (value: `160`)
+* `STARTED_ENABLE_BACKUP` (value: `"StartedEnableBackup"`)
 
-* `_165` (value: `165`)
+* `STARTED_DISABLE_BACKUP` (value: `"StartedDisableBackup"`)
 
-* `_170` (value: `170`)
+* `ENABLED_BACKUP` (value: `"EnabledBackup"`)
 
-* `_175` (value: `175`)
+* `DISABLED_BACKUP` (value: `"DisabledBackup"`)
 
-* `_176` (value: `176`)
+* `ENABLED_GATEKEEPER` (value: `"EnabledGatekeeper"`)
 
-* `_177` (value: `177`)
+* `DISABLED_GATEKEEPER` (value: `"DisabledGatekeeper"`)
 
-* `_180` (value: `180`)
+* `ADDED_BACKUP_POLICY` (value: `"AddedBackupPolicy"`)
 
-* `_190` (value: `190`)
+* `DELETED_BACKUP_POLICY` (value: `"DeletedBackupPolicy"`)
 
-* `_200` (value: `200`)
+* `START_ENABLE_MONITORING` (value: `"StartEnableMonitoring"`)
 
-* `_210` (value: `210`)
+* `ENABLED_MONITORING` (value: `"EnabledMonitoring"`)
 
-* `_220` (value: `220`)
+* `START_DISABLE_MONITORING` (value: `"StartDisableMonitoring"`)
 
-* `_230` (value: `230`)
+* `DISABLED_MONITORING` (value: `"DisabledMonitoring"`)
 
-* `_240` (value: `240`)
+* `HEALTH_STATUS` (value: `"HealthStatus"`)
 
-* `_250` (value: `250`)
+* `SERVER_REBOOTED` (value: `"ServerRebooted"`)
 
-* `_260` (value: `260`)
+* `SILENCE_ALERT` (value: `"SilenceAlert"`)
 
-* `_270` (value: `270`)
+* `ADDED_PROJECT` (value: `"AddedProject"`)
 
-* `_280` (value: `280`)
+* `ADDED_USER` (value: `"AddedUser"`)
 
-* `_290` (value: `290`)
+* `SERVER_STOPPED` (value: `"ServerStopped"`)
 
-* `_300` (value: `300`)
+* `SERVER_STARTED` (value: `"ServerStarted"`)
 
-* `_310` (value: `310`)
+* `SERVER_SHELVED` (value: `"ServerShelved"`)
 
-* `_320` (value: `320`)
+* `SERVER_UNSHELVED` (value: `"ServerUnshelved"`)
 
-* `_330` (value: `330`)
+* `SERVER_CONSOLE` (value: `"ServerConsole"`)
 
-* `_340` (value: `340`)
+* `SERVER_STATUS` (value: `"ServerStatus"`)
 
-* `_350` (value: `350`)
+* `PATCH_KUBERNETES` (value: `"PatchKubernetes"`)
 
-* `_360` (value: `360`)
+* `INSTALL_APPLICATION` (value: `"InstallApplication"`)
 
-* `_370` (value: `370`)
+* `UNINSTALL_APPLICATION` (value: `"UninstallApplication"`)
 
-* `_380` (value: `380`)
+* `ENABLE_AUTOSCALING` (value: `"EnableAutoscaling"`)
 
-* `_390` (value: `390`)
+* `DISABLE_AUTOSCALING` (value: `"DisableAutoscaling"`)
 
-* `_400` (value: `400`)
+* `BOUND_PROJECT` (value: `"BoundProject"`)
 
-* `_410` (value: `410`)
+* `LOCK_UNLOCK_PROJECT` (value: `"LockUnlockProject"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

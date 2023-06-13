@@ -17,22 +17,22 @@ import (
 )
 
 // SlackType the model 'SlackType'
-type SlackType int32
+type SlackType string
 
 // List of SlackType
 const (
-	SLACKTYPE__100 SlackType = 100
-	SLACKTYPE__200 SlackType = 200
+	SLACKTYPE_ALERT SlackType = "Alert"
+	SLACKTYPE_GENERAL SlackType = "General"
 )
 
 // All allowed values of SlackType enum
 var AllowedSlackTypeEnumValues = []SlackType{
-	100,
-	200,
+	"Alert",
+	"General",
 }
 
 func (v *SlackType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func (v *SlackType) UnmarshalJSON(src []byte) error {
 
 // NewSlackTypeFromValue returns a pointer to a valid SlackType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewSlackTypeFromValue(v int32) (*SlackType, error) {
+func NewSlackTypeFromValue(v string) (*SlackType, error) {
 	ev := SlackType(v)
 	if ev.IsValid() {
 		return &ev, nil

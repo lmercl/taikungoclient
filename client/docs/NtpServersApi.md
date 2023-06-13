@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    createNtpServerCommand := *openapiclient.NewCreateNtpServerCommand("Address_example", int32(123)) // CreateNtpServerCommand | 
+    createNtpServerCommand := *openapiclient.NewCreateNtpServerCommand() // CreateNtpServerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

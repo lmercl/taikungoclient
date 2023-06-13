@@ -49,7 +49,7 @@ import (
 )
 
 func main() {
-    artifactUrlCheckerCommand := *openapiclient.NewArtifactUrlCheckerCommand("Name_example") // ArtifactUrlCheckerCommand | 
+    artifactUrlCheckerCommand := *openapiclient.NewArtifactUrlCheckerCommand() // ArtifactUrlCheckerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -111,7 +111,7 @@ import (
 )
 
 func main() {
-    checkAwsCommand := *openapiclient.NewCheckAwsCommand("AwsAccessKeyId_example", "AwsSecretAccessKey_example", "Region_example") // CheckAwsCommand | 
+    checkAwsCommand := *openapiclient.NewCheckAwsCommand() // CheckAwsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-    checkAzureCommand := *openapiclient.NewCheckAzureCommand("AzureClientId_example", "AzureClientSecret_example", "AzureTenantId_example") // CheckAzureCommand | 
+    checkAzureCommand := *openapiclient.NewCheckAzureCommand() // CheckAzureCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -235,7 +235,7 @@ import (
 )
 
 func main() {
-    checkAzureCpuQuotaCommand := *openapiclient.NewCheckAzureCpuQuotaCommand(int32(123)) // CheckAzureCpuQuotaCommand | 
+    checkAzureCpuQuotaCommand := *openapiclient.NewCheckAzureCpuQuotaCommand() // CheckAzureCpuQuotaCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -297,7 +297,7 @@ import (
 )
 
 func main() {
-    cidrCommand := *openapiclient.NewCidrCommand("Cidr_example") // CidrCommand | 
+    cidrCommand := *openapiclient.NewCidrCommand() // CidrCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -359,7 +359,7 @@ import (
 )
 
 func main() {
-    cronJobCommand := *openapiclient.NewCronJobCommand("CronPeriod_example") // CronJobCommand | 
+    cronJobCommand := *openapiclient.NewCronJobCommand() // CronJobCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -421,7 +421,7 @@ import (
 )
 
 func main() {
-    dnsCommand := *openapiclient.NewDnsCommand("Address_example") // DnsCommand | 
+    dnsCommand := *openapiclient.NewDnsCommand() // DnsCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -483,7 +483,7 @@ import (
 )
 
 func main() {
-    duplicateNameCheckerCommand := *openapiclient.NewDuplicateNameCheckerCommand("Type_example", "Name_example") // DuplicateNameCheckerCommand | 
+    duplicateNameCheckerCommand := *openapiclient.NewDuplicateNameCheckerCommand() // DuplicateNameCheckerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -604,7 +604,7 @@ import (
 )
 
 func main() {
-    keycloakCheckerCommand := *openapiclient.NewKeycloakCheckerCommand("Name_example", "Url_example", "RealmsName_example", "ClientId_example", "ClientSecret_example") // KeycloakCheckerCommand | 
+    keycloakCheckerCommand := *openapiclient.NewKeycloakCheckerCommand() // KeycloakCheckerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -666,7 +666,7 @@ import (
 )
 
 func main() {
-    nodeCommand := *openapiclient.NewNodeCommand(int32(123), "Name_example") // NodeCommand | 
+    nodeCommand := *openapiclient.NewNodeCommand() // NodeCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -728,7 +728,7 @@ import (
 )
 
 func main() {
-    ntpCommand := *openapiclient.NewNtpCommand("Address_example") // NtpCommand | 
+    ntpCommand := *openapiclient.NewNtpCommand() // NtpCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -790,7 +790,7 @@ import (
 )
 
 func main() {
-    checkOpenstackCommand := *openapiclient.NewCheckOpenstackCommand("OpenStackUser_example", "OpenStackPassword_example", "OpenStackUrl_example", "OpenStackDomain_example") // CheckOpenstackCommand |  (optional)
+    checkOpenstackCommand := *openapiclient.NewCheckOpenstackCommand() // CheckOpenstackCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -984,7 +984,7 @@ import (
 )
 
 func main() {
-    organizationNameCheckerCommand := *openapiclient.NewOrganizationNameCheckerCommand("Name_example") // OrganizationNameCheckerCommand | 
+    organizationNameCheckerCommand := *openapiclient.NewOrganizationNameCheckerCommand() // OrganizationNameCheckerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1046,7 +1046,7 @@ import (
 )
 
 func main() {
-    checkPrometheusCommand := *openapiclient.NewCheckPrometheusCommand("Password_example", "UserName_example", "Url_example") // CheckPrometheusCommand | 
+    checkPrometheusCommand := *openapiclient.NewCheckPrometheusCommand() // CheckPrometheusCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1108,7 +1108,7 @@ import (
 )
 
 func main() {
-    proxmoxCheckerCommand := *openapiclient.NewProxmoxCheckerCommand("Url_example", "Username_example", "Password_example") // ProxmoxCheckerCommand | 
+    proxmoxCheckerCommand := *openapiclient.NewProxmoxCheckerCommand() // ProxmoxCheckerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1170,7 +1170,7 @@ import (
 )
 
 func main() {
-    checkS3Command := *openapiclient.NewCheckS3Command("S3AccessKeyId_example", "S3SecretKey_example", "S3Endpoint_example", "S3Region_example") // CheckS3Command | 
+    checkS3Command := *openapiclient.NewCheckS3Command() // CheckS3Command | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1232,7 +1232,7 @@ import (
 )
 
 func main() {
-    sshKeyCommand := *openapiclient.NewSshKeyCommand("SshPublicKey_example") // SshKeyCommand | 
+    sshKeyCommand := *openapiclient.NewSshKeyCommand() // SshKeyCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1294,7 +1294,7 @@ import (
 )
 
 func main() {
-    checkTanzuCommand := *openapiclient.NewCheckTanzuCommand("Username_example", "Url_example", "Password_example", "Namespace_example", "VolumeType_example") // CheckTanzuCommand | 
+    checkTanzuCommand := *openapiclient.NewCheckTanzuCommand() // CheckTanzuCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

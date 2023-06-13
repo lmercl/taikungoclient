@@ -3,15 +3,15 @@
 ## Enum
 
 
-* `_100` (value: `100`)
+* `ADMIN` (value: `"Admin"`)
 
-* `_200` (value: `200`)
+* `MANAGER` (value: `"Manager"`)
 
-* `_250` (value: `250`)
+* `PARTNER` (value: `"Partner"`)
 
-* `_400` (value: `400`)
+* `USER` (value: `"User"`)
 
-* `_6000` (value: `6000`)
+* `AUTOSCALER` (value: `"Autoscaler"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

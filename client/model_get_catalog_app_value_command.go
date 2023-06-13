@@ -20,18 +20,16 @@ var _ MappedNullable = &GetCatalogAppValueCommand{}
 
 // GetCatalogAppValueCommand struct for GetCatalogAppValueCommand
 type GetCatalogAppValueCommand struct {
-	PackageId string `json:"packageId"`
-	Version string `json:"version"`
+	PackageId NullableString `json:"packageId,omitempty"`
+	Version NullableString `json:"version,omitempty"`
 }
 
 // NewGetCatalogAppValueCommand instantiates a new GetCatalogAppValueCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetCatalogAppValueCommand(packageId string, version string) *GetCatalogAppValueCommand {
+func NewGetCatalogAppValueCommand() *GetCatalogAppValueCommand {
 	this := GetCatalogAppValueCommand{}
-	this.PackageId = packageId
-	this.Version = version
 	return &this
 }
 
@@ -43,52 +41,88 @@ func NewGetCatalogAppValueCommandWithDefaults() *GetCatalogAppValueCommand {
 	return &this
 }
 
-// GetPackageId returns the PackageId field value
+// GetPackageId returns the PackageId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetCatalogAppValueCommand) GetPackageId() string {
-	if o == nil {
+	if o == nil || IsNil(o.PackageId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.PackageId
+	return *o.PackageId.Get()
 }
 
-// GetPackageIdOk returns a tuple with the PackageId field value
+// GetPackageIdOk returns a tuple with the PackageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetCatalogAppValueCommand) GetPackageIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PackageId, true
+	return o.PackageId.Get(), o.PackageId.IsSet()
 }
 
-// SetPackageId sets field value
+// HasPackageId returns a boolean if a field has been set.
+func (o *GetCatalogAppValueCommand) HasPackageId() bool {
+	if o != nil && o.PackageId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPackageId gets a reference to the given NullableString and assigns it to the PackageId field.
 func (o *GetCatalogAppValueCommand) SetPackageId(v string) {
-	o.PackageId = v
+	o.PackageId.Set(&v)
+}
+// SetPackageIdNil sets the value for PackageId to be an explicit nil
+func (o *GetCatalogAppValueCommand) SetPackageIdNil() {
+	o.PackageId.Set(nil)
 }
 
-// GetVersion returns the Version field value
+// UnsetPackageId ensures that no value is present for PackageId, not even an explicit nil
+func (o *GetCatalogAppValueCommand) UnsetPackageId() {
+	o.PackageId.Unset()
+}
+
+// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetCatalogAppValueCommand) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version.Get()
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetCatalogAppValueCommand) GetVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version.Get(), o.Version.IsSet()
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *GetCatalogAppValueCommand) HasVersion() bool {
+	if o != nil && o.Version.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given NullableString and assigns it to the Version field.
 func (o *GetCatalogAppValueCommand) SetVersion(v string) {
-	o.Version = v
+	o.Version.Set(&v)
+}
+// SetVersionNil sets the value for Version to be an explicit nil
+func (o *GetCatalogAppValueCommand) SetVersionNil() {
+	o.Version.Set(nil)
+}
+
+// UnsetVersion ensures that no value is present for Version, not even an explicit nil
+func (o *GetCatalogAppValueCommand) UnsetVersion() {
+	o.Version.Unset()
 }
 
 func (o GetCatalogAppValueCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +135,12 @@ func (o GetCatalogAppValueCommand) MarshalJSON() ([]byte, error) {
 
 func (o GetCatalogAppValueCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["packageId"] = o.PackageId
-	toSerialize["version"] = o.Version
+	if o.PackageId.IsSet() {
+		toSerialize["packageId"] = o.PackageId.Get()
+	}
+	if o.Version.IsSet() {
+		toSerialize["version"] = o.Version.Get()
+	}
 	return toSerialize, nil
 }
 

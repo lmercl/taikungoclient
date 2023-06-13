@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**Name** | **string** |  | 
-**FullName** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**FullName** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **Address** | Pointer to **NullableString** |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateOrganizationCommand
 
-`func NewUpdateOrganizationCommand(name string, fullName string, ) *UpdateOrganizationCommand`
+`func NewUpdateOrganizationCommand() *UpdateOrganizationCommand`
 
 NewUpdateOrganizationCommand instantiates a new UpdateOrganizationCommand object
 This constructor will assign default values to properties that have it defined,
@@ -81,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *UpdateOrganizationCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *UpdateOrganizationCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UpdateOrganizationCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFullName
 
 `func (o *UpdateOrganizationCommand) GetFullName() string`
@@ -101,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetFullName sets FullName field to given value.
 
+### HasFullName
 
+`func (o *UpdateOrganizationCommand) HasFullName() bool`
+
+HasFullName returns a boolean if a field has been set.
+
+### SetFullNameNil
+
+`func (o *UpdateOrganizationCommand) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *UpdateOrganizationCommand) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetPhone
 
 `func (o *UpdateOrganizationCommand) GetPhone() string`

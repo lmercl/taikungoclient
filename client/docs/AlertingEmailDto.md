@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** |  | 
+**Email** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAlertingEmailDto
 
-`func NewAlertingEmailDto(email string, ) *AlertingEmailDto`
+`func NewAlertingEmailDto() *AlertingEmailDto`
 
 NewAlertingEmailDto instantiates a new AlertingEmailDto object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
 
+`func (o *AlertingEmailDto) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### SetEmailNil
+
+`func (o *AlertingEmailDto) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *AlertingEmailDto) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

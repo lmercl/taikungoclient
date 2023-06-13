@@ -26,7 +26,7 @@ type UserForListDto struct {
 	HasCustomerId *bool `json:"hasCustomerId,omitempty"`
 	HasPaymentMethod *bool `json:"hasPaymentMethod,omitempty"`
 	OrganizationId *int32 `json:"organizationId,omitempty"`
-	Role NullableString `json:"role,omitempty"`
+	Role *UserRole `json:"role,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
 	CreatedAt NullableString `json:"createdAt,omitempty"`
@@ -285,46 +285,36 @@ func (o *UserForListDto) SetOrganizationId(v int32) {
 	o.OrganizationId = &v
 }
 
-// GetRole returns the Role field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserForListDto) GetRole() string {
-	if o == nil || IsNil(o.Role.Get()) {
-		var ret string
+// GetRole returns the Role field value if set, zero value otherwise.
+func (o *UserForListDto) GetRole() UserRole {
+	if o == nil || IsNil(o.Role) {
+		var ret UserRole
 		return ret
 	}
-	return *o.Role.Get()
+	return *o.Role
 }
 
 // GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserForListDto) GetRoleOk() (*string, bool) {
-	if o == nil {
+func (o *UserForListDto) GetRoleOk() (*UserRole, bool) {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return o.Role.Get(), o.Role.IsSet()
+	return o.Role, true
 }
 
 // HasRole returns a boolean if a field has been set.
 func (o *UserForListDto) HasRole() bool {
-	if o != nil && o.Role.IsSet() {
+	if o != nil && !IsNil(o.Role) {
 		return true
 	}
 
 	return false
 }
 
-// SetRole gets a reference to the given NullableString and assigns it to the Role field.
-func (o *UserForListDto) SetRole(v string) {
-	o.Role.Set(&v)
-}
-// SetRoleNil sets the value for Role to be an explicit nil
-func (o *UserForListDto) SetRoleNil() {
-	o.Role.Set(nil)
-}
-
-// UnsetRole ensures that no value is present for Role, not even an explicit nil
-func (o *UserForListDto) UnsetRole() {
-	o.Role.Unset()
+// SetRole gets a reference to the given UserRole and assigns it to the Role field.
+func (o *UserForListDto) SetRole(v UserRole) {
+	o.Role = &v
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -940,8 +930,8 @@ func (o UserForListDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrganizationId) {
 		toSerialize["organizationId"] = o.OrganizationId
 	}
-	if o.Role.IsSet() {
-		toSerialize["role"] = o.Role.Get()
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()

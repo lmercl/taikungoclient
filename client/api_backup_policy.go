@@ -2448,7 +2448,7 @@ func (r ApiBackupListAllBackupsRequest) Search(search string) ApiBackupListAllBa
 	return r
 }
 
-func (r ApiBackupListAllBackupsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiBackupListAllBackupsRequest) Execute() (*ListAllBackups, *http.Response, error) {
 	return r.ApiService.BackupListAllBackupsExecute(r)
 }
 
@@ -2468,13 +2468,13 @@ func (a *BackupPolicyApiService) BackupListAllBackups(ctx context.Context, proje
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *BackupPolicyApiService) BackupListAllBackupsExecute(r ApiBackupListAllBackupsRequest) (map[string]interface{}, *http.Response, error) {
+//  @return ListAllBackups
+func (a *BackupPolicyApiService) BackupListAllBackupsExecute(r ApiBackupListAllBackupsRequest) (*ListAllBackups, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *ListAllBackups
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupPolicyApiService.BackupListAllBackups")
@@ -2662,7 +2662,7 @@ func (r ApiBackupListAllDeleteBackupRequestsRequest) Search(search string) ApiBa
 	return r
 }
 
-func (r ApiBackupListAllDeleteBackupRequestsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiBackupListAllDeleteBackupRequestsRequest) Execute() (*ListAllDeleteBackupRequests, *http.Response, error) {
 	return r.ApiService.BackupListAllDeleteBackupRequestsExecute(r)
 }
 
@@ -2682,13 +2682,13 @@ func (a *BackupPolicyApiService) BackupListAllDeleteBackupRequests(ctx context.C
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *BackupPolicyApiService) BackupListAllDeleteBackupRequestsExecute(r ApiBackupListAllDeleteBackupRequestsRequest) (map[string]interface{}, *http.Response, error) {
+//  @return ListAllDeleteBackupRequests
+func (a *BackupPolicyApiService) BackupListAllDeleteBackupRequestsExecute(r ApiBackupListAllDeleteBackupRequestsRequest) (*ListAllDeleteBackupRequests, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *ListAllDeleteBackupRequests
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupPolicyApiService.BackupListAllDeleteBackupRequests")
@@ -2876,7 +2876,7 @@ func (r ApiBackupListAllRestoresRequest) Search(search string) ApiBackupListAllR
 	return r
 }
 
-func (r ApiBackupListAllRestoresRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiBackupListAllRestoresRequest) Execute() (*ListAllRestores, *http.Response, error) {
 	return r.ApiService.BackupListAllRestoresExecute(r)
 }
 
@@ -2896,13 +2896,13 @@ func (a *BackupPolicyApiService) BackupListAllRestores(ctx context.Context, proj
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *BackupPolicyApiService) BackupListAllRestoresExecute(r ApiBackupListAllRestoresRequest) (map[string]interface{}, *http.Response, error) {
+//  @return ListAllRestores
+func (a *BackupPolicyApiService) BackupListAllRestoresExecute(r ApiBackupListAllRestoresRequest) (*ListAllRestores, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *ListAllRestores
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupPolicyApiService.BackupListAllRestores")

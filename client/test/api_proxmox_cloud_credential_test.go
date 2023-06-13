@@ -82,6 +82,28 @@ func Test_taikuncore_ProxmoxCloudCredentialApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test ProxmoxCloudCredentialApiService ProxmoxUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.ProxmoxCloudCredentialApi.ProxmoxUpdate(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProxmoxCloudCredentialApiService ProxmoxUpdateHypervisors", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.ProxmoxCloudCredentialApi.ProxmoxUpdateHypervisors(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProxmoxCloudCredentialApiService ProxmoxVmTemplateList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

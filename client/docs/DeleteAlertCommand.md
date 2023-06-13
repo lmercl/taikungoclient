@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewDeleteAlertCommand
 
-`func NewDeleteAlertCommand(projectId int32, ) *DeleteAlertCommand`
+`func NewDeleteAlertCommand() *DeleteAlertCommand`
 
 NewDeleteAlertCommand instantiates a new DeleteAlertCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *DeleteAlertCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

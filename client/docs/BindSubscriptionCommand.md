@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
 **Yearly** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewBindSubscriptionCommand
 
-`func NewBindSubscriptionCommand(id int32, ) *BindSubscriptionCommand`
+`func NewBindSubscriptionCommand() *BindSubscriptionCommand`
 
 NewBindSubscriptionCommand instantiates a new BindSubscriptionCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *BindSubscriptionCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetYearly
 

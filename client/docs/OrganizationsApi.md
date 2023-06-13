@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**OrganizationsAcceptOffer**](OrganizationsApi.md#OrganizationsAcceptOffer) | **Post** /api/v1/organizations/accept-offer | Accept discount offer
+[**OrganizationsAccessForPartner**](OrganizationsApi.md#OrganizationsAccessForPartner) | **Post** /api/v1/organizations/access-for partner | Give access to partner
 [**OrganizationsCreate**](OrganizationsApi.md#OrganizationsCreate) | **Post** /api/v1/organizations | Add a new organization. Only available for admins.
 [**OrganizationsDelete**](OrganizationsApi.md#OrganizationsDelete) | **Delete** /api/v1/organizations/{id} | Delete the specified organization. Only available for admins.
 [**OrganizationsDetawils**](OrganizationsApi.md#OrganizationsDetawils) | **Get** /api/v1/organizations/details | Retrieve all data about current organization by Id
@@ -80,6 +81,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## OrganizationsAccessForPartner
+
+> OrganizationsAccessForPartner(ctx).GiveAccessToPartnerCommand(giveAccessToPartnerCommand).Execute()
+
+Give access to partner
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    giveAccessToPartnerCommand := *openapiclient.NewGiveAccessToPartnerCommand() // GiveAccessToPartnerCommand | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.OrganizationsApi.OrganizationsAccessForPartner(context.Background()).GiveAccessToPartnerCommand(giveAccessToPartnerCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsApi.OrganizationsAccessForPartner``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOrganizationsAccessForPartnerRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **giveAccessToPartnerCommand** | [**GiveAccessToPartnerCommand**](GiveAccessToPartnerCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## OrganizationsCreate
 
 > ApiResponse OrganizationsCreate(ctx).OrganizationCreateCommand(organizationCreateCommand).Execute()
@@ -99,7 +162,7 @@ import (
 )
 
 func main() {
-    organizationCreateCommand := *openapiclient.NewOrganizationCreateCommand("Name_example", "FullName_example") // OrganizationCreateCommand |  (optional)
+    organizationCreateCommand := *openapiclient.NewOrganizationCreateCommand() // OrganizationCreateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -350,7 +413,7 @@ import (
 )
 
 func main() {
-    leaveTaikunCommand := *openapiclient.NewLeaveTaikunCommand("Reason_example") // LeaveTaikunCommand | 
+    leaveTaikunCommand := *openapiclient.NewLeaveTaikunCommand() // LeaveTaikunCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -618,7 +681,7 @@ import (
 )
 
 func main() {
-    updateOrganizationCommand := *openapiclient.NewUpdateOrganizationCommand("Name_example", "FullName_example") // UpdateOrganizationCommand |  (optional)
+    updateOrganizationCommand := *openapiclient.NewUpdateOrganizationCommand() // UpdateOrganizationCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

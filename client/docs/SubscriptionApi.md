@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    bindSubscriptionCommand := *openapiclient.NewBindSubscriptionCommand(int32(123)) // BindSubscriptionCommand | 
+    bindSubscriptionCommand := *openapiclient.NewBindSubscriptionCommand() // BindSubscriptionCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -354,7 +354,7 @@ import (
 )
 
 func main() {
-    createSubscriptionCommand := *openapiclient.NewCreateSubscriptionCommand("Name_example") // CreateSubscriptionCommand |  (optional)
+    createSubscriptionCommand := *openapiclient.NewCreateSubscriptionCommand() // CreateSubscriptionCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -416,7 +416,7 @@ import (
 )
 
 func main() {
-    updateSubscriptionCommand := *openapiclient.NewUpdateSubscriptionCommand("Name_example") // UpdateSubscriptionCommand |  (optional)
+    updateSubscriptionCommand := *openapiclient.NewUpdateSubscriptionCommand() // UpdateSubscriptionCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

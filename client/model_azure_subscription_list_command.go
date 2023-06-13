@@ -20,20 +20,17 @@ var _ MappedNullable = &AzureSubscriptionListCommand{}
 
 // AzureSubscriptionListCommand struct for AzureSubscriptionListCommand
 type AzureSubscriptionListCommand struct {
-	ClientId string `json:"clientId"`
-	ClientSecret string `json:"clientSecret"`
-	TenantId string `json:"tenantId"`
+	ClientId NullableString `json:"clientId,omitempty"`
+	ClientSecret NullableString `json:"clientSecret,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 }
 
 // NewAzureSubscriptionListCommand instantiates a new AzureSubscriptionListCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAzureSubscriptionListCommand(clientId string, clientSecret string, tenantId string) *AzureSubscriptionListCommand {
+func NewAzureSubscriptionListCommand() *AzureSubscriptionListCommand {
 	this := AzureSubscriptionListCommand{}
-	this.ClientId = clientId
-	this.ClientSecret = clientSecret
-	this.TenantId = tenantId
 	return &this
 }
 
@@ -45,76 +42,130 @@ func NewAzureSubscriptionListCommandWithDefaults() *AzureSubscriptionListCommand
 	return &this
 }
 
-// GetClientId returns the ClientId field value
+// GetClientId returns the ClientId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionListCommand) GetClientId() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClientId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ClientId
+	return *o.ClientId.Get()
 }
 
-// GetClientIdOk returns a tuple with the ClientId field value
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionListCommand) GetClientIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ClientId, true
+	return o.ClientId.Get(), o.ClientId.IsSet()
 }
 
-// SetClientId sets field value
+// HasClientId returns a boolean if a field has been set.
+func (o *AzureSubscriptionListCommand) HasClientId() bool {
+	if o != nil && o.ClientId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientId gets a reference to the given NullableString and assigns it to the ClientId field.
 func (o *AzureSubscriptionListCommand) SetClientId(v string) {
-	o.ClientId = v
+	o.ClientId.Set(&v)
+}
+// SetClientIdNil sets the value for ClientId to be an explicit nil
+func (o *AzureSubscriptionListCommand) SetClientIdNil() {
+	o.ClientId.Set(nil)
 }
 
-// GetClientSecret returns the ClientSecret field value
+// UnsetClientId ensures that no value is present for ClientId, not even an explicit nil
+func (o *AzureSubscriptionListCommand) UnsetClientId() {
+	o.ClientId.Unset()
+}
+
+// GetClientSecret returns the ClientSecret field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionListCommand) GetClientSecret() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClientSecret.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ClientSecret
+	return *o.ClientSecret.Get()
 }
 
-// GetClientSecretOk returns a tuple with the ClientSecret field value
+// GetClientSecretOk returns a tuple with the ClientSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionListCommand) GetClientSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ClientSecret, true
+	return o.ClientSecret.Get(), o.ClientSecret.IsSet()
 }
 
-// SetClientSecret sets field value
+// HasClientSecret returns a boolean if a field has been set.
+func (o *AzureSubscriptionListCommand) HasClientSecret() bool {
+	if o != nil && o.ClientSecret.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientSecret gets a reference to the given NullableString and assigns it to the ClientSecret field.
 func (o *AzureSubscriptionListCommand) SetClientSecret(v string) {
-	o.ClientSecret = v
+	o.ClientSecret.Set(&v)
+}
+// SetClientSecretNil sets the value for ClientSecret to be an explicit nil
+func (o *AzureSubscriptionListCommand) SetClientSecretNil() {
+	o.ClientSecret.Set(nil)
 }
 
-// GetTenantId returns the TenantId field value
+// UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
+func (o *AzureSubscriptionListCommand) UnsetClientSecret() {
+	o.ClientSecret.Unset()
+}
+
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionListCommand) GetTenantId() string {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.TenantId
+	return *o.TenantId.Get()
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value
+// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionListCommand) GetTenantIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId sets field value
+// HasTenantId returns a boolean if a field has been set.
+func (o *AzureSubscriptionListCommand) HasTenantId() bool {
+	if o != nil && o.TenantId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *AzureSubscriptionListCommand) SetTenantId(v string) {
-	o.TenantId = v
+	o.TenantId.Set(&v)
+}
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *AzureSubscriptionListCommand) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *AzureSubscriptionListCommand) UnsetTenantId() {
+	o.TenantId.Unset()
 }
 
 func (o AzureSubscriptionListCommand) MarshalJSON() ([]byte, error) {
@@ -127,9 +178,15 @@ func (o AzureSubscriptionListCommand) MarshalJSON() ([]byte, error) {
 
 func (o AzureSubscriptionListCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["clientId"] = o.ClientId
-	toSerialize["clientSecret"] = o.ClientSecret
-	toSerialize["tenantId"] = o.TenantId
+	if o.ClientId.IsSet() {
+		toSerialize["clientId"] = o.ClientId.Get()
+	}
+	if o.ClientSecret.IsSet() {
+		toSerialize["clientSecret"] = o.ClientSecret.Get()
+	}
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
+	}
 	return toSerialize, nil
 }
 

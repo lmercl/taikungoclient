@@ -1384,8 +1384,8 @@ type ApiFlavorsProxmoxFlavorsRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *int32
-	endRam *int32
+	startRam *int64
+	endRam *int64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -1403,12 +1403,12 @@ func (r ApiFlavorsProxmoxFlavorsRequest) Offset(offset int32) ApiFlavorsProxmoxF
 	return r
 }
 
-func (r ApiFlavorsProxmoxFlavorsRequest) StartRam(startRam int32) ApiFlavorsProxmoxFlavorsRequest {
+func (r ApiFlavorsProxmoxFlavorsRequest) StartRam(startRam int64) ApiFlavorsProxmoxFlavorsRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiFlavorsProxmoxFlavorsRequest) EndRam(endRam int32) ApiFlavorsProxmoxFlavorsRequest {
+func (r ApiFlavorsProxmoxFlavorsRequest) EndRam(endRam int64) ApiFlavorsProxmoxFlavorsRequest {
 	r.endRam = &endRam
 	return r
 }

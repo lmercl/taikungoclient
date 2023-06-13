@@ -20,17 +20,17 @@ var _ MappedNullable = &CreateStandAloneVmCommand{}
 
 // CreateStandAloneVmCommand struct for CreateStandAloneVmCommand
 type CreateStandAloneVmCommand struct {
-	Name string `json:"name"`
-	FlavorName string `json:"flavorName"`
+	Name NullableString `json:"name,omitempty"`
+	FlavorName NullableString `json:"flavorName,omitempty"`
 	VolumeSize *int64 `json:"volumeSize,omitempty"`
 	VolumeType NullableString `json:"volumeType,omitempty"`
 	Username NullableString `json:"username,omitempty"`
 	Password NullableString `json:"password,omitempty"`
 	PublicIpEnabled *bool `json:"publicIpEnabled,omitempty"`
-	Image string `json:"image"`
+	Image NullableString `json:"image,omitempty"`
 	CloudInit NullableString `json:"cloudInit,omitempty"`
-	StandAloneProfileId int32 `json:"standAloneProfileId"`
-	ProjectId int32 `json:"projectId"`
+	StandAloneProfileId *int32 `json:"standAloneProfileId,omitempty"`
+	ProjectId *int32 `json:"projectId,omitempty"`
 	Count *int32 `json:"count,omitempty"`
 	SpotPrice NullableFloat64 `json:"spotPrice,omitempty"`
 	SpotInstance *bool `json:"spotInstance,omitempty"`
@@ -44,13 +44,8 @@ type CreateStandAloneVmCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateStandAloneVmCommand(name string, flavorName string, image string, standAloneProfileId int32, projectId int32) *CreateStandAloneVmCommand {
+func NewCreateStandAloneVmCommand() *CreateStandAloneVmCommand {
 	this := CreateStandAloneVmCommand{}
-	this.Name = name
-	this.FlavorName = flavorName
-	this.Image = image
-	this.StandAloneProfileId = standAloneProfileId
-	this.ProjectId = projectId
 	return &this
 }
 
@@ -62,52 +57,88 @@ func NewCreateStandAloneVmCommandWithDefaults() *CreateStandAloneVmCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateStandAloneVmCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStandAloneVmCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateStandAloneVmCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateStandAloneVmCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateStandAloneVmCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetFlavorName returns the FlavorName field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateStandAloneVmCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetFlavorName returns the FlavorName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateStandAloneVmCommand) GetFlavorName() string {
-	if o == nil {
+	if o == nil || IsNil(o.FlavorName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.FlavorName
+	return *o.FlavorName.Get()
 }
 
-// GetFlavorNameOk returns a tuple with the FlavorName field value
+// GetFlavorNameOk returns a tuple with the FlavorName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStandAloneVmCommand) GetFlavorNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FlavorName, true
+	return o.FlavorName.Get(), o.FlavorName.IsSet()
 }
 
-// SetFlavorName sets field value
+// HasFlavorName returns a boolean if a field has been set.
+func (o *CreateStandAloneVmCommand) HasFlavorName() bool {
+	if o != nil && o.FlavorName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFlavorName gets a reference to the given NullableString and assigns it to the FlavorName field.
 func (o *CreateStandAloneVmCommand) SetFlavorName(v string) {
-	o.FlavorName = v
+	o.FlavorName.Set(&v)
+}
+// SetFlavorNameNil sets the value for FlavorName to be an explicit nil
+func (o *CreateStandAloneVmCommand) SetFlavorNameNil() {
+	o.FlavorName.Set(nil)
+}
+
+// UnsetFlavorName ensures that no value is present for FlavorName, not even an explicit nil
+func (o *CreateStandAloneVmCommand) UnsetFlavorName() {
+	o.FlavorName.Unset()
 }
 
 // GetVolumeSize returns the VolumeSize field value if set, zero value otherwise.
@@ -300,28 +331,46 @@ func (o *CreateStandAloneVmCommand) SetPublicIpEnabled(v bool) {
 	o.PublicIpEnabled = &v
 }
 
-// GetImage returns the Image field value
+// GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateStandAloneVmCommand) GetImage() string {
-	if o == nil {
+	if o == nil || IsNil(o.Image.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Image
+	return *o.Image.Get()
 }
 
-// GetImageOk returns a tuple with the Image field value
+// GetImageOk returns a tuple with the Image field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateStandAloneVmCommand) GetImageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Image, true
+	return o.Image.Get(), o.Image.IsSet()
 }
 
-// SetImage sets field value
+// HasImage returns a boolean if a field has been set.
+func (o *CreateStandAloneVmCommand) HasImage() bool {
+	if o != nil && o.Image.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImage gets a reference to the given NullableString and assigns it to the Image field.
 func (o *CreateStandAloneVmCommand) SetImage(v string) {
-	o.Image = v
+	o.Image.Set(&v)
+}
+// SetImageNil sets the value for Image to be an explicit nil
+func (o *CreateStandAloneVmCommand) SetImageNil() {
+	o.Image.Set(nil)
+}
+
+// UnsetImage ensures that no value is present for Image, not even an explicit nil
+func (o *CreateStandAloneVmCommand) UnsetImage() {
+	o.Image.Unset()
 }
 
 // GetCloudInit returns the CloudInit field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -366,52 +415,68 @@ func (o *CreateStandAloneVmCommand) UnsetCloudInit() {
 	o.CloudInit.Unset()
 }
 
-// GetStandAloneProfileId returns the StandAloneProfileId field value
+// GetStandAloneProfileId returns the StandAloneProfileId field value if set, zero value otherwise.
 func (o *CreateStandAloneVmCommand) GetStandAloneProfileId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.StandAloneProfileId) {
 		var ret int32
 		return ret
 	}
-
-	return o.StandAloneProfileId
+	return *o.StandAloneProfileId
 }
 
-// GetStandAloneProfileIdOk returns a tuple with the StandAloneProfileId field value
+// GetStandAloneProfileIdOk returns a tuple with the StandAloneProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateStandAloneVmCommand) GetStandAloneProfileIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StandAloneProfileId) {
 		return nil, false
 	}
-	return &o.StandAloneProfileId, true
+	return o.StandAloneProfileId, true
 }
 
-// SetStandAloneProfileId sets field value
+// HasStandAloneProfileId returns a boolean if a field has been set.
+func (o *CreateStandAloneVmCommand) HasStandAloneProfileId() bool {
+	if o != nil && !IsNil(o.StandAloneProfileId) {
+		return true
+	}
+
+	return false
+}
+
+// SetStandAloneProfileId gets a reference to the given int32 and assigns it to the StandAloneProfileId field.
 func (o *CreateStandAloneVmCommand) SetStandAloneProfileId(v int32) {
-	o.StandAloneProfileId = v
+	o.StandAloneProfileId = &v
 }
 
-// GetProjectId returns the ProjectId field value
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *CreateStandAloneVmCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateStandAloneVmCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *CreateStandAloneVmCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *CreateStandAloneVmCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
@@ -680,8 +745,12 @@ func (o CreateStandAloneVmCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateStandAloneVmCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["flavorName"] = o.FlavorName
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.FlavorName.IsSet() {
+		toSerialize["flavorName"] = o.FlavorName.Get()
+	}
 	if !IsNil(o.VolumeSize) {
 		toSerialize["volumeSize"] = o.VolumeSize
 	}
@@ -697,12 +766,18 @@ func (o CreateStandAloneVmCommand) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PublicIpEnabled) {
 		toSerialize["publicIpEnabled"] = o.PublicIpEnabled
 	}
-	toSerialize["image"] = o.Image
+	if o.Image.IsSet() {
+		toSerialize["image"] = o.Image.Get()
+	}
 	if o.CloudInit.IsSet() {
 		toSerialize["cloudInit"] = o.CloudInit.Get()
 	}
-	toSerialize["standAloneProfileId"] = o.StandAloneProfileId
-	toSerialize["projectId"] = o.ProjectId
+	if !IsNil(o.StandAloneProfileId) {
+		toSerialize["standAloneProfileId"] = o.StandAloneProfileId
+	}
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
 	if !IsNil(o.Count) {
 		toSerialize["count"] = o.Count
 	}

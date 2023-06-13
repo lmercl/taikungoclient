@@ -221,7 +221,7 @@ import (
 )
 
 func main() {
-    resetPasswordCommand := *openapiclient.NewResetPasswordCommand("Token_example", "NewPassword_example") // ResetPasswordCommand |  (optional)
+    resetPasswordCommand := *openapiclient.NewResetPasswordCommand() // ResetPasswordCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -283,7 +283,7 @@ import (
 )
 
 func main() {
-    tryForFreeCommand := *openapiclient.NewTryForFreeCommand("OrganizationName_example", "Username_example", "Email_example") // TryForFreeCommand | 
+    tryForFreeCommand := *openapiclient.NewTryForFreeCommand() // TryForFreeCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

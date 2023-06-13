@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Icu** | **int32** |  | 
+**Icu** | Pointer to **int32** |  | [optional] 
 **BeginApply** | Pointer to **time.Time** |  | [optional] 
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateBillingSummaryCommand
 
-`func NewCreateBillingSummaryCommand(icu int32, projectId int32, ) *CreateBillingSummaryCommand`
+`func NewCreateBillingSummaryCommand() *CreateBillingSummaryCommand`
 
 NewCreateBillingSummaryCommand instantiates a new CreateBillingSummaryCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetIcu sets Icu field to given value.
 
+### HasIcu
+
+`func (o *CreateBillingSummaryCommand) HasIcu() bool`
+
+HasIcu returns a boolean if a field has been set.
 
 ### GetBeginApply
 
@@ -91,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *CreateBillingSummaryCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

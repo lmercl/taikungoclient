@@ -20,10 +20,10 @@ var _ MappedNullable = &CreateProjectAppCommand{}
 
 // CreateProjectAppCommand struct for CreateProjectAppCommand
 type CreateProjectAppCommand struct {
-	Name string `json:"name"`
-	Namespace string `json:"namespace"`
-	ProjectId int32 `json:"projectId"`
-	CatalogAppId int32 `json:"catalogAppId"`
+	Name NullableString `json:"name,omitempty"`
+	Namespace NullableString `json:"namespace,omitempty"`
+	ProjectId *int32 `json:"projectId,omitempty"`
+	CatalogAppId *int32 `json:"catalogAppId,omitempty"`
 	ExtraValues NullableString `json:"extraValues,omitempty"`
 	AutoSync *bool `json:"autoSync,omitempty"`
 	Parameters []ProjectAppParamsDto `json:"parameters,omitempty"`
@@ -33,12 +33,8 @@ type CreateProjectAppCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateProjectAppCommand(name string, namespace string, projectId int32, catalogAppId int32) *CreateProjectAppCommand {
+func NewCreateProjectAppCommand() *CreateProjectAppCommand {
 	this := CreateProjectAppCommand{}
-	this.Name = name
-	this.Namespace = namespace
-	this.ProjectId = projectId
-	this.CatalogAppId = catalogAppId
 	return &this
 }
 
@@ -50,100 +46,152 @@ func NewCreateProjectAppCommandWithDefaults() *CreateProjectAppCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateProjectAppCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateProjectAppCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateProjectAppCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateProjectAppCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateProjectAppCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetNamespace returns the Namespace field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateProjectAppCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateProjectAppCommand) GetNamespace() string {
-	if o == nil {
+	if o == nil || IsNil(o.Namespace.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Namespace
+	return *o.Namespace.Get()
 }
 
-// GetNamespaceOk returns a tuple with the Namespace field value
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateProjectAppCommand) GetNamespaceOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Namespace, true
+	return o.Namespace.Get(), o.Namespace.IsSet()
 }
 
-// SetNamespace sets field value
+// HasNamespace returns a boolean if a field has been set.
+func (o *CreateProjectAppCommand) HasNamespace() bool {
+	if o != nil && o.Namespace.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespace gets a reference to the given NullableString and assigns it to the Namespace field.
 func (o *CreateProjectAppCommand) SetNamespace(v string) {
-	o.Namespace = v
+	o.Namespace.Set(&v)
+}
+// SetNamespaceNil sets the value for Namespace to be an explicit nil
+func (o *CreateProjectAppCommand) SetNamespaceNil() {
+	o.Namespace.Set(nil)
 }
 
-// GetProjectId returns the ProjectId field value
+// UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
+func (o *CreateProjectAppCommand) UnsetNamespace() {
+	o.Namespace.Unset()
+}
+
+// GetProjectId returns the ProjectId field value if set, zero value otherwise.
 func (o *CreateProjectAppCommand) GetProjectId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectId
+	return *o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value
+// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateProjectAppCommand) GetProjectIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
-	return &o.ProjectId, true
+	return o.ProjectId, true
 }
 
-// SetProjectId sets field value
+// HasProjectId returns a boolean if a field has been set.
+func (o *CreateProjectAppCommand) HasProjectId() bool {
+	if o != nil && !IsNil(o.ProjectId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
 func (o *CreateProjectAppCommand) SetProjectId(v int32) {
-	o.ProjectId = v
+	o.ProjectId = &v
 }
 
-// GetCatalogAppId returns the CatalogAppId field value
+// GetCatalogAppId returns the CatalogAppId field value if set, zero value otherwise.
 func (o *CreateProjectAppCommand) GetCatalogAppId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CatalogAppId
+	return *o.CatalogAppId
 }
 
-// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value
+// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateProjectAppCommand) GetCatalogAppIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		return nil, false
 	}
-	return &o.CatalogAppId, true
+	return o.CatalogAppId, true
 }
 
-// SetCatalogAppId sets field value
+// HasCatalogAppId returns a boolean if a field has been set.
+func (o *CreateProjectAppCommand) HasCatalogAppId() bool {
+	if o != nil && !IsNil(o.CatalogAppId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCatalogAppId gets a reference to the given int32 and assigns it to the CatalogAppId field.
 func (o *CreateProjectAppCommand) SetCatalogAppId(v int32) {
-	o.CatalogAppId = v
+	o.CatalogAppId = &v
 }
 
 // GetExtraValues returns the ExtraValues field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -263,10 +311,18 @@ func (o CreateProjectAppCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateProjectAppCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["namespace"] = o.Namespace
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["catalogAppId"] = o.CatalogAppId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Namespace.IsSet() {
+		toSerialize["namespace"] = o.Namespace.Get()
+	}
+	if !IsNil(o.ProjectId) {
+		toSerialize["projectId"] = o.ProjectId
+	}
+	if !IsNil(o.CatalogAppId) {
+		toSerialize["catalogAppId"] = o.CatalogAppId
+	}
 	if o.ExtraValues.IsSet() {
 		toSerialize["extraValues"] = o.ExtraValues.Get()
 	}

@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | **string** |  | 
-**Url** | **string** |  | 
-**Password** | **string** |  | 
-**Namespace** | **string** |  | 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 **Port** | Pointer to **NullableInt32** |  | [optional] 
-**VolumeType** | **string** |  | 
+**VolumeType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCheckTanzuCommand
 
-`func NewCheckTanzuCommand(username string, url string, password string, namespace string, volumeType string, ) *CheckTanzuCommand`
+`func NewCheckTanzuCommand() *CheckTanzuCommand`
 
 NewCheckTanzuCommand instantiates a new CheckTanzuCommand object
 This constructor will assign default values to properties that have it defined,
@@ -49,7 +49,22 @@ and a boolean to check if the value has been set.
 
 SetUsername sets Username field to given value.
 
+### HasUsername
 
+`func (o *CheckTanzuCommand) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *CheckTanzuCommand) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *CheckTanzuCommand) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetUrl
 
 `func (o *CheckTanzuCommand) GetUrl() string`
@@ -69,7 +84,22 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
+`func (o *CheckTanzuCommand) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### SetUrlNil
+
+`func (o *CheckTanzuCommand) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *CheckTanzuCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetPassword
 
 `func (o *CheckTanzuCommand) GetPassword() string`
@@ -89,7 +119,22 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *CheckTanzuCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *CheckTanzuCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *CheckTanzuCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetNamespace
 
 `func (o *CheckTanzuCommand) GetNamespace() string`
@@ -109,7 +154,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *CheckTanzuCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *CheckTanzuCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *CheckTanzuCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 ### GetPort
 
 `func (o *CheckTanzuCommand) GetPort() int32`
@@ -164,7 +224,22 @@ and a boolean to check if the value has been set.
 
 SetVolumeType sets VolumeType field to given value.
 
+### HasVolumeType
 
+`func (o *CheckTanzuCommand) HasVolumeType() bool`
+
+HasVolumeType returns a boolean if a field has been set.
+
+### SetVolumeTypeNil
+
+`func (o *CheckTanzuCommand) SetVolumeTypeNil(b bool)`
+
+ SetVolumeTypeNil sets the value for VolumeType to be an explicit nil
+
+### UnsetVolumeType
+`func (o *CheckTanzuCommand) UnsetVolumeType()`
+
+UnsetVolumeType ensures that no value is present for VolumeType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

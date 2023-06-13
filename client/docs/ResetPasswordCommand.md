@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Token** | **string** |  | 
+**Token** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
-**NewPassword** | **interface{}** |  | 
+**NewPassword** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewResetPasswordCommand
 
-`func NewResetPasswordCommand(token string, newPassword interface{}, ) *ResetPasswordCommand`
+`func NewResetPasswordCommand() *ResetPasswordCommand`
 
 NewResetPasswordCommand instantiates a new ResetPasswordCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetToken sets Token field to given value.
 
+### HasToken
 
+`func (o *ResetPasswordCommand) HasToken() bool`
+
+HasToken returns a boolean if a field has been set.
+
+### SetTokenNil
+
+`func (o *ResetPasswordCommand) SetTokenNil(b bool)`
+
+ SetTokenNil sets the value for Token to be an explicit nil
+
+### UnsetToken
+`func (o *ResetPasswordCommand) UnsetToken()`
+
+UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetEmail
 
 `func (o *ResetPasswordCommand) GetEmail() string`
@@ -84,24 +99,39 @@ HasEmail returns a boolean if a field has been set.
 UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetNewPassword
 
-`func (o *ResetPasswordCommand) GetNewPassword() interface{}`
+`func (o *ResetPasswordCommand) GetNewPassword() string`
 
 GetNewPassword returns the NewPassword field if non-nil, zero value otherwise.
 
 ### GetNewPasswordOk
 
-`func (o *ResetPasswordCommand) GetNewPasswordOk() (*interface{}, bool)`
+`func (o *ResetPasswordCommand) GetNewPasswordOk() (*string, bool)`
 
 GetNewPasswordOk returns a tuple with the NewPassword field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNewPassword
 
-`func (o *ResetPasswordCommand) SetNewPassword(v interface{})`
+`func (o *ResetPasswordCommand) SetNewPassword(v string)`
 
 SetNewPassword sets NewPassword field to given value.
 
+### HasNewPassword
 
+`func (o *ResetPasswordCommand) HasNewPassword() bool`
+
+HasNewPassword returns a boolean if a field has been set.
+
+### SetNewPasswordNil
+
+`func (o *ResetPasswordCommand) SetNewPasswordNil(b bool)`
+
+ SetNewPasswordNil sets the value for NewPassword to be an explicit nil
+
+### UnsetNewPassword
+`func (o *ResetPasswordCommand) UnsetNewPassword()`
+
+UnsetNewPassword ensures that no value is present for NewPassword, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

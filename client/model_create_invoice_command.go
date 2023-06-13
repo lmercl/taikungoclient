@@ -21,8 +21,8 @@ var _ MappedNullable = &CreateInvoiceCommand{}
 
 // CreateInvoiceCommand struct for CreateInvoiceCommand
 type CreateInvoiceCommand struct {
-	Name string `json:"name"`
-	OrganizationSubscriptionId int32 `json:"organizationSubscriptionId"`
+	Name NullableString `json:"name,omitempty"`
+	OrganizationSubscriptionId *int32 `json:"organizationSubscriptionId,omitempty"`
 	StartDate *time.Time `json:"startDate,omitempty"`
 	EndDate *time.Time `json:"endDate,omitempty"`
 	DueDate *time.Time `json:"dueDate,omitempty"`
@@ -36,10 +36,8 @@ type CreateInvoiceCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateInvoiceCommand(name string, organizationSubscriptionId int32) *CreateInvoiceCommand {
+func NewCreateInvoiceCommand() *CreateInvoiceCommand {
 	this := CreateInvoiceCommand{}
-	this.Name = name
-	this.OrganizationSubscriptionId = organizationSubscriptionId
 	return &this
 }
 
@@ -51,52 +49,78 @@ func NewCreateInvoiceCommandWithDefaults() *CreateInvoiceCommand {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateInvoiceCommand) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateInvoiceCommand) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *CreateInvoiceCommand) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CreateInvoiceCommand) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CreateInvoiceCommand) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetOrganizationSubscriptionId returns the OrganizationSubscriptionId field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CreateInvoiceCommand) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetOrganizationSubscriptionId returns the OrganizationSubscriptionId field value if set, zero value otherwise.
 func (o *CreateInvoiceCommand) GetOrganizationSubscriptionId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationSubscriptionId) {
 		var ret int32
 		return ret
 	}
-
-	return o.OrganizationSubscriptionId
+	return *o.OrganizationSubscriptionId
 }
 
-// GetOrganizationSubscriptionIdOk returns a tuple with the OrganizationSubscriptionId field value
+// GetOrganizationSubscriptionIdOk returns a tuple with the OrganizationSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateInvoiceCommand) GetOrganizationSubscriptionIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrganizationSubscriptionId) {
 		return nil, false
 	}
-	return &o.OrganizationSubscriptionId, true
+	return o.OrganizationSubscriptionId, true
 }
 
-// SetOrganizationSubscriptionId sets field value
+// HasOrganizationSubscriptionId returns a boolean if a field has been set.
+func (o *CreateInvoiceCommand) HasOrganizationSubscriptionId() bool {
+	if o != nil && !IsNil(o.OrganizationSubscriptionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationSubscriptionId gets a reference to the given int32 and assigns it to the OrganizationSubscriptionId field.
 func (o *CreateInvoiceCommand) SetOrganizationSubscriptionId(v int32) {
-	o.OrganizationSubscriptionId = v
+	o.OrganizationSubscriptionId = &v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
@@ -343,8 +367,12 @@ func (o CreateInvoiceCommand) MarshalJSON() ([]byte, error) {
 
 func (o CreateInvoiceCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["organizationSubscriptionId"] = o.OrganizationSubscriptionId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if !IsNil(o.OrganizationSubscriptionId) {
+		toSerialize["organizationSubscriptionId"] = o.OrganizationSubscriptionId
+	}
 	if !IsNil(o.StartDate) {
 		toSerialize["startDate"] = o.StartDate
 	}

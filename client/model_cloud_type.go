@@ -17,30 +17,30 @@ import (
 )
 
 // CloudType the model 'CloudType'
-type CloudType int32
+type CloudType string
 
 // List of CloudType
 const (
-	CLOUDTYPE__100 CloudType = 100
-	CLOUDTYPE__200 CloudType = 200
-	CLOUDTYPE__300 CloudType = 300
-	CLOUDTYPE__400 CloudType = 400
-	CLOUDTYPE__500 CloudType = 500
-	CLOUDTYPE__600 CloudType = 600
+	CLOUDTYPE_AWS CloudType = "AWS"
+	CLOUDTYPE_AZURE CloudType = "AZURE"
+	CLOUDTYPE_GOOGLE CloudType = "GOOGLE"
+	CLOUDTYPE_OPENSTACK CloudType = "OPENSTACK"
+	CLOUDTYPE_PROXMOX CloudType = "PROXMOX"
+	CLOUDTYPE_TANZU CloudType = "TANZU"
 )
 
 // All allowed values of CloudType enum
 var AllowedCloudTypeEnumValues = []CloudType{
-	100,
-	200,
-	300,
-	400,
-	500,
-	600,
+	"AWS",
+	"AZURE",
+	"GOOGLE",
+	"OPENSTACK",
+	"PROXMOX",
+	"TANZU",
 }
 
 func (v *CloudType) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -58,7 +58,7 @@ func (v *CloudType) UnmarshalJSON(src []byte) error {
 
 // NewCloudTypeFromValue returns a pointer to a valid CloudType
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewCloudTypeFromValue(v int32) (*CloudType, error) {
+func NewCloudTypeFromValue(v string) (*CloudType, error) {
 	ev := CloudType(v)
 	if ev.IsValid() {
 		return &ev, nil

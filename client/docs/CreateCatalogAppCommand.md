@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RepoName** | **string** |  | 
-**PackageName** | **string** |  | 
-**CatalogId** | **int32** |  | 
+**RepoName** | Pointer to **NullableString** |  | [optional] 
+**PackageName** | Pointer to **NullableString** |  | [optional] 
+**CatalogId** | Pointer to **int32** |  | [optional] 
 **Version** | Pointer to **NullableString** |  | [optional] 
 **Parameters** | Pointer to [**[]CatalogAppParamsDto**](CatalogAppParamsDto.md) |  | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewCreateCatalogAppCommand
 
-`func NewCreateCatalogAppCommand(repoName string, packageName string, catalogId int32, ) *CreateCatalogAppCommand`
+`func NewCreateCatalogAppCommand() *CreateCatalogAppCommand`
 
 NewCreateCatalogAppCommand instantiates a new CreateCatalogAppCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetRepoName sets RepoName field to given value.
 
+### HasRepoName
 
+`func (o *CreateCatalogAppCommand) HasRepoName() bool`
+
+HasRepoName returns a boolean if a field has been set.
+
+### SetRepoNameNil
+
+`func (o *CreateCatalogAppCommand) SetRepoNameNil(b bool)`
+
+ SetRepoNameNil sets the value for RepoName to be an explicit nil
+
+### UnsetRepoName
+`func (o *CreateCatalogAppCommand) UnsetRepoName()`
+
+UnsetRepoName ensures that no value is present for RepoName, not even an explicit nil
 ### GetPackageName
 
 `func (o *CreateCatalogAppCommand) GetPackageName() string`
@@ -68,7 +83,22 @@ and a boolean to check if the value has been set.
 
 SetPackageName sets PackageName field to given value.
 
+### HasPackageName
 
+`func (o *CreateCatalogAppCommand) HasPackageName() bool`
+
+HasPackageName returns a boolean if a field has been set.
+
+### SetPackageNameNil
+
+`func (o *CreateCatalogAppCommand) SetPackageNameNil(b bool)`
+
+ SetPackageNameNil sets the value for PackageName to be an explicit nil
+
+### UnsetPackageName
+`func (o *CreateCatalogAppCommand) UnsetPackageName()`
+
+UnsetPackageName ensures that no value is present for PackageName, not even an explicit nil
 ### GetCatalogId
 
 `func (o *CreateCatalogAppCommand) GetCatalogId() int32`
@@ -88,6 +118,11 @@ and a boolean to check if the value has been set.
 
 SetCatalogId sets CatalogId field to given value.
 
+### HasCatalogId
+
+`func (o *CreateCatalogAppCommand) HasCatalogId() bool`
+
+HasCatalogId returns a boolean if a field has been set.
 
 ### GetVersion
 

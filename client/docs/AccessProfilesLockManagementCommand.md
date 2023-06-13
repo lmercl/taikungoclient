@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Mode** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAccessProfilesLockManagementCommand
 
-`func NewAccessProfilesLockManagementCommand(id int32, mode string, ) *AccessProfilesLockManagementCommand`
+`func NewAccessProfilesLockManagementCommand() *AccessProfilesLockManagementCommand`
 
 NewAccessProfilesLockManagementCommand instantiates a new AccessProfilesLockManagementCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *AccessProfilesLockManagementCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetMode
 
@@ -65,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *AccessProfilesLockManagementCommand) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *AccessProfilesLockManagementCommand) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *AccessProfilesLockManagementCommand) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

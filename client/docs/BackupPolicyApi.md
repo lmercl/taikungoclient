@@ -178,7 +178,7 @@ import (
 )
 
 func main() {
-    createBackupPolicyCommand := *openapiclient.NewCreateBackupPolicyCommand("Name_example", "CronPeriod_example", "RetentionPeriod_example", int32(123)) // CreateBackupPolicyCommand |  (optional)
+    createBackupPolicyCommand := *openapiclient.NewCreateBackupPolicyCommand() // CreateBackupPolicyCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -948,7 +948,7 @@ Name | Type | Description  | Notes
 
 ## BackupListAllBackups
 
-> map[string]interface{} BackupListAllBackups(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+> ListAllBackups BackupListAllBackups(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
 
 
@@ -979,7 +979,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BackupPolicyApi.BackupListAllBackups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BackupListAllBackups`: map[string]interface{}
+    // response from `BackupListAllBackups`: ListAllBackups
     fmt.Fprintf(os.Stdout, "Response from `BackupPolicyApi.BackupListAllBackups`: %v\n", resp)
 }
 ```
@@ -1008,7 +1008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**ListAllBackups**](ListAllBackups.md)
 
 ### Authorization
 
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 
 ## BackupListAllDeleteBackupRequests
 
-> map[string]interface{} BackupListAllDeleteBackupRequests(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+> ListAllDeleteBackupRequests BackupListAllDeleteBackupRequests(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
 
 
@@ -1057,7 +1057,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BackupPolicyApi.BackupListAllDeleteBackupRequests``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BackupListAllDeleteBackupRequests`: map[string]interface{}
+    // response from `BackupListAllDeleteBackupRequests`: ListAllDeleteBackupRequests
     fmt.Fprintf(os.Stdout, "Response from `BackupPolicyApi.BackupListAllDeleteBackupRequests`: %v\n", resp)
 }
 ```
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**ListAllDeleteBackupRequests**](ListAllDeleteBackupRequests.md)
 
 ### Authorization
 
@@ -1104,7 +1104,7 @@ Name | Type | Description  | Notes
 
 ## BackupListAllRestores
 
-> map[string]interface{} BackupListAllRestores(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+> ListAllRestores BackupListAllRestores(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
 
 
@@ -1135,7 +1135,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BackupPolicyApi.BackupListAllRestores``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BackupListAllRestores`: map[string]interface{}
+    // response from `BackupListAllRestores`: ListAllRestores
     fmt.Fprintf(os.Stdout, "Response from `BackupPolicyApi.BackupListAllRestores`: %v\n", resp)
 }
 ```
@@ -1164,7 +1164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**ListAllRestores**](ListAllRestores.md)
 
 ### Authorization
 

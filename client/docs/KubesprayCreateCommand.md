@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | **string** |  | 
-**KubernetesVersion** | **string** |  | 
+**Version** | Pointer to **NullableString** |  | [optional] 
+**KubernetesVersion** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewKubesprayCreateCommand
 
-`func NewKubesprayCreateCommand(version string, kubernetesVersion string, ) *KubesprayCreateCommand`
+`func NewKubesprayCreateCommand() *KubesprayCreateCommand`
 
 NewKubesprayCreateCommand instantiates a new KubesprayCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,7 +45,22 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
 
+`func (o *KubesprayCreateCommand) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### SetVersionNil
+
+`func (o *KubesprayCreateCommand) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *KubesprayCreateCommand) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetKubernetesVersion
 
 `func (o *KubesprayCreateCommand) GetKubernetesVersion() string`
@@ -65,7 +80,22 @@ and a boolean to check if the value has been set.
 
 SetKubernetesVersion sets KubernetesVersion field to given value.
 
+### HasKubernetesVersion
 
+`func (o *KubesprayCreateCommand) HasKubernetesVersion() bool`
+
+HasKubernetesVersion returns a boolean if a field has been set.
+
+### SetKubernetesVersionNil
+
+`func (o *KubesprayCreateCommand) SetKubernetesVersionNil(b bool)`
+
+ SetKubernetesVersionNil sets the value for KubernetesVersion to be an explicit nil
+
+### UnsetKubernetesVersion
+`func (o *KubesprayCreateCommand) UnsetKubernetesVersion()`
+
+UnsetKubernetesVersion ensures that no value is present for KubernetesVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

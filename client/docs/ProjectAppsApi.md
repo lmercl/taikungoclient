@@ -229,7 +229,7 @@ import (
 )
 
 func main() {
-    createProjectAppCommand := *openapiclient.NewCreateProjectAppCommand("Name_example", "Namespace_example", int32(123), int32(123)) // CreateProjectAppCommand |  (optional)
+    createProjectAppCommand := *openapiclient.NewCreateProjectAppCommand() // CreateProjectAppCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -429,7 +429,7 @@ import (
 )
 
 func main() {
-    syncProjectAppCommand := *openapiclient.NewSyncProjectAppCommand(int32(123)) // SyncProjectAppCommand | 
+    syncProjectAppCommand := *openapiclient.NewSyncProjectAppCommand() // SyncProjectAppCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

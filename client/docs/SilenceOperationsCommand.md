@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Mode** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 **Reason** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewSilenceOperationsCommand
 
-`func NewSilenceOperationsCommand(id int32, mode string, ) *SilenceOperationsCommand`
+`func NewSilenceOperationsCommand() *SilenceOperationsCommand`
 
 NewSilenceOperationsCommand instantiates a new SilenceOperationsCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *SilenceOperationsCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetMode
 
@@ -66,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *SilenceOperationsCommand) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *SilenceOperationsCommand) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *SilenceOperationsCommand) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 ### GetReason
 
 `func (o *SilenceOperationsCommand) GetReason() string`

@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **IsGoogle** | Pointer to **bool** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **MaxDataDiskCount** | Pointer to **NullableInt32** |  | [optional] 
-**IsLinuxSpotPrice** | Pointer to **bool** |  | [optional] 
-**IsWindowsSpotPrice** | Pointer to **bool** |  | [optional] 
+**ExistsLinuxSpotPrice** | Pointer to **bool** |  | [optional] 
+**ExistsWindowsSpotPrice** | Pointer to **bool** |  | [optional] 
 **LinuxSpotPrice** | Pointer to **NullableString** |  | [optional] 
 **LinuxPrice** | Pointer to **NullableString** |  | [optional] 
 **WindowsSpotPrice** | Pointer to **NullableString** |  | [optional] 
@@ -356,55 +356,55 @@ HasMaxDataDiskCount returns a boolean if a field has been set.
 `func (o *BoundFlavorsForProjectsListDto) UnsetMaxDataDiskCount()`
 
 UnsetMaxDataDiskCount ensures that no value is present for MaxDataDiskCount, not even an explicit nil
-### GetIsLinuxSpotPrice
+### GetExistsLinuxSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) GetIsLinuxSpotPrice() bool`
+`func (o *BoundFlavorsForProjectsListDto) GetExistsLinuxSpotPrice() bool`
 
-GetIsLinuxSpotPrice returns the IsLinuxSpotPrice field if non-nil, zero value otherwise.
+GetExistsLinuxSpotPrice returns the ExistsLinuxSpotPrice field if non-nil, zero value otherwise.
 
-### GetIsLinuxSpotPriceOk
+### GetExistsLinuxSpotPriceOk
 
-`func (o *BoundFlavorsForProjectsListDto) GetIsLinuxSpotPriceOk() (*bool, bool)`
+`func (o *BoundFlavorsForProjectsListDto) GetExistsLinuxSpotPriceOk() (*bool, bool)`
 
-GetIsLinuxSpotPriceOk returns a tuple with the IsLinuxSpotPrice field if it's non-nil, zero value otherwise
+GetExistsLinuxSpotPriceOk returns a tuple with the ExistsLinuxSpotPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsLinuxSpotPrice
+### SetExistsLinuxSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) SetIsLinuxSpotPrice(v bool)`
+`func (o *BoundFlavorsForProjectsListDto) SetExistsLinuxSpotPrice(v bool)`
 
-SetIsLinuxSpotPrice sets IsLinuxSpotPrice field to given value.
+SetExistsLinuxSpotPrice sets ExistsLinuxSpotPrice field to given value.
 
-### HasIsLinuxSpotPrice
+### HasExistsLinuxSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) HasIsLinuxSpotPrice() bool`
+`func (o *BoundFlavorsForProjectsListDto) HasExistsLinuxSpotPrice() bool`
 
-HasIsLinuxSpotPrice returns a boolean if a field has been set.
+HasExistsLinuxSpotPrice returns a boolean if a field has been set.
 
-### GetIsWindowsSpotPrice
+### GetExistsWindowsSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) GetIsWindowsSpotPrice() bool`
+`func (o *BoundFlavorsForProjectsListDto) GetExistsWindowsSpotPrice() bool`
 
-GetIsWindowsSpotPrice returns the IsWindowsSpotPrice field if non-nil, zero value otherwise.
+GetExistsWindowsSpotPrice returns the ExistsWindowsSpotPrice field if non-nil, zero value otherwise.
 
-### GetIsWindowsSpotPriceOk
+### GetExistsWindowsSpotPriceOk
 
-`func (o *BoundFlavorsForProjectsListDto) GetIsWindowsSpotPriceOk() (*bool, bool)`
+`func (o *BoundFlavorsForProjectsListDto) GetExistsWindowsSpotPriceOk() (*bool, bool)`
 
-GetIsWindowsSpotPriceOk returns a tuple with the IsWindowsSpotPrice field if it's non-nil, zero value otherwise
+GetExistsWindowsSpotPriceOk returns a tuple with the ExistsWindowsSpotPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsWindowsSpotPrice
+### SetExistsWindowsSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) SetIsWindowsSpotPrice(v bool)`
+`func (o *BoundFlavorsForProjectsListDto) SetExistsWindowsSpotPrice(v bool)`
 
-SetIsWindowsSpotPrice sets IsWindowsSpotPrice field to given value.
+SetExistsWindowsSpotPrice sets ExistsWindowsSpotPrice field to given value.
 
-### HasIsWindowsSpotPrice
+### HasExistsWindowsSpotPrice
 
-`func (o *BoundFlavorsForProjectsListDto) HasIsWindowsSpotPrice() bool`
+`func (o *BoundFlavorsForProjectsListDto) HasExistsWindowsSpotPrice() bool`
 
-HasIsWindowsSpotPrice returns a boolean if a field has been set.
+HasExistsWindowsSpotPrice returns a boolean if a field has been set.
 
 ### GetLinuxSpotPrice
 

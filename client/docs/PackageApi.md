@@ -178,7 +178,7 @@ import (
 )
 
 func main() {
-    getCatalogAppValueCommand := *openapiclient.NewGetCatalogAppValueCommand("PackageId_example", "Version_example") // GetCatalogAppValueCommand | 
+    getCatalogAppValueCommand := *openapiclient.NewGetCatalogAppValueCommand() // GetCatalogAppValueCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -242,7 +242,7 @@ import (
 )
 
 func main() {
-    getCatalogAppValueAutocompleteCommand := *openapiclient.NewGetCatalogAppValueAutocompleteCommand("PackageId_example", "Version_example") // GetCatalogAppValueAutocompleteCommand | 
+    getCatalogAppValueAutocompleteCommand := *openapiclient.NewGetCatalogAppValueAutocompleteCommand() // GetCatalogAppValueAutocompleteCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

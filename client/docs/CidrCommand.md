@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Cidr** | **string** |  | 
+**Cidr** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCidrCommand
 
-`func NewCidrCommand(cidr string, ) *CidrCommand`
+`func NewCidrCommand() *CidrCommand`
 
 NewCidrCommand instantiates a new CidrCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetCidr sets Cidr field to given value.
 
+### HasCidr
 
+`func (o *CidrCommand) HasCidr() bool`
+
+HasCidr returns a boolean if a field has been set.
+
+### SetCidrNil
+
+`func (o *CidrCommand) SetCidrNil(b bool)`
+
+ SetCidrNil sets the value for Cidr to be an explicit nil
+
+### UnsetCidr
+`func (o *CidrCommand) UnsetCidr()`
+
+UnsetCidr ensures that no value is present for Cidr, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

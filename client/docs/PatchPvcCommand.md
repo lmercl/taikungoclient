@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
-**Yaml** | **string** |  | 
-**Name** | **string** |  | 
-**Namespace** | **string** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**Yaml** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPatchPvcCommand
 
-`func NewPatchPvcCommand(projectId int32, yaml string, name string, namespace string, ) *PatchPvcCommand`
+`func NewPatchPvcCommand() *PatchPvcCommand`
 
 NewPatchPvcCommand instantiates a new PatchPvcCommand object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *PatchPvcCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetYaml
 
@@ -67,7 +72,22 @@ and a boolean to check if the value has been set.
 
 SetYaml sets Yaml field to given value.
 
+### HasYaml
 
+`func (o *PatchPvcCommand) HasYaml() bool`
+
+HasYaml returns a boolean if a field has been set.
+
+### SetYamlNil
+
+`func (o *PatchPvcCommand) SetYamlNil(b bool)`
+
+ SetYamlNil sets the value for Yaml to be an explicit nil
+
+### UnsetYaml
+`func (o *PatchPvcCommand) UnsetYaml()`
+
+UnsetYaml ensures that no value is present for Yaml, not even an explicit nil
 ### GetName
 
 `func (o *PatchPvcCommand) GetName() string`
@@ -87,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *PatchPvcCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *PatchPvcCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PatchPvcCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *PatchPvcCommand) GetNamespace() string`
@@ -107,7 +142,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *PatchPvcCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *PatchPvcCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *PatchPvcCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

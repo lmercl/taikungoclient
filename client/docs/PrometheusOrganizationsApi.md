@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-    bindRulesCommand := *openapiclient.NewBindRulesCommand(int32(123)) // BindRulesCommand |  (optional)
+    bindRulesCommand := *openapiclient.NewBindRulesCommand() // BindRulesCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

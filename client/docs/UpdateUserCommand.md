@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Username** | **string** |  | 
-**Email** | **string** |  | 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**Email** | Pointer to **NullableString** |  | [optional] 
 **Role** | Pointer to [**UserRole**](UserRole.md) |  | [optional] 
 **ForceToResetPassword** | Pointer to **bool** |  | [optional] 
 **Disable** | Pointer to **bool** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateUserCommand
 
-`func NewUpdateUserCommand(id string, username string, email string, ) *UpdateUserCommand`
+`func NewUpdateUserCommand() *UpdateUserCommand`
 
 NewUpdateUserCommand instantiates a new UpdateUserCommand object
 This constructor will assign default values to properties that have it defined,
@@ -51,7 +51,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *UpdateUserCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *UpdateUserCommand) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *UpdateUserCommand) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetDisplayName
 
 `func (o *UpdateUserCommand) GetDisplayName() string`
@@ -106,7 +121,22 @@ and a boolean to check if the value has been set.
 
 SetUsername sets Username field to given value.
 
+### HasUsername
 
+`func (o *UpdateUserCommand) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *UpdateUserCommand) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *UpdateUserCommand) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetEmail
 
 `func (o *UpdateUserCommand) GetEmail() string`
@@ -126,7 +156,22 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
 
+`func (o *UpdateUserCommand) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### SetEmailNil
+
+`func (o *UpdateUserCommand) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *UpdateUserCommand) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetRole
 
 `func (o *UpdateUserCommand) GetRole() UserRole`

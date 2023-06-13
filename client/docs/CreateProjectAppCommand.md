@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Namespace** | **string** |  | 
-**ProjectId** | **int32** |  | 
-**CatalogAppId** | **int32** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | Pointer to **int32** |  | [optional] 
+**CatalogAppId** | Pointer to **int32** |  | [optional] 
 **ExtraValues** | Pointer to **NullableString** |  | [optional] 
 **AutoSync** | Pointer to **bool** |  | [optional] 
 **Parameters** | Pointer to [**[]ProjectAppParamsDto**](ProjectAppParamsDto.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCreateProjectAppCommand
 
-`func NewCreateProjectAppCommand(name string, namespace string, projectId int32, catalogAppId int32, ) *CreateProjectAppCommand`
+`func NewCreateProjectAppCommand() *CreateProjectAppCommand`
 
 NewCreateProjectAppCommand instantiates a new CreateProjectAppCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateProjectAppCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateProjectAppCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateProjectAppCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *CreateProjectAppCommand) GetNamespace() string`
@@ -70,7 +85,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *CreateProjectAppCommand) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *CreateProjectAppCommand) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *CreateProjectAppCommand) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 ### GetProjectId
 
 `func (o *CreateProjectAppCommand) GetProjectId() int32`
@@ -90,6 +120,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *CreateProjectAppCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 ### GetCatalogAppId
 
@@ -110,6 +145,11 @@ and a boolean to check if the value has been set.
 
 SetCatalogAppId sets CatalogAppId field to given value.
 
+### HasCatalogAppId
+
+`func (o *CreateProjectAppCommand) HasCatalogAppId() bool`
+
+HasCatalogAppId returns a boolean if a field has been set.
 
 ### GetExtraValues
 

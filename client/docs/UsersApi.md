@@ -42,7 +42,7 @@ import (
 )
 
 func main() {
-    changePasswordCommand := *openapiclient.NewChangePasswordCommand("Password_example", "NewPassword_example") // ChangePasswordCommand | 
+    changePasswordCommand := *openapiclient.NewChangePasswordCommand() // ChangePasswordCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -104,7 +104,7 @@ import (
 )
 
 func main() {
-    confirmEmailCommand := *openapiclient.NewConfirmEmailCommand("NewEmail_example", "Mode_example") // ConfirmEmailCommand | 
+    confirmEmailCommand := *openapiclient.NewConfirmEmailCommand() // ConfirmEmailCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -166,7 +166,7 @@ import (
 )
 
 func main() {
-    createUserCommand := *openapiclient.NewCreateUserCommand("Username_example", "Email_example") // CreateUserCommand |  (optional)
+    createUserCommand := *openapiclient.NewCreateUserCommand() // CreateUserCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -871,7 +871,7 @@ import (
 )
 
 func main() {
-    updateUserCommand := *openapiclient.NewUpdateUserCommand("Id_example", "Username_example", "Email_example") // UpdateUserCommand |  (optional)
+    updateUserCommand := *openapiclient.NewUpdateUserCommand() // UpdateUserCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

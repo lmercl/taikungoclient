@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **int32** |  | 
+**ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewOpaProfileSyncCommand
 
-`func NewOpaProfileSyncCommand(projectId int32, ) *OpaProfileSyncCommand`
+`func NewOpaProfileSyncCommand() *OpaProfileSyncCommand`
 
 NewOpaProfileSyncCommand instantiates a new OpaProfileSyncCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
+### HasProjectId
+
+`func (o *OpaProfileSyncCommand) HasProjectId() bool`
+
+HasProjectId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

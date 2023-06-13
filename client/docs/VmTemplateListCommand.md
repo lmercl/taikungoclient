@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | 
-**Username** | **string** |  | 
-**Password** | **string** |  | 
+**CloudId** | Pointer to **NullableInt32** |  | [optional] 
+**Url** | Pointer to **NullableString** |  | [optional] 
+**TokenId** | Pointer to **NullableString** |  | [optional] 
+**TokenSecret** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewVmTemplateListCommand
 
-`func NewVmTemplateListCommand(url string, username string, password string, ) *VmTemplateListCommand`
+`func NewVmTemplateListCommand() *VmTemplateListCommand`
 
 NewVmTemplateListCommand instantiates a new VmTemplateListCommand object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,41 @@ NewVmTemplateListCommandWithDefaults instantiates a new VmTemplateListCommand ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetCloudId
+
+`func (o *VmTemplateListCommand) GetCloudId() int32`
+
+GetCloudId returns the CloudId field if non-nil, zero value otherwise.
+
+### GetCloudIdOk
+
+`func (o *VmTemplateListCommand) GetCloudIdOk() (*int32, bool)`
+
+GetCloudIdOk returns a tuple with the CloudId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudId
+
+`func (o *VmTemplateListCommand) SetCloudId(v int32)`
+
+SetCloudId sets CloudId field to given value.
+
+### HasCloudId
+
+`func (o *VmTemplateListCommand) HasCloudId() bool`
+
+HasCloudId returns a boolean if a field has been set.
+
+### SetCloudIdNil
+
+`func (o *VmTemplateListCommand) SetCloudIdNil(b bool)`
+
+ SetCloudIdNil sets the value for CloudId to be an explicit nil
+
+### UnsetCloudId
+`func (o *VmTemplateListCommand) UnsetCloudId()`
+
+UnsetCloudId ensures that no value is present for CloudId, not even an explicit nil
 ### GetUrl
 
 `func (o *VmTemplateListCommand) GetUrl() string`
@@ -46,47 +82,92 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
 
-### GetUsername
+`func (o *VmTemplateListCommand) HasUrl() bool`
 
-`func (o *VmTemplateListCommand) GetUsername() string`
+HasUrl returns a boolean if a field has been set.
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+### SetUrlNil
 
-### GetUsernameOk
+`func (o *VmTemplateListCommand) SetUrlNil(b bool)`
 
-`func (o *VmTemplateListCommand) GetUsernameOk() (*string, bool)`
+ SetUrlNil sets the value for Url to be an explicit nil
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+### UnsetUrl
+`func (o *VmTemplateListCommand) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
+### GetTokenId
+
+`func (o *VmTemplateListCommand) GetTokenId() string`
+
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
+
+### GetTokenIdOk
+
+`func (o *VmTemplateListCommand) GetTokenIdOk() (*string, bool)`
+
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetTokenId
 
-`func (o *VmTemplateListCommand) SetUsername(v string)`
+`func (o *VmTemplateListCommand) SetTokenId(v string)`
 
-SetUsername sets Username field to given value.
+SetTokenId sets TokenId field to given value.
 
+### HasTokenId
 
-### GetPassword
+`func (o *VmTemplateListCommand) HasTokenId() bool`
 
-`func (o *VmTemplateListCommand) GetPassword() string`
+HasTokenId returns a boolean if a field has been set.
 
-GetPassword returns the Password field if non-nil, zero value otherwise.
+### SetTokenIdNil
 
-### GetPasswordOk
+`func (o *VmTemplateListCommand) SetTokenIdNil(b bool)`
 
-`func (o *VmTemplateListCommand) GetPasswordOk() (*string, bool)`
+ SetTokenIdNil sets the value for TokenId to be an explicit nil
 
-GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+### UnsetTokenId
+`func (o *VmTemplateListCommand) UnsetTokenId()`
+
+UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+### GetTokenSecret
+
+`func (o *VmTemplateListCommand) GetTokenSecret() string`
+
+GetTokenSecret returns the TokenSecret field if non-nil, zero value otherwise.
+
+### GetTokenSecretOk
+
+`func (o *VmTemplateListCommand) GetTokenSecretOk() (*string, bool)`
+
+GetTokenSecretOk returns a tuple with the TokenSecret field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPassword
+### SetTokenSecret
 
-`func (o *VmTemplateListCommand) SetPassword(v string)`
+`func (o *VmTemplateListCommand) SetTokenSecret(v string)`
 
-SetPassword sets Password field to given value.
+SetTokenSecret sets TokenSecret field to given value.
 
+### HasTokenSecret
 
+`func (o *VmTemplateListCommand) HasTokenSecret() bool`
+
+HasTokenSecret returns a boolean if a field has been set.
+
+### SetTokenSecretNil
+
+`func (o *VmTemplateListCommand) SetTokenSecretNil(b bool)`
+
+ SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+
+### UnsetTokenSecret
+`func (o *VmTemplateListCommand) UnsetTokenSecret()`
+
+UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

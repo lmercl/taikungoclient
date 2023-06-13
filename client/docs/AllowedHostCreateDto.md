@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
-**IpAddress** | **string** |  | 
+**IpAddress** | Pointer to **NullableString** |  | [optional] 
 **MaskBits** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewAllowedHostCreateDto
 
-`func NewAllowedHostCreateDto(ipAddress string, ) *AllowedHostCreateDto`
+`func NewAllowedHostCreateDto() *AllowedHostCreateDto`
 
 NewAllowedHostCreateDto instantiates a new AllowedHostCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -81,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetIpAddress sets IpAddress field to given value.
 
+### HasIpAddress
 
+`func (o *AllowedHostCreateDto) HasIpAddress() bool`
+
+HasIpAddress returns a boolean if a field has been set.
+
+### SetIpAddressNil
+
+`func (o *AllowedHostCreateDto) SetIpAddressNil(b bool)`
+
+ SetIpAddressNil sets the value for IpAddress to be an explicit nil
+
+### UnsetIpAddress
+`func (o *AllowedHostCreateDto) UnsetIpAddress()`
+
+UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
 ### GetMaskBits
 
 `func (o *AllowedHostCreateDto) GetMaskBits() int32`

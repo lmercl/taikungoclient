@@ -41,7 +41,7 @@ import (
 )
 
 func main() {
-    adminAddBalanceCommand := *openapiclient.NewAdminAddBalanceCommand("CustomerId_example") // AdminAddBalanceCommand | 
+    adminAddBalanceCommand := *openapiclient.NewAdminAddBalanceCommand() // AdminAddBalanceCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -103,7 +103,7 @@ import (
 )
 
 func main() {
-    adminBillingOperationCommand := *openapiclient.NewAdminBillingOperationCommand(int32(123)) // AdminBillingOperationCommand | 
+    adminBillingOperationCommand := *openapiclient.NewAdminBillingOperationCommand() // AdminBillingOperationCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -165,7 +165,7 @@ import (
 )
 
 func main() {
-    adminUserCreateCommand := *openapiclient.NewAdminUserCreateCommand("Email_example", "Username_example", "Password_example") // AdminUserCreateCommand |  (optional)
+    adminUserCreateCommand := *openapiclient.NewAdminUserCreateCommand() // AdminUserCreateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -355,7 +355,7 @@ import (
 )
 
 func main() {
-    makeCsmCommand := *openapiclient.NewMakeCsmCommand("UserId_example", "Mode_example") // MakeCsmCommand | 
+    makeCsmCommand := *openapiclient.NewMakeCsmCommand() // MakeCsmCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -417,7 +417,7 @@ import (
 )
 
 func main() {
-    makeOwnerCommand := *openapiclient.NewMakeOwnerCommand("UserId_example") // MakeOwnerCommand | 
+    makeOwnerCommand := *openapiclient.NewMakeOwnerCommand() // MakeOwnerCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -619,7 +619,7 @@ import (
 )
 
 func main() {
-    adminProjectUpdateCommand := *openapiclient.NewAdminProjectUpdateCommand(int32(123), "KubernetesCurrentVersion_example", "KubesprayCurrentVersion_example") // AdminProjectUpdateCommand | 
+    adminProjectUpdateCommand := *openapiclient.NewAdminProjectUpdateCommand() // AdminProjectUpdateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -681,7 +681,7 @@ import (
 )
 
 func main() {
-    adminUpdateProjectKubeConfigCommand := *openapiclient.NewAdminUpdateProjectKubeConfigCommand(int32(123)) // AdminUpdateProjectKubeConfigCommand | 
+    adminUpdateProjectKubeConfigCommand := *openapiclient.NewAdminUpdateProjectKubeConfigCommand() // AdminUpdateProjectKubeConfigCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -743,7 +743,7 @@ import (
 )
 
 func main() {
-    adminUsersUpdatePasswordCommand := *openapiclient.NewAdminUsersUpdatePasswordCommand("Id_example", "Password_example") // AdminUsersUpdatePasswordCommand | 
+    adminUsersUpdatePasswordCommand := *openapiclient.NewAdminUsersUpdatePasswordCommand() // AdminUsersUpdatePasswordCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -805,7 +805,7 @@ import (
 )
 
 func main() {
-    adminUpdateUserKubeConfigCommand := *openapiclient.NewAdminUpdateUserKubeConfigCommand(int32(123)) // AdminUpdateUserKubeConfigCommand | 
+    adminUpdateUserKubeConfigCommand := *openapiclient.NewAdminUpdateUserKubeConfigCommand() // AdminUpdateUserKubeConfigCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -867,7 +867,7 @@ import (
 )
 
 func main() {
-    adminUsersUpdateEmailCommand := *openapiclient.NewAdminUsersUpdateEmailCommand("Id_example") // AdminUsersUpdateEmailCommand | 
+    adminUsersUpdateEmailCommand := *openapiclient.NewAdminUsersUpdateEmailCommand() // AdminUsersUpdateEmailCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

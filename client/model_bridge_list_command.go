@@ -20,22 +20,18 @@ var _ MappedNullable = &BridgeListCommand{}
 
 // BridgeListCommand struct for BridgeListCommand
 type BridgeListCommand struct {
-	Url string `json:"url"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-	Hypervisor string `json:"hypervisor"`
+	Url NullableString `json:"url,omitempty"`
+	TokenId NullableString `json:"tokenId,omitempty"`
+	TokenSecret NullableString `json:"tokenSecret,omitempty"`
+	Hypervisor NullableString `json:"hypervisor,omitempty"`
 }
 
 // NewBridgeListCommand instantiates a new BridgeListCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBridgeListCommand(url string, username string, password string, hypervisor string) *BridgeListCommand {
+func NewBridgeListCommand() *BridgeListCommand {
 	this := BridgeListCommand{}
-	this.Url = url
-	this.Username = username
-	this.Password = password
-	this.Hypervisor = hypervisor
 	return &this
 }
 
@@ -47,100 +43,172 @@ func NewBridgeListCommandWithDefaults() *BridgeListCommand {
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BridgeListCommand) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url.Get()
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BridgeListCommand) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *BridgeListCommand) HasUrl() bool {
+	if o != nil && o.Url.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *BridgeListCommand) SetUrl(v string) {
-	o.Url = v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *BridgeListCommand) SetUrlNil() {
+	o.Url.Set(nil)
 }
 
-// GetUsername returns the Username field value
-func (o *BridgeListCommand) GetUsername() string {
-	if o == nil {
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *BridgeListCommand) UnsetUrl() {
+	o.Url.Unset()
+}
+
+// GetTokenId returns the TokenId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BridgeListCommand) GetTokenId() string {
+	if o == nil || IsNil(o.TokenId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Username
+	return *o.TokenId.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BridgeListCommand) GetUsernameOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BridgeListCommand) GetTokenIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Username, true
+	return o.TokenId.Get(), o.TokenId.IsSet()
 }
 
-// SetUsername sets field value
-func (o *BridgeListCommand) SetUsername(v string) {
-	o.Username = v
+// HasTokenId returns a boolean if a field has been set.
+func (o *BridgeListCommand) HasTokenId() bool {
+	if o != nil && o.TokenId.IsSet() {
+		return true
+	}
+
+	return false
 }
 
-// GetPassword returns the Password field value
-func (o *BridgeListCommand) GetPassword() string {
-	if o == nil {
+// SetTokenId gets a reference to the given NullableString and assigns it to the TokenId field.
+func (o *BridgeListCommand) SetTokenId(v string) {
+	o.TokenId.Set(&v)
+}
+// SetTokenIdNil sets the value for TokenId to be an explicit nil
+func (o *BridgeListCommand) SetTokenIdNil() {
+	o.TokenId.Set(nil)
+}
+
+// UnsetTokenId ensures that no value is present for TokenId, not even an explicit nil
+func (o *BridgeListCommand) UnsetTokenId() {
+	o.TokenId.Unset()
+}
+
+// GetTokenSecret returns the TokenSecret field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BridgeListCommand) GetTokenSecret() string {
+	if o == nil || IsNil(o.TokenSecret.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Password
+	return *o.TokenSecret.Get()
 }
 
-// GetPasswordOk returns a tuple with the Password field value
+// GetTokenSecretOk returns a tuple with the TokenSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BridgeListCommand) GetPasswordOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BridgeListCommand) GetTokenSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Password, true
+	return o.TokenSecret.Get(), o.TokenSecret.IsSet()
 }
 
-// SetPassword sets field value
-func (o *BridgeListCommand) SetPassword(v string) {
-	o.Password = v
+// HasTokenSecret returns a boolean if a field has been set.
+func (o *BridgeListCommand) HasTokenSecret() bool {
+	if o != nil && o.TokenSecret.IsSet() {
+		return true
+	}
+
+	return false
 }
 
-// GetHypervisor returns the Hypervisor field value
+// SetTokenSecret gets a reference to the given NullableString and assigns it to the TokenSecret field.
+func (o *BridgeListCommand) SetTokenSecret(v string) {
+	o.TokenSecret.Set(&v)
+}
+// SetTokenSecretNil sets the value for TokenSecret to be an explicit nil
+func (o *BridgeListCommand) SetTokenSecretNil() {
+	o.TokenSecret.Set(nil)
+}
+
+// UnsetTokenSecret ensures that no value is present for TokenSecret, not even an explicit nil
+func (o *BridgeListCommand) UnsetTokenSecret() {
+	o.TokenSecret.Unset()
+}
+
+// GetHypervisor returns the Hypervisor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BridgeListCommand) GetHypervisor() string {
-	if o == nil {
+	if o == nil || IsNil(o.Hypervisor.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Hypervisor
+	return *o.Hypervisor.Get()
 }
 
-// GetHypervisorOk returns a tuple with the Hypervisor field value
+// GetHypervisorOk returns a tuple with the Hypervisor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BridgeListCommand) GetHypervisorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Hypervisor, true
+	return o.Hypervisor.Get(), o.Hypervisor.IsSet()
 }
 
-// SetHypervisor sets field value
+// HasHypervisor returns a boolean if a field has been set.
+func (o *BridgeListCommand) HasHypervisor() bool {
+	if o != nil && o.Hypervisor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisor gets a reference to the given NullableString and assigns it to the Hypervisor field.
 func (o *BridgeListCommand) SetHypervisor(v string) {
-	o.Hypervisor = v
+	o.Hypervisor.Set(&v)
+}
+// SetHypervisorNil sets the value for Hypervisor to be an explicit nil
+func (o *BridgeListCommand) SetHypervisorNil() {
+	o.Hypervisor.Set(nil)
+}
+
+// UnsetHypervisor ensures that no value is present for Hypervisor, not even an explicit nil
+func (o *BridgeListCommand) UnsetHypervisor() {
+	o.Hypervisor.Unset()
 }
 
 func (o BridgeListCommand) MarshalJSON() ([]byte, error) {
@@ -153,10 +221,18 @@ func (o BridgeListCommand) MarshalJSON() ([]byte, error) {
 
 func (o BridgeListCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
-	toSerialize["username"] = o.Username
-	toSerialize["password"] = o.Password
-	toSerialize["hypervisor"] = o.Hypervisor
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
+	}
+	if o.TokenId.IsSet() {
+		toSerialize["tokenId"] = o.TokenId.Get()
+	}
+	if o.TokenSecret.IsSet() {
+		toSerialize["tokenSecret"] = o.TokenSecret.Get()
+	}
+	if o.Hypervisor.IsSet() {
+		toSerialize["hypervisor"] = o.Hypervisor.Get()
+	}
 	return toSerialize, nil
 }
 

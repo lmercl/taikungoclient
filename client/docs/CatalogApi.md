@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    bindProjectsToCatalogCommand := *openapiclient.NewBindProjectsToCatalogCommand([]openapiclient.UpdateCatalogDto{*openapiclient.NewUpdateCatalogDto()}, int32(123)) // BindProjectsToCatalogCommand |  (optional)
+    bindProjectsToCatalogCommand := *openapiclient.NewBindProjectsToCatalogCommand() // BindProjectsToCatalogCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -95,7 +95,7 @@ import (
 )
 
 func main() {
-    createCatalogCommand := *openapiclient.NewCreateCatalogCommand("Name_example") // CreateCatalogCommand | 
+    createCatalogCommand := *openapiclient.NewCreateCatalogCommand() // CreateCatalogCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -287,7 +287,7 @@ import (
 )
 
 func main() {
-    editCatalogCommand := *openapiclient.NewEditCatalogCommand(int32(123), "Name_example") // EditCatalogCommand | 
+    editCatalogCommand := *openapiclient.NewEditCatalogCommand() // EditCatalogCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

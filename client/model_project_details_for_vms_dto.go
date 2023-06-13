@@ -38,6 +38,8 @@ type ProjectDetailsForVmsDto struct {
 	AllowSpotVMs *bool `json:"allowSpotVMs,omitempty"`
 	MaxSpotPrice NullableFloat64 `json:"maxSpotPrice,omitempty"`
 	TotalHourlyCost *float64 `json:"totalHourlyCost,omitempty"`
+	AvailabilityZones []string `json:"availabilityZones,omitempty"`
+	Hypervisors []string `json:"hypervisors,omitempty"`
 }
 
 // NewProjectDetailsForVmsDto instantiates a new ProjectDetailsForVmsDto object
@@ -733,6 +735,72 @@ func (o *ProjectDetailsForVmsDto) SetTotalHourlyCost(v float64) {
 	o.TotalHourlyCost = &v
 }
 
+// GetAvailabilityZones returns the AvailabilityZones field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectDetailsForVmsDto) GetAvailabilityZones() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AvailabilityZones
+}
+
+// GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectDetailsForVmsDto) GetAvailabilityZonesOk() ([]string, bool) {
+	if o == nil || IsNil(o.AvailabilityZones) {
+		return nil, false
+	}
+	return o.AvailabilityZones, true
+}
+
+// HasAvailabilityZones returns a boolean if a field has been set.
+func (o *ProjectDetailsForVmsDto) HasAvailabilityZones() bool {
+	if o != nil && IsNil(o.AvailabilityZones) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZones gets a reference to the given []string and assigns it to the AvailabilityZones field.
+func (o *ProjectDetailsForVmsDto) SetAvailabilityZones(v []string) {
+	o.AvailabilityZones = v
+}
+
+// GetHypervisors returns the Hypervisors field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectDetailsForVmsDto) GetHypervisors() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Hypervisors
+}
+
+// GetHypervisorsOk returns a tuple with the Hypervisors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectDetailsForVmsDto) GetHypervisorsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Hypervisors) {
+		return nil, false
+	}
+	return o.Hypervisors, true
+}
+
+// HasHypervisors returns a boolean if a field has been set.
+func (o *ProjectDetailsForVmsDto) HasHypervisors() bool {
+	if o != nil && IsNil(o.Hypervisors) {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisors gets a reference to the given []string and assigns it to the Hypervisors field.
+func (o *ProjectDetailsForVmsDto) SetHypervisors(v []string) {
+	o.Hypervisors = v
+}
+
 func (o ProjectDetailsForVmsDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -796,6 +864,12 @@ func (o ProjectDetailsForVmsDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TotalHourlyCost) {
 		toSerialize["totalHourlyCost"] = o.TotalHourlyCost
+	}
+	if o.AvailabilityZones != nil {
+		toSerialize["availabilityZones"] = o.AvailabilityZones
+	}
+	if o.Hypervisors != nil {
+		toSerialize["hypervisors"] = o.Hypervisors
 	}
 	return toSerialize, nil
 }

@@ -20,16 +20,15 @@ var _ MappedNullable = &SyncProjectAppCommand{}
 
 // SyncProjectAppCommand struct for SyncProjectAppCommand
 type SyncProjectAppCommand struct {
-	ProjectAppId int32 `json:"projectAppId"`
+	ProjectAppId *int32 `json:"projectAppId,omitempty"`
 }
 
 // NewSyncProjectAppCommand instantiates a new SyncProjectAppCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSyncProjectAppCommand(projectAppId int32) *SyncProjectAppCommand {
+func NewSyncProjectAppCommand() *SyncProjectAppCommand {
 	this := SyncProjectAppCommand{}
-	this.ProjectAppId = projectAppId
 	return &this
 }
 
@@ -41,28 +40,36 @@ func NewSyncProjectAppCommandWithDefaults() *SyncProjectAppCommand {
 	return &this
 }
 
-// GetProjectAppId returns the ProjectAppId field value
+// GetProjectAppId returns the ProjectAppId field value if set, zero value otherwise.
 func (o *SyncProjectAppCommand) GetProjectAppId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectAppId) {
 		var ret int32
 		return ret
 	}
-
-	return o.ProjectAppId
+	return *o.ProjectAppId
 }
 
-// GetProjectAppIdOk returns a tuple with the ProjectAppId field value
+// GetProjectAppIdOk returns a tuple with the ProjectAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncProjectAppCommand) GetProjectAppIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProjectAppId) {
 		return nil, false
 	}
-	return &o.ProjectAppId, true
+	return o.ProjectAppId, true
 }
 
-// SetProjectAppId sets field value
+// HasProjectAppId returns a boolean if a field has been set.
+func (o *SyncProjectAppCommand) HasProjectAppId() bool {
+	if o != nil && !IsNil(o.ProjectAppId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectAppId gets a reference to the given int32 and assigns it to the ProjectAppId field.
 func (o *SyncProjectAppCommand) SetProjectAppId(v int32) {
-	o.ProjectAppId = v
+	o.ProjectAppId = &v
 }
 
 func (o SyncProjectAppCommand) MarshalJSON() ([]byte, error) {
@@ -75,7 +82,9 @@ func (o SyncProjectAppCommand) MarshalJSON() ([]byte, error) {
 
 func (o SyncProjectAppCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectAppId"] = o.ProjectAppId
+	if !IsNil(o.ProjectAppId) {
+		toSerialize["projectAppId"] = o.ProjectAppId
+	}
 	return toSerialize, nil
 }
 

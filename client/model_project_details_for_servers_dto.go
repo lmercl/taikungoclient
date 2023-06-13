@@ -100,6 +100,9 @@ type ProjectDetailsForServersDto struct {
 	SpotEnabled NullableBool `json:"spotEnabled,omitempty"`
 	IsAutoscalingEnabled *bool `json:"isAutoscalingEnabled,omitempty"`
 	HasExpirationWarning *bool `json:"hasExpirationWarning,omitempty"`
+	HasNfsServer *bool `json:"hasNfsServer,omitempty"`
+	AvailabilityZones []string `json:"availabilityZones,omitempty"`
+	Hypervisors []string `json:"hypervisors,omitempty"`
 }
 
 // NewProjectDetailsForServersDto instantiates a new ProjectDetailsForServersDto object
@@ -3009,6 +3012,104 @@ func (o *ProjectDetailsForServersDto) SetHasExpirationWarning(v bool) {
 	o.HasExpirationWarning = &v
 }
 
+// GetHasNfsServer returns the HasNfsServer field value if set, zero value otherwise.
+func (o *ProjectDetailsForServersDto) GetHasNfsServer() bool {
+	if o == nil || IsNil(o.HasNfsServer) {
+		var ret bool
+		return ret
+	}
+	return *o.HasNfsServer
+}
+
+// GetHasNfsServerOk returns a tuple with the HasNfsServer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectDetailsForServersDto) GetHasNfsServerOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasNfsServer) {
+		return nil, false
+	}
+	return o.HasNfsServer, true
+}
+
+// HasHasNfsServer returns a boolean if a field has been set.
+func (o *ProjectDetailsForServersDto) HasHasNfsServer() bool {
+	if o != nil && !IsNil(o.HasNfsServer) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasNfsServer gets a reference to the given bool and assigns it to the HasNfsServer field.
+func (o *ProjectDetailsForServersDto) SetHasNfsServer(v bool) {
+	o.HasNfsServer = &v
+}
+
+// GetAvailabilityZones returns the AvailabilityZones field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectDetailsForServersDto) GetAvailabilityZones() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AvailabilityZones
+}
+
+// GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectDetailsForServersDto) GetAvailabilityZonesOk() ([]string, bool) {
+	if o == nil || IsNil(o.AvailabilityZones) {
+		return nil, false
+	}
+	return o.AvailabilityZones, true
+}
+
+// HasAvailabilityZones returns a boolean if a field has been set.
+func (o *ProjectDetailsForServersDto) HasAvailabilityZones() bool {
+	if o != nil && IsNil(o.AvailabilityZones) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZones gets a reference to the given []string and assigns it to the AvailabilityZones field.
+func (o *ProjectDetailsForServersDto) SetAvailabilityZones(v []string) {
+	o.AvailabilityZones = v
+}
+
+// GetHypervisors returns the Hypervisors field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectDetailsForServersDto) GetHypervisors() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Hypervisors
+}
+
+// GetHypervisorsOk returns a tuple with the Hypervisors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectDetailsForServersDto) GetHypervisorsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Hypervisors) {
+		return nil, false
+	}
+	return o.Hypervisors, true
+}
+
+// HasHypervisors returns a boolean if a field has been set.
+func (o *ProjectDetailsForServersDto) HasHypervisors() bool {
+	if o != nil && IsNil(o.Hypervisors) {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisors gets a reference to the given []string and assigns it to the Hypervisors field.
+func (o *ProjectDetailsForServersDto) SetHypervisors(v []string) {
+	o.Hypervisors = v
+}
+
 func (o ProjectDetailsForServersDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -3258,6 +3359,15 @@ func (o ProjectDetailsForServersDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HasExpirationWarning) {
 		toSerialize["hasExpirationWarning"] = o.HasExpirationWarning
+	}
+	if !IsNil(o.HasNfsServer) {
+		toSerialize["hasNfsServer"] = o.HasNfsServer
+	}
+	if o.AvailabilityZones != nil {
+		toSerialize["availabilityZones"] = o.AvailabilityZones
+	}
+	if o.Hypervisors != nil {
+		toSerialize["hypervisors"] = o.Hypervisors
 	}
 	return toSerialize, nil
 }

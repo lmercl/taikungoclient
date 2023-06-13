@@ -20,18 +20,16 @@ var _ MappedNullable = &EditCatalogAppVersionCommand{}
 
 // EditCatalogAppVersionCommand struct for EditCatalogAppVersionCommand
 type EditCatalogAppVersionCommand struct {
-	CatalogAppId int32 `json:"catalogAppId"`
-	Version string `json:"version"`
+	CatalogAppId *int32 `json:"catalogAppId,omitempty"`
+	Version NullableString `json:"version,omitempty"`
 }
 
 // NewEditCatalogAppVersionCommand instantiates a new EditCatalogAppVersionCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEditCatalogAppVersionCommand(catalogAppId int32, version string) *EditCatalogAppVersionCommand {
+func NewEditCatalogAppVersionCommand() *EditCatalogAppVersionCommand {
 	this := EditCatalogAppVersionCommand{}
-	this.CatalogAppId = catalogAppId
-	this.Version = version
 	return &this
 }
 
@@ -43,52 +41,78 @@ func NewEditCatalogAppVersionCommandWithDefaults() *EditCatalogAppVersionCommand
 	return &this
 }
 
-// GetCatalogAppId returns the CatalogAppId field value
+// GetCatalogAppId returns the CatalogAppId field value if set, zero value otherwise.
 func (o *EditCatalogAppVersionCommand) GetCatalogAppId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		var ret int32
 		return ret
 	}
-
-	return o.CatalogAppId
+	return *o.CatalogAppId
 }
 
-// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value
+// GetCatalogAppIdOk returns a tuple with the CatalogAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EditCatalogAppVersionCommand) GetCatalogAppIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CatalogAppId) {
 		return nil, false
 	}
-	return &o.CatalogAppId, true
+	return o.CatalogAppId, true
 }
 
-// SetCatalogAppId sets field value
+// HasCatalogAppId returns a boolean if a field has been set.
+func (o *EditCatalogAppVersionCommand) HasCatalogAppId() bool {
+	if o != nil && !IsNil(o.CatalogAppId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCatalogAppId gets a reference to the given int32 and assigns it to the CatalogAppId field.
 func (o *EditCatalogAppVersionCommand) SetCatalogAppId(v int32) {
-	o.CatalogAppId = v
+	o.CatalogAppId = &v
 }
 
-// GetVersion returns the Version field value
+// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditCatalogAppVersionCommand) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version.Get()
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EditCatalogAppVersionCommand) GetVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version.Get(), o.Version.IsSet()
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *EditCatalogAppVersionCommand) HasVersion() bool {
+	if o != nil && o.Version.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given NullableString and assigns it to the Version field.
 func (o *EditCatalogAppVersionCommand) SetVersion(v string) {
-	o.Version = v
+	o.Version.Set(&v)
+}
+// SetVersionNil sets the value for Version to be an explicit nil
+func (o *EditCatalogAppVersionCommand) SetVersionNil() {
+	o.Version.Set(nil)
+}
+
+// UnsetVersion ensures that no value is present for Version, not even an explicit nil
+func (o *EditCatalogAppVersionCommand) UnsetVersion() {
+	o.Version.Unset()
 }
 
 func (o EditCatalogAppVersionCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +125,12 @@ func (o EditCatalogAppVersionCommand) MarshalJSON() ([]byte, error) {
 
 func (o EditCatalogAppVersionCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["catalogAppId"] = o.CatalogAppId
-	toSerialize["version"] = o.Version
+	if !IsNil(o.CatalogAppId) {
+		toSerialize["catalogAppId"] = o.CatalogAppId
+	}
+	if o.Version.IsSet() {
+		toSerialize["version"] = o.Version.Get()
+	}
 	return toSerialize, nil
 }
 

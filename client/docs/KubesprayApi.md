@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    kubesprayCreateCommand := *openapiclient.NewKubesprayCreateCommand("Version_example", "KubernetesVersion_example") // KubesprayCreateCommand | 
+    kubesprayCreateCommand := *openapiclient.NewKubesprayCreateCommand() // KubesprayCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

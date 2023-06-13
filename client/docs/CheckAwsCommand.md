@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AwsAccessKeyId** | **string** |  | 
-**AwsSecretAccessKey** | **string** |  | 
-**Region** | **string** |  | 
+**AwsAccessKeyId** | Pointer to **NullableString** |  | [optional] 
+**AwsSecretAccessKey** | Pointer to **NullableString** |  | [optional] 
+**Region** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCheckAwsCommand
 
-`func NewCheckAwsCommand(awsAccessKeyId string, awsSecretAccessKey string, region string, ) *CheckAwsCommand`
+`func NewCheckAwsCommand() *CheckAwsCommand`
 
 NewCheckAwsCommand instantiates a new CheckAwsCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetAwsAccessKeyId sets AwsAccessKeyId field to given value.
 
+### HasAwsAccessKeyId
 
+`func (o *CheckAwsCommand) HasAwsAccessKeyId() bool`
+
+HasAwsAccessKeyId returns a boolean if a field has been set.
+
+### SetAwsAccessKeyIdNil
+
+`func (o *CheckAwsCommand) SetAwsAccessKeyIdNil(b bool)`
+
+ SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
+
+### UnsetAwsAccessKeyId
+`func (o *CheckAwsCommand) UnsetAwsAccessKeyId()`
+
+UnsetAwsAccessKeyId ensures that no value is present for AwsAccessKeyId, not even an explicit nil
 ### GetAwsSecretAccessKey
 
 `func (o *CheckAwsCommand) GetAwsSecretAccessKey() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetAwsSecretAccessKey sets AwsSecretAccessKey field to given value.
 
+### HasAwsSecretAccessKey
 
+`func (o *CheckAwsCommand) HasAwsSecretAccessKey() bool`
+
+HasAwsSecretAccessKey returns a boolean if a field has been set.
+
+### SetAwsSecretAccessKeyNil
+
+`func (o *CheckAwsCommand) SetAwsSecretAccessKeyNil(b bool)`
+
+ SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
+
+### UnsetAwsSecretAccessKey
+`func (o *CheckAwsCommand) UnsetAwsSecretAccessKey()`
+
+UnsetAwsSecretAccessKey ensures that no value is present for AwsSecretAccessKey, not even an explicit nil
 ### GetRegion
 
 `func (o *CheckAwsCommand) GetRegion() string`
@@ -86,7 +116,22 @@ and a boolean to check if the value has been set.
 
 SetRegion sets Region field to given value.
 
+### HasRegion
 
+`func (o *CheckAwsCommand) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
+
+### SetRegionNil
+
+`func (o *CheckAwsCommand) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *CheckAwsCommand) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

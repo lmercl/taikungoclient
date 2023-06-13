@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**ImagesGoogleImages**](ImagesApi.md#ImagesGoogleImages) | **Get** /api/v1/images/google/{cloudId}/{type} | 
 [**ImagesImageDetails**](ImagesApi.md#ImagesImageDetails) | **Get** /api/v1/images/details | Get image details
 [**ImagesOpenstackImages**](ImagesApi.md#ImagesOpenstackImages) | **Get** /api/v1/images/openstack/{cloudId} | Retrieve openstack images
+[**ImagesProxmoxImages**](ImagesApi.md#ImagesProxmoxImages) | **Get** /api/v1/images/proxmox/{cloudId} | Retrieve proxmox images
 [**ImagesSelectedImagesForProject**](ImagesApi.md#ImagesSelectedImagesForProject) | **Get** /api/v1/images/projects/lis | Retrieve selected images for projects
 [**ImagesTanzuImages**](ImagesApi.md#ImagesTanzuImages) | **Get** /api/v1/images/tanzu/{cloudId} | Retrieve tanzu images
 [**ImagesUnbindImagesFromProject**](ImagesApi.md#ImagesUnbindImagesFromProject) | **Get** /api/v1/images/unbind | Unbind images from project
@@ -719,6 +720,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OpenstackImageList**](OpenstackImageList.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImagesProxmoxImages
+
+> ProxmoxImageList ImagesProxmoxImages(ctx, cloudId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+
+Retrieve proxmox images
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    cloudId := int32(56) // int32 | 
+    limit := int32(56) // int32 |  (optional)
+    offset := int32(56) // int32 |  (optional)
+    sortBy := "sortBy_example" // string |  (optional)
+    sortDirection := "sortDirection_example" // string |  (optional)
+    search := "search_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ImagesApi.ImagesProxmoxImages(context.Background(), cloudId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesProxmoxImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImagesProxmoxImages`: ProxmoxImageList
+    fmt.Fprintf(os.Stdout, "Response from `ImagesApi.ImagesProxmoxImages`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiImagesProxmoxImagesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **int32** |  | 
+ **offset** | **int32** |  | 
+ **sortBy** | **string** |  | 
+ **sortDirection** | **string** |  | 
+ **search** | **string** |  | 
+
+### Return type
+
+[**ProxmoxImageList**](ProxmoxImageList.md)
 
 ### Authorization
 

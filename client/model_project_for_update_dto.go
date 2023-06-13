@@ -24,6 +24,7 @@ type ProjectForUpdateDto struct {
 	KubesprayCurrentVersion NullableString `json:"kubesprayCurrentVersion,omitempty"`
 	AccessIp NullableString `json:"accessIp,omitempty"`
 	ImageName NullableString `json:"imageName,omitempty"`
+	MonitoringIp NullableString `json:"monitoringIp,omitempty"`
 	TanzuReleaseCurrentVersion NullableString `json:"tanzuReleaseCurrentVersion,omitempty"`
 	Status *ProjectStatus `json:"status,omitempty"`
 	Health *ProjectHealth `json:"health,omitempty"`
@@ -220,6 +221,48 @@ func (o *ProjectForUpdateDto) SetImageNameNil() {
 // UnsetImageName ensures that no value is present for ImageName, not even an explicit nil
 func (o *ProjectForUpdateDto) UnsetImageName() {
 	o.ImageName.Unset()
+}
+
+// GetMonitoringIp returns the MonitoringIp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectForUpdateDto) GetMonitoringIp() string {
+	if o == nil || IsNil(o.MonitoringIp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MonitoringIp.Get()
+}
+
+// GetMonitoringIpOk returns a tuple with the MonitoringIp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectForUpdateDto) GetMonitoringIpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MonitoringIp.Get(), o.MonitoringIp.IsSet()
+}
+
+// HasMonitoringIp returns a boolean if a field has been set.
+func (o *ProjectForUpdateDto) HasMonitoringIp() bool {
+	if o != nil && o.MonitoringIp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMonitoringIp gets a reference to the given NullableString and assigns it to the MonitoringIp field.
+func (o *ProjectForUpdateDto) SetMonitoringIp(v string) {
+	o.MonitoringIp.Set(&v)
+}
+// SetMonitoringIpNil sets the value for MonitoringIp to be an explicit nil
+func (o *ProjectForUpdateDto) SetMonitoringIpNil() {
+	o.MonitoringIp.Set(nil)
+}
+
+// UnsetMonitoringIp ensures that no value is present for MonitoringIp, not even an explicit nil
+func (o *ProjectForUpdateDto) UnsetMonitoringIp() {
+	o.MonitoringIp.Unset()
 }
 
 // GetTanzuReleaseCurrentVersion returns the TanzuReleaseCurrentVersion field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -685,6 +728,9 @@ func (o ProjectForUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ImageName.IsSet() {
 		toSerialize["imageName"] = o.ImageName.Get()
+	}
+	if o.MonitoringIp.IsSet() {
+		toSerialize["monitoringIp"] = o.MonitoringIp.Get()
 	}
 	if o.TanzuReleaseCurrentVersion.IsSet() {
 		toSerialize["tanzuReleaseCurrentVersion"] = o.TanzuReleaseCurrentVersion.Get()

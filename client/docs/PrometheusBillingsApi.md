@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    prometheusBillingCreateCommand := *openapiclient.NewPrometheusBillingCreateCommand(int32(123), int32(123)) // PrometheusBillingCreateCommand | 
+    prometheusBillingCreateCommand := *openapiclient.NewPrometheusBillingCreateCommand() // PrometheusBillingCreateCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

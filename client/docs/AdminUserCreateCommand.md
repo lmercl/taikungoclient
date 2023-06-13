@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** |  | 
-**Username** | **string** |  | 
-**Password** | **interface{}** |  | 
+**Email** | Pointer to **NullableString** |  | [optional] 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
 **Role** | Pointer to [**UserRole**](UserRole.md) |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewAdminUserCreateCommand
 
-`func NewAdminUserCreateCommand(email string, username string, password interface{}, ) *AdminUserCreateCommand`
+`func NewAdminUserCreateCommand() *AdminUserCreateCommand`
 
 NewAdminUserCreateCommand instantiates a new AdminUserCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
 
+`func (o *AdminUserCreateCommand) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### SetEmailNil
+
+`func (o *AdminUserCreateCommand) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *AdminUserCreateCommand) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
 ### GetUsername
 
 `func (o *AdminUserCreateCommand) GetUsername() string`
@@ -68,27 +83,57 @@ and a boolean to check if the value has been set.
 
 SetUsername sets Username field to given value.
 
+### HasUsername
 
+`func (o *AdminUserCreateCommand) HasUsername() bool`
+
+HasUsername returns a boolean if a field has been set.
+
+### SetUsernameNil
+
+`func (o *AdminUserCreateCommand) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *AdminUserCreateCommand) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetPassword
 
-`func (o *AdminUserCreateCommand) GetPassword() interface{}`
+`func (o *AdminUserCreateCommand) GetPassword() string`
 
 GetPassword returns the Password field if non-nil, zero value otherwise.
 
 ### GetPasswordOk
 
-`func (o *AdminUserCreateCommand) GetPasswordOk() (*interface{}, bool)`
+`func (o *AdminUserCreateCommand) GetPasswordOk() (*string, bool)`
 
 GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPassword
 
-`func (o *AdminUserCreateCommand) SetPassword(v interface{})`
+`func (o *AdminUserCreateCommand) SetPassword(v string)`
 
 SetPassword sets Password field to given value.
 
+### HasPassword
 
+`func (o *AdminUserCreateCommand) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
+
+### SetPasswordNil
+
+`func (o *AdminUserCreateCommand) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *AdminUserCreateCommand) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetRole
 
 `func (o *AdminUserCreateCommand) GetRole() UserRole`

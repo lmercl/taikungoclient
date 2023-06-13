@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**PrometheusUsername** | **string** |  | 
-**PrometheusPassword** | **string** |  | 
-**PrometheusUrl** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**PrometheusUsername** | Pointer to **NullableString** |  | [optional] 
+**PrometheusPassword** | Pointer to **NullableString** |  | [optional] 
+**PrometheusUrl** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewOperationCredentialsCreateCommand
 
-`func NewOperationCredentialsCreateCommand(name string, prometheusUsername string, prometheusPassword string, prometheusUrl string, ) *OperationCredentialsCreateCommand`
+`func NewOperationCredentialsCreateCommand() *OperationCredentialsCreateCommand`
 
 NewOperationCredentialsCreateCommand instantiates a new OperationCredentialsCreateCommand object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *OperationCredentialsCreateCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *OperationCredentialsCreateCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *OperationCredentialsCreateCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPrometheusUsername
 
 `func (o *OperationCredentialsCreateCommand) GetPrometheusUsername() string`
@@ -68,7 +83,22 @@ and a boolean to check if the value has been set.
 
 SetPrometheusUsername sets PrometheusUsername field to given value.
 
+### HasPrometheusUsername
 
+`func (o *OperationCredentialsCreateCommand) HasPrometheusUsername() bool`
+
+HasPrometheusUsername returns a boolean if a field has been set.
+
+### SetPrometheusUsernameNil
+
+`func (o *OperationCredentialsCreateCommand) SetPrometheusUsernameNil(b bool)`
+
+ SetPrometheusUsernameNil sets the value for PrometheusUsername to be an explicit nil
+
+### UnsetPrometheusUsername
+`func (o *OperationCredentialsCreateCommand) UnsetPrometheusUsername()`
+
+UnsetPrometheusUsername ensures that no value is present for PrometheusUsername, not even an explicit nil
 ### GetPrometheusPassword
 
 `func (o *OperationCredentialsCreateCommand) GetPrometheusPassword() string`
@@ -88,7 +118,22 @@ and a boolean to check if the value has been set.
 
 SetPrometheusPassword sets PrometheusPassword field to given value.
 
+### HasPrometheusPassword
 
+`func (o *OperationCredentialsCreateCommand) HasPrometheusPassword() bool`
+
+HasPrometheusPassword returns a boolean if a field has been set.
+
+### SetPrometheusPasswordNil
+
+`func (o *OperationCredentialsCreateCommand) SetPrometheusPasswordNil(b bool)`
+
+ SetPrometheusPasswordNil sets the value for PrometheusPassword to be an explicit nil
+
+### UnsetPrometheusPassword
+`func (o *OperationCredentialsCreateCommand) UnsetPrometheusPassword()`
+
+UnsetPrometheusPassword ensures that no value is present for PrometheusPassword, not even an explicit nil
 ### GetPrometheusUrl
 
 `func (o *OperationCredentialsCreateCommand) GetPrometheusUrl() string`
@@ -108,7 +153,22 @@ and a boolean to check if the value has been set.
 
 SetPrometheusUrl sets PrometheusUrl field to given value.
 
+### HasPrometheusUrl
 
+`func (o *OperationCredentialsCreateCommand) HasPrometheusUrl() bool`
+
+HasPrometheusUrl returns a boolean if a field has been set.
+
+### SetPrometheusUrlNil
+
+`func (o *OperationCredentialsCreateCommand) SetPrometheusUrlNil(b bool)`
+
+ SetPrometheusUrlNil sets the value for PrometheusUrl to be an explicit nil
+
+### UnsetPrometheusUrl
+`func (o *OperationCredentialsCreateCommand) UnsetPrometheusUrl()`
+
+UnsetPrometheusUrl ensures that no value is present for PrometheusUrl, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *OperationCredentialsCreateCommand) GetOrganizationId() int32`

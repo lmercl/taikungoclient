@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** |  | 
+**Key** | Pointer to **NullableString** |  | [optional] 
 **Value** | Pointer to **NullableString** |  | [optional] 
 **IsEditableWhenInstalling** | Pointer to **bool** |  | [optional] 
 **IsEditableAfterInstallation** | Pointer to **bool** |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewCatalogAppParamsDto
 
-`func NewCatalogAppParamsDto(key string, ) *CatalogAppParamsDto`
+`func NewCatalogAppParamsDto() *CatalogAppParamsDto`
 
 NewCatalogAppParamsDto instantiates a new CatalogAppParamsDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +48,22 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
+### HasKey
 
+`func (o *CatalogAppParamsDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
+
+### SetKeyNil
+
+`func (o *CatalogAppParamsDto) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *CatalogAppParamsDto) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *CatalogAppParamsDto) GetValue() string`

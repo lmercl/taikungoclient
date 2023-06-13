@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Mode** | **string** |  | 
+**Id** | Pointer to **int32** |  | [optional] 
+**Mode** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewStandAloneVmIpManagementCommand
 
-`func NewStandAloneVmIpManagementCommand(id int32, mode string, ) *StandAloneVmIpManagementCommand`
+`func NewStandAloneVmIpManagementCommand() *StandAloneVmIpManagementCommand`
 
 NewStandAloneVmIpManagementCommand instantiates a new StandAloneVmIpManagementCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *StandAloneVmIpManagementCommand) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetMode
 
@@ -65,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetMode sets Mode field to given value.
 
+### HasMode
 
+`func (o *StandAloneVmIpManagementCommand) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### SetModeNil
+
+`func (o *StandAloneVmIpManagementCommand) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *StandAloneVmIpManagementCommand) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

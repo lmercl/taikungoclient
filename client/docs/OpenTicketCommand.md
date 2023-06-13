@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TicketId** | **string** |  | 
+**TicketId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewOpenTicketCommand
 
-`func NewOpenTicketCommand(ticketId string, ) *OpenTicketCommand`
+`func NewOpenTicketCommand() *OpenTicketCommand`
 
 NewOpenTicketCommand instantiates a new OpenTicketCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetTicketId sets TicketId field to given value.
 
+### HasTicketId
 
+`func (o *OpenTicketCommand) HasTicketId() bool`
+
+HasTicketId returns a boolean if a field has been set.
+
+### SetTicketIdNil
+
+`func (o *OpenTicketCommand) SetTicketIdNil(b bool)`
+
+ SetTicketIdNil sets the value for TicketId to be an explicit nil
+
+### UnsetTicketId
+`func (o *OpenTicketCommand) UnsetTicketId()`
+
+UnsetTicketId ensures that no value is present for TicketId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

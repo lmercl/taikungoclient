@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | **string** |  | 
+**Address** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewNtpCommand
 
-`func NewNtpCommand(address string, ) *NtpCommand`
+`func NewNtpCommand() *NtpCommand`
 
 NewNtpCommand instantiates a new NtpCommand object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+### HasAddress
 
+`func (o *NtpCommand) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *NtpCommand) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *NtpCommand) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

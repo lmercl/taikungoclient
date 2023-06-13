@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**SshPublicKey** | **string** |  | 
-**AccessProfileId** | **int32** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**SshPublicKey** | Pointer to **NullableString** |  | [optional] 
+**AccessProfileId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewCreateSshUserCommand
 
-`func NewCreateSshUserCommand(name string, sshPublicKey string, accessProfileId int32, ) *CreateSshUserCommand`
+`func NewCreateSshUserCommand() *CreateSshUserCommand`
 
 NewCreateSshUserCommand instantiates a new CreateSshUserCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,7 +46,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *CreateSshUserCommand) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateSshUserCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateSshUserCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSshPublicKey
 
 `func (o *CreateSshUserCommand) GetSshPublicKey() string`
@@ -66,7 +81,22 @@ and a boolean to check if the value has been set.
 
 SetSshPublicKey sets SshPublicKey field to given value.
 
+### HasSshPublicKey
 
+`func (o *CreateSshUserCommand) HasSshPublicKey() bool`
+
+HasSshPublicKey returns a boolean if a field has been set.
+
+### SetSshPublicKeyNil
+
+`func (o *CreateSshUserCommand) SetSshPublicKeyNil(b bool)`
+
+ SetSshPublicKeyNil sets the value for SshPublicKey to be an explicit nil
+
+### UnsetSshPublicKey
+`func (o *CreateSshUserCommand) UnsetSshPublicKey()`
+
+UnsetSshPublicKey ensures that no value is present for SshPublicKey, not even an explicit nil
 ### GetAccessProfileId
 
 `func (o *CreateSshUserCommand) GetAccessProfileId() int32`
@@ -86,6 +116,11 @@ and a boolean to check if the value has been set.
 
 SetAccessProfileId sets AccessProfileId field to given value.
 
+### HasAccessProfileId
+
+`func (o *CreateSshUserCommand) HasAccessProfileId() bool`
+
+HasAccessProfileId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

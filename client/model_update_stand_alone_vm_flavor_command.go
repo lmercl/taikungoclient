@@ -20,18 +20,16 @@ var _ MappedNullable = &UpdateStandAloneVmFlavorCommand{}
 
 // UpdateStandAloneVmFlavorCommand struct for UpdateStandAloneVmFlavorCommand
 type UpdateStandAloneVmFlavorCommand struct {
-	Id int32 `json:"id"`
-	Flavor string `json:"flavor"`
+	Id *int32 `json:"id,omitempty"`
+	Flavor NullableString `json:"flavor,omitempty"`
 }
 
 // NewUpdateStandAloneVmFlavorCommand instantiates a new UpdateStandAloneVmFlavorCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateStandAloneVmFlavorCommand(id int32, flavor string) *UpdateStandAloneVmFlavorCommand {
+func NewUpdateStandAloneVmFlavorCommand() *UpdateStandAloneVmFlavorCommand {
 	this := UpdateStandAloneVmFlavorCommand{}
-	this.Id = id
-	this.Flavor = flavor
 	return &this
 }
 
@@ -43,52 +41,78 @@ func NewUpdateStandAloneVmFlavorCommandWithDefaults() *UpdateStandAloneVmFlavorC
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *UpdateStandAloneVmFlavorCommand) GetId() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateStandAloneVmFlavorCommand) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *UpdateStandAloneVmFlavorCommand) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
 func (o *UpdateStandAloneVmFlavorCommand) SetId(v int32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetFlavor returns the Flavor field value
+// GetFlavor returns the Flavor field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateStandAloneVmFlavorCommand) GetFlavor() string {
-	if o == nil {
+	if o == nil || IsNil(o.Flavor.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Flavor
+	return *o.Flavor.Get()
 }
 
-// GetFlavorOk returns a tuple with the Flavor field value
+// GetFlavorOk returns a tuple with the Flavor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateStandAloneVmFlavorCommand) GetFlavorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Flavor, true
+	return o.Flavor.Get(), o.Flavor.IsSet()
 }
 
-// SetFlavor sets field value
+// HasFlavor returns a boolean if a field has been set.
+func (o *UpdateStandAloneVmFlavorCommand) HasFlavor() bool {
+	if o != nil && o.Flavor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFlavor gets a reference to the given NullableString and assigns it to the Flavor field.
 func (o *UpdateStandAloneVmFlavorCommand) SetFlavor(v string) {
-	o.Flavor = v
+	o.Flavor.Set(&v)
+}
+// SetFlavorNil sets the value for Flavor to be an explicit nil
+func (o *UpdateStandAloneVmFlavorCommand) SetFlavorNil() {
+	o.Flavor.Set(nil)
+}
+
+// UnsetFlavor ensures that no value is present for Flavor, not even an explicit nil
+func (o *UpdateStandAloneVmFlavorCommand) UnsetFlavor() {
+	o.Flavor.Unset()
 }
 
 func (o UpdateStandAloneVmFlavorCommand) MarshalJSON() ([]byte, error) {
@@ -101,8 +125,12 @@ func (o UpdateStandAloneVmFlavorCommand) MarshalJSON() ([]byte, error) {
 
 func (o UpdateStandAloneVmFlavorCommand) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["flavor"] = o.Flavor
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if o.Flavor.IsSet() {
+		toSerialize["flavor"] = o.Flavor.Get()
+	}
 	return toSerialize, nil
 }
 
