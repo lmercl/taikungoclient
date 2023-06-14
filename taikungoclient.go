@@ -88,17 +88,13 @@ func NewClient() *Client {
 	}
 
 	taikunAuthMode, customMode := os.LookupEnv(TaikunAuthMode)
-	if !customMode {
-		taikunAuthMode = "default"
-	}
-
-	if taikunAuthMode == "default" {
+	if !customMode || taikunAuthMode == "default" {
 		email := os.Getenv(TaikunEmailEnvVar)
 		password := os.Getenv(TaikunPasswordEnvVar)
 		if email == "" || password == "" {
 			panic(fmt.Errorf("Please set your Taikun credentials."))
 		}
-		return NewClientFromCredentials(email, password, "", "", taikunAuthMode, apiHost)
+		return NewClientFromCredentials(email, password, "", "", "", apiHost)
 	}
 
 	accessKey := os.Getenv(TaikunAccessKey)
