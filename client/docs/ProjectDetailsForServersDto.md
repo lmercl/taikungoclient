@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **Master** | Pointer to **int32** |  | [optional] 
 **Worker** | Pointer to **int32** |  | [optional] 
 **Bastion** | Pointer to **int32** |  | [optional] 
-**ProjectStatus** | Pointer to **NullableString** |  | [optional] 
+**ProjectStatus** | Pointer to [**ProjectStatus**](ProjectStatus.md) |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **AccessIp** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **MasterReady** | Pointer to **int32** |  | [optional] 
-**CloudType** | Pointer to **NullableString** |  | [optional] 
+**CloudType** | Pointer to [**CloudType**](CloudType.md) |  | [optional] 
 **CloudName** | Pointer to **NullableString** |  | [optional] 
 **CloudId** | Pointer to **int32** |  | [optional] 
 **QuotaId** | Pointer to **int32** |  | [optional] 
@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **KubernetesProfileName** | Pointer to **NullableString** |  | [optional] 
 **KubernetesProfileId** | Pointer to **NullableInt32** |  | [optional] 
 **AlertingProfileName** | Pointer to **NullableString** |  | [optional] 
-**ProjectHealth** | Pointer to **NullableString** |  | [optional] 
+**ProjectHealth** | Pointer to [**ProjectHealth**](ProjectHealth.md) |  | [optional] 
 **AlertingProfileId** | Pointer to **NullableInt32** |  | [optional] 
 **S3CredentialId** | Pointer to **NullableInt32** |  | [optional] 
 **QuotaMessage** | Pointer to **NullableString** |  | [optional] 
@@ -284,20 +284,20 @@ HasBastion returns a boolean if a field has been set.
 
 ### GetProjectStatus
 
-`func (o *ProjectDetailsForServersDto) GetProjectStatus() string`
+`func (o *ProjectDetailsForServersDto) GetProjectStatus() ProjectStatus`
 
 GetProjectStatus returns the ProjectStatus field if non-nil, zero value otherwise.
 
 ### GetProjectStatusOk
 
-`func (o *ProjectDetailsForServersDto) GetProjectStatusOk() (*string, bool)`
+`func (o *ProjectDetailsForServersDto) GetProjectStatusOk() (*ProjectStatus, bool)`
 
 GetProjectStatusOk returns a tuple with the ProjectStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectStatus
 
-`func (o *ProjectDetailsForServersDto) SetProjectStatus(v string)`
+`func (o *ProjectDetailsForServersDto) SetProjectStatus(v ProjectStatus)`
 
 SetProjectStatus sets ProjectStatus field to given value.
 
@@ -307,16 +307,6 @@ SetProjectStatus sets ProjectStatus field to given value.
 
 HasProjectStatus returns a boolean if a field has been set.
 
-### SetProjectStatusNil
-
-`func (o *ProjectDetailsForServersDto) SetProjectStatusNil(b bool)`
-
- SetProjectStatusNil sets the value for ProjectStatus to be an explicit nil
-
-### UnsetProjectStatus
-`func (o *ProjectDetailsForServersDto) UnsetProjectStatus()`
-
-UnsetProjectStatus ensures that no value is present for ProjectStatus, not even an explicit nil
 ### GetProjectName
 
 `func (o *ProjectDetailsForServersDto) GetProjectName() string`
@@ -439,20 +429,20 @@ HasMasterReady returns a boolean if a field has been set.
 
 ### GetCloudType
 
-`func (o *ProjectDetailsForServersDto) GetCloudType() string`
+`func (o *ProjectDetailsForServersDto) GetCloudType() CloudType`
 
 GetCloudType returns the CloudType field if non-nil, zero value otherwise.
 
 ### GetCloudTypeOk
 
-`func (o *ProjectDetailsForServersDto) GetCloudTypeOk() (*string, bool)`
+`func (o *ProjectDetailsForServersDto) GetCloudTypeOk() (*CloudType, bool)`
 
 GetCloudTypeOk returns a tuple with the CloudType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudType
 
-`func (o *ProjectDetailsForServersDto) SetCloudType(v string)`
+`func (o *ProjectDetailsForServersDto) SetCloudType(v CloudType)`
 
 SetCloudType sets CloudType field to given value.
 
@@ -462,16 +452,6 @@ SetCloudType sets CloudType field to given value.
 
 HasCloudType returns a boolean if a field has been set.
 
-### SetCloudTypeNil
-
-`func (o *ProjectDetailsForServersDto) SetCloudTypeNil(b bool)`
-
- SetCloudTypeNil sets the value for CloudType to be an explicit nil
-
-### UnsetCloudType
-`func (o *ProjectDetailsForServersDto) UnsetCloudType()`
-
-UnsetCloudType ensures that no value is present for CloudType, not even an explicit nil
 ### GetCloudName
 
 `func (o *ProjectDetailsForServersDto) GetCloudName() string`
@@ -1584,20 +1564,20 @@ HasAlertingProfileName returns a boolean if a field has been set.
 UnsetAlertingProfileName ensures that no value is present for AlertingProfileName, not even an explicit nil
 ### GetProjectHealth
 
-`func (o *ProjectDetailsForServersDto) GetProjectHealth() string`
+`func (o *ProjectDetailsForServersDto) GetProjectHealth() ProjectHealth`
 
 GetProjectHealth returns the ProjectHealth field if non-nil, zero value otherwise.
 
 ### GetProjectHealthOk
 
-`func (o *ProjectDetailsForServersDto) GetProjectHealthOk() (*string, bool)`
+`func (o *ProjectDetailsForServersDto) GetProjectHealthOk() (*ProjectHealth, bool)`
 
 GetProjectHealthOk returns a tuple with the ProjectHealth field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectHealth
 
-`func (o *ProjectDetailsForServersDto) SetProjectHealth(v string)`
+`func (o *ProjectDetailsForServersDto) SetProjectHealth(v ProjectHealth)`
 
 SetProjectHealth sets ProjectHealth field to given value.
 
@@ -1607,16 +1587,6 @@ SetProjectHealth sets ProjectHealth field to given value.
 
 HasProjectHealth returns a boolean if a field has been set.
 
-### SetProjectHealthNil
-
-`func (o *ProjectDetailsForServersDto) SetProjectHealthNil(b bool)`
-
- SetProjectHealthNil sets the value for ProjectHealth to be an explicit nil
-
-### UnsetProjectHealth
-`func (o *ProjectDetailsForServersDto) UnsetProjectHealth()`
-
-UnsetProjectHealth ensures that no value is present for ProjectHealth, not even an explicit nil
 ### GetAlertingProfileId
 
 `func (o *ProjectDetailsForServersDto) GetAlertingProfileId() int32`

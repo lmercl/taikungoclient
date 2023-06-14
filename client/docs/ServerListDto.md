@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **ProxmoxFlavor** | Pointer to **NullableString** |  | [optional] 
 **Cpu** | Pointer to **int32** |  | [optional] 
 **Ram** | Pointer to **int64** |  | [optional] 
-**Role** | Pointer to **NullableString** |  | [optional] 
+**Role** | Pointer to [**CloudRole**](CloudRole.md) |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
 **OpenstackFlavor** | Pointer to **NullableString** |  | [optional] 
 **AwsInstanceType** | Pointer to **NullableString** |  | [optional] 
 **AzureVmSize** | Pointer to **NullableString** |  | [optional] 
-**CloudType** | Pointer to **NullableString** |  | [optional] 
+**CloudType** | Pointer to [**CloudType**](CloudType.md) |  | [optional] 
 **CreatedBy** | Pointer to **NullableString** |  | [optional] 
 **LastModified** | Pointer to **NullableString** |  | [optional] 
 **LastModifiedBy** | Pointer to **NullableString** |  | [optional] 
@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **AwsHostName** | Pointer to **NullableString** |  | [optional] 
 **AvailabilityZone** | Pointer to **NullableString** |  | [optional] 
 **Hypervisor** | Pointer to **NullableString** |  | [optional] 
-**ProxmoxRole** | Pointer to **NullableString** |  | [optional] 
+**ProxmoxRole** | Pointer to [**ProxmoxRole**](ProxmoxRole.md) |  | [optional] 
 **ProxmoxNFSDiskSize** | Pointer to **int32** |  | [optional] 
 **ActionButtons** | Pointer to [**ServerActionButtonVisibilityDto**](ServerActionButtonVisibilityDto.md) |  | [optional] 
 **KubernetesNodeLabels** | Pointer to [**[]KubernetesNodeLabelsDto**](KubernetesNodeLabelsDto.md) |  | [optional] 
@@ -492,20 +492,20 @@ HasRam returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *ServerListDto) GetRole() string`
+`func (o *ServerListDto) GetRole() CloudRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *ServerListDto) GetRoleOk() (*string, bool)`
+`func (o *ServerListDto) GetRoleOk() (*CloudRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *ServerListDto) SetRole(v string)`
+`func (o *ServerListDto) SetRole(v CloudRole)`
 
 SetRole sets Role field to given value.
 
@@ -515,16 +515,6 @@ SetRole sets Role field to given value.
 
 HasRole returns a boolean if a field has been set.
 
-### SetRoleNil
-
-`func (o *ServerListDto) SetRoleNil(b bool)`
-
- SetRoleNil sets the value for Role to be an explicit nil
-
-### UnsetRole
-`func (o *ServerListDto) UnsetRole()`
-
-UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetStatus
 
 `func (o *ServerListDto) GetStatus() string`
@@ -702,20 +692,20 @@ HasAzureVmSize returns a boolean if a field has been set.
 UnsetAzureVmSize ensures that no value is present for AzureVmSize, not even an explicit nil
 ### GetCloudType
 
-`func (o *ServerListDto) GetCloudType() string`
+`func (o *ServerListDto) GetCloudType() CloudType`
 
 GetCloudType returns the CloudType field if non-nil, zero value otherwise.
 
 ### GetCloudTypeOk
 
-`func (o *ServerListDto) GetCloudTypeOk() (*string, bool)`
+`func (o *ServerListDto) GetCloudTypeOk() (*CloudType, bool)`
 
 GetCloudTypeOk returns a tuple with the CloudType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudType
 
-`func (o *ServerListDto) SetCloudType(v string)`
+`func (o *ServerListDto) SetCloudType(v CloudType)`
 
 SetCloudType sets CloudType field to given value.
 
@@ -725,16 +715,6 @@ SetCloudType sets CloudType field to given value.
 
 HasCloudType returns a boolean if a field has been set.
 
-### SetCloudTypeNil
-
-`func (o *ServerListDto) SetCloudTypeNil(b bool)`
-
- SetCloudTypeNil sets the value for CloudType to be an explicit nil
-
-### UnsetCloudType
-`func (o *ServerListDto) UnsetCloudType()`
-
-UnsetCloudType ensures that no value is present for CloudType, not even an explicit nil
 ### GetCreatedBy
 
 `func (o *ServerListDto) GetCreatedBy() string`
@@ -1102,20 +1082,20 @@ HasHypervisor returns a boolean if a field has been set.
 UnsetHypervisor ensures that no value is present for Hypervisor, not even an explicit nil
 ### GetProxmoxRole
 
-`func (o *ServerListDto) GetProxmoxRole() string`
+`func (o *ServerListDto) GetProxmoxRole() ProxmoxRole`
 
 GetProxmoxRole returns the ProxmoxRole field if non-nil, zero value otherwise.
 
 ### GetProxmoxRoleOk
 
-`func (o *ServerListDto) GetProxmoxRoleOk() (*string, bool)`
+`func (o *ServerListDto) GetProxmoxRoleOk() (*ProxmoxRole, bool)`
 
 GetProxmoxRoleOk returns a tuple with the ProxmoxRole field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProxmoxRole
 
-`func (o *ServerListDto) SetProxmoxRole(v string)`
+`func (o *ServerListDto) SetProxmoxRole(v ProxmoxRole)`
 
 SetProxmoxRole sets ProxmoxRole field to given value.
 
@@ -1125,16 +1105,6 @@ SetProxmoxRole sets ProxmoxRole field to given value.
 
 HasProxmoxRole returns a boolean if a field has been set.
 
-### SetProxmoxRoleNil
-
-`func (o *ServerListDto) SetProxmoxRoleNil(b bool)`
-
- SetProxmoxRoleNil sets the value for ProxmoxRole to be an explicit nil
-
-### UnsetProxmoxRole
-`func (o *ServerListDto) UnsetProxmoxRole()`
-
-UnsetProxmoxRole ensures that no value is present for ProxmoxRole, not even an explicit nil
 ### GetProxmoxNFSDiskSize
 
 `func (o *ServerListDto) GetProxmoxNFSDiskSize() int32`

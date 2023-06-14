@@ -361,12 +361,12 @@ Class | Method | HTTP request | Description
 *KubernetesProfilesApi* | [**KubernetesprofilesDropdown**](docs/KubernetesProfilesApi.md#kubernetesprofilesdropdown) | **Get** /api/v1/kubernetesprofiles | Retrieve all kubernetes profiles for organization
 *KubernetesProfilesApi* | [**KubernetesprofilesList**](docs/KubernetesProfilesApi.md#kubernetesprofileslist) | **Get** /api/v1/kubernetesprofiles/list | Retrieve all kubernetes profiles
 *KubernetesProfilesApi* | [**KubernetesprofilesLockManager**](docs/KubernetesProfilesApi.md#kubernetesprofileslockmanager) | **Post** /api/v1/kubernetesprofiles/lockmanager | Kubernetes profile lock/unlock
-*KubernetesProfilesApi* | [**NotificationsList**](docs/KubernetesProfilesApi.md#notificationslist) | **Get** /api/v1/notifications/list | Retrieve all notifications
 *KubesprayApi* | [**KubesprayCreate**](docs/KubesprayApi.md#kubespraycreate) | **Post** /api/v1/kubespray | Add kubespray
 *KubesprayApi* | [**KubesprayDelete**](docs/KubesprayApi.md#kubespraydelete) | **Delete** /api/v1/kubespray/{id} | Delete kubespray
 *KubesprayApi* | [**KubesprayList**](docs/KubesprayApi.md#kubespraylist) | **Get** /api/v1/kubespray/list | Retrieve all kubespray versions
 *NotificationsApi* | [**NotificationsCreate**](docs/NotificationsApi.md#notificationscreate) | **Post** /api/v1/notifications/add | Create notification
 *NotificationsApi* | [**NotificationsExportCsv**](docs/NotificationsApi.md#notificationsexportcsv) | **Get** /api/v1/notifications/download | Export Csv
+*NotificationsApi* | [**NotificationsList**](docs/NotificationsApi.md#notificationslist) | **Get** /api/v1/notifications/list | Retrieve all notifications
 *NotificationsApi* | [**NotificationsNotifyOwner**](docs/NotificationsApi.md#notificationsnotifyowner) | **Post** /api/v1/notifications/notifyowner | Notify owner
 *NotificationsApi* | [**NotificationsOperationMessages**](docs/NotificationsApi.md#notificationsoperationmessages) | **Post** /api/v1/notifications/operations | Get project operations
 *NtpServersApi* | [**NtpserversCreate**](docs/NtpServersApi.md#ntpserverscreate) | **Post** /api/v1/ntpservers/create | Create access profile ntp server
@@ -1439,5 +1439,5 @@ Each of these functions takes a value of the given basic type and returns a poin
 
 ## Author
 
-noreply@itera.io
+noreply@taikun.cloud
 

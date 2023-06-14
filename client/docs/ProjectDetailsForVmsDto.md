@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectStatus** | Pointer to **NullableString** |  | [optional] 
+**ProjectStatus** | Pointer to [**ProjectStatus**](ProjectStatus.md) |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
-**CloudType** | Pointer to **NullableString** |  | [optional] 
+**CloudType** | Pointer to [**CloudType**](CloudType.md) |  | [optional] 
 **CloudName** | Pointer to **NullableString** |  | [optional] 
 **CloudId** | Pointer to **NullableInt32** |  | [optional] 
 **OrganizationName** | Pointer to **NullableString** |  | [optional] 
@@ -46,20 +46,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetProjectStatus
 
-`func (o *ProjectDetailsForVmsDto) GetProjectStatus() string`
+`func (o *ProjectDetailsForVmsDto) GetProjectStatus() ProjectStatus`
 
 GetProjectStatus returns the ProjectStatus field if non-nil, zero value otherwise.
 
 ### GetProjectStatusOk
 
-`func (o *ProjectDetailsForVmsDto) GetProjectStatusOk() (*string, bool)`
+`func (o *ProjectDetailsForVmsDto) GetProjectStatusOk() (*ProjectStatus, bool)`
 
 GetProjectStatusOk returns a tuple with the ProjectStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectStatus
 
-`func (o *ProjectDetailsForVmsDto) SetProjectStatus(v string)`
+`func (o *ProjectDetailsForVmsDto) SetProjectStatus(v ProjectStatus)`
 
 SetProjectStatus sets ProjectStatus field to given value.
 
@@ -69,16 +69,6 @@ SetProjectStatus sets ProjectStatus field to given value.
 
 HasProjectStatus returns a boolean if a field has been set.
 
-### SetProjectStatusNil
-
-`func (o *ProjectDetailsForVmsDto) SetProjectStatusNil(b bool)`
-
- SetProjectStatusNil sets the value for ProjectStatus to be an explicit nil
-
-### UnsetProjectStatus
-`func (o *ProjectDetailsForVmsDto) UnsetProjectStatus()`
-
-UnsetProjectStatus ensures that no value is present for ProjectStatus, not even an explicit nil
 ### GetProjectName
 
 `func (o *ProjectDetailsForVmsDto) GetProjectName() string`
@@ -141,20 +131,20 @@ HasProjectId returns a boolean if a field has been set.
 
 ### GetCloudType
 
-`func (o *ProjectDetailsForVmsDto) GetCloudType() string`
+`func (o *ProjectDetailsForVmsDto) GetCloudType() CloudType`
 
 GetCloudType returns the CloudType field if non-nil, zero value otherwise.
 
 ### GetCloudTypeOk
 
-`func (o *ProjectDetailsForVmsDto) GetCloudTypeOk() (*string, bool)`
+`func (o *ProjectDetailsForVmsDto) GetCloudTypeOk() (*CloudType, bool)`
 
 GetCloudTypeOk returns a tuple with the CloudType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudType
 
-`func (o *ProjectDetailsForVmsDto) SetCloudType(v string)`
+`func (o *ProjectDetailsForVmsDto) SetCloudType(v CloudType)`
 
 SetCloudType sets CloudType field to given value.
 
@@ -164,16 +154,6 @@ SetCloudType sets CloudType field to given value.
 
 HasCloudType returns a boolean if a field has been set.
 
-### SetCloudTypeNil
-
-`func (o *ProjectDetailsForVmsDto) SetCloudTypeNil(b bool)`
-
- SetCloudTypeNil sets the value for CloudType to be an explicit nil
-
-### UnsetCloudType
-`func (o *ProjectDetailsForVmsDto) UnsetCloudType()`
-
-UnsetCloudType ensures that no value is present for CloudType, not even an explicit nil
 ### GetCloudName
 
 `func (o *ProjectDetailsForVmsDto) GetCloudName() string`

@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**KubernetesprofilesDropdown**](KubernetesProfilesApi.md#KubernetesprofilesDropdown) | **Get** /api/v1/kubernetesprofiles | Retrieve all kubernetes profiles for organization
 [**KubernetesprofilesList**](KubernetesProfilesApi.md#KubernetesprofilesList) | **Get** /api/v1/kubernetesprofiles/list | Retrieve all kubernetes profiles
 [**KubernetesprofilesLockManager**](KubernetesProfilesApi.md#KubernetesprofilesLockManager) | **Post** /api/v1/kubernetesprofiles/lockmanager | Kubernetes profile lock/unlock
-[**NotificationsList**](KubernetesProfilesApi.md#NotificationsList) | **Get** /api/v1/notifications/list | Retrieve all notifications
 
 
 
@@ -342,92 +341,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## NotificationsList
-
-> NotificationHistory NotificationsList(ctx).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Search(search).Execute()
-
-Retrieve all notifications
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/chnyda/taikungoclient"
-)
-
-func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
-    sortBy := "sortBy_example" // string |  (optional)
-    sortDirection := "sortDirection_example" // string |  (optional)
-    startDate := "startDate_example" // string |  (optional)
-    endDate := "endDate_example" // string |  (optional)
-    organizationId := int32(56) // int32 |  (optional)
-    filterBy := "filterBy_example" // string |  (optional)
-    projectId := int32(56) // int32 |  (optional)
-    userId := "userId_example" // string |  (optional)
-    isDeleted := true // bool |  (optional)
-    search := "search_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KubernetesProfilesApi.NotificationsList(context.Background()).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Search(search).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `KubernetesProfilesApi.NotificationsList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `NotificationsList`: NotificationHistory
-    fmt.Fprintf(os.Stdout, "Response from `KubernetesProfilesApi.NotificationsList`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiNotificationsListRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** |  | 
- **offset** | **int32** |  | 
- **sortBy** | **string** |  | 
- **sortDirection** | **string** |  | 
- **startDate** | **string** |  | 
- **endDate** | **string** |  | 
- **organizationId** | **int32** |  | 
- **filterBy** | **string** |  | 
- **projectId** | **int32** |  | 
- **userId** | **string** |  | 
- **isDeleted** | **bool** |  | 
- **search** | **string** |  | 
-
-### Return type
-
-[**NotificationHistory**](NotificationHistory.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

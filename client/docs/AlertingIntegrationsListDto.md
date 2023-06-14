@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **Token** | Pointer to **NullableString** |  | [optional] 
-**AlertingIntegrationType** | Pointer to **NullableString** |  | [optional] 
+**AlertingIntegrationType** | Pointer to [**AlertingIntegrationType**](AlertingIntegrationType.md) |  | [optional] 
 **AlertingProfileName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -126,20 +126,20 @@ HasToken returns a boolean if a field has been set.
 UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetAlertingIntegrationType
 
-`func (o *AlertingIntegrationsListDto) GetAlertingIntegrationType() string`
+`func (o *AlertingIntegrationsListDto) GetAlertingIntegrationType() AlertingIntegrationType`
 
 GetAlertingIntegrationType returns the AlertingIntegrationType field if non-nil, zero value otherwise.
 
 ### GetAlertingIntegrationTypeOk
 
-`func (o *AlertingIntegrationsListDto) GetAlertingIntegrationTypeOk() (*string, bool)`
+`func (o *AlertingIntegrationsListDto) GetAlertingIntegrationTypeOk() (*AlertingIntegrationType, bool)`
 
 GetAlertingIntegrationTypeOk returns a tuple with the AlertingIntegrationType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAlertingIntegrationType
 
-`func (o *AlertingIntegrationsListDto) SetAlertingIntegrationType(v string)`
+`func (o *AlertingIntegrationsListDto) SetAlertingIntegrationType(v AlertingIntegrationType)`
 
 SetAlertingIntegrationType sets AlertingIntegrationType field to given value.
 
@@ -149,16 +149,6 @@ SetAlertingIntegrationType sets AlertingIntegrationType field to given value.
 
 HasAlertingIntegrationType returns a boolean if a field has been set.
 
-### SetAlertingIntegrationTypeNil
-
-`func (o *AlertingIntegrationsListDto) SetAlertingIntegrationTypeNil(b bool)`
-
- SetAlertingIntegrationTypeNil sets the value for AlertingIntegrationType to be an explicit nil
-
-### UnsetAlertingIntegrationType
-`func (o *AlertingIntegrationsListDto) UnsetAlertingIntegrationType()`
-
-UnsetAlertingIntegrationType ensures that no value is present for AlertingIntegrationType, not even an explicit nil
 ### GetAlertingProfileName
 
 `func (o *AlertingIntegrationsListDto) GetAlertingProfileName() string`

@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
 **ActionMessage** | Pointer to **NullableString** |  | [optional] 
-**ActionStatus** | Pointer to **NullableString** |  | [optional] 
+**ActionStatus** | Pointer to [**ActionStatus**](ActionStatus.md) |  | [optional] 
 **Username** | Pointer to **NullableString** |  | [optional] 
-**Category** | Pointer to **NullableString** |  | [optional] 
+**Category** | Pointer to [**ActionType**](ActionType.md) |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
@@ -104,20 +104,20 @@ HasActionMessage returns a boolean if a field has been set.
 UnsetActionMessage ensures that no value is present for ActionMessage, not even an explicit nil
 ### GetActionStatus
 
-`func (o *NotificationListDto) GetActionStatus() string`
+`func (o *NotificationListDto) GetActionStatus() ActionStatus`
 
 GetActionStatus returns the ActionStatus field if non-nil, zero value otherwise.
 
 ### GetActionStatusOk
 
-`func (o *NotificationListDto) GetActionStatusOk() (*string, bool)`
+`func (o *NotificationListDto) GetActionStatusOk() (*ActionStatus, bool)`
 
 GetActionStatusOk returns a tuple with the ActionStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionStatus
 
-`func (o *NotificationListDto) SetActionStatus(v string)`
+`func (o *NotificationListDto) SetActionStatus(v ActionStatus)`
 
 SetActionStatus sets ActionStatus field to given value.
 
@@ -127,16 +127,6 @@ SetActionStatus sets ActionStatus field to given value.
 
 HasActionStatus returns a boolean if a field has been set.
 
-### SetActionStatusNil
-
-`func (o *NotificationListDto) SetActionStatusNil(b bool)`
-
- SetActionStatusNil sets the value for ActionStatus to be an explicit nil
-
-### UnsetActionStatus
-`func (o *NotificationListDto) UnsetActionStatus()`
-
-UnsetActionStatus ensures that no value is present for ActionStatus, not even an explicit nil
 ### GetUsername
 
 `func (o *NotificationListDto) GetUsername() string`
@@ -174,20 +164,20 @@ HasUsername returns a boolean if a field has been set.
 UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetCategory
 
-`func (o *NotificationListDto) GetCategory() string`
+`func (o *NotificationListDto) GetCategory() ActionType`
 
 GetCategory returns the Category field if non-nil, zero value otherwise.
 
 ### GetCategoryOk
 
-`func (o *NotificationListDto) GetCategoryOk() (*string, bool)`
+`func (o *NotificationListDto) GetCategoryOk() (*ActionType, bool)`
 
 GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategory
 
-`func (o *NotificationListDto) SetCategory(v string)`
+`func (o *NotificationListDto) SetCategory(v ActionType)`
 
 SetCategory sets Category field to given value.
 
@@ -197,16 +187,6 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
-### SetCategoryNil
-
-`func (o *NotificationListDto) SetCategoryNil(b bool)`
-
- SetCategoryNil sets the value for Category to be an explicit nil
-
-### UnsetCategory
-`func (o *NotificationListDto) UnsetCategory()`
-
-UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetProjectName
 
 `func (o *NotificationListDto) GetProjectName() string`

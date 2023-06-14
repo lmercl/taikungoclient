@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **CreatedBy** | Pointer to **NullableString** |  | [optional] 
 **LastModified** | Pointer to **NullableString** |  | [optional] 
 **LastModifiedBy** | Pointer to **NullableString** |  | [optional] 
-**Reminder** | Pointer to **NullableString** |  | [optional] 
+**Reminder** | Pointer to [**AlertingReminder**](AlertingReminder.md) |  | [optional] 
 **CreatedAt** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -476,20 +476,20 @@ HasLastModifiedBy returns a boolean if a field has been set.
 UnsetLastModifiedBy ensures that no value is present for LastModifiedBy, not even an explicit nil
 ### GetReminder
 
-`func (o *AlertingProfilesListDto) GetReminder() string`
+`func (o *AlertingProfilesListDto) GetReminder() AlertingReminder`
 
 GetReminder returns the Reminder field if non-nil, zero value otherwise.
 
 ### GetReminderOk
 
-`func (o *AlertingProfilesListDto) GetReminderOk() (*string, bool)`
+`func (o *AlertingProfilesListDto) GetReminderOk() (*AlertingReminder, bool)`
 
 GetReminderOk returns a tuple with the Reminder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReminder
 
-`func (o *AlertingProfilesListDto) SetReminder(v string)`
+`func (o *AlertingProfilesListDto) SetReminder(v AlertingReminder)`
 
 SetReminder sets Reminder field to given value.
 
@@ -499,16 +499,6 @@ SetReminder sets Reminder field to given value.
 
 HasReminder returns a boolean if a field has been set.
 
-### SetReminderNil
-
-`func (o *AlertingProfilesListDto) SetReminderNil(b bool)`
-
- SetReminderNil sets the value for Reminder to be an explicit nil
-
-### UnsetReminder
-`func (o *AlertingProfilesListDto) UnsetReminder()`
-
-UnsetReminder ensures that no value is present for Reminder, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *AlertingProfilesListDto) GetCreatedAt() string`

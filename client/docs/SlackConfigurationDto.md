@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Channel** | Pointer to **NullableString** |  | [optional] 
 **OrganizationName** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
-**SlackType** | Pointer to **NullableString** |  | [optional] 
+**SlackType** | Pointer to [**SlackType**](SlackType.md) |  | [optional] 
 
 ## Methods
 
@@ -233,20 +233,20 @@ HasOrganizationId returns a boolean if a field has been set.
 UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
 ### GetSlackType
 
-`func (o *SlackConfigurationDto) GetSlackType() string`
+`func (o *SlackConfigurationDto) GetSlackType() SlackType`
 
 GetSlackType returns the SlackType field if non-nil, zero value otherwise.
 
 ### GetSlackTypeOk
 
-`func (o *SlackConfigurationDto) GetSlackTypeOk() (*string, bool)`
+`func (o *SlackConfigurationDto) GetSlackTypeOk() (*SlackType, bool)`
 
 GetSlackTypeOk returns a tuple with the SlackType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSlackType
 
-`func (o *SlackConfigurationDto) SetSlackType(v string)`
+`func (o *SlackConfigurationDto) SetSlackType(v SlackType)`
 
 SetSlackType sets SlackType field to given value.
 
@@ -256,16 +256,6 @@ SetSlackType sets SlackType field to given value.
 
 HasSlackType returns a boolean if a field has been set.
 
-### SetSlackTypeNil
-
-`func (o *SlackConfigurationDto) SetSlackTypeNil(b bool)`
-
- SetSlackTypeNil sets the value for SlackType to be an explicit nil
-
-### UnsetSlackType
-`func (o *SlackConfigurationDto) UnsetSlackType()`
-
-UnsetSlackType ensures that no value is present for SlackType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

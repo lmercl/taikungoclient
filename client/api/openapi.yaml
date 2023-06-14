@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   contact:
-    email: noreply@itera.io
+    email: noreply@taikun.cloud
     name: taikun cloud
     url: http://taikun.cloud/
   description: This Api will be responsible for overall data distribution and authorization.
@@ -16197,138 +16197,6 @@ paths:
       summary: Delete kubernetes profile
       tags:
       - Kubernetes profiles
-  /api/v1/notifications/list:
-    get:
-      operationId: notifications-list
-      parameters:
-      - explode: true
-        in: query
-        name: Limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: Offset
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: SortBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: SortDirection
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: StartDate
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: EndDate
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: OrganizationId
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: FilterBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: ProjectId
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: UserId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: IsDeleted
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: Search
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationHistory'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve all notifications
-      tags:
-      - Kubernetes profiles
   /api/v1/kubespray:
     post:
       operationId: kubespray-create
@@ -16708,6 +16576,138 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Export Csv
+      tags:
+      - Notifications
+  /api/v1/notifications/list:
+    get:
+      operationId: notifications-list
+      parameters:
+      - explode: true
+        in: query
+        name: Limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: SortBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortDirection
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: StartDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: EndDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: OrganizationId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: FilterBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: ProjectId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: UserId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: IsDeleted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationHistory'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Retrieve all notifications
       tags:
       - Notifications
   /api/v1/ntpservers/edit/{id}:
@@ -33209,7 +33209,7 @@ components:
         id: 0
         url: url
         token: token
-        alertingIntegrationType: alertingIntegrationType
+        alertingIntegrationType: null
       properties:
         id:
           format: int32
@@ -33221,8 +33221,7 @@ components:
           nullable: true
           type: string
         alertingIntegrationType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/AlertingIntegrationType'
         alertingProfileName:
           nullable: true
           type: string
@@ -33238,7 +33237,7 @@ components:
           - name: name
             id: 0
           organizationName: organizationName
-          reminder: reminder
+          reminder: null
           slackConfigurationName: slackConfigurationName
           lastModifiedBy: lastModifiedBy
           organizationId: 6
@@ -33277,7 +33276,7 @@ components:
           - name: name
             id: 0
           organizationName: organizationName
-          reminder: reminder
+          reminder: null
           slackConfigurationName: slackConfigurationName
           lastModifiedBy: lastModifiedBy
           organizationId: 6
@@ -33330,7 +33329,7 @@ components:
         - name: name
           id: 0
         organizationName: organizationName
-        reminder: reminder
+        reminder: null
         slackConfigurationName: slackConfigurationName
         lastModifiedBy: lastModifiedBy
         organizationId: 6
@@ -33410,8 +33409,7 @@ components:
           nullable: true
           type: string
         reminder:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/AlertingReminder'
         createdAt:
           nullable: true
           type: string
@@ -44040,18 +44038,18 @@ components:
       example:
         data:
         - createdAt: createdAt
-          actionStatus: actionStatus
+          actionStatus: null
           isDeleted: true
           actionMessage: actionMessage
-          category: category
+          category: null
           projectName: projectName
           projectId: 0
           username: username
         - createdAt: createdAt
-          actionStatus: actionStatus
+          actionStatus: null
           isDeleted: true
           actionMessage: actionMessage
-          category: category
+          category: null
           projectName: projectName
           projectId: 0
           username: username
@@ -44070,10 +44068,10 @@ components:
       additionalProperties: false
       example:
         createdAt: createdAt
-        actionStatus: actionStatus
+        actionStatus: null
         isDeleted: true
         actionMessage: actionMessage
-        category: category
+        category: null
         projectName: projectName
         projectId: 0
         username: username
@@ -44085,14 +44083,12 @@ components:
           nullable: true
           type: string
         actionStatus:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ActionStatus'
         username:
           nullable: true
           type: string
         category:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ActionType'
         projectName:
           nullable: true
           type: string
@@ -47036,7 +47032,7 @@ components:
         diskSize: 8.969578798196912
         hasNextVersion: true
         usedRam: 9
-        cloudType: cloudType
+        cloudType: null
         cloudId: 1
         isLocked: true
         accessProfileName: accessProfileName
@@ -47082,7 +47078,7 @@ components:
         expiredAt: expiredAt
         alertingProfileName: alertingProfileName
         hasNfsServer: true
-        projectHealth: projectHealth
+        projectHealth: null
         totalHourlyCost: 6.519180951018382
         ramLimit: 4
         opaProfileName: opaProfileName
@@ -47097,7 +47093,7 @@ components:
         masterReady: 1
         hasKubeConfigFile: true
         master: 2
-        projectStatus: projectStatus
+        projectStatus: null
         alertingProfileId: 3
         deleteOnExpiration: true
         cloudName: cloudName
@@ -47130,8 +47126,7 @@ components:
           format: int32
           type: integer
         projectStatus:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ProjectStatus'
         projectName:
           nullable: true
           type: string
@@ -47145,8 +47140,7 @@ components:
           format: int32
           type: integer
         cloudType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/CloudType'
         cloudName:
           nullable: true
           type: string
@@ -47260,8 +47254,7 @@ components:
           nullable: true
           type: string
         projectHealth:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ProjectHealth'
         alertingProfileId:
           format: int32
           nullable: true
@@ -47365,8 +47358,8 @@ components:
         allowSpotWorkers: true
         maxSpotPrice: 6.84685269835264
         organizationId: 1
-        projectStatus: projectStatus
-        cloudType: cloudType
+        projectStatus: null
+        cloudType: null
         cloudName: cloudName
         cloudId: 7
         isLocked: true
@@ -47381,8 +47374,7 @@ components:
         isMaintenanceModeEnabled: true
       properties:
         projectStatus:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ProjectStatus'
         projectName:
           nullable: true
           type: string
@@ -47390,8 +47382,7 @@ components:
           format: int32
           type: integer
         cloudType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/CloudType'
         cloudName:
           nullable: true
           type: string
@@ -51658,7 +51649,7 @@ components:
       example:
         proxmoxFlavor: proxmoxFlavor
         proxmoxNFSDiskSize: 7
-        role: role
+        role: null
         spotPrice: spotPrice
         awsHostName: awsHostName
         actionButtons:
@@ -51666,7 +51657,7 @@ components:
           console: true
           status: true
         availabilityZone: availabilityZone
-        proxmoxRole: proxmoxRole
+        proxmoxRole: null
         organizationId: 6
         shutOff: true
         createdAt: createdAt
@@ -51675,7 +51666,7 @@ components:
         diskSize: 5
         kubernetesHealth: kubernetesHealth
         googleMachineType: googleMachineType
-        cloudType: cloudType
+        cloudType: null
         hypervisor: hypervisor
         id: 0
         kubernetesNodeLabels:
@@ -51743,8 +51734,7 @@ components:
           format: int64
           type: integer
         role:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/CloudRole'
         status:
           nullable: true
           type: string
@@ -51761,8 +51751,7 @@ components:
           nullable: true
           type: string
         cloudType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/CloudType'
         createdBy:
           nullable: true
           type: string
@@ -51795,8 +51784,7 @@ components:
           nullable: true
           type: string
         proxmoxRole:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ProxmoxRole'
         proxmoxNFSDiskSize:
           format: int32
           type: integer
@@ -51847,7 +51835,7 @@ components:
         data:
         - proxmoxFlavor: proxmoxFlavor
           proxmoxNFSDiskSize: 7
-          role: role
+          role: null
           spotPrice: spotPrice
           awsHostName: awsHostName
           actionButtons:
@@ -51855,7 +51843,7 @@ components:
             console: true
             status: true
           availabilityZone: availabilityZone
-          proxmoxRole: proxmoxRole
+          proxmoxRole: null
           organizationId: 6
           shutOff: true
           createdAt: createdAt
@@ -51864,7 +51852,7 @@ components:
           diskSize: 5
           kubernetesHealth: kubernetesHealth
           googleMachineType: googleMachineType
-          cloudType: cloudType
+          cloudType: null
           hypervisor: hypervisor
           id: 0
           kubernetesNodeLabels:
@@ -51890,7 +51878,7 @@ components:
           status: status
         - proxmoxFlavor: proxmoxFlavor
           proxmoxNFSDiskSize: 7
-          role: role
+          role: null
           spotPrice: spotPrice
           awsHostName: awsHostName
           actionButtons:
@@ -51898,7 +51886,7 @@ components:
             console: true
             status: true
           availabilityZone: availabilityZone
-          proxmoxRole: proxmoxRole
+          proxmoxRole: null
           organizationId: 6
           shutOff: true
           createdAt: createdAt
@@ -51907,7 +51895,7 @@ components:
           diskSize: 5
           kubernetesHealth: kubernetesHealth
           googleMachineType: googleMachineType
-          cloudType: cloudType
+          cloudType: null
           hypervisor: hypervisor
           id: 0
           kubernetesNodeLabels:
@@ -51948,7 +51936,7 @@ components:
         data:
         - proxmoxFlavor: proxmoxFlavor
           proxmoxNFSDiskSize: 7
-          role: role
+          role: null
           spotPrice: spotPrice
           awsHostName: awsHostName
           actionButtons:
@@ -51956,7 +51944,7 @@ components:
             console: true
             status: true
           availabilityZone: availabilityZone
-          proxmoxRole: proxmoxRole
+          proxmoxRole: null
           organizationId: 6
           shutOff: true
           createdAt: createdAt
@@ -51965,7 +51953,7 @@ components:
           diskSize: 5
           kubernetesHealth: kubernetesHealth
           googleMachineType: googleMachineType
-          cloudType: cloudType
+          cloudType: null
           hypervisor: hypervisor
           id: 0
           kubernetesNodeLabels:
@@ -51991,7 +51979,7 @@ components:
           status: status
         - proxmoxFlavor: proxmoxFlavor
           proxmoxNFSDiskSize: 7
-          role: role
+          role: null
           spotPrice: spotPrice
           awsHostName: awsHostName
           actionButtons:
@@ -51999,7 +51987,7 @@ components:
             console: true
             status: true
           availabilityZone: availabilityZone
-          proxmoxRole: proxmoxRole
+          proxmoxRole: null
           organizationId: 6
           shutOff: true
           createdAt: createdAt
@@ -52008,7 +51996,7 @@ components:
           diskSize: 5
           kubernetesHealth: kubernetesHealth
           googleMachineType: googleMachineType
-          cloudType: cloudType
+          cloudType: null
           hypervisor: hypervisor
           id: 0
           kubernetesNodeLabels:
@@ -52047,7 +52035,7 @@ components:
           diskSize: 8.969578798196912
           hasNextVersion: true
           usedRam: 9
-          cloudType: cloudType
+          cloudType: null
           cloudId: 1
           isLocked: true
           accessProfileName: accessProfileName
@@ -52093,7 +52081,7 @@ components:
           expiredAt: expiredAt
           alertingProfileName: alertingProfileName
           hasNfsServer: true
-          projectHealth: projectHealth
+          projectHealth: null
           totalHourlyCost: 6.519180951018382
           ramLimit: 4
           opaProfileName: opaProfileName
@@ -52108,7 +52096,7 @@ components:
           masterReady: 1
           hasKubeConfigFile: true
           master: 2
-          projectStatus: projectStatus
+          projectStatus: null
           alertingProfileId: 3
           deleteOnExpiration: true
           cloudName: cloudName
@@ -52360,7 +52348,7 @@ components:
         channel: channel
         id: 0
         url: url
-        slackType: slackType
+        slackType: null
       properties:
         id:
           format: int32
@@ -52382,8 +52370,7 @@ components:
           nullable: true
           type: integer
         slackType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/SlackType'
       type: object
     SlackConfigurationList:
       additionalProperties: false
@@ -52395,14 +52382,14 @@ components:
           channel: channel
           id: 0
           url: url
-          slackType: slackType
+          slackType: null
         - organizationId: 6
           organizationName: organizationName
           name: name
           channel: channel
           id: 0
           url: url
-          slackType: slackType
+          slackType: null
         totalCount: 1
       properties:
         data:
@@ -53330,8 +53317,8 @@ components:
           allowSpotWorkers: true
           maxSpotPrice: 6.84685269835264
           organizationId: 1
-          projectStatus: projectStatus
-          cloudType: cloudType
+          projectStatus: null
+          cloudType: null
           cloudName: cloudName
           cloudId: 7
           isLocked: true
