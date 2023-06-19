@@ -110,8 +110,8 @@ Class | Method | HTTP request | Description
 *AlertingIntegrationsApi* | [**AlertingintegrationsCreate**](docs/AlertingIntegrationsApi.md#alertingintegrationscreate) | **Post** /api/v1/alertingintegrations/create | Create alerting profile alerting integration
 *AlertingIntegrationsApi* | [**AlertingintegrationsDelete**](docs/AlertingIntegrationsApi.md#alertingintegrationsdelete) | **Delete** /api/v1/alertingintegrations/{id} | Delete alerting profile alerting integration
 *AlertingIntegrationsApi* | [**AlertingintegrationsEdit**](docs/AlertingIntegrationsApi.md#alertingintegrationsedit) | **Put** /api/v1/alertingintegrations/edit | Edit alerting profile alerting integration
-*AlertingIntegrationsApi* | [**AlertingintegrationsList**](docs/AlertingIntegrationsApi.md#alertingintegrationslist) | **Get** /api/v1/alertingintegrations/{alertingProfileId} | 
-*AlertingIntegrationsApi* | [**DocumentationList**](docs/AlertingIntegrationsApi.md#documentationlist) | **Get** /api/v1/documentation | 
+*AlertingIntegrationsApi* | [**AlertingintegrationsList**](docs/AlertingIntegrationsApi.md#alertingintegrationslist) | **Get** /api/v1/alertingintegrations/{alertingProfileId} | List alerting integrations by profile id
+*AlertingIntegrationsApi* | [**DocumentationList**](docs/AlertingIntegrationsApi.md#documentationlist) | **Get** /api/v1/documentation | Retrieve all documentation links
 *AlertingProfilesApi* | [**AlertingprofilesAssignEmail**](docs/AlertingProfilesApi.md#alertingprofilesassignemail) | **Put** /api/v1/alertingprofiles/assignemails/{id} | Assign Alerting emails
 *AlertingProfilesApi* | [**AlertingprofilesAssignWebhooks**](docs/AlertingProfilesApi.md#alertingprofilesassignwebhooks) | **Put** /api/v1/alertingprofiles/assignwebhooks/{id} | Assign Alerting webhooks
 *AlertingProfilesApi* | [**AlertingprofilesAttach**](docs/AlertingProfilesApi.md#alertingprofilesattach) | **Post** /api/v1/alertingprofiles/attach | Attach alerting profile to project
@@ -154,24 +154,24 @@ Class | Method | HTTP request | Description
 *AzureCloudCredentialApi* | [**AzureUpdate**](docs/AzureCloudCredentialApi.md#azureupdate) | **Post** /api/v1/azure/update | Update Azure credentials
 *AzureCloudCredentialApi* | [**AzureZones**](docs/AzureCloudCredentialApi.md#azurezones) | **Post** /api/v1/azure/zones | Fetch Azure zone list
 *BackupPolicyApi* | [**BackupByName**](docs/BackupPolicyApi.md#backupbyname) | **Get** /api/v1/backup/{projectId}/{name} | 
-*BackupPolicyApi* | [**BackupClearProject**](docs/BackupPolicyApi.md#backupclearproject) | **Post** /api/v1/backup/clear/project | 
-*BackupPolicyApi* | [**BackupCreate**](docs/BackupPolicyApi.md#backupcreate) | **Post** /api/v1/backup/create | 
-*BackupPolicyApi* | [**BackupDeleteBackup**](docs/BackupPolicyApi.md#backupdeletebackup) | **Post** /api/v1/backup/delete/backup | 
-*BackupPolicyApi* | [**BackupDeleteBackupLocation**](docs/BackupPolicyApi.md#backupdeletebackuplocation) | **Post** /api/v1/backup/delete/location | 
-*BackupPolicyApi* | [**BackupDeleteRestore**](docs/BackupPolicyApi.md#backupdeleterestore) | **Post** /api/v1/backup/delete/restore | 
-*BackupPolicyApi* | [**BackupDeleteSchedule**](docs/BackupPolicyApi.md#backupdeleteschedule) | **Post** /api/v1/backup/delete/schedule | 
+*BackupPolicyApi* | [**BackupClearProject**](docs/BackupPolicyApi.md#backupclearproject) | **Post** /api/v1/backup/clear/project | Delete unfinished backup for project
+*BackupPolicyApi* | [**BackupCreate**](docs/BackupPolicyApi.md#backupcreate) | **Post** /api/v1/backup/create | Add backup policy
+*BackupPolicyApi* | [**BackupDeleteBackup**](docs/BackupPolicyApi.md#backupdeletebackup) | **Post** /api/v1/backup/delete/backup | Remove policy backup
+*BackupPolicyApi* | [**BackupDeleteBackupLocation**](docs/BackupPolicyApi.md#backupdeletebackuplocation) | **Post** /api/v1/backup/delete/location | Remove backup location from project
+*BackupPolicyApi* | [**BackupDeleteRestore**](docs/BackupPolicyApi.md#backupdeleterestore) | **Post** /api/v1/backup/delete/restore | Remove policy restore
+*BackupPolicyApi* | [**BackupDeleteSchedule**](docs/BackupPolicyApi.md#backupdeleteschedule) | **Post** /api/v1/backup/delete/schedule | Remove policy schedule
 *BackupPolicyApi* | [**BackupDescribeBackup**](docs/BackupPolicyApi.md#backupdescribebackup) | **Get** /api/v1/backup/describe/backup/{projectId}/{name} | 
 *BackupPolicyApi* | [**BackupDescribeRestore**](docs/BackupPolicyApi.md#backupdescriberestore) | **Get** /api/v1/backup/describe/restore/{projectId}/{name} | 
 *BackupPolicyApi* | [**BackupDescribeSchedule**](docs/BackupPolicyApi.md#backupdescribeschedule) | **Get** /api/v1/backup/describe/schedule/{projectId}/{name} | 
-*BackupPolicyApi* | [**BackupDisableBackup**](docs/BackupPolicyApi.md#backupdisablebackup) | **Post** /api/v1/backup/disablebackup | 
-*BackupPolicyApi* | [**BackupEnableBackup**](docs/BackupPolicyApi.md#backupenablebackup) | **Post** /api/v1/backup/enablebackup | 
-*BackupPolicyApi* | [**BackupImportBackupStorage**](docs/BackupPolicyApi.md#backupimportbackupstorage) | **Post** /api/v1/backup/location | 
-*BackupPolicyApi* | [**BackupListAllBackupStorages**](docs/BackupPolicyApi.md#backuplistallbackupstorages) | **Get** /api/v1/backup/location/{projectId} | 
-*BackupPolicyApi* | [**BackupListAllBackups**](docs/BackupPolicyApi.md#backuplistallbackups) | **Get** /api/v1/backup/backups/{projectId} | 
-*BackupPolicyApi* | [**BackupListAllDeleteBackupRequests**](docs/BackupPolicyApi.md#backuplistalldeletebackuprequests) | **Get** /api/v1/backup/delete-requests/{projectId} | 
-*BackupPolicyApi* | [**BackupListAllRestores**](docs/BackupPolicyApi.md#backuplistallrestores) | **Get** /api/v1/backup/restores/{projectId} | 
-*BackupPolicyApi* | [**BackupListAllSchedules**](docs/BackupPolicyApi.md#backuplistallschedules) | **Get** /api/v1/backup/schedules/{projectId} | 
-*BackupPolicyApi* | [**BackupRestoreBackup**](docs/BackupPolicyApi.md#backuprestorebackup) | **Post** /api/v1/backup/restore | 
+*BackupPolicyApi* | [**BackupDisableBackup**](docs/BackupPolicyApi.md#backupdisablebackup) | **Post** /api/v1/backup/disablebackup | Disable backup by the projectId
+*BackupPolicyApi* | [**BackupEnableBackup**](docs/BackupPolicyApi.md#backupenablebackup) | **Post** /api/v1/backup/enablebackup | Enable backup by the projectId
+*BackupPolicyApi* | [**BackupImportBackupStorage**](docs/BackupPolicyApi.md#backupimportbackupstorage) | **Post** /api/v1/backup/location | Import backup storage from source project to target project
+*BackupPolicyApi* | [**BackupListAllBackupStorages**](docs/BackupPolicyApi.md#backuplistallbackupstorages) | **Get** /api/v1/backup/location/{projectId} | List all backup locations
+*BackupPolicyApi* | [**BackupListAllBackups**](docs/BackupPolicyApi.md#backuplistallbackups) | **Get** /api/v1/backup/backups/{projectId} | List all backups
+*BackupPolicyApi* | [**BackupListAllDeleteBackupRequests**](docs/BackupPolicyApi.md#backuplistalldeletebackuprequests) | **Get** /api/v1/backup/delete-requests/{projectId} | List all delete backup requests
+*BackupPolicyApi* | [**BackupListAllRestores**](docs/BackupPolicyApi.md#backuplistallrestores) | **Get** /api/v1/backup/restores/{projectId} | List all restores
+*BackupPolicyApi* | [**BackupListAllSchedules**](docs/BackupPolicyApi.md#backuplistallschedules) | **Get** /api/v1/backup/schedules/{projectId} | List all schedules
+*BackupPolicyApi* | [**BackupRestoreBackup**](docs/BackupPolicyApi.md#backuprestorebackup) | **Post** /api/v1/backup/restore | Restore backup
 *BillingApi* | [**BillingCreate**](docs/BillingApi.md#billingcreate) | **Post** /api/v1/billing/create | Add billing summary
 *BillingApi* | [**BillingExportCsv**](docs/BillingApi.md#billingexportcsv) | **Get** /api/v1/billing/export | Export Csv
 *BillingApi* | [**BillingGroupedList**](docs/BillingApi.md#billinggroupedlist) | **Get** /api/v1/billing/grouped | Retrieve a grouped list of billing summaries
@@ -248,17 +248,17 @@ Class | Method | HTTP request | Description
 *DnsServersApi* | [**DnsserversCreate**](docs/DnsServersApi.md#dnsserverscreate) | **Post** /api/v1/dnsservers/create | Create dns servers for access profile
 *DnsServersApi* | [**DnsserversDelete**](docs/DnsServersApi.md#dnsserversdelete) | **Delete** /api/v1/dnsservers/{id} | Delete dns server
 *DnsServersApi* | [**DnsserversEdit**](docs/DnsServersApi.md#dnsserversedit) | **Put** /api/v1/dnsservers/edit/{id} | Edit dns server
-*DnsServersApi* | [**DnsserversList**](docs/DnsServersApi.md#dnsserverslist) | **Get** /api/v1/dnsservers/{accessProfileId} | 
-*FlavorsApi* | [**FlavorsAwsInstanceTypes**](docs/FlavorsApi.md#flavorsawsinstancetypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
-*FlavorsApi* | [**FlavorsAzureVmSizes**](docs/FlavorsApi.md#flavorsazurevmsizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
-*FlavorsApi* | [**FlavorsBindToProject**](docs/FlavorsApi.md#flavorsbindtoproject) | **Get** /api/v1/flavors/bind | 
-*FlavorsApi* | [**FlavorsDropdownFlavors**](docs/FlavorsApi.md#flavorsdropdownflavors) | **Get** /api/v1/flavors/credentials/dropdown/list | 
-*FlavorsApi* | [**FlavorsGoogleMachineTypes**](docs/FlavorsApi.md#flavorsgooglemachinetypes) | **Get** /api/v1/flavors/google/{cloudId} | 
-*FlavorsApi* | [**FlavorsOpenstackFlavors**](docs/FlavorsApi.md#flavorsopenstackflavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
-*FlavorsApi* | [**FlavorsProxmoxFlavors**](docs/FlavorsApi.md#flavorsproxmoxflavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | 
-*FlavorsApi* | [**FlavorsSelectedFlavorsForProject**](docs/FlavorsApi.md#flavorsselectedflavorsforproject) | **Get** /api/v1/flavors/projects/list | 
-*FlavorsApi* | [**FlavorsTanzuFlavors**](docs/FlavorsApi.md#flavorstanzuflavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | 
-*FlavorsApi* | [**FlavorsUnbindFromProject**](docs/FlavorsApi.md#flavorsunbindfromproject) | **Get** /api/v1/flavors/unbind | 
+*DnsServersApi* | [**DnsserversList**](docs/DnsServersApi.md#dnsserverslist) | **Get** /api/v1/dnsservers/{accessProfileId} | List dn servers by profile id
+*FlavorsApi* | [**FlavorsAwsInstanceTypes**](docs/FlavorsApi.md#flavorsawsinstancetypes) | **Get** /api/v1/flavors/aws/{cloudId} | Retrieve awz instance types
+*FlavorsApi* | [**FlavorsAzureVmSizes**](docs/FlavorsApi.md#flavorsazurevmsizes) | **Get** /api/v1/flavors/azure/{cloudId} | Retrieve azure vm sizes
+*FlavorsApi* | [**FlavorsBindToProject**](docs/FlavorsApi.md#flavorsbindtoproject) | **Get** /api/v1/flavors/bind | Bind flavors to project
+*FlavorsApi* | [**FlavorsDropdownFlavors**](docs/FlavorsApi.md#flavorsdropdownflavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
+*FlavorsApi* | [**FlavorsGoogleMachineTypes**](docs/FlavorsApi.md#flavorsgooglemachinetypes) | **Get** /api/v1/flavors/google/{cloudId} | Retrieve google machine types
+*FlavorsApi* | [**FlavorsOpenstackFlavors**](docs/FlavorsApi.md#flavorsopenstackflavors) | **Get** /api/v1/flavors/openstack/{cloudId} | Retrieve openstack flavors
+*FlavorsApi* | [**FlavorsProxmoxFlavors**](docs/FlavorsApi.md#flavorsproxmoxflavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
+*FlavorsApi* | [**FlavorsSelectedFlavorsForProject**](docs/FlavorsApi.md#flavorsselectedflavorsforproject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
+*FlavorsApi* | [**FlavorsTanzuFlavors**](docs/FlavorsApi.md#flavorstanzuflavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
+*FlavorsApi* | [**FlavorsUnbindFromProject**](docs/FlavorsApi.md#flavorsunbindfromproject) | **Get** /api/v1/flavors/unbind | Unbind flavors from project
 *GoogleApi* | [**GooglecloudBillingAccountList**](docs/GoogleApi.md#googlecloudbillingaccountlist) | **Post** /api/v1/googlecloud/billing-accounts | Retrieve google billing accounts list
 *GoogleApi* | [**GooglecloudCreate**](docs/GoogleApi.md#googlecloudcreate) | **Post** /api/v1/googlecloud/create | Create google cloud credential
 *GoogleApi* | [**GooglecloudList**](docs/GoogleApi.md#googlecloudlist) | **Get** /api/v1/googlecloud/list | Retrieve list of google cloud credentials
@@ -423,13 +423,13 @@ Class | Method | HTTP request | Description
 *PartnersApi* | [**PartnerBecomeAPartner**](docs/PartnersApi.md#partnerbecomeapartner) | **Post** /api/v1/partner/become-a-partner | Become a partner
 *PartnersApi* | [**PartnerBindOrganizations**](docs/PartnersApi.md#partnerbindorganizations) | **Post** /api/v1/partner/bindorganizations | Bind organizations to a partner
 *PartnersApi* | [**PartnerContactUs**](docs/PartnersApi.md#partnercontactus) | **Post** /api/v1/partner/contact-us | Contact with us
-*PartnersApi* | [**PartnerCreate**](docs/PartnersApi.md#partnercreate) | **Post** /api/v1/partner/create | 
+*PartnersApi* | [**PartnerCreate**](docs/PartnersApi.md#partnercreate) | **Post** /api/v1/partner/create | Add a partner
 *PartnersApi* | [**PartnerDeleteWhitelistDomain**](docs/PartnersApi.md#partnerdeletewhitelistdomain) | **Post** /api/v1/partner/delete/whitelist/domain | Delete white list domain
 *PartnersApi* | [**PartnerDetails**](docs/PartnersApi.md#partnerdetails) | **Get** /api/v1/partner/details | Details of partners
 *PartnersApi* | [**PartnerDropdown**](docs/PartnersApi.md#partnerdropdown) | **Get** /api/v1/partner/list | Get partners dropdown
 *PartnersApi* | [**PartnerInfo**](docs/PartnersApi.md#partnerinfo) | **Get** /api/v1/partner/info | Get partner&#39;s registration info
 *PartnersApi* | [**PartnerList**](docs/PartnersApi.md#partnerlist) | **Get** /api/v1/partner | Get partners
-*PartnersApi* | [**PartnerUpdate**](docs/PartnersApi.md#partnerupdate) | **Put** /api/v1/partner/update/{id} | 
+*PartnersApi* | [**PartnerUpdate**](docs/PartnersApi.md#partnerupdate) | **Put** /api/v1/partner/update/{id} | Edit partner&#39;s data by Id
 *PaymentApi* | [**PaymentBillingInfo**](docs/PaymentApi.md#paymentbillinginfo) | **Get** /api/v1/payment/billing-info | Get billing info for organization
 *PaymentApi* | [**PaymentCardinfo**](docs/PaymentApi.md#paymentcardinfo) | **Get** /api/v1/payment/cardinfo | Get card information
 *PaymentApi* | [**PaymentGetStripeInvoices**](docs/PaymentApi.md#paymentgetstripeinvoices) | **Get** /api/v1/payment/stripeinvoices/{subscriptionId} | 
@@ -887,6 +887,7 @@ Class | Method | HTTP request | Description
  - [CredentialsForCliDto](docs/CredentialsForCliDto.md)
  - [CredentialsForProjectList](docs/CredentialsForProjectList.md)
  - [CronJobCommand](docs/CronJobCommand.md)
+ - [CsvExporter](docs/CsvExporter.md)
  - [DaemonSetDto](docs/DaemonSetDto.md)
  - [DaemonSetSearchCommand](docs/DaemonSetSearchCommand.md)
  - [DaemonSetSearchList](docs/DaemonSetSearchList.md)

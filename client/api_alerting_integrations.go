@@ -537,7 +537,7 @@ func (r ApiAlertingintegrationsListRequest) Execute() ([]AlertingIntegrationsLis
 }
 
 /*
-AlertingintegrationsList Method for AlertingintegrationsList
+AlertingintegrationsList List alerting integrations by profile id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param alertingProfileId
@@ -744,7 +744,7 @@ func (r ApiDocumentationListRequest) Execute() (*DocumentationsList, *http.Respo
 }
 
 /*
-DocumentationList Method for DocumentationList
+DocumentationList Retrieve all documentation links
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDocumentationListRequest

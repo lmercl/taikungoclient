@@ -89,7 +89,7 @@ func (r ApiFlavorsAwsInstanceTypesRequest) Execute() (*AwsFlavorList, *http.Resp
 }
 
 /*
-FlavorsAwsInstanceTypes Method for FlavorsAwsInstanceTypes
+FlavorsAwsInstanceTypes Retrieve awz instance types
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -339,7 +339,7 @@ func (r ApiFlavorsAzureVmSizesRequest) Execute() (*AzureFlavorList, *http.Respon
 }
 
 /*
-FlavorsAzureVmSizes Method for FlavorsAzureVmSizes
+FlavorsAzureVmSizes Retrieve azure vm sizes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -540,7 +540,7 @@ func (r ApiFlavorsBindToProjectRequest) Execute() (*http.Response, error) {
 }
 
 /*
-FlavorsBindToProject Method for FlavorsBindToProject
+FlavorsBindToProject Bind flavors to project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFlavorsBindToProjectRequest
@@ -714,7 +714,7 @@ func (r ApiFlavorsDropdownFlavorsRequest) Execute() ([]CloudCredentialsDropdownR
 }
 
 /*
-FlavorsDropdownFlavors Method for FlavorsDropdownFlavors
+FlavorsDropdownFlavors Retrieve cloud credentials dropdown list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFlavorsDropdownFlavorsRequest
@@ -943,7 +943,7 @@ func (r ApiFlavorsGoogleMachineTypesRequest) Execute() (*GoogleFlavorList, *http
 }
 
 /*
-FlavorsGoogleMachineTypes Method for FlavorsGoogleMachineTypes
+FlavorsGoogleMachineTypes Retrieve google machine types
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -1193,7 +1193,7 @@ func (r ApiFlavorsOpenstackFlavorsRequest) Execute() (*OpenstackFlavorList, *htt
 }
 
 /*
-FlavorsOpenstackFlavors Method for FlavorsOpenstackFlavors
+FlavorsOpenstackFlavors Retrieve openstack flavors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -1443,7 +1443,7 @@ func (r ApiFlavorsProxmoxFlavorsRequest) Execute() (*ProxmoxFlavorList, *http.Re
 }
 
 /*
-FlavorsProxmoxFlavors Method for FlavorsProxmoxFlavors
+FlavorsProxmoxFlavors Retrieve proxmox flavors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -1631,7 +1631,6 @@ func (a *FlavorsApiService) FlavorsProxmoxFlavorsExecute(r ApiFlavorsProxmoxFlav
 type ApiFlavorsSelectedFlavorsForProjectRequest struct {
 	ctx context.Context
 	ApiService *FlavorsApiService
-	withPrice *bool
 	limit *int32
 	offset *int32
 	projectId *int32
@@ -1641,11 +1640,7 @@ type ApiFlavorsSelectedFlavorsForProjectRequest struct {
 	filterBy *string
 	organizationId *int32
 	flavorName *string
-}
-
-func (r ApiFlavorsSelectedFlavorsForProjectRequest) WithPrice(withPrice bool) ApiFlavorsSelectedFlavorsForProjectRequest {
-	r.withPrice = &withPrice
-	return r
+	withPrice *bool
 }
 
 func (r ApiFlavorsSelectedFlavorsForProjectRequest) Limit(limit int32) ApiFlavorsSelectedFlavorsForProjectRequest {
@@ -1693,12 +1688,17 @@ func (r ApiFlavorsSelectedFlavorsForProjectRequest) FlavorName(flavorName string
 	return r
 }
 
+func (r ApiFlavorsSelectedFlavorsForProjectRequest) WithPrice(withPrice bool) ApiFlavorsSelectedFlavorsForProjectRequest {
+	r.withPrice = &withPrice
+	return r
+}
+
 func (r ApiFlavorsSelectedFlavorsForProjectRequest) Execute() (*BoundFlavorsForProjectsList, *http.Response, error) {
 	return r.ApiService.FlavorsSelectedFlavorsForProjectExecute(r)
 }
 
 /*
-FlavorsSelectedFlavorsForProject Method for FlavorsSelectedFlavorsForProject
+FlavorsSelectedFlavorsForProject Retrieve selected flavors for project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFlavorsSelectedFlavorsForProjectRequest
@@ -1730,9 +1730,6 @@ func (a *FlavorsApiService) FlavorsSelectedFlavorsForProjectExecute(r ApiFlavors
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.withPrice == nil {
-		return localVarReturnValue, nil, reportError("withPrice is required and must be specified")
-	}
 
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Limit", r.limit, "")
@@ -1761,7 +1758,9 @@ func (a *FlavorsApiService) FlavorsSelectedFlavorsForProjectExecute(r ApiFlavors
 	if r.flavorName != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "FlavorName", r.flavorName, "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "WithPrice", r.withPrice, "")
+	if r.withPrice != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "WithPrice", r.withPrice, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1949,7 +1948,7 @@ func (r ApiFlavorsTanzuFlavorsRequest) Execute() (*TanzuFlavorList, *http.Respon
 }
 
 /*
-FlavorsTanzuFlavors Method for FlavorsTanzuFlavors
+FlavorsTanzuFlavors Retrieve tanzu flavors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -2150,7 +2149,7 @@ func (r ApiFlavorsUnbindFromProjectRequest) Execute() (*http.Response, error) {
 }
 
 /*
-FlavorsUnbindFromProject Method for FlavorsUnbindFromProject
+FlavorsUnbindFromProject Unbind flavors from project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFlavorsUnbindFromProjectRequest

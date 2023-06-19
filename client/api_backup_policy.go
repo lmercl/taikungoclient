@@ -213,7 +213,7 @@ func (r ApiBackupClearProjectRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupClearProject Method for BackupClearProject
+BackupClearProject Delete unfinished backup for project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupClearProjectRequest
@@ -378,7 +378,7 @@ func (r ApiBackupCreateRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupCreate Method for BackupCreate
+BackupCreate Add backup policy
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupCreateRequest
@@ -540,7 +540,7 @@ func (r ApiBackupDeleteBackupRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupDeleteBackup Method for BackupDeleteBackup
+BackupDeleteBackup Remove policy backup
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupDeleteBackupRequest
@@ -705,7 +705,7 @@ func (r ApiBackupDeleteBackupLocationRequest) Execute() (*http.Response, error) 
 }
 
 /*
-BackupDeleteBackupLocation Method for BackupDeleteBackupLocation
+BackupDeleteBackupLocation Remove backup location from project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupDeleteBackupLocationRequest
@@ -870,7 +870,7 @@ func (r ApiBackupDeleteRestoreRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupDeleteRestore Method for BackupDeleteRestore
+BackupDeleteRestore Remove policy restore
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupDeleteRestoreRequest
@@ -1035,7 +1035,7 @@ func (r ApiBackupDeleteScheduleRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupDeleteSchedule Method for BackupDeleteSchedule
+BackupDeleteSchedule Remove policy schedule
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupDeleteScheduleRequest
@@ -1719,7 +1719,7 @@ func (r ApiBackupDisableBackupRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupDisableBackup Method for BackupDisableBackup
+BackupDisableBackup Disable backup by the projectId
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupDisableBackupRequest
@@ -1884,7 +1884,7 @@ func (r ApiBackupEnableBackupRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupEnableBackup Method for BackupEnableBackup
+BackupEnableBackup Enable backup by the projectId
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupEnableBackupRequest
@@ -2049,7 +2049,7 @@ func (r ApiBackupImportBackupStorageRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupImportBackupStorage Method for BackupImportBackupStorage
+BackupImportBackupStorage Import backup storage from source project to target project
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupImportBackupStorageRequest
@@ -2239,7 +2239,7 @@ func (r ApiBackupListAllBackupStoragesRequest) Execute() (*ListAllBackupStorageL
 }
 
 /*
-BackupListAllBackupStorages Method for BackupListAllBackupStorages
+BackupListAllBackupStorages List all backup locations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
@@ -2453,7 +2453,7 @@ func (r ApiBackupListAllBackupsRequest) Execute() (*ListAllBackups, *http.Respon
 }
 
 /*
-BackupListAllBackups Method for BackupListAllBackups
+BackupListAllBackups List all backups
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
@@ -2667,7 +2667,7 @@ func (r ApiBackupListAllDeleteBackupRequestsRequest) Execute() (*ListAllDeleteBa
 }
 
 /*
-BackupListAllDeleteBackupRequests Method for BackupListAllDeleteBackupRequests
+BackupListAllDeleteBackupRequests List all delete backup requests
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
@@ -2881,7 +2881,7 @@ func (r ApiBackupListAllRestoresRequest) Execute() (*ListAllRestores, *http.Resp
 }
 
 /*
-BackupListAllRestores Method for BackupListAllRestores
+BackupListAllRestores List all restores
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
@@ -3095,7 +3095,7 @@ func (r ApiBackupListAllSchedulesRequest) Execute() (*ListAllSchedules, *http.Re
 }
 
 /*
-BackupListAllSchedules Method for BackupListAllSchedules
+BackupListAllSchedules List all schedules
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId
@@ -3284,7 +3284,7 @@ func (r ApiBackupRestoreBackupRequest) Execute() (*http.Response, error) {
 }
 
 /*
-BackupRestoreBackup Method for BackupRestoreBackup
+BackupRestoreBackup Restore backup
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupRestoreBackupRequest

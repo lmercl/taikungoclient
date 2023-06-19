@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## PrometheusbillingsExportCsv
 
-> PrometheusbillingsExportCsv(ctx).IsEmailEnabled(isEmailEnabled).OrganizationId(organizationId).StartDate(startDate).EndDate(endDate).Execute()
+> CsvExporter PrometheusbillingsExportCsv(ctx).IsEmailEnabled(isEmailEnabled).OrganizationId(organizationId).StartDate(startDate).EndDate(endDate).Execute()
 
 Export Csv
 
@@ -99,11 +99,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PrometheusBillingsApi.PrometheusbillingsExportCsv(context.Background()).IsEmailEnabled(isEmailEnabled).OrganizationId(organizationId).StartDate(startDate).EndDate(endDate).Execute()
+    resp, r, err := apiClient.PrometheusBillingsApi.PrometheusbillingsExportCsv(context.Background()).IsEmailEnabled(isEmailEnabled).OrganizationId(organizationId).StartDate(startDate).EndDate(endDate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PrometheusBillingsApi.PrometheusbillingsExportCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `PrometheusbillingsExportCsv`: CsvExporter
+    fmt.Fprintf(os.Stdout, "Response from `PrometheusBillingsApi.PrometheusbillingsExportCsv`: %v\n", resp)
 }
 ```
 
@@ -125,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CsvExporter**](CsvExporter.md)
 
 ### Authorization
 
@@ -134,7 +136,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

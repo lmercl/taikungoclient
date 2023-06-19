@@ -544,7 +544,7 @@ func (r ApiDnsserversListRequest) Execute() ([]DnsServersListDto, *http.Response
 }
 
 /*
-DnsserversList Method for DnsserversList
+DnsserversList List dn servers by profile id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accessProfileId

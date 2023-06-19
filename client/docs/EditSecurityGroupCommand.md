@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Protocol** | Pointer to [**SecurityGroupProtocol**](SecurityGroupProtocol.md) |  | [optional] 
+**Protocol** | Pointer to **NullableString** |  | [optional] 
 **PortMinRange** | Pointer to **int32** |  | [optional] 
 **PortMaxRange** | Pointer to **int32** |  | [optional] 
 **RemoteIpPrefix** | Pointer to **NullableString** |  | [optional] 
@@ -92,20 +92,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProtocol
 
-`func (o *EditSecurityGroupCommand) GetProtocol() SecurityGroupProtocol`
+`func (o *EditSecurityGroupCommand) GetProtocol() string`
 
 GetProtocol returns the Protocol field if non-nil, zero value otherwise.
 
 ### GetProtocolOk
 
-`func (o *EditSecurityGroupCommand) GetProtocolOk() (*SecurityGroupProtocol, bool)`
+`func (o *EditSecurityGroupCommand) GetProtocolOk() (*string, bool)`
 
 GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProtocol
 
-`func (o *EditSecurityGroupCommand) SetProtocol(v SecurityGroupProtocol)`
+`func (o *EditSecurityGroupCommand) SetProtocol(v string)`
 
 SetProtocol sets Protocol field to given value.
 
@@ -115,6 +115,16 @@ SetProtocol sets Protocol field to given value.
 
 HasProtocol returns a boolean if a field has been set.
 
+### SetProtocolNil
+
+`func (o *EditSecurityGroupCommand) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *EditSecurityGroupCommand) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetPortMinRange
 
 `func (o *EditSecurityGroupCommand) GetPortMinRange() int32`
