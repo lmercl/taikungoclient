@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -1358,6 +1359,12 @@ func (a *CheckerApiService) CheckerDuplicateNameExecute(r ApiCheckerDuplicateNam
 type ApiCheckerGoogleRequest struct {
 	ctx context.Context
 	ApiService *CheckerApiService
+	config *os.File
+}
+
+func (r ApiCheckerGoogleRequest) Config(config *os.File) ApiCheckerGoogleRequest {
+	r.config = config
+	return r
 }
 
 func (r ApiCheckerGoogleRequest) Execute() (*http.Response, error) {
@@ -1412,6 +1419,23 @@ func (a *CheckerApiService) CheckerGoogleExecute(r ApiCheckerGoogleRequest) (*ht
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	var configLocalVarFormFileName string
+	var configLocalVarFileName     string
+	var configLocalVarFileBytes    []byte
+
+	configLocalVarFormFileName = "config"
+
+
+	configLocalVarFile := r.config
+
+	if configLocalVarFile != nil {
+		fbs, _ := io.ReadAll(configLocalVarFile)
+
+		configLocalVarFileBytes = fbs
+		configLocalVarFileName = configLocalVarFile.Name()
+		configLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: configLocalVarFileBytes, fileName: configLocalVarFileName, formFileName: configLocalVarFormFileName})
 	}
 	if r.ctx != nil {
 		// API Key Authentication

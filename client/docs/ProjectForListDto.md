@@ -19,10 +19,7 @@ Name | Type | Description | Notes
 **IsAutoUpgrade** | Pointer to **bool** |  | [optional] 
 **HasKubeConfigFile** | Pointer to **bool** |  | [optional] 
 **HasSelectedFlavors** | Pointer to **bool** |  | [optional] 
-**Master** | Pointer to **int32** |  | [optional] 
-**MasterReady** | Pointer to **int32** |  | [optional] 
 **QuotaId** | Pointer to **int32** |  | [optional] 
-**Bastion** | Pointer to **int32** |  | [optional] 
 **AccessProfileRevision** | Pointer to **int32** |  | [optional] 
 **OpaProfileRevision** | Pointer to **int32** |  | [optional] 
 **CloudCredentialName** | Pointer to **NullableString** |  | [optional] 
@@ -33,15 +30,12 @@ Name | Type | Description | Notes
 **Status** | Pointer to **NullableString** |  | [optional] 
 **Health** | Pointer to **NullableString** |  | [optional] 
 **AccessIp** | Pointer to **NullableString** |  | [optional] 
-**TotalServersCount** | Pointer to **int32** |  | [optional] 
 **CloudType** | Pointer to **NullableString** |  | [optional] 
 **KubesprayCurrentVersion** | Pointer to **NullableString** |  | [optional] 
 **KubesprayTargetVersion** | Pointer to **NullableString** |  | [optional] 
 **KubernetesCurrentVersion** | Pointer to **NullableString** |  | [optional] 
 **KubernetesTargetVersion** | Pointer to **NullableString** |  | [optional] 
-**CreatedAt** | Pointer to **NullableString** |  | [optional] 
 **UpdatedAt** | Pointer to **NullableTime** |  | [optional] 
-**BoundUsers** | Pointer to [**[]UserDto**](UserDto.md) |  | [optional] 
 **MonitoringCredential** | Pointer to [**MonitoringCredentialsListDto**](MonitoringCredentialsListDto.md) |  | [optional] 
 **IsAutoscalingEnabled** | Pointer to **bool** |  | [optional] 
 **Flavors** | Pointer to **[]string** |  | [optional] 
@@ -528,56 +522,6 @@ SetHasSelectedFlavors sets HasSelectedFlavors field to given value.
 
 HasHasSelectedFlavors returns a boolean if a field has been set.
 
-### GetMaster
-
-`func (o *ProjectForListDto) GetMaster() int32`
-
-GetMaster returns the Master field if non-nil, zero value otherwise.
-
-### GetMasterOk
-
-`func (o *ProjectForListDto) GetMasterOk() (*int32, bool)`
-
-GetMasterOk returns a tuple with the Master field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaster
-
-`func (o *ProjectForListDto) SetMaster(v int32)`
-
-SetMaster sets Master field to given value.
-
-### HasMaster
-
-`func (o *ProjectForListDto) HasMaster() bool`
-
-HasMaster returns a boolean if a field has been set.
-
-### GetMasterReady
-
-`func (o *ProjectForListDto) GetMasterReady() int32`
-
-GetMasterReady returns the MasterReady field if non-nil, zero value otherwise.
-
-### GetMasterReadyOk
-
-`func (o *ProjectForListDto) GetMasterReadyOk() (*int32, bool)`
-
-GetMasterReadyOk returns a tuple with the MasterReady field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMasterReady
-
-`func (o *ProjectForListDto) SetMasterReady(v int32)`
-
-SetMasterReady sets MasterReady field to given value.
-
-### HasMasterReady
-
-`func (o *ProjectForListDto) HasMasterReady() bool`
-
-HasMasterReady returns a boolean if a field has been set.
-
 ### GetQuotaId
 
 `func (o *ProjectForListDto) GetQuotaId() int32`
@@ -602,31 +546,6 @@ SetQuotaId sets QuotaId field to given value.
 `func (o *ProjectForListDto) HasQuotaId() bool`
 
 HasQuotaId returns a boolean if a field has been set.
-
-### GetBastion
-
-`func (o *ProjectForListDto) GetBastion() int32`
-
-GetBastion returns the Bastion field if non-nil, zero value otherwise.
-
-### GetBastionOk
-
-`func (o *ProjectForListDto) GetBastionOk() (*int32, bool)`
-
-GetBastionOk returns a tuple with the Bastion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBastion
-
-`func (o *ProjectForListDto) SetBastion(v int32)`
-
-SetBastion sets Bastion field to given value.
-
-### HasBastion
-
-`func (o *ProjectForListDto) HasBastion() bool`
-
-HasBastion returns a boolean if a field has been set.
 
 ### GetAccessProfileRevision
 
@@ -948,31 +867,6 @@ HasAccessIp returns a boolean if a field has been set.
 `func (o *ProjectForListDto) UnsetAccessIp()`
 
 UnsetAccessIp ensures that no value is present for AccessIp, not even an explicit nil
-### GetTotalServersCount
-
-`func (o *ProjectForListDto) GetTotalServersCount() int32`
-
-GetTotalServersCount returns the TotalServersCount field if non-nil, zero value otherwise.
-
-### GetTotalServersCountOk
-
-`func (o *ProjectForListDto) GetTotalServersCountOk() (*int32, bool)`
-
-GetTotalServersCountOk returns a tuple with the TotalServersCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalServersCount
-
-`func (o *ProjectForListDto) SetTotalServersCount(v int32)`
-
-SetTotalServersCount sets TotalServersCount field to given value.
-
-### HasTotalServersCount
-
-`func (o *ProjectForListDto) HasTotalServersCount() bool`
-
-HasTotalServersCount returns a boolean if a field has been set.
-
 ### GetCloudType
 
 `func (o *ProjectForListDto) GetCloudType() string`
@@ -1148,41 +1042,6 @@ HasKubernetesTargetVersion returns a boolean if a field has been set.
 `func (o *ProjectForListDto) UnsetKubernetesTargetVersion()`
 
 UnsetKubernetesTargetVersion ensures that no value is present for KubernetesTargetVersion, not even an explicit nil
-### GetCreatedAt
-
-`func (o *ProjectForListDto) GetCreatedAt() string`
-
-GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
-
-### GetCreatedAtOk
-
-`func (o *ProjectForListDto) GetCreatedAtOk() (*string, bool)`
-
-GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreatedAt
-
-`func (o *ProjectForListDto) SetCreatedAt(v string)`
-
-SetCreatedAt sets CreatedAt field to given value.
-
-### HasCreatedAt
-
-`func (o *ProjectForListDto) HasCreatedAt() bool`
-
-HasCreatedAt returns a boolean if a field has been set.
-
-### SetCreatedAtNil
-
-`func (o *ProjectForListDto) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *ProjectForListDto) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetUpdatedAt
 
 `func (o *ProjectForListDto) GetUpdatedAt() time.Time`
@@ -1218,41 +1077,6 @@ HasUpdatedAt returns a boolean if a field has been set.
 `func (o *ProjectForListDto) UnsetUpdatedAt()`
 
 UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
-### GetBoundUsers
-
-`func (o *ProjectForListDto) GetBoundUsers() []UserDto`
-
-GetBoundUsers returns the BoundUsers field if non-nil, zero value otherwise.
-
-### GetBoundUsersOk
-
-`func (o *ProjectForListDto) GetBoundUsersOk() (*[]UserDto, bool)`
-
-GetBoundUsersOk returns a tuple with the BoundUsers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBoundUsers
-
-`func (o *ProjectForListDto) SetBoundUsers(v []UserDto)`
-
-SetBoundUsers sets BoundUsers field to given value.
-
-### HasBoundUsers
-
-`func (o *ProjectForListDto) HasBoundUsers() bool`
-
-HasBoundUsers returns a boolean if a field has been set.
-
-### SetBoundUsersNil
-
-`func (o *ProjectForListDto) SetBoundUsersNil(b bool)`
-
- SetBoundUsersNil sets the value for BoundUsers to be an explicit nil
-
-### UnsetBoundUsers
-`func (o *ProjectForListDto) UnsetBoundUsers()`
-
-UnsetBoundUsers ensures that no value is present for BoundUsers, not even an explicit nil
 ### GetMonitoringCredential
 
 `func (o *ProjectForListDto) GetMonitoringCredential() MonitoringCredentialsListDto`

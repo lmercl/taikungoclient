@@ -36,10 +36,7 @@ type ProjectForListDto struct {
 	IsAutoUpgrade *bool `json:"isAutoUpgrade,omitempty"`
 	HasKubeConfigFile *bool `json:"hasKubeConfigFile,omitempty"`
 	HasSelectedFlavors *bool `json:"hasSelectedFlavors,omitempty"`
-	Master *int32 `json:"master,omitempty"`
-	MasterReady *int32 `json:"masterReady,omitempty"`
 	QuotaId *int32 `json:"quotaId,omitempty"`
-	Bastion *int32 `json:"bastion,omitempty"`
 	AccessProfileRevision *int32 `json:"accessProfileRevision,omitempty"`
 	OpaProfileRevision *int32 `json:"opaProfileRevision,omitempty"`
 	CloudCredentialName NullableString `json:"cloudCredentialName,omitempty"`
@@ -50,15 +47,12 @@ type ProjectForListDto struct {
 	Status NullableString `json:"status,omitempty"`
 	Health NullableString `json:"health,omitempty"`
 	AccessIp NullableString `json:"accessIp,omitempty"`
-	TotalServersCount *int32 `json:"totalServersCount,omitempty"`
 	CloudType NullableString `json:"cloudType,omitempty"`
 	KubesprayCurrentVersion NullableString `json:"kubesprayCurrentVersion,omitempty"`
 	KubesprayTargetVersion NullableString `json:"kubesprayTargetVersion,omitempty"`
 	KubernetesCurrentVersion NullableString `json:"kubernetesCurrentVersion,omitempty"`
 	KubernetesTargetVersion NullableString `json:"kubernetesTargetVersion,omitempty"`
-	CreatedAt NullableString `json:"createdAt,omitempty"`
 	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
-	BoundUsers []UserDto `json:"boundUsers,omitempty"`
 	MonitoringCredential *MonitoringCredentialsListDto `json:"monitoringCredential,omitempty"`
 	IsAutoscalingEnabled *bool `json:"isAutoscalingEnabled,omitempty"`
 	Flavors []string `json:"flavors,omitempty"`
@@ -649,70 +643,6 @@ func (o *ProjectForListDto) SetHasSelectedFlavors(v bool) {
 	o.HasSelectedFlavors = &v
 }
 
-// GetMaster returns the Master field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetMaster() int32 {
-	if o == nil || IsNil(o.Master) {
-		var ret int32
-		return ret
-	}
-	return *o.Master
-}
-
-// GetMasterOk returns a tuple with the Master field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetMasterOk() (*int32, bool) {
-	if o == nil || IsNil(o.Master) {
-		return nil, false
-	}
-	return o.Master, true
-}
-
-// HasMaster returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasMaster() bool {
-	if o != nil && !IsNil(o.Master) {
-		return true
-	}
-
-	return false
-}
-
-// SetMaster gets a reference to the given int32 and assigns it to the Master field.
-func (o *ProjectForListDto) SetMaster(v int32) {
-	o.Master = &v
-}
-
-// GetMasterReady returns the MasterReady field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetMasterReady() int32 {
-	if o == nil || IsNil(o.MasterReady) {
-		var ret int32
-		return ret
-	}
-	return *o.MasterReady
-}
-
-// GetMasterReadyOk returns a tuple with the MasterReady field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetMasterReadyOk() (*int32, bool) {
-	if o == nil || IsNil(o.MasterReady) {
-		return nil, false
-	}
-	return o.MasterReady, true
-}
-
-// HasMasterReady returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasMasterReady() bool {
-	if o != nil && !IsNil(o.MasterReady) {
-		return true
-	}
-
-	return false
-}
-
-// SetMasterReady gets a reference to the given int32 and assigns it to the MasterReady field.
-func (o *ProjectForListDto) SetMasterReady(v int32) {
-	o.MasterReady = &v
-}
-
 // GetQuotaId returns the QuotaId field value if set, zero value otherwise.
 func (o *ProjectForListDto) GetQuotaId() int32 {
 	if o == nil || IsNil(o.QuotaId) {
@@ -743,38 +673,6 @@ func (o *ProjectForListDto) HasQuotaId() bool {
 // SetQuotaId gets a reference to the given int32 and assigns it to the QuotaId field.
 func (o *ProjectForListDto) SetQuotaId(v int32) {
 	o.QuotaId = &v
-}
-
-// GetBastion returns the Bastion field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetBastion() int32 {
-	if o == nil || IsNil(o.Bastion) {
-		var ret int32
-		return ret
-	}
-	return *o.Bastion
-}
-
-// GetBastionOk returns a tuple with the Bastion field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetBastionOk() (*int32, bool) {
-	if o == nil || IsNil(o.Bastion) {
-		return nil, false
-	}
-	return o.Bastion, true
-}
-
-// HasBastion returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasBastion() bool {
-	if o != nil && !IsNil(o.Bastion) {
-		return true
-	}
-
-	return false
-}
-
-// SetBastion gets a reference to the given int32 and assigns it to the Bastion field.
-func (o *ProjectForListDto) SetBastion(v int32) {
-	o.Bastion = &v
 }
 
 // GetAccessProfileRevision returns the AccessProfileRevision field value if set, zero value otherwise.
@@ -1167,38 +1065,6 @@ func (o *ProjectForListDto) UnsetAccessIp() {
 	o.AccessIp.Unset()
 }
 
-// GetTotalServersCount returns the TotalServersCount field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetTotalServersCount() int32 {
-	if o == nil || IsNil(o.TotalServersCount) {
-		var ret int32
-		return ret
-	}
-	return *o.TotalServersCount
-}
-
-// GetTotalServersCountOk returns a tuple with the TotalServersCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetTotalServersCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.TotalServersCount) {
-		return nil, false
-	}
-	return o.TotalServersCount, true
-}
-
-// HasTotalServersCount returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasTotalServersCount() bool {
-	if o != nil && !IsNil(o.TotalServersCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalServersCount gets a reference to the given int32 and assigns it to the TotalServersCount field.
-func (o *ProjectForListDto) SetTotalServersCount(v int32) {
-	o.TotalServersCount = &v
-}
-
 // GetCloudType returns the CloudType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectForListDto) GetCloudType() string {
 	if o == nil || IsNil(o.CloudType.Get()) {
@@ -1409,48 +1275,6 @@ func (o *ProjectForListDto) UnsetKubernetesTargetVersion() {
 	o.KubernetesTargetVersion.Unset()
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetCreatedAt() string {
-	if o == nil || IsNil(o.CreatedAt.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CreatedAt.Get()
-}
-
-// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
-}
-
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedAt gets a reference to the given NullableString and assigns it to the CreatedAt field.
-func (o *ProjectForListDto) SetCreatedAt(v string) {
-	o.CreatedAt.Set(&v)
-}
-// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-func (o *ProjectForListDto) SetCreatedAtNil() {
-	o.CreatedAt.Set(nil)
-}
-
-// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
-func (o *ProjectForListDto) UnsetCreatedAt() {
-	o.CreatedAt.Unset()
-}
-
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectForListDto) GetUpdatedAt() time.Time {
 	if o == nil || IsNil(o.UpdatedAt.Get()) {
@@ -1491,39 +1315,6 @@ func (o *ProjectForListDto) SetUpdatedAtNil() {
 // UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
 func (o *ProjectForListDto) UnsetUpdatedAt() {
 	o.UpdatedAt.Unset()
-}
-
-// GetBoundUsers returns the BoundUsers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetBoundUsers() []UserDto {
-	if o == nil {
-		var ret []UserDto
-		return ret
-	}
-	return o.BoundUsers
-}
-
-// GetBoundUsersOk returns a tuple with the BoundUsers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetBoundUsersOk() ([]UserDto, bool) {
-	if o == nil || IsNil(o.BoundUsers) {
-		return nil, false
-	}
-	return o.BoundUsers, true
-}
-
-// HasBoundUsers returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasBoundUsers() bool {
-	if o != nil && IsNil(o.BoundUsers) {
-		return true
-	}
-
-	return false
-}
-
-// SetBoundUsers gets a reference to the given []UserDto and assigns it to the BoundUsers field.
-func (o *ProjectForListDto) SetBoundUsers(v []UserDto) {
-	o.BoundUsers = v
 }
 
 // GetMonitoringCredential returns the MonitoringCredential field value if set, zero value otherwise.
@@ -2758,17 +2549,8 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HasSelectedFlavors) {
 		toSerialize["hasSelectedFlavors"] = o.HasSelectedFlavors
 	}
-	if !IsNil(o.Master) {
-		toSerialize["master"] = o.Master
-	}
-	if !IsNil(o.MasterReady) {
-		toSerialize["masterReady"] = o.MasterReady
-	}
 	if !IsNil(o.QuotaId) {
 		toSerialize["quotaId"] = o.QuotaId
-	}
-	if !IsNil(o.Bastion) {
-		toSerialize["bastion"] = o.Bastion
 	}
 	if !IsNil(o.AccessProfileRevision) {
 		toSerialize["accessProfileRevision"] = o.AccessProfileRevision
@@ -2800,9 +2582,6 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	if o.AccessIp.IsSet() {
 		toSerialize["accessIp"] = o.AccessIp.Get()
 	}
-	if !IsNil(o.TotalServersCount) {
-		toSerialize["totalServersCount"] = o.TotalServersCount
-	}
 	if o.CloudType.IsSet() {
 		toSerialize["cloudType"] = o.CloudType.Get()
 	}
@@ -2818,14 +2597,8 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	if o.KubernetesTargetVersion.IsSet() {
 		toSerialize["kubernetesTargetVersion"] = o.KubernetesTargetVersion.Get()
 	}
-	if o.CreatedAt.IsSet() {
-		toSerialize["createdAt"] = o.CreatedAt.Get()
-	}
 	if o.UpdatedAt.IsSet() {
 		toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	}
-	if o.BoundUsers != nil {
-		toSerialize["boundUsers"] = o.BoundUsers
 	}
 	if !IsNil(o.MonitoringCredential) {
 		toSerialize["monitoringCredential"] = o.MonitoringCredential

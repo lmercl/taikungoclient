@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ## CheckerGoogle
 
-> CheckerGoogle(ctx).Execute()
+> CheckerGoogle(ctx).Config(config).Execute()
 
 Check google credentials
 
@@ -547,10 +547,11 @@ import (
 )
 
 func main() {
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CheckerApi.CheckerGoogle(context.Background()).Execute()
+    r, err := apiClient.CheckerApi.CheckerGoogle(context.Background()).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CheckerApi.CheckerGoogle``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -560,12 +561,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiCheckerGoogleRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config** | ***os.File** |  | 
 
 ### Return type
 

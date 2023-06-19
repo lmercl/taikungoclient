@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## GooglecloudBillingAccountList
 
-> []CommonStringBasedDropdownDto GooglecloudBillingAccountList(ctx).Execute()
+> []CommonStringBasedDropdownDto GooglecloudBillingAccountList(ctx).Config(config).Execute()
 
 Retrieve google billing accounts list
 
@@ -31,10 +31,11 @@ import (
 )
 
 func main() {
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudBillingAccountList(context.Background()).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudBillingAccountList(context.Background()).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudBillingAccountList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,12 +47,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGooglecloudBillingAccountListRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config** | ***os.File** |  | 
 
 ### Return type
 
@@ -73,7 +78,7 @@ Other parameters are passed through a pointer to a apiGooglecloudBillingAccountL
 
 ## GooglecloudCreate
 
-> ApiResponse GooglecloudCreate(ctx).Execute()
+> ApiResponse GooglecloudCreate(ctx).Name(name).Config(config).ImportProject(importProject).FolderId(folderId).BillingAccountId(billingAccountId).AzCount(azCount).Region(region).OrganizationId(organizationId).Execute()
 
 Create google cloud credential
 
@@ -90,10 +95,18 @@ import (
 )
 
 func main() {
+    name := "name_example" // string |  (optional)
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    importProject := true // bool |  (optional)
+    folderId := "folderId_example" // string |  (optional)
+    billingAccountId := "billingAccountId_example" // string |  (optional)
+    azCount := int32(56) // int32 |  (optional)
+    region := "region_example" // string |  (optional)
+    organizationId := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudCreate(context.Background()).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudCreate(context.Background()).Name(name).Config(config).ImportProject(importProject).FolderId(folderId).BillingAccountId(billingAccountId).AzCount(azCount).Region(region).OrganizationId(organizationId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -105,12 +118,23 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGooglecloudCreateRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+ **config** | ***os.File** |  | 
+ **importProject** | **bool** |  | 
+ **folderId** | **string** |  | 
+ **billingAccountId** | **string** |  | 
+ **azCount** | **int32** |  | 
+ **region** | **string** |  | 
+ **organizationId** | **int32** |  | 
 
 ### Return type
 
@@ -210,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## GooglecloudRegionList
 
-> []string GooglecloudRegionList(ctx).Execute()
+> []string GooglecloudRegionList(ctx).Config(config).Execute()
 
 Retrieve google region list
 
@@ -227,10 +251,11 @@ import (
 )
 
 func main() {
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudRegionList(context.Background()).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudRegionList(context.Background()).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudRegionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -242,12 +267,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGooglecloudRegionListRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config** | ***os.File** |  | 
 
 ### Return type
 
@@ -269,7 +298,7 @@ Other parameters are passed through a pointer to a apiGooglecloudRegionListReque
 
 ## GooglecloudZoneList
 
-> AzResult GooglecloudZoneList(ctx).Execute()
+> AzResult GooglecloudZoneList(ctx).Config(config).Region(region).CloudId(cloudId).Execute()
 
 Google zones list
 
@@ -286,10 +315,13 @@ import (
 )
 
 func main() {
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    region := "region_example" // string |  (optional)
+    cloudId := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudZoneList(context.Background()).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudZoneList(context.Background()).Config(config).Region(region).CloudId(cloudId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudZoneList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -301,12 +333,18 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGooglecloudZoneListRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config** | ***os.File** |  | 
+ **region** | **string** |  | 
+ **cloudId** | **int32** |  | 
 
 ### Return type
 

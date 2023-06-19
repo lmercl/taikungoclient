@@ -6867,8 +6867,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              format: binary
-              type: string
+              $ref: '#/components/schemas/CheckGoogleCloudCommand'
       responses:
         "400":
           content:
@@ -9856,8 +9855,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              format: binary
-              type: string
+              $ref: '#/components/schemas/GoogleBillingAccountListCommand'
       responses:
         "200":
           content:
@@ -9907,8 +9905,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              format: binary
-              type: string
+              $ref: '#/components/schemas/CreateGoogleCredentialCommand'
       responses:
         "200":
           content:
@@ -9956,8 +9953,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              format: binary
-              type: string
+              $ref: '#/components/schemas/GoogleRegionListCommand'
       responses:
         "200":
           content:
@@ -10007,8 +10003,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              format: binary
-              type: string
+              $ref: '#/components/schemas/GoogleZoneListCommand'
       responses:
         "200":
           content:
@@ -32360,7 +32355,7 @@ components:
     AccessProfilesForProjectListDto:
       additionalProperties: false
       example:
-        organizationId: 1
+        organizationId: 2
         allowedHosts:
         - accessProfileName: accessProfileName
           ipAddress: ipAddress
@@ -32382,22 +32377,22 @@ components:
         - address: address
           id: 5
         name: name
-        id: 1
+        id: 3
         dnsServers:
         - address: address
           id: 1
         - address: address
           id: 1
-        revision: 1
+        revision: 4
         sshUsers:
         - sshPublicKey: sshPublicKey
           isDeleted: true
           name: name
-          id: 6
+          id: 7
         - sshPublicKey: sshPublicKey
           isDeleted: true
           name: name
-          id: 6
+          id: 7
       properties:
         id:
           format: int32
@@ -36719,6 +36714,14 @@ components:
           format: int32
           type: integer
       type: object
+    CheckGoogleCloudCommand:
+      additionalProperties: false
+      properties:
+        config:
+          format: binary
+          nullable: true
+          type: string
+      type: object
     CheckOpenstackCommand:
       additionalProperties: false
       example:
@@ -37761,6 +37764,35 @@ components:
           type: string
         accessProfileId:
           format: int32
+          type: integer
+      type: object
+    CreateGoogleCredentialCommand:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        config:
+          format: binary
+          nullable: true
+          type: string
+        importProject:
+          type: boolean
+        folderId:
+          nullable: true
+          type: string
+        billingAccountId:
+          nullable: true
+          type: string
+        azCount:
+          format: int32
+          type: integer
+        region:
+          nullable: true
+          type: string
+        organizationId:
+          format: int32
+          nullable: true
           type: integer
       type: object
     CreateInvoiceCommand:
@@ -41448,6 +41480,14 @@ components:
           nullable: true
           type: string
       type: object
+    GoogleBillingAccountListCommand:
+      additionalProperties: false
+      properties:
+        config:
+          format: binary
+          nullable: true
+          type: string
+      type: object
     GoogleCommonImages:
       additionalProperties: false
       example:
@@ -41735,6 +41775,29 @@ components:
           type: string
         image:
           $ref: '#/components/schemas/GoogleCommonImages'
+      type: object
+    GoogleRegionListCommand:
+      additionalProperties: false
+      properties:
+        config:
+          format: binary
+          nullable: true
+          type: string
+      type: object
+    GoogleZoneListCommand:
+      additionalProperties: false
+      properties:
+        config:
+          format: binary
+          nullable: true
+          type: string
+        region:
+          nullable: true
+          type: string
+        cloudId:
+          format: int32
+          nullable: true
+          type: integer
       type: object
     GroupedBillingInfo:
       additionalProperties: false
@@ -43027,7 +43090,7 @@ components:
         name: name
         exposeNodePortOnBastion: true
         allowSchedulingOnMaster: true
-        id: 7
+        id: 1
         uniqueClusterName: true
         taikunLBEnabled: true
         cni: cni
@@ -43819,7 +43882,7 @@ components:
         password: password
         alertManagerUrl: alertManagerUrl
         prometheusUrl: prometheusUrl
-        id: 7
+        id: 9
         username: username
       properties:
         id:
@@ -47419,16 +47482,11 @@ components:
         flavors:
         - flavors
         - flavors
-        boundUsers:
-        - userName: userName
-          userId: userId
-        - userName: userName
-          userId: userId
         isKubevapEnabled: true
         taikunLBFlavor: taikunLBFlavor
         isOpaEnabled: true
         s3Region: s3Region
-        routerIdStartRange: 4
+        routerIdStartRange: 1
         privateIp: privateIp
         opaProfile:
           projects:
@@ -47461,8 +47519,7 @@ components:
         availabilityZones:
         - availabilityZones
         - availabilityZones
-        organizationId: 3
-        createdAt: createdAt
+        organizationId: 2
         taikunLBPublicKey: taikunLBPublicKey
         s3Endpoint: s3Endpoint
         cloudType: cloudType
@@ -47471,7 +47528,6 @@ components:
         s3BucketName: s3BucketName
         googleProjectId: googleProjectId
         id: 0
-        bastion: 5
         updatedAt: 2000-01-23T04:56:07.000+00:00
         isAutoscalingEnabled: true
         isAutoUpgrade: true
@@ -47481,12 +47537,12 @@ components:
         hasSelectedFlavors: true
         organizationName: organizationName
         accessIp: accessIp
-        quotaId: 5
+        quotaId: 6
         cloudCredentialName: cloudCredentialName
         name: name
-        cloudCredentialId: 9
+        cloudCredentialId: 5
         kubernetesCurrentVersion: kubernetesCurrentVersion
-        opaProfileRevision: 7
+        opaProfileRevision: 5
         status: status
         isDeleteCluster: true
         awsProjectAZSubnets:
@@ -47496,10 +47552,9 @@ components:
         - zone: zone
           privateIp: privateIp
           publicIp: publicIp
-        totalServersCount: 4
         taikunLBPrivateKey: taikunLBPrivateKey
         accessProfile:
-          organizationId: 1
+          organizationId: 2
           allowedHosts:
           - accessProfileName: accessProfileName
             ipAddress: ipAddress
@@ -47521,45 +47576,43 @@ components:
           - address: address
             id: 5
           name: name
-          id: 1
+          id: 3
           dnsServers:
           - address: address
             id: 1
           - address: address
             id: 1
-          revision: 1
+          revision: 4
           sshUsers:
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 6
+            id: 7
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 6
+            id: 7
         tanzuReleaseVersion: tanzuReleaseVersion
-        nfsDiskSize: 9
+        nfsDiskSize: 1
         jobUrl: jobUrl
         cidr: cidr
         taikunPrivateSSHKey: taikunPrivateSSHKey
         kubesprayTargetVersion: kubesprayTargetVersion
-        routerIdEndRange: 5
+        routerIdEndRange: 6
         kubernetesTargetVersion: kubernetesTargetVersion
-        netMask: 9
+        netMask: 7
         isMonitoringEnabled: true
         health: health
         kubesprayCurrentVersion: kubesprayCurrentVersion
         publicIp: publicIp
-        masterReady: 1
         hasKubeConfigFile: true
         token: token
-        master: 6
         monitoringCredential:
           lokiUrl: lokiUrl
           password: password
           alertManagerUrl: alertManagerUrl
           prometheusUrl: prometheusUrl
-          id: 7
+          id: 9
           username: username
         kubernetesProfiles:
           organizationId: 1
@@ -47570,7 +47623,7 @@ components:
           name: name
           exposeNodePortOnBastion: true
           allowSchedulingOnMaster: true
-          id: 7
+          id: 1
           uniqueClusterName: true
           taikunLBEnabled: true
           cni: cni
@@ -47578,7 +47631,7 @@ components:
         kubevapEnabeledKubernetesVersions:
         - kubevapEnabeledKubernetesVersions
         - kubevapEnabeledKubernetesVersions
-        accessProfileRevision: 2
+        accessProfileRevision: 1
         isBackupEnabled: true
         topicName: topicName
         kubernetesAlerts:
@@ -47612,7 +47665,7 @@ components:
           projectName: projectName
           projectId: 6
           status: status
-        partnerId: 2
+        partnerId: 7
         operation: operation
       properties:
         id:
@@ -47652,16 +47705,7 @@ components:
           type: boolean
         hasSelectedFlavors:
           type: boolean
-        master:
-          format: int32
-          type: integer
-        masterReady:
-          format: int32
-          type: integer
         quotaId:
-          format: int32
-          type: integer
-        bastion:
           format: int32
           type: integer
         accessProfileRevision:
@@ -47696,9 +47740,6 @@ components:
         accessIp:
           nullable: true
           type: string
-        totalServersCount:
-          format: int32
-          type: integer
         cloudType:
           nullable: true
           type: string
@@ -47714,18 +47755,10 @@ components:
         kubernetesTargetVersion:
           nullable: true
           type: string
-        createdAt:
-          nullable: true
-          type: string
         updatedAt:
           format: date-time
           nullable: true
           type: string
-        boundUsers:
-          items:
-            $ref: '#/components/schemas/UserDto'
-          nullable: true
-          type: array
         monitoringCredential:
           $ref: '#/components/schemas/MonitoringCredentialsListDto'
         isAutoscalingEnabled:
@@ -47903,7 +47936,7 @@ components:
         organizationId: 1
         createdAt: createdAt
         accessProfiles:
-          organizationId: 1
+          organizationId: 2
           allowedHosts:
           - accessProfileName: accessProfileName
             ipAddress: ipAddress
@@ -47925,22 +47958,22 @@ components:
           - address: address
             id: 5
           name: name
-          id: 1
+          id: 3
           dnsServers:
           - address: address
             id: 1
           - address: address
             id: 1
-          revision: 1
+          revision: 4
           sshUsers:
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 6
+            id: 7
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 6
+            id: 7
         cloudType: cloudType
         isLocked: true
         jobUrl: jobUrl
@@ -48456,7 +48489,7 @@ components:
           password: password
           alertManagerUrl: alertManagerUrl
           prometheusUrl: prometheusUrl
-          id: 7
+          id: 9
           username: username
         isKubernetes: true
         isLocked: true
@@ -48540,16 +48573,11 @@ components:
         - flavors:
           - flavors
           - flavors
-          boundUsers:
-          - userName: userName
-            userId: userId
-          - userName: userName
-            userId: userId
           isKubevapEnabled: true
           taikunLBFlavor: taikunLBFlavor
           isOpaEnabled: true
           s3Region: s3Region
-          routerIdStartRange: 4
+          routerIdStartRange: 1
           privateIp: privateIp
           opaProfile:
             projects:
@@ -48582,8 +48610,7 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 3
-          createdAt: createdAt
+          organizationId: 2
           taikunLBPublicKey: taikunLBPublicKey
           s3Endpoint: s3Endpoint
           cloudType: cloudType
@@ -48592,7 +48619,6 @@ components:
           s3BucketName: s3BucketName
           googleProjectId: googleProjectId
           id: 0
-          bastion: 5
           updatedAt: 2000-01-23T04:56:07.000+00:00
           isAutoscalingEnabled: true
           isAutoUpgrade: true
@@ -48602,12 +48628,12 @@ components:
           hasSelectedFlavors: true
           organizationName: organizationName
           accessIp: accessIp
-          quotaId: 5
+          quotaId: 6
           cloudCredentialName: cloudCredentialName
           name: name
-          cloudCredentialId: 9
+          cloudCredentialId: 5
           kubernetesCurrentVersion: kubernetesCurrentVersion
-          opaProfileRevision: 7
+          opaProfileRevision: 5
           status: status
           isDeleteCluster: true
           awsProjectAZSubnets:
@@ -48617,10 +48643,9 @@ components:
           - zone: zone
             privateIp: privateIp
             publicIp: publicIp
-          totalServersCount: 4
           taikunLBPrivateKey: taikunLBPrivateKey
           accessProfile:
-            organizationId: 1
+            organizationId: 2
             allowedHosts:
             - accessProfileName: accessProfileName
               ipAddress: ipAddress
@@ -48642,45 +48667,43 @@ components:
             - address: address
               id: 5
             name: name
-            id: 1
+            id: 3
             dnsServers:
             - address: address
               id: 1
             - address: address
               id: 1
-            revision: 1
+            revision: 4
             sshUsers:
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 6
+              id: 7
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 6
+              id: 7
           tanzuReleaseVersion: tanzuReleaseVersion
-          nfsDiskSize: 9
+          nfsDiskSize: 1
           jobUrl: jobUrl
           cidr: cidr
           taikunPrivateSSHKey: taikunPrivateSSHKey
           kubesprayTargetVersion: kubesprayTargetVersion
-          routerIdEndRange: 5
+          routerIdEndRange: 6
           kubernetesTargetVersion: kubernetesTargetVersion
-          netMask: 9
+          netMask: 7
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
           publicIp: publicIp
-          masterReady: 1
           hasKubeConfigFile: true
           token: token
-          master: 6
           monitoringCredential:
             lokiUrl: lokiUrl
             password: password
             alertManagerUrl: alertManagerUrl
             prometheusUrl: prometheusUrl
-            id: 7
+            id: 9
             username: username
           kubernetesProfiles:
             organizationId: 1
@@ -48691,7 +48714,7 @@ components:
             name: name
             exposeNodePortOnBastion: true
             allowSchedulingOnMaster: true
-            id: 7
+            id: 1
             uniqueClusterName: true
             taikunLBEnabled: true
             cni: cni
@@ -48699,7 +48722,7 @@ components:
           kubevapEnabeledKubernetesVersions:
           - kubevapEnabeledKubernetesVersions
           - kubevapEnabeledKubernetesVersions
-          accessProfileRevision: 2
+          accessProfileRevision: 1
           isBackupEnabled: true
           topicName: topicName
           kubernetesAlerts:
@@ -48733,21 +48756,16 @@ components:
             projectName: projectName
             projectId: 6
             status: status
-          partnerId: 2
+          partnerId: 7
           operation: operation
         - flavors:
           - flavors
           - flavors
-          boundUsers:
-          - userName: userName
-            userId: userId
-          - userName: userName
-            userId: userId
           isKubevapEnabled: true
           taikunLBFlavor: taikunLBFlavor
           isOpaEnabled: true
           s3Region: s3Region
-          routerIdStartRange: 4
+          routerIdStartRange: 1
           privateIp: privateIp
           opaProfile:
             projects:
@@ -48780,8 +48798,7 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 3
-          createdAt: createdAt
+          organizationId: 2
           taikunLBPublicKey: taikunLBPublicKey
           s3Endpoint: s3Endpoint
           cloudType: cloudType
@@ -48790,7 +48807,6 @@ components:
           s3BucketName: s3BucketName
           googleProjectId: googleProjectId
           id: 0
-          bastion: 5
           updatedAt: 2000-01-23T04:56:07.000+00:00
           isAutoscalingEnabled: true
           isAutoUpgrade: true
@@ -48800,12 +48816,12 @@ components:
           hasSelectedFlavors: true
           organizationName: organizationName
           accessIp: accessIp
-          quotaId: 5
+          quotaId: 6
           cloudCredentialName: cloudCredentialName
           name: name
-          cloudCredentialId: 9
+          cloudCredentialId: 5
           kubernetesCurrentVersion: kubernetesCurrentVersion
-          opaProfileRevision: 7
+          opaProfileRevision: 5
           status: status
           isDeleteCluster: true
           awsProjectAZSubnets:
@@ -48815,10 +48831,9 @@ components:
           - zone: zone
             privateIp: privateIp
             publicIp: publicIp
-          totalServersCount: 4
           taikunLBPrivateKey: taikunLBPrivateKey
           accessProfile:
-            organizationId: 1
+            organizationId: 2
             allowedHosts:
             - accessProfileName: accessProfileName
               ipAddress: ipAddress
@@ -48840,45 +48855,43 @@ components:
             - address: address
               id: 5
             name: name
-            id: 1
+            id: 3
             dnsServers:
             - address: address
               id: 1
             - address: address
               id: 1
-            revision: 1
+            revision: 4
             sshUsers:
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 6
+              id: 7
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 6
+              id: 7
           tanzuReleaseVersion: tanzuReleaseVersion
-          nfsDiskSize: 9
+          nfsDiskSize: 1
           jobUrl: jobUrl
           cidr: cidr
           taikunPrivateSSHKey: taikunPrivateSSHKey
           kubesprayTargetVersion: kubesprayTargetVersion
-          routerIdEndRange: 5
+          routerIdEndRange: 6
           kubernetesTargetVersion: kubernetesTargetVersion
-          netMask: 9
+          netMask: 7
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
           publicIp: publicIp
-          masterReady: 1
           hasKubeConfigFile: true
           token: token
-          master: 6
           monitoringCredential:
             lokiUrl: lokiUrl
             password: password
             alertManagerUrl: alertManagerUrl
             prometheusUrl: prometheusUrl
-            id: 7
+            id: 9
             username: username
           kubernetesProfiles:
             organizationId: 1
@@ -48889,7 +48902,7 @@ components:
             name: name
             exposeNodePortOnBastion: true
             allowSchedulingOnMaster: true
-            id: 7
+            id: 1
             uniqueClusterName: true
             taikunLBEnabled: true
             cni: cni
@@ -48897,7 +48910,7 @@ components:
           kubevapEnabeledKubernetesVersions:
           - kubevapEnabeledKubernetesVersions
           - kubevapEnabeledKubernetesVersions
-          accessProfileRevision: 2
+          accessProfileRevision: 1
           isBackupEnabled: true
           topicName: topicName
           kubernetesAlerts:
@@ -48931,7 +48944,7 @@ components:
             projectName: projectName
             projectId: 6
             status: status
-          partnerId: 2
+          partnerId: 7
           operation: operation
         totalCount: 0
       properties:
@@ -52421,7 +52434,7 @@ components:
         sshPublicKey: sshPublicKey
         isDeleted: true
         name: name
-        id: 6
+        id: 7
       properties:
         id:
           format: int32
