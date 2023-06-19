@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**DnsserversCreate**](DnsServersApi.md#DnsserversCreate) | **Post** /api/v1/dnsservers/create | Create dns servers for access profile
 [**DnsserversDelete**](DnsServersApi.md#DnsserversDelete) | **Delete** /api/v1/dnsservers/{id} | Delete dns server
 [**DnsserversEdit**](DnsServersApi.md#DnsserversEdit) | **Put** /api/v1/dnsservers/edit/{id} | Edit dns server
-[**DnsserversList**](DnsServersApi.md#DnsserversList) | **Get** /api/v1/dnsservers/{accessProfileId} | 
+[**DnsserversList**](DnsServersApi.md#DnsserversList) | **Get** /api/v1/dnsservers/{accessProfileId} | List dn servers by profile id
 
 
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 > []DnsServersListDto DnsserversList(ctx, accessProfileId).Search(search).Execute()
 
-
+List dn servers by profile id
 
 ### Example
 

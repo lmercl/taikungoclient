@@ -107,9 +107,10 @@ func Test_taikuncore_UsersApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.UsersApi.UsersExportCsv(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UsersApi.UsersExportCsv(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

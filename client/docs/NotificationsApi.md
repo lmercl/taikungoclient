@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## NotificationsExportCsv
 
-> NotificationsExportCsv(ctx).IsEmailEnabled(isEmailEnabled).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Execute()
+> CsvExporter NotificationsExportCsv(ctx).IsEmailEnabled(isEmailEnabled).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Execute()
 
 Export Csv
 
@@ -106,11 +106,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.NotificationsApi.NotificationsExportCsv(context.Background()).IsEmailEnabled(isEmailEnabled).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Execute()
+    resp, r, err := apiClient.NotificationsApi.NotificationsExportCsv(context.Background()).IsEmailEnabled(isEmailEnabled).SortBy(sortBy).SortDirection(sortDirection).StartDate(startDate).EndDate(endDate).OrganizationId(organizationId).FilterBy(filterBy).ProjectId(projectId).UserId(userId).IsDeleted(isDeleted).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApi.NotificationsExportCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `NotificationsExportCsv`: CsvExporter
+    fmt.Fprintf(os.Stdout, "Response from `NotificationsApi.NotificationsExportCsv`: %v\n", resp)
 }
 ```
 
@@ -138,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CsvExporter**](CsvExporter.md)
 
 ### Authorization
 
@@ -147,7 +149,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

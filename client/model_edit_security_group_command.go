@@ -22,7 +22,7 @@ var _ MappedNullable = &EditSecurityGroupCommand{}
 type EditSecurityGroupCommand struct {
 	Id *int32 `json:"id,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	Protocol *SecurityGroupProtocol `json:"protocol,omitempty"`
+	Protocol NullableString `json:"protocol,omitempty"`
 	PortMinRange *int32 `json:"portMinRange,omitempty"`
 	PortMaxRange *int32 `json:"portMaxRange,omitempty"`
 	RemoteIpPrefix NullableString `json:"remoteIpPrefix,omitempty"`
@@ -119,36 +119,46 @@ func (o *EditSecurityGroupCommand) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetProtocol returns the Protocol field value if set, zero value otherwise.
-func (o *EditSecurityGroupCommand) GetProtocol() SecurityGroupProtocol {
-	if o == nil || IsNil(o.Protocol) {
-		var ret SecurityGroupProtocol
+// GetProtocol returns the Protocol field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EditSecurityGroupCommand) GetProtocol() string {
+	if o == nil || IsNil(o.Protocol.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.Protocol
+	return *o.Protocol.Get()
 }
 
 // GetProtocolOk returns a tuple with the Protocol field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EditSecurityGroupCommand) GetProtocolOk() (*SecurityGroupProtocol, bool) {
-	if o == nil || IsNil(o.Protocol) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EditSecurityGroupCommand) GetProtocolOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Protocol, true
+	return o.Protocol.Get(), o.Protocol.IsSet()
 }
 
 // HasProtocol returns a boolean if a field has been set.
 func (o *EditSecurityGroupCommand) HasProtocol() bool {
-	if o != nil && !IsNil(o.Protocol) {
+	if o != nil && o.Protocol.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProtocol gets a reference to the given SecurityGroupProtocol and assigns it to the Protocol field.
-func (o *EditSecurityGroupCommand) SetProtocol(v SecurityGroupProtocol) {
-	o.Protocol = &v
+// SetProtocol gets a reference to the given NullableString and assigns it to the Protocol field.
+func (o *EditSecurityGroupCommand) SetProtocol(v string) {
+	o.Protocol.Set(&v)
+}
+// SetProtocolNil sets the value for Protocol to be an explicit nil
+func (o *EditSecurityGroupCommand) SetProtocolNil() {
+	o.Protocol.Set(nil)
+}
+
+// UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
+func (o *EditSecurityGroupCommand) UnsetProtocol() {
+	o.Protocol.Unset()
 }
 
 // GetPortMinRange returns the PortMinRange field value if set, zero value otherwise.
@@ -273,8 +283,8 @@ func (o EditSecurityGroupCommand) ToMap() (map[string]interface{}, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Protocol) {
-		toSerialize["protocol"] = o.Protocol
+	if o.Protocol.IsSet() {
+		toSerialize["protocol"] = o.Protocol.Get()
 	}
 	if !IsNil(o.PortMinRange) {
 		toSerialize["portMinRange"] = o.PortMinRange

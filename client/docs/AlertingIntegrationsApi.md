@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**AlertingintegrationsCreate**](AlertingIntegrationsApi.md#AlertingintegrationsCreate) | **Post** /api/v1/alertingintegrations/create | Create alerting profile alerting integration
 [**AlertingintegrationsDelete**](AlertingIntegrationsApi.md#AlertingintegrationsDelete) | **Delete** /api/v1/alertingintegrations/{id} | Delete alerting profile alerting integration
 [**AlertingintegrationsEdit**](AlertingIntegrationsApi.md#AlertingintegrationsEdit) | **Put** /api/v1/alertingintegrations/edit | Edit alerting profile alerting integration
-[**AlertingintegrationsList**](AlertingIntegrationsApi.md#AlertingintegrationsList) | **Get** /api/v1/alertingintegrations/{alertingProfileId} | 
-[**DocumentationList**](AlertingIntegrationsApi.md#DocumentationList) | **Get** /api/v1/documentation | 
+[**AlertingintegrationsList**](AlertingIntegrationsApi.md#AlertingintegrationsList) | **Get** /api/v1/alertingintegrations/{alertingProfileId} | List alerting integrations by profile id
+[**DocumentationList**](AlertingIntegrationsApi.md#DocumentationList) | **Get** /api/v1/documentation | Retrieve all documentation links
 
 
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 > []AlertingIntegrationsListDto AlertingintegrationsList(ctx, alertingProfileId).Search(search).Execute()
 
-
+List alerting integrations by profile id
 
 ### Example
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 > DocumentationsList DocumentationList(ctx).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Key(key).Execute()
 
-
+Retrieve all documentation links
 
 ### Example
 

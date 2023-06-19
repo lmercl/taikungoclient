@@ -1175,7 +1175,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DocumentationsList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -1205,7 +1205,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve all documentation links
       tags:
       - Alerting Integrations
   /api/v1/alertingintegrations/edit:
@@ -1326,7 +1327,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/AlertingIntegrationsListDto'
                 type: array
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -1356,7 +1357,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List alerting integrations by profile id
       tags:
       - Alerting Integrations
   /api/v1/alertingintegrations/{id}:
@@ -4073,7 +4075,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Delete unfinished backup for project
       tags:
       - Backup policy
   /api/v1/backup/create:
@@ -4114,7 +4117,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Add backup policy
       tags:
       - Backup policy
   /api/v1/backup/delete/backup:
@@ -4156,7 +4160,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Remove policy backup
       tags:
       - Backup policy
   /api/v1/backup/delete/location:
@@ -4198,7 +4203,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Remove backup location from project
       tags:
       - Backup policy
   /api/v1/backup/delete/restore:
@@ -4240,7 +4246,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Remove policy restore
       tags:
       - Backup policy
   /api/v1/backup/delete/schedule:
@@ -4282,7 +4289,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Remove policy schedule
       tags:
       - Backup policy
   /api/v1/backup/disablebackup:
@@ -4324,7 +4332,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Disable backup by the projectId
       tags:
       - Backup policy
   /api/v1/backup/enablebackup:
@@ -4366,7 +4375,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Enable backup by the projectId
       tags:
       - Backup policy
   /api/v1/backup/location:
@@ -4408,7 +4418,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Import backup storage from source project to target project
       tags:
       - Backup policy
   /api/v1/backup/restore:
@@ -4449,7 +4460,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Restore backup
       tags:
       - Backup policy
   /api/v1/backup/{projectId}/{name}:
@@ -4739,7 +4751,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllBackupStorageLocations'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -4769,7 +4781,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List all backup locations
       tags:
       - Backup policy
   /api/v1/backup/schedules/{projectId}:
@@ -4827,7 +4840,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllSchedules'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -4857,7 +4870,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List all schedules
       tags:
       - Backup policy
   /api/v1/backup/backups/{projectId}:
@@ -4915,7 +4929,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllBackups'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -4945,7 +4959,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List all backups
       tags:
       - Backup policy
   /api/v1/backup/delete-requests/{projectId}:
@@ -5003,7 +5018,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllDeleteBackupRequests'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -5033,7 +5048,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List all delete backup requests
       tags:
       - Backup policy
   /api/v1/backup/restores/{projectId}:
@@ -5091,7 +5107,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAllRestores'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -5121,7 +5137,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List all restores
       tags:
       - Backup policy
   /api/v1/billing/create:
@@ -5207,6 +5224,12 @@ paths:
           type: boolean
         style: form
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/CsvExporter'
+          description: OK
         "400":
           content:
             application/json:
@@ -8755,7 +8778,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/DnsServersListDto'
                 type: array
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -8785,7 +8808,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: List dn servers by profile id
       tags:
       - Dns Servers
   /api/v1/dnsservers/{id}:
@@ -8872,7 +8896,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Bind flavors to project
       tags:
       - Flavors
   /api/v1/flavors/unbind:
@@ -8914,7 +8939,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Unbind flavors from project
       tags:
       - Flavors
   /api/v1/flavors/aws/{cloudId}:
@@ -9002,7 +9028,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AwsFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9032,7 +9058,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve awz instance types
       tags:
       - Flavors
   /api/v1/flavors/azure/{cloudId}:
@@ -9122,7 +9149,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AzureFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9152,7 +9179,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve azure vm sizes
       tags:
       - Flavors
   /api/v1/flavors/credentials/dropdown/list:
@@ -9189,7 +9217,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/CloudCredentialsDropdownRecordDto'
                 type: array
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9219,7 +9247,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve cloud credentials dropdown list
       tags:
       - Flavors
   /api/v1/flavors/projects/list:
@@ -9296,7 +9325,7 @@ paths:
       - explode: true
         in: query
         name: WithPrice
-        required: true
+        required: false
         schema:
           type: boolean
         style: form
@@ -9306,7 +9335,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BoundFlavorsForProjectsList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9336,7 +9365,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve selected flavors for project
       tags:
       - Flavors
   /api/v1/flavors/google/{cloudId}:
@@ -9424,7 +9454,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GoogleFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9454,7 +9484,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve google machine types
       tags:
       - Flavors
   /api/v1/flavors/openstack/{cloudId}:
@@ -9542,7 +9573,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OpenstackFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9572,7 +9603,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve openstack flavors
       tags:
       - Flavors
   /api/v1/flavors/proxmox/{cloudId}:
@@ -9662,7 +9694,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProxmoxFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9692,7 +9724,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve proxmox flavors
       tags:
       - Flavors
   /api/v1/flavors/tanzu/{cloudId}:
@@ -9782,7 +9815,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TanzuFlavorList'
-          description: Success
+          description: OK
         "400":
           content:
             application/json:
@@ -9812,7 +9845,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Retrieve tanzu flavors
       tags:
       - Flavors
   /api/v1/googlecloud/billing-accounts:
@@ -16545,6 +16579,12 @@ paths:
           type: boolean
         style: form
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/CsvExporter'
+          description: OK
         "400":
           content:
             application/json:
@@ -18960,6 +19000,12 @@ paths:
     get:
       operationId: organizations-export-csv
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/CsvExporter'
+          description: OK
         "400":
           content:
             application/json:
@@ -19577,101 +19623,11 @@ paths:
   /api/v1/partner/create:
     post:
       operationId: partner-create
-      parameters:
-      - explode: true
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: domain
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: link
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: phone
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: email
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: country
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: city
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: vatNumber
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: address
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: allowRegistration
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: requiredUserApproval
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: paymentEnabled
-        required: false
-        schema:
-          type: boolean
-        style: form
       requestBody:
         content:
           multipart/form-data:
-            encoding:
-              logo:
-                style: form
-              backgroundImage:
-                style: form
             schema:
-              $ref: '#/components/schemas/partner_create_request'
+              $ref: '#/components/schemas/CreatePartnerCommand'
       responses:
         "400":
           content:
@@ -19702,7 +19658,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Add a partner
       tags:
       - Partners
   /api/v1/partner/delete/whitelist/domain:
@@ -19759,100 +19716,11 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: true
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: domain
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: link
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: phone
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: email
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: country
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: city
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: vatNumber
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: address
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: allowRegistration
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: requiredUserApproval
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: paymentEnabled
-        required: false
-        schema:
-          type: boolean
-        style: form
       requestBody:
         content:
           multipart/form-data:
-            encoding:
-              logo:
-                style: form
-              backgroundImage:
-                style: form
             schema:
-              $ref: '#/components/schemas/partner_create_request'
+              $ref: '#/components/schemas/UpdatePartnerDto'
       responses:
         "400":
           content:
@@ -19883,7 +19751,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Server Error
+          description: Internal Server Error
+      summary: Edit partner's data by Id
       tags:
       - Partners
   /api/v1/partner/details:
@@ -20129,6 +19998,49 @@ paths:
       summary: Get partners dropdown
       tags:
       - Partners
+  /api/v1/payment/billing-info:
+    get:
+      operationId: payment-billing-info
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillingInfoDto'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Get billing info for organization
+      tags:
+      - Payment
   /api/v1/payment/cardinfo:
     get:
       operationId: payment-cardinfo
@@ -20229,49 +20141,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Server Error
-      tags:
-      - Payment
-  /api/v1/payment/billing-info:
-    get:
-      operationId: payment-billing-info
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BillingInfoDto'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Get billing info for organization
       tags:
       - Payment
   /api/v1/payment/clear:
@@ -23991,6 +23860,12 @@ paths:
           type: boolean
         style: form
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/CsvExporter'
+          description: OK
         "400":
           content:
             application/json:
@@ -32291,6 +32166,12 @@ paths:
     get:
       operationId: users-export-csv
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/CsvExporter'
+          description: OK
         "400":
           content:
             application/json:
@@ -38125,6 +38006,54 @@ components:
         isAdmin:
           type: boolean
       type: object
+    CreatePartnerCommand:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        vatNumber:
+          nullable: true
+          type: string
+        address:
+          nullable: true
+          type: string
+        logo:
+          format: binary
+          nullable: true
+          type: string
+        backgroundImage:
+          format: binary
+          nullable: true
+          type: string
+        allowRegistration:
+          nullable: true
+          type: boolean
+        requiredUserApproval:
+          nullable: true
+          type: boolean
+        paymentEnabled:
+          nullable: true
+          type: boolean
+      type: object
     CreateProjectAppCommand:
       additionalProperties: false
       example:
@@ -39334,6 +39263,24 @@ components:
         cronPeriod: cronPeriod
       properties:
         cronPeriod:
+          nullable: true
+          type: string
+      type: object
+    CsvExporter:
+      additionalProperties: false
+      example:
+        fileName: fileName
+        contentType: contentType
+        content: content
+      properties:
+        fileName:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        content:
+          format: byte
           nullable: true
           type: string
       type: object
@@ -40687,7 +40634,7 @@ components:
     EditSecurityGroupCommand:
       additionalProperties: false
       example:
-        protocol: null
+        protocol: protocol
         name: name
         id: 0
         portMinRange: 6
@@ -40701,7 +40648,8 @@ components:
           nullable: true
           type: string
         protocol:
-          $ref: '#/components/schemas/SecurityGroupProtocol'
+          nullable: true
+          type: string
         portMinRange:
           format: int32
           type: integer
@@ -54991,6 +54939,54 @@ components:
         isYearly:
           type: boolean
       type: object
+    UpdatePartnerDto:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        vatNumber:
+          nullable: true
+          type: string
+        address:
+          nullable: true
+          type: string
+        logo:
+          format: binary
+          nullable: true
+          type: string
+        backgroundImage:
+          format: binary
+          nullable: true
+          type: string
+        allowRegistration:
+          nullable: true
+          type: boolean
+        requiredUserApproval:
+          nullable: true
+          type: boolean
+        paymentEnabled:
+          nullable: true
+          type: boolean
+      type: object
     UpdatePaymentIdCommand:
       additionalProperties: false
       example:
@@ -56112,15 +56108,6 @@ components:
       properties:
         yaml:
           nullable: true
-          type: string
-      type: object
-    partner_create_request:
-      properties:
-        logo:
-          format: binary
-          type: string
-        backgroundImage:
-          format: binary
           type: string
       type: object
   securitySchemes:

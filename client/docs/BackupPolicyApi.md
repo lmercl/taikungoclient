@@ -5,24 +5,24 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BackupByName**](BackupPolicyApi.md#BackupByName) | **Get** /api/v1/backup/{projectId}/{name} | 
-[**BackupClearProject**](BackupPolicyApi.md#BackupClearProject) | **Post** /api/v1/backup/clear/project | 
-[**BackupCreate**](BackupPolicyApi.md#BackupCreate) | **Post** /api/v1/backup/create | 
-[**BackupDeleteBackup**](BackupPolicyApi.md#BackupDeleteBackup) | **Post** /api/v1/backup/delete/backup | 
-[**BackupDeleteBackupLocation**](BackupPolicyApi.md#BackupDeleteBackupLocation) | **Post** /api/v1/backup/delete/location | 
-[**BackupDeleteRestore**](BackupPolicyApi.md#BackupDeleteRestore) | **Post** /api/v1/backup/delete/restore | 
-[**BackupDeleteSchedule**](BackupPolicyApi.md#BackupDeleteSchedule) | **Post** /api/v1/backup/delete/schedule | 
+[**BackupClearProject**](BackupPolicyApi.md#BackupClearProject) | **Post** /api/v1/backup/clear/project | Delete unfinished backup for project
+[**BackupCreate**](BackupPolicyApi.md#BackupCreate) | **Post** /api/v1/backup/create | Add backup policy
+[**BackupDeleteBackup**](BackupPolicyApi.md#BackupDeleteBackup) | **Post** /api/v1/backup/delete/backup | Remove policy backup
+[**BackupDeleteBackupLocation**](BackupPolicyApi.md#BackupDeleteBackupLocation) | **Post** /api/v1/backup/delete/location | Remove backup location from project
+[**BackupDeleteRestore**](BackupPolicyApi.md#BackupDeleteRestore) | **Post** /api/v1/backup/delete/restore | Remove policy restore
+[**BackupDeleteSchedule**](BackupPolicyApi.md#BackupDeleteSchedule) | **Post** /api/v1/backup/delete/schedule | Remove policy schedule
 [**BackupDescribeBackup**](BackupPolicyApi.md#BackupDescribeBackup) | **Get** /api/v1/backup/describe/backup/{projectId}/{name} | 
 [**BackupDescribeRestore**](BackupPolicyApi.md#BackupDescribeRestore) | **Get** /api/v1/backup/describe/restore/{projectId}/{name} | 
 [**BackupDescribeSchedule**](BackupPolicyApi.md#BackupDescribeSchedule) | **Get** /api/v1/backup/describe/schedule/{projectId}/{name} | 
-[**BackupDisableBackup**](BackupPolicyApi.md#BackupDisableBackup) | **Post** /api/v1/backup/disablebackup | 
-[**BackupEnableBackup**](BackupPolicyApi.md#BackupEnableBackup) | **Post** /api/v1/backup/enablebackup | 
-[**BackupImportBackupStorage**](BackupPolicyApi.md#BackupImportBackupStorage) | **Post** /api/v1/backup/location | 
-[**BackupListAllBackupStorages**](BackupPolicyApi.md#BackupListAllBackupStorages) | **Get** /api/v1/backup/location/{projectId} | 
-[**BackupListAllBackups**](BackupPolicyApi.md#BackupListAllBackups) | **Get** /api/v1/backup/backups/{projectId} | 
-[**BackupListAllDeleteBackupRequests**](BackupPolicyApi.md#BackupListAllDeleteBackupRequests) | **Get** /api/v1/backup/delete-requests/{projectId} | 
-[**BackupListAllRestores**](BackupPolicyApi.md#BackupListAllRestores) | **Get** /api/v1/backup/restores/{projectId} | 
-[**BackupListAllSchedules**](BackupPolicyApi.md#BackupListAllSchedules) | **Get** /api/v1/backup/schedules/{projectId} | 
-[**BackupRestoreBackup**](BackupPolicyApi.md#BackupRestoreBackup) | **Post** /api/v1/backup/restore | 
+[**BackupDisableBackup**](BackupPolicyApi.md#BackupDisableBackup) | **Post** /api/v1/backup/disablebackup | Disable backup by the projectId
+[**BackupEnableBackup**](BackupPolicyApi.md#BackupEnableBackup) | **Post** /api/v1/backup/enablebackup | Enable backup by the projectId
+[**BackupImportBackupStorage**](BackupPolicyApi.md#BackupImportBackupStorage) | **Post** /api/v1/backup/location | Import backup storage from source project to target project
+[**BackupListAllBackupStorages**](BackupPolicyApi.md#BackupListAllBackupStorages) | **Get** /api/v1/backup/location/{projectId} | List all backup locations
+[**BackupListAllBackups**](BackupPolicyApi.md#BackupListAllBackups) | **Get** /api/v1/backup/backups/{projectId} | List all backups
+[**BackupListAllDeleteBackupRequests**](BackupPolicyApi.md#BackupListAllDeleteBackupRequests) | **Get** /api/v1/backup/delete-requests/{projectId} | List all delete backup requests
+[**BackupListAllRestores**](BackupPolicyApi.md#BackupListAllRestores) | **Get** /api/v1/backup/restores/{projectId} | List all restores
+[**BackupListAllSchedules**](BackupPolicyApi.md#BackupListAllSchedules) | **Get** /api/v1/backup/schedules/{projectId} | List all schedules
+[**BackupRestoreBackup**](BackupPolicyApi.md#BackupRestoreBackup) | **Post** /api/v1/backup/restore | Restore backup
 
 
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 > BackupClearProject(ctx).ClearProjectBackupCommand(clearProjectBackupCommand).Execute()
 
-
+Delete unfinished backup for project
 
 ### Example
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 > BackupCreate(ctx).CreateBackupPolicyCommand(createBackupPolicyCommand).Execute()
 
-
+Add backup policy
 
 ### Example
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 > BackupDeleteBackup(ctx).DeleteBackupCommand(deleteBackupCommand).Execute()
 
-
+Remove policy backup
 
 ### Example
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 > BackupDeleteBackupLocation(ctx).DeleteBackupStorageLocationCommand(deleteBackupStorageLocationCommand).Execute()
 
-
+Remove backup location from project
 
 ### Example
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 > BackupDeleteRestore(ctx).DeleteRestoreCommand(deleteRestoreCommand).Execute()
 
-
+Remove policy restore
 
 ### Example
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 > BackupDeleteSchedule(ctx).DeleteScheduleCommand(deleteScheduleCommand).Execute()
 
-
+Remove policy schedule
 
 ### Example
 
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 
 > BackupDisableBackup(ctx).DisableBackupCommand(disableBackupCommand).Execute()
 
-
+Disable backup by the projectId
 
 ### Example
 
@@ -748,7 +748,7 @@ Name | Type | Description  | Notes
 
 > BackupEnableBackup(ctx).EnableBackupCommand(enableBackupCommand).Execute()
 
-
+Enable backup by the projectId
 
 ### Example
 
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 > BackupImportBackupStorage(ctx).ImportBackupStorageLocationCommand(importBackupStorageLocationCommand).Execute()
 
-
+Import backup storage from source project to target project
 
 ### Example
 
@@ -872,7 +872,7 @@ Name | Type | Description  | Notes
 
 > ListAllBackupStorageLocations BackupListAllBackupStorages(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
-
+List all backup locations
 
 ### Example
 
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 
 > ListAllBackups BackupListAllBackups(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
-
+List all backups
 
 ### Example
 
@@ -1028,7 +1028,7 @@ Name | Type | Description  | Notes
 
 > ListAllDeleteBackupRequests BackupListAllDeleteBackupRequests(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
-
+List all delete backup requests
 
 ### Example
 
@@ -1106,7 +1106,7 @@ Name | Type | Description  | Notes
 
 > ListAllRestores BackupListAllRestores(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
-
+List all restores
 
 ### Example
 
@@ -1184,7 +1184,7 @@ Name | Type | Description  | Notes
 
 > ListAllSchedules BackupListAllSchedules(ctx, projectId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
 
-
+List all schedules
 
 ### Example
 
@@ -1262,7 +1262,7 @@ Name | Type | Description  | Notes
 
 > BackupRestoreBackup(ctx).RestoreBackupCommand(restoreBackupCommand).Execute()
 
-
+Restore backup
 
 ### Example
 

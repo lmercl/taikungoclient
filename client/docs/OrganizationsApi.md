@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ## OrganizationsExportCsv
 
-> OrganizationsExportCsv(ctx).Execute()
+> CsvExporter OrganizationsExportCsv(ctx).Execute()
 
 Export Csv file
 
@@ -359,11 +359,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.OrganizationsApi.OrganizationsExportCsv(context.Background()).Execute()
+    resp, r, err := apiClient.OrganizationsApi.OrganizationsExportCsv(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsApi.OrganizationsExportCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `OrganizationsExportCsv`: CsvExporter
+    fmt.Fprintf(os.Stdout, "Response from `OrganizationsApi.OrganizationsExportCsv`: %v\n", resp)
 }
 ```
 
@@ -378,7 +380,7 @@ Other parameters are passed through a pointer to a apiOrganizationsExportCsvRequ
 
 ### Return type
 
- (empty response body)
+[**CsvExporter**](CsvExporter.md)
 
 ### Authorization
 
@@ -387,7 +389,7 @@ Other parameters are passed through a pointer to a apiOrganizationsExportCsvRequ
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

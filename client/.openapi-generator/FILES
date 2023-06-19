@@ -314,6 +314,7 @@ docs/CredentialsForCliDto.md
 docs/CredentialsForProjectList.md
 docs/CronJobCommand.md
 docs/CronJobServiceApi.md
+docs/CsvExporter.md
 docs/DaemonSetDto.md
 docs/DaemonSetSearchCommand.md
 docs/DaemonSetSearchList.md
@@ -1109,6 +1110,7 @@ model_credentials_for_cli.go
 model_credentials_for_cli_dto.go
 model_credentials_for_project_list.go
 model_cron_job_command.go
+model_csv_exporter.go
 model_daemon_set_dto.go
 model_daemon_set_search_command.go
 model_daemon_set_search_list.go

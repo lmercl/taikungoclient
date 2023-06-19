@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FlavorsAwsInstanceTypes**](FlavorsApi.md#FlavorsAwsInstanceTypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
-[**FlavorsAzureVmSizes**](FlavorsApi.md#FlavorsAzureVmSizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
-[**FlavorsBindToProject**](FlavorsApi.md#FlavorsBindToProject) | **Get** /api/v1/flavors/bind | 
-[**FlavorsDropdownFlavors**](FlavorsApi.md#FlavorsDropdownFlavors) | **Get** /api/v1/flavors/credentials/dropdown/list | 
-[**FlavorsGoogleMachineTypes**](FlavorsApi.md#FlavorsGoogleMachineTypes) | **Get** /api/v1/flavors/google/{cloudId} | 
-[**FlavorsOpenstackFlavors**](FlavorsApi.md#FlavorsOpenstackFlavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
-[**FlavorsProxmoxFlavors**](FlavorsApi.md#FlavorsProxmoxFlavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | 
-[**FlavorsSelectedFlavorsForProject**](FlavorsApi.md#FlavorsSelectedFlavorsForProject) | **Get** /api/v1/flavors/projects/list | 
-[**FlavorsTanzuFlavors**](FlavorsApi.md#FlavorsTanzuFlavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | 
-[**FlavorsUnbindFromProject**](FlavorsApi.md#FlavorsUnbindFromProject) | **Get** /api/v1/flavors/unbind | 
+[**FlavorsAwsInstanceTypes**](FlavorsApi.md#FlavorsAwsInstanceTypes) | **Get** /api/v1/flavors/aws/{cloudId} | Retrieve awz instance types
+[**FlavorsAzureVmSizes**](FlavorsApi.md#FlavorsAzureVmSizes) | **Get** /api/v1/flavors/azure/{cloudId} | Retrieve azure vm sizes
+[**FlavorsBindToProject**](FlavorsApi.md#FlavorsBindToProject) | **Get** /api/v1/flavors/bind | Bind flavors to project
+[**FlavorsDropdownFlavors**](FlavorsApi.md#FlavorsDropdownFlavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
+[**FlavorsGoogleMachineTypes**](FlavorsApi.md#FlavorsGoogleMachineTypes) | **Get** /api/v1/flavors/google/{cloudId} | Retrieve google machine types
+[**FlavorsOpenstackFlavors**](FlavorsApi.md#FlavorsOpenstackFlavors) | **Get** /api/v1/flavors/openstack/{cloudId} | Retrieve openstack flavors
+[**FlavorsProxmoxFlavors**](FlavorsApi.md#FlavorsProxmoxFlavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
+[**FlavorsSelectedFlavorsForProject**](FlavorsApi.md#FlavorsSelectedFlavorsForProject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
+[**FlavorsTanzuFlavors**](FlavorsApi.md#FlavorsTanzuFlavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
+[**FlavorsUnbindFromProject**](FlavorsApi.md#FlavorsUnbindFromProject) | **Get** /api/v1/flavors/unbind | Unbind flavors from project
 
 
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 > AwsFlavorList FlavorsAwsInstanceTypes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve awz instance types
 
 ### Example
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 > AzureFlavorList FlavorsAzureVmSizes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve azure vm sizes
 
 ### Example
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 > FlavorsBindToProject(ctx).BindFlavorToProjectCommand(bindFlavorToProjectCommand).Execute()
 
-
+Bind flavors to project
 
 ### Example
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 > []CloudCredentialsDropdownRecordDto FlavorsDropdownFlavors(ctx).OrganizationId(organizationId).FilterBy(filterBy).Search(search).Execute()
 
-
+Retrieve cloud credentials dropdown list
 
 ### Example
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 > GoogleFlavorList FlavorsGoogleMachineTypes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve google machine types
 
 ### Example
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 > OpenstackFlavorList FlavorsOpenstackFlavors(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve openstack flavors
 
 ### Example
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 > ProxmoxFlavorList FlavorsProxmoxFlavors(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve proxmox flavors
 
 ### Example
 
@@ -579,9 +579,9 @@ Name | Type | Description  | Notes
 
 ## FlavorsSelectedFlavorsForProject
 
-> BoundFlavorsForProjectsList FlavorsSelectedFlavorsForProject(ctx).WithPrice(withPrice).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).FilterBy(filterBy).OrganizationId(organizationId).FlavorName(flavorName).Execute()
+> BoundFlavorsForProjectsList FlavorsSelectedFlavorsForProject(ctx).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).FilterBy(filterBy).OrganizationId(organizationId).FlavorName(flavorName).WithPrice(withPrice).Execute()
 
-
+Retrieve selected flavors for project
 
 ### Example
 
@@ -596,7 +596,6 @@ import (
 )
 
 func main() {
-    withPrice := true // bool | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
     projectId := int32(56) // int32 |  (optional)
@@ -606,10 +605,11 @@ func main() {
     filterBy := "filterBy_example" // string |  (optional)
     organizationId := int32(56) // int32 |  (optional)
     flavorName := "flavorName_example" // string |  (optional)
+    withPrice := true // bool |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FlavorsApi.FlavorsSelectedFlavorsForProject(context.Background()).WithPrice(withPrice).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).FilterBy(filterBy).OrganizationId(organizationId).FlavorName(flavorName).Execute()
+    resp, r, err := apiClient.FlavorsApi.FlavorsSelectedFlavorsForProject(context.Background()).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).FilterBy(filterBy).OrganizationId(organizationId).FlavorName(flavorName).WithPrice(withPrice).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `FlavorsApi.FlavorsSelectedFlavorsForProject``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -630,7 +630,6 @@ Other parameters are passed through a pointer to a apiFlavorsSelectedFlavorsForP
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withPrice** | **bool** |  | 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
  **projectId** | **int32** |  | 
@@ -640,6 +639,7 @@ Name | Type | Description  | Notes
  **filterBy** | **string** |  | 
  **organizationId** | **int32** |  | 
  **flavorName** | **string** |  | 
+ **withPrice** | **bool** |  | 
 
 ### Return type
 
@@ -663,7 +663,7 @@ Name | Type | Description  | Notes
 
 > TanzuFlavorList FlavorsTanzuFlavors(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-
+Retrieve tanzu flavors
 
 ### Example
 
@@ -749,7 +749,7 @@ Name | Type | Description  | Notes
 
 > FlavorsUnbindFromProject(ctx).UnbindFlavorFromProjectCommand(unbindFlavorFromProjectCommand).Execute()
 
-
+Unbind flavors from project
 
 ### Example
 

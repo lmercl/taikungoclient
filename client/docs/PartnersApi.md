@@ -8,13 +8,13 @@ Method | HTTP request | Description
 [**PartnerBecomeAPartner**](PartnersApi.md#PartnerBecomeAPartner) | **Post** /api/v1/partner/become-a-partner | Become a partner
 [**PartnerBindOrganizations**](PartnersApi.md#PartnerBindOrganizations) | **Post** /api/v1/partner/bindorganizations | Bind organizations to a partner
 [**PartnerContactUs**](PartnersApi.md#PartnerContactUs) | **Post** /api/v1/partner/contact-us | Contact with us
-[**PartnerCreate**](PartnersApi.md#PartnerCreate) | **Post** /api/v1/partner/create | 
+[**PartnerCreate**](PartnersApi.md#PartnerCreate) | **Post** /api/v1/partner/create | Add a partner
 [**PartnerDeleteWhitelistDomain**](PartnersApi.md#PartnerDeleteWhitelistDomain) | **Post** /api/v1/partner/delete/whitelist/domain | Delete white list domain
 [**PartnerDetails**](PartnersApi.md#PartnerDetails) | **Get** /api/v1/partner/details | Details of partners
 [**PartnerDropdown**](PartnersApi.md#PartnerDropdown) | **Get** /api/v1/partner/list | Get partners dropdown
 [**PartnerInfo**](PartnersApi.md#PartnerInfo) | **Get** /api/v1/partner/info | Get partner&#39;s registration info
 [**PartnerList**](PartnersApi.md#PartnerList) | **Get** /api/v1/partner | Get partners
-[**PartnerUpdate**](PartnersApi.md#PartnerUpdate) | **Put** /api/v1/partner/update/{id} | 
+[**PartnerUpdate**](PartnersApi.md#PartnerUpdate) | **Put** /api/v1/partner/update/{id} | Edit partner&#39;s data by Id
 
 
 
@@ -268,9 +268,9 @@ Name | Type | Description  | Notes
 
 ## PartnerCreate
 
-> PartnerCreate(ctx).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Logo(logo).BackgroundImage(backgroundImage).Execute()
+> PartnerCreate(ctx).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).Logo(logo).BackgroundImage(backgroundImage).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Execute()
 
-
+Add a partner
 
 ### Example
 
@@ -294,15 +294,15 @@ func main() {
     city := "city_example" // string |  (optional)
     vatNumber := "vatNumber_example" // string |  (optional)
     address := "address_example" // string |  (optional)
+    logo := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    backgroundImage := os.NewFile(1234, "some_file") // *os.File |  (optional)
     allowRegistration := true // bool |  (optional)
     requiredUserApproval := true // bool |  (optional)
     paymentEnabled := true // bool |  (optional)
-    logo := os.NewFile(1234, "some_file") // *os.File |  (optional)
-    backgroundImage := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PartnersApi.PartnerCreate(context.Background()).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Logo(logo).BackgroundImage(backgroundImage).Execute()
+    r, err := apiClient.PartnersApi.PartnerCreate(context.Background()).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).Logo(logo).BackgroundImage(backgroundImage).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PartnersApi.PartnerCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -330,11 +330,11 @@ Name | Type | Description  | Notes
  **city** | **string** |  | 
  **vatNumber** | **string** |  | 
  **address** | **string** |  | 
+ **logo** | ***os.File** |  | 
+ **backgroundImage** | ***os.File** |  | 
  **allowRegistration** | **bool** |  | 
  **requiredUserApproval** | **bool** |  | 
  **paymentEnabled** | **bool** |  | 
- **logo** | ***os.File** |  | 
- **backgroundImage** | ***os.File** |  | 
 
 ### Return type
 
@@ -681,9 +681,9 @@ Name | Type | Description  | Notes
 
 ## PartnerUpdate
 
-> PartnerUpdate(ctx, id).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Logo(logo).BackgroundImage(backgroundImage).Execute()
+> PartnerUpdate(ctx, id).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).Logo(logo).BackgroundImage(backgroundImage).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Execute()
 
-
+Edit partner's data by Id
 
 ### Example
 
@@ -708,15 +708,15 @@ func main() {
     city := "city_example" // string |  (optional)
     vatNumber := "vatNumber_example" // string |  (optional)
     address := "address_example" // string |  (optional)
+    logo := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    backgroundImage := os.NewFile(1234, "some_file") // *os.File |  (optional)
     allowRegistration := true // bool |  (optional)
     requiredUserApproval := true // bool |  (optional)
     paymentEnabled := true // bool |  (optional)
-    logo := os.NewFile(1234, "some_file") // *os.File |  (optional)
-    backgroundImage := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PartnersApi.PartnerUpdate(context.Background(), id).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Logo(logo).BackgroundImage(backgroundImage).Execute()
+    r, err := apiClient.PartnersApi.PartnerUpdate(context.Background(), id).Name(name).Domain(domain).Link(link).Phone(phone).Email(email).Country(country).City(city).VatNumber(vatNumber).Address(address).Logo(logo).BackgroundImage(backgroundImage).AllowRegistration(allowRegistration).RequiredUserApproval(requiredUserApproval).PaymentEnabled(paymentEnabled).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PartnersApi.PartnerUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -749,11 +749,11 @@ Name | Type | Description  | Notes
  **city** | **string** |  | 
  **vatNumber** | **string** |  | 
  **address** | **string** |  | 
+ **logo** | ***os.File** |  | 
+ **backgroundImage** | ***os.File** |  | 
  **allowRegistration** | **bool** |  | 
  **requiredUserApproval** | **bool** |  | 
  **paymentEnabled** | **bool** |  | 
- **logo** | ***os.File** |  | 
- **backgroundImage** | ***os.File** |  | 
 
 ### Return type
 
