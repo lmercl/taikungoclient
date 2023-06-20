@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**StandaloneDetails**](StandaloneApi.md#StandaloneDetails) | **Get** /api/v1/standalone/{projectId} | Retrieve a list of standalone vm with detailed info
 [**StandaloneForPoller**](StandaloneApi.md#StandaloneForPoller) | **Get** /api/v1/standalone/forpoller | List all StandaloneVms for poller
 [**StandaloneIpManagement**](StandaloneApi.md#StandaloneIpManagement) | **Post** /api/v1/standalone/ip/management | Enable/Disable stand alone public ip
-[**StandaloneList**](StandaloneApi.md#StandaloneList) | **Get** /api/v1/standalone | Retrieve all vms
+[**StandaloneList**](StandaloneApi.md#StandaloneList) | **Get** /api/v1/standalone | 
 [**StandaloneProjectDetails**](StandaloneApi.md#StandaloneProjectDetails) | **Get** /api/v1/standalone/project/{projectId} | Retrieve details of the project by Id
 [**StandalonePurge**](StandaloneApi.md#StandalonePurge) | **Post** /api/v1/standalone/purge | Purge vm
 [**StandaloneRepair**](StandaloneApi.md#StandaloneRepair) | **Post** /api/v1/standalone/repair | Repair vm
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 > StandaloneVmsList StandaloneList(ctx).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).StartRam(startRam).EndRam(endRam).StartVolumeSize(startVolumeSize).EndVolumeSize(endVolumeSize).StartCpu(startCpu).EndCpu(endCpu).OrganizationId(organizationId).Id(id).SearchId(searchId).FilterBy(filterBy).Execute()
 
-Retrieve all vms
+
 
 ### Example
 
@@ -437,8 +437,8 @@ func main() {
     sortBy := "sortBy_example" // string |  (optional)
     sortDirection := "sortDirection_example" // string |  (optional)
     search := "search_example" // string |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startVolumeSize := int64(789) // int64 |  (optional)
     endVolumeSize := int64(789) // int64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
@@ -477,8 +477,8 @@ Name | Type | Description  | Notes
  **sortBy** | **string** |  | 
  **sortDirection** | **string** |  | 
  **search** | **string** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startVolumeSize** | **int64** |  | 
  **endVolumeSize** | **int64** |  | 
  **startCpu** | **int32** |  | 

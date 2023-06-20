@@ -213,7 +213,7 @@ Class | Method | HTTP request | Description
 *CheckerApi* | [**CheckerTanzu**](docs/CheckerApi.md#checkertanzu) | **Post** /api/v1/checker/tanzu | Check tanzu credential
 *CheckerApi* | [**CheckerUser**](docs/CheckerApi.md#checkeruser) | **Post** /api/v1/checker/user | Check duplicate username
 *CheckerApi* | [**CheckerYaml**](docs/CheckerApi.md#checkeryaml) | **Post** /api/v1/checker/yaml | Check yaml file
-*CloudCredentialApi* | [**CloudcredentialsAllFlavors**](docs/CloudCredentialApi.md#cloudcredentialsallflavors) | **Get** /api/v1/cloudcredentials/flavors/{cloudId} | Retrieve all flavors
+*CloudCredentialApi* | [**CloudcredentialsAllFlavors**](docs/CloudCredentialApi.md#cloudcredentialsallflavors) | **Get** /api/v1/cloudcredentials/flavors/{cloudId} | 
 *CloudCredentialApi* | [**CloudcredentialsDashboardList**](docs/CloudCredentialApi.md#cloudcredentialsdashboardlist) | **Get** /api/v1/cloudcredentials/list | Retrieve all cloud credentials
 *CloudCredentialApi* | [**CloudcredentialsDelete**](docs/CloudCredentialApi.md#cloudcredentialsdelete) | **Delete** /api/v1/cloudcredentials/{cloudId} | Remove cloud credential by cloud Id
 *CloudCredentialApi* | [**CloudcredentialsExceeded**](docs/CloudCredentialApi.md#cloudcredentialsexceeded) | **Get** /api/v1/cloudcredentials/exceeded-quotas | Retrieve cloud credentials exceeded quotas
@@ -249,12 +249,12 @@ Class | Method | HTTP request | Description
 *DnsServersApi* | [**DnsserversDelete**](docs/DnsServersApi.md#dnsserversdelete) | **Delete** /api/v1/dnsservers/{id} | Delete dns server
 *DnsServersApi* | [**DnsserversEdit**](docs/DnsServersApi.md#dnsserversedit) | **Put** /api/v1/dnsservers/edit/{id} | Edit dns server
 *DnsServersApi* | [**DnsserversList**](docs/DnsServersApi.md#dnsserverslist) | **Get** /api/v1/dnsservers/{accessProfileId} | List dn servers by profile id
-*FlavorsApi* | [**FlavorsAwsInstanceTypes**](docs/FlavorsApi.md#flavorsawsinstancetypes) | **Get** /api/v1/flavors/aws/{cloudId} | Retrieve awz instance types
-*FlavorsApi* | [**FlavorsAzureVmSizes**](docs/FlavorsApi.md#flavorsazurevmsizes) | **Get** /api/v1/flavors/azure/{cloudId} | Retrieve azure vm sizes
+*FlavorsApi* | [**FlavorsAwsInstanceTypes**](docs/FlavorsApi.md#flavorsawsinstancetypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
+*FlavorsApi* | [**FlavorsAzureVmSizes**](docs/FlavorsApi.md#flavorsazurevmsizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
 *FlavorsApi* | [**FlavorsBindToProject**](docs/FlavorsApi.md#flavorsbindtoproject) | **Get** /api/v1/flavors/bind | Bind flavors to project
 *FlavorsApi* | [**FlavorsDropdownFlavors**](docs/FlavorsApi.md#flavorsdropdownflavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
-*FlavorsApi* | [**FlavorsGoogleMachineTypes**](docs/FlavorsApi.md#flavorsgooglemachinetypes) | **Get** /api/v1/flavors/google/{cloudId} | Retrieve google machine types
-*FlavorsApi* | [**FlavorsOpenstackFlavors**](docs/FlavorsApi.md#flavorsopenstackflavors) | **Get** /api/v1/flavors/openstack/{cloudId} | Retrieve openstack flavors
+*FlavorsApi* | [**FlavorsGoogleMachineTypes**](docs/FlavorsApi.md#flavorsgooglemachinetypes) | **Get** /api/v1/flavors/google/{cloudId} | 
+*FlavorsApi* | [**FlavorsOpenstackFlavors**](docs/FlavorsApi.md#flavorsopenstackflavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
 *FlavorsApi* | [**FlavorsProxmoxFlavors**](docs/FlavorsApi.md#flavorsproxmoxflavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
 *FlavorsApi* | [**FlavorsSelectedFlavorsForProject**](docs/FlavorsApi.md#flavorsselectedflavorsforproject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
 *FlavorsApi* | [**FlavorsTanzuFlavors**](docs/FlavorsApi.md#flavorstanzuflavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
@@ -555,7 +555,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**ServersCreate**](docs/ServersApi.md#serverscreate) | **Post** /api/v1/servers/create | Create a new server in the given project.
 *ServersApi* | [**ServersDelete**](docs/ServersApi.md#serversdelete) | **Post** /api/v1/servers/delete | Delete server by project id
 *ServersApi* | [**ServersDetails**](docs/ServersApi.md#serversdetails) | **Get** /api/v1/servers/{projectId} | Retrieve all servers by given project
-*ServersApi* | [**ServersList**](docs/ServersApi.md#serverslist) | **Get** /api/v1/servers | Retrieve all servers
+*ServersApi* | [**ServersList**](docs/ServersApi.md#serverslist) | **Get** /api/v1/servers | 
 *ServersApi* | [**ServersReboot**](docs/ServersApi.md#serversreboot) | **Post** /api/v1/servers/reboot | Reboot server
 *ServersApi* | [**ServersReset**](docs/ServersApi.md#serversreset) | **Post** /api/v1/servers/reset | Update server(s) status(es)
 *ServersApi* | [**ServersStatus**](docs/ServersApi.md#serversstatus) | **Get** /api/v1/servers/status/{serverId} | Show server status
@@ -577,7 +577,7 @@ Class | Method | HTTP request | Description
 *StandaloneApi* | [**StandaloneDetails**](docs/StandaloneApi.md#standalonedetails) | **Get** /api/v1/standalone/{projectId} | Retrieve a list of standalone vm with detailed info
 *StandaloneApi* | [**StandaloneForPoller**](docs/StandaloneApi.md#standaloneforpoller) | **Get** /api/v1/standalone/forpoller | List all StandaloneVms for poller
 *StandaloneApi* | [**StandaloneIpManagement**](docs/StandaloneApi.md#standaloneipmanagement) | **Post** /api/v1/standalone/ip/management | Enable/Disable stand alone public ip
-*StandaloneApi* | [**StandaloneList**](docs/StandaloneApi.md#standalonelist) | **Get** /api/v1/standalone | Retrieve all vms
+*StandaloneApi* | [**StandaloneList**](docs/StandaloneApi.md#standalonelist) | **Get** /api/v1/standalone | 
 *StandaloneApi* | [**StandaloneProjectDetails**](docs/StandaloneApi.md#standaloneprojectdetails) | **Get** /api/v1/standalone/project/{projectId} | Retrieve details of the project by Id
 *StandaloneApi* | [**StandalonePurge**](docs/StandaloneApi.md#standalonepurge) | **Post** /api/v1/standalone/purge | Purge vm
 *StandaloneApi* | [**StandaloneRepair**](docs/StandaloneApi.md#standalonerepair) | **Post** /api/v1/standalone/repair | Repair vm

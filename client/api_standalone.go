@@ -1083,8 +1083,8 @@ type ApiStandaloneListRequest struct {
 	sortBy *string
 	sortDirection *string
 	search *string
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startVolumeSize *int64
 	endVolumeSize *int64
 	startCpu *int32
@@ -1125,12 +1125,12 @@ func (r ApiStandaloneListRequest) Search(search string) ApiStandaloneListRequest
 	return r
 }
 
-func (r ApiStandaloneListRequest) StartRam(startRam string) ApiStandaloneListRequest {
+func (r ApiStandaloneListRequest) StartRam(startRam float64) ApiStandaloneListRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiStandaloneListRequest) EndRam(endRam string) ApiStandaloneListRequest {
+func (r ApiStandaloneListRequest) EndRam(endRam float64) ApiStandaloneListRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -1180,7 +1180,7 @@ func (r ApiStandaloneListRequest) Execute() (*StandaloneVmsList, *http.Response,
 }
 
 /*
-StandaloneList Retrieve all vms
+StandaloneList Method for StandaloneList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStandaloneListRequest

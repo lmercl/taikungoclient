@@ -30,8 +30,8 @@ type ApiFlavorsAwsInstanceTypesRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -49,12 +49,12 @@ func (r ApiFlavorsAwsInstanceTypesRequest) Offset(offset int32) ApiFlavorsAwsIns
 	return r
 }
 
-func (r ApiFlavorsAwsInstanceTypesRequest) StartRam(startRam string) ApiFlavorsAwsInstanceTypesRequest {
+func (r ApiFlavorsAwsInstanceTypesRequest) StartRam(startRam float64) ApiFlavorsAwsInstanceTypesRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiFlavorsAwsInstanceTypesRequest) EndRam(endRam string) ApiFlavorsAwsInstanceTypesRequest {
+func (r ApiFlavorsAwsInstanceTypesRequest) EndRam(endRam float64) ApiFlavorsAwsInstanceTypesRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -89,7 +89,7 @@ func (r ApiFlavorsAwsInstanceTypesRequest) Execute() (*AwsFlavorList, *http.Resp
 }
 
 /*
-FlavorsAwsInstanceTypes Retrieve awz instance types
+FlavorsAwsInstanceTypes Method for FlavorsAwsInstanceTypes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -280,8 +280,8 @@ type ApiFlavorsAzureVmSizesRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *int32
-	endRam *int32
+	startRam *float64
+	endRam *float64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -299,12 +299,12 @@ func (r ApiFlavorsAzureVmSizesRequest) Offset(offset int32) ApiFlavorsAzureVmSiz
 	return r
 }
 
-func (r ApiFlavorsAzureVmSizesRequest) StartRam(startRam int32) ApiFlavorsAzureVmSizesRequest {
+func (r ApiFlavorsAzureVmSizesRequest) StartRam(startRam float64) ApiFlavorsAzureVmSizesRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiFlavorsAzureVmSizesRequest) EndRam(endRam int32) ApiFlavorsAzureVmSizesRequest {
+func (r ApiFlavorsAzureVmSizesRequest) EndRam(endRam float64) ApiFlavorsAzureVmSizesRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -339,7 +339,7 @@ func (r ApiFlavorsAzureVmSizesRequest) Execute() (*AzureFlavorList, *http.Respon
 }
 
 /*
-FlavorsAzureVmSizes Retrieve azure vm sizes
+FlavorsAzureVmSizes Method for FlavorsAzureVmSizes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -884,8 +884,8 @@ type ApiFlavorsGoogleMachineTypesRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -903,12 +903,12 @@ func (r ApiFlavorsGoogleMachineTypesRequest) Offset(offset int32) ApiFlavorsGoog
 	return r
 }
 
-func (r ApiFlavorsGoogleMachineTypesRequest) StartRam(startRam string) ApiFlavorsGoogleMachineTypesRequest {
+func (r ApiFlavorsGoogleMachineTypesRequest) StartRam(startRam float64) ApiFlavorsGoogleMachineTypesRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiFlavorsGoogleMachineTypesRequest) EndRam(endRam string) ApiFlavorsGoogleMachineTypesRequest {
+func (r ApiFlavorsGoogleMachineTypesRequest) EndRam(endRam float64) ApiFlavorsGoogleMachineTypesRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -943,7 +943,7 @@ func (r ApiFlavorsGoogleMachineTypesRequest) Execute() (*GoogleFlavorList, *http
 }
 
 /*
-FlavorsGoogleMachineTypes Retrieve google machine types
+FlavorsGoogleMachineTypes Method for FlavorsGoogleMachineTypes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId
@@ -1134,8 +1134,8 @@ type ApiFlavorsOpenstackFlavorsRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -1153,12 +1153,12 @@ func (r ApiFlavorsOpenstackFlavorsRequest) Offset(offset int32) ApiFlavorsOpenst
 	return r
 }
 
-func (r ApiFlavorsOpenstackFlavorsRequest) StartRam(startRam string) ApiFlavorsOpenstackFlavorsRequest {
+func (r ApiFlavorsOpenstackFlavorsRequest) StartRam(startRam float64) ApiFlavorsOpenstackFlavorsRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiFlavorsOpenstackFlavorsRequest) EndRam(endRam string) ApiFlavorsOpenstackFlavorsRequest {
+func (r ApiFlavorsOpenstackFlavorsRequest) EndRam(endRam float64) ApiFlavorsOpenstackFlavorsRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -1193,7 +1193,7 @@ func (r ApiFlavorsOpenstackFlavorsRequest) Execute() (*OpenstackFlavorList, *htt
 }
 
 /*
-FlavorsOpenstackFlavors Retrieve openstack flavors
+FlavorsOpenstackFlavors Method for FlavorsOpenstackFlavors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId

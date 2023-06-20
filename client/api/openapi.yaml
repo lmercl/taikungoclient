@@ -7241,14 +7241,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -7293,7 +7295,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AllFlavorsList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -7323,8 +7325,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve all flavors
+          description: Server Error
       tags:
       - Cloud credential
   /api/v1/cloudcredentials:
@@ -8975,14 +8976,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -9027,7 +9030,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AwsFlavorList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -9057,8 +9060,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve awz instance types
+          description: Server Error
       tags:
       - Flavors
   /api/v1/flavors/azure/{cloudId}:
@@ -9094,16 +9096,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          format: int32
-          type: integer
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          format: int32
-          type: integer
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -9148,7 +9150,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AzureFlavorList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -9178,8 +9180,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve azure vm sizes
+          description: Server Error
       tags:
       - Flavors
   /api/v1/flavors/credentials/dropdown/list:
@@ -9401,14 +9402,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -9453,7 +9456,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GoogleFlavorList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -9483,8 +9486,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve google machine types
+          description: Server Error
       tags:
       - Flavors
   /api/v1/flavors/openstack/{cloudId}:
@@ -9520,14 +9522,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -9572,7 +9576,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OpenstackFlavorList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -9602,8 +9606,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve openstack flavors
+          description: Server Error
       tags:
       - Flavors
   /api/v1/flavors/proxmox/{cloudId}:
@@ -26878,14 +26881,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -26955,7 +26960,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServersList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -26985,8 +26990,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve all servers
+          description: Server Error
       tags:
       - Servers
   /api/v1/servers/status/{serverId}:
@@ -28093,14 +28097,16 @@ paths:
         name: StartRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
         name: EndRam
         required: false
         schema:
-          type: string
+          format: double
+          type: number
         style: form
       - explode: true
         in: query
@@ -28170,7 +28176,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/StandaloneVmsList'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -28200,8 +28206,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve all vms
+          description: Server Error
       tags:
       - Standalone
   /api/v1/standalone/forpoller:

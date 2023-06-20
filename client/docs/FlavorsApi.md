@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FlavorsAwsInstanceTypes**](FlavorsApi.md#FlavorsAwsInstanceTypes) | **Get** /api/v1/flavors/aws/{cloudId} | Retrieve awz instance types
-[**FlavorsAzureVmSizes**](FlavorsApi.md#FlavorsAzureVmSizes) | **Get** /api/v1/flavors/azure/{cloudId} | Retrieve azure vm sizes
+[**FlavorsAwsInstanceTypes**](FlavorsApi.md#FlavorsAwsInstanceTypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
+[**FlavorsAzureVmSizes**](FlavorsApi.md#FlavorsAzureVmSizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
 [**FlavorsBindToProject**](FlavorsApi.md#FlavorsBindToProject) | **Get** /api/v1/flavors/bind | Bind flavors to project
 [**FlavorsDropdownFlavors**](FlavorsApi.md#FlavorsDropdownFlavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
-[**FlavorsGoogleMachineTypes**](FlavorsApi.md#FlavorsGoogleMachineTypes) | **Get** /api/v1/flavors/google/{cloudId} | Retrieve google machine types
-[**FlavorsOpenstackFlavors**](FlavorsApi.md#FlavorsOpenstackFlavors) | **Get** /api/v1/flavors/openstack/{cloudId} | Retrieve openstack flavors
+[**FlavorsGoogleMachineTypes**](FlavorsApi.md#FlavorsGoogleMachineTypes) | **Get** /api/v1/flavors/google/{cloudId} | 
+[**FlavorsOpenstackFlavors**](FlavorsApi.md#FlavorsOpenstackFlavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
 [**FlavorsProxmoxFlavors**](FlavorsApi.md#FlavorsProxmoxFlavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
 [**FlavorsSelectedFlavorsForProject**](FlavorsApi.md#FlavorsSelectedFlavorsForProject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
 [**FlavorsTanzuFlavors**](FlavorsApi.md#FlavorsTanzuFlavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 > AwsFlavorList FlavorsAwsInstanceTypes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-Retrieve awz instance types
+
 
 ### Example
 
@@ -39,8 +39,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -77,8 +77,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 > AzureFlavorList FlavorsAzureVmSizes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-Retrieve azure vm sizes
+
 
 ### Example
 
@@ -125,8 +125,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := int32(56) // int32 |  (optional)
-    endRam := int32(56) // int32 |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -163,8 +163,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **int32** |  | 
- **endRam** | **int32** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 > GoogleFlavorList FlavorsGoogleMachineTypes(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-Retrieve google machine types
+
 
 ### Example
 
@@ -341,8 +341,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -379,8 +379,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 > OpenstackFlavorList FlavorsOpenstackFlavors(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-Retrieve openstack flavors
+
 
 ### Example
 
@@ -427,8 +427,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -465,8 +465,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 

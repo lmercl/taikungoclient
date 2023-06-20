@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CloudcredentialsAllFlavors**](CloudCredentialApi.md#CloudcredentialsAllFlavors) | **Get** /api/v1/cloudcredentials/flavors/{cloudId} | Retrieve all flavors
+[**CloudcredentialsAllFlavors**](CloudCredentialApi.md#CloudcredentialsAllFlavors) | **Get** /api/v1/cloudcredentials/flavors/{cloudId} | 
 [**CloudcredentialsDashboardList**](CloudCredentialApi.md#CloudcredentialsDashboardList) | **Get** /api/v1/cloudcredentials/list | Retrieve all cloud credentials
 [**CloudcredentialsDelete**](CloudCredentialApi.md#CloudcredentialsDelete) | **Delete** /api/v1/cloudcredentials/{cloudId} | Remove cloud credential by cloud Id
 [**CloudcredentialsExceeded**](CloudCredentialApi.md#CloudcredentialsExceeded) | **Get** /api/v1/cloudcredentials/exceeded-quotas | Retrieve cloud credentials exceeded quotas
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > AllFlavorsList CloudcredentialsAllFlavors(ctx, cloudId).Limit(limit).Offset(offset).StartRam(startRam).EndRam(endRam).StartCpu(startCpu).EndCpu(endCpu).Search(search).SortBy(sortBy).SortDirection(sortDirection).Execute()
 
-Retrieve all flavors
+
 
 ### Example
 
@@ -38,8 +38,8 @@ func main() {
     cloudId := int32(56) // int32 | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
     endCpu := int32(56) // int32 |  (optional)
     search := "search_example" // string |  (optional)
@@ -76,8 +76,8 @@ Name | Type | Description  | Notes
 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startCpu** | **int32** |  | 
  **endCpu** | **int32** |  | 
  **search** | **string** |  | 

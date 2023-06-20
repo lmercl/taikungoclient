@@ -30,8 +30,8 @@ type ApiCloudcredentialsAllFlavorsRequest struct {
 	cloudId int32
 	limit *int32
 	offset *int32
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startCpu *int32
 	endCpu *int32
 	search *string
@@ -49,12 +49,12 @@ func (r ApiCloudcredentialsAllFlavorsRequest) Offset(offset int32) ApiCloudcrede
 	return r
 }
 
-func (r ApiCloudcredentialsAllFlavorsRequest) StartRam(startRam string) ApiCloudcredentialsAllFlavorsRequest {
+func (r ApiCloudcredentialsAllFlavorsRequest) StartRam(startRam float64) ApiCloudcredentialsAllFlavorsRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiCloudcredentialsAllFlavorsRequest) EndRam(endRam string) ApiCloudcredentialsAllFlavorsRequest {
+func (r ApiCloudcredentialsAllFlavorsRequest) EndRam(endRam float64) ApiCloudcredentialsAllFlavorsRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -89,7 +89,7 @@ func (r ApiCloudcredentialsAllFlavorsRequest) Execute() (*AllFlavorsList, *http.
 }
 
 /*
-CloudcredentialsAllFlavors Retrieve all flavors
+CloudcredentialsAllFlavors Method for CloudcredentialsAllFlavors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cloudId

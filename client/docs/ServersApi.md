@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**ServersCreate**](ServersApi.md#ServersCreate) | **Post** /api/v1/servers/create | Create a new server in the given project.
 [**ServersDelete**](ServersApi.md#ServersDelete) | **Post** /api/v1/servers/delete | Delete server by project id
 [**ServersDetails**](ServersApi.md#ServersDetails) | **Get** /api/v1/servers/{projectId} | Retrieve all servers by given project
-[**ServersList**](ServersApi.md#ServersList) | **Get** /api/v1/servers | Retrieve all servers
+[**ServersList**](ServersApi.md#ServersList) | **Get** /api/v1/servers | 
 [**ServersReboot**](ServersApi.md#ServersReboot) | **Post** /api/v1/servers/reboot | Reboot server
 [**ServersReset**](ServersApi.md#ServersReset) | **Post** /api/v1/servers/reset | Update server(s) status(es)
 [**ServersStatus**](ServersApi.md#ServersStatus) | **Get** /api/v1/servers/status/{serverId} | Show server status
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 > ServersList ServersList(ctx).Limit(limit).Offset(offset).ProjectId(projectId).SortBy(sortBy).SortDirection(sortDirection).Search(search).StartRam(startRam).EndRam(endRam).StartDiskSize(startDiskSize).EndDiskSize(endDiskSize).StartCpu(startCpu).EndCpu(endCpu).OrganizationId(organizationId).Id(id).FilterBy(filterBy).AutoscalingGroup(autoscalingGroup).Execute()
 
-Retrieve all servers
+
 
 ### Example
 
@@ -306,8 +306,8 @@ func main() {
     sortBy := "sortBy_example" // string |  (optional)
     sortDirection := "sortDirection_example" // string |  (optional)
     search := "search_example" // string |  (optional)
-    startRam := "startRam_example" // string |  (optional)
-    endRam := "endRam_example" // string |  (optional)
+    startRam := float64(1.2) // float64 |  (optional)
+    endRam := float64(1.2) // float64 |  (optional)
     startDiskSize := int64(789) // int64 |  (optional)
     endDiskSize := int64(789) // int64 |  (optional)
     startCpu := int32(56) // int32 |  (optional)
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
  **sortBy** | **string** |  | 
  **sortDirection** | **string** |  | 
  **search** | **string** |  | 
- **startRam** | **string** |  | 
- **endRam** | **string** |  | 
+ **startRam** | **float64** |  | 
+ **endRam** | **float64** |  | 
  **startDiskSize** | **int64** |  | 
  **endDiskSize** | **int64** |  | 
  **startCpu** | **int32** |  | 

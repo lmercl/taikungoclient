@@ -743,8 +743,8 @@ type ApiServersListRequest struct {
 	sortBy *string
 	sortDirection *string
 	search *string
-	startRam *string
-	endRam *string
+	startRam *float64
+	endRam *float64
 	startDiskSize *int64
 	endDiskSize *int64
 	startCpu *int32
@@ -785,12 +785,12 @@ func (r ApiServersListRequest) Search(search string) ApiServersListRequest {
 	return r
 }
 
-func (r ApiServersListRequest) StartRam(startRam string) ApiServersListRequest {
+func (r ApiServersListRequest) StartRam(startRam float64) ApiServersListRequest {
 	r.startRam = &startRam
 	return r
 }
 
-func (r ApiServersListRequest) EndRam(endRam string) ApiServersListRequest {
+func (r ApiServersListRequest) EndRam(endRam float64) ApiServersListRequest {
 	r.endRam = &endRam
 	return r
 }
@@ -840,7 +840,7 @@ func (r ApiServersListRequest) Execute() (*ServersList, *http.Response, error) {
 }
 
 /*
-ServersList Retrieve all servers
+ServersList Method for ServersList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiServersListRequest
