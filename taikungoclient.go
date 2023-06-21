@@ -115,6 +115,7 @@ func (c *CustomTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 			defer c.mu.Unlock()
 
 			if c.Client.token == "" {
+				fmt.Println("LOGIN REQUEST")
 				var loginCmd *taikuncore.LoginCommand
 				// keycloak
 				// default
