@@ -233,18 +233,31 @@ Class | Method | HTTP request | Description
 *CronJobServiceApi* | [**CronjobDeleteExpiredAlerts**](docs/CronJobServiceApi.md#cronjobdeleteexpiredalerts) | **Post** /api/v1/cronjob/alerts | Delete expired alerts
 *CronJobServiceApi* | [**CronjobDeleteExpiredEvents**](docs/CronJobServiceApi.md#cronjobdeleteexpiredevents) | **Post** /api/v1/cronjob/events | Delete expired events
 *CronJobServiceApi* | [**CronjobDeleteExpiredHistoryLogs**](docs/CronJobServiceApi.md#cronjobdeleteexpiredhistorylogs) | **Post** /api/v1/cronjob/history-logs | Delete expired history logs
+*CronJobServiceApi* | [**CronjobDeleteExpiredOrgs**](docs/CronJobServiceApi.md#cronjobdeleteexpiredorgs) | **Post** /api/v1/cronjob/delete-expired-organizations | Delete registration expired organizations
 *CronJobServiceApi* | [**CronjobDeleteExpiredRefreshTokens**](docs/CronJobServiceApi.md#cronjobdeleteexpiredrefreshtokens) | **Post** /api/v1/cronjob/refresh-tokens | Delete expired refresh tokens
 *CronJobServiceApi* | [**CronjobDeleteExpiredRequests**](docs/CronJobServiceApi.md#cronjobdeleteexpiredrequests) | **Post** /api/v1/cronjob/taikun-requests | Delete expired requests
+*CronJobServiceApi* | [**CronjobDeleteExpiredServers**](docs/CronJobServiceApi.md#cronjobdeleteexpiredservers) | **Post** /api/v1/cronjob/delete-expired-servers | Delete expired servers
 *CronJobServiceApi* | [**CronjobDeleteKubeConfigs**](docs/CronJobServiceApi.md#cronjobdeletekubeconfigs) | **Post** /api/v1/cronjob/delete-kube-configs | Remove deleted user&#39;s kube config
+*CronJobServiceApi* | [**CronjobDeleteRemovedSpotInstances**](docs/CronJobServiceApi.md#cronjobdeleteremovedspotinstances) | **Post** /api/v1/cronjob/delete-removed-spot-instances | Delete removed spot instances
 *CronJobServiceApi* | [**CronjobDeleteUselessProjectActions**](docs/CronJobServiceApi.md#cronjobdeleteuselessprojectactions) | **Post** /api/v1/cronjob/project-actions | Delete useless project actions
 *CronJobServiceApi* | [**CronjobEmailForProjectExpiration**](docs/CronJobServiceApi.md#cronjobemailforprojectexpiration) | **Post** /api/v1/cronjob/project-expiration | Send email to the users about project expiration
 *CronJobServiceApi* | [**CronjobFetchArtifactOrganizations**](docs/CronJobServiceApi.md#cronjobfetchartifactorganizations) | **Post** /api/v1/cronjob/fetch-artifact-organizations | Fetch artifact hub organizations
+*CronJobServiceApi* | [**CronjobFetchAzureFlavorPrices**](docs/CronJobServiceApi.md#cronjobfetchazureflavorprices) | **Post** /api/v1/cronjob/fetch-azure-flavor-prices | Fetch azure flavor prices
+*CronJobServiceApi* | [**CronjobFetchAzureFlavorPricesWithEuro**](docs/CronJobServiceApi.md#cronjobfetchazureflavorpriceswitheuro) | **Post** /api/v1/cronjob/fetch-azure-flavor-prices-with-euro | Fetch azure flavor prices with euro
+*CronJobServiceApi* | [**CronjobFetchK8sAlertData**](docs/CronJobServiceApi.md#cronjobfetchk8salertdata) | **Post** /api/v1/cronjob/fetch-k8s-alert-data | Fetch k8s alert data
+*CronJobServiceApi* | [**CronjobFetchK8sOverviewData**](docs/CronJobServiceApi.md#cronjobfetchk8soverviewdata) | **Post** /api/v1/cronjob/fetch-k8s-overview-data | Fetch k8s overview data
+*CronJobServiceApi* | [**CronjobFetchOrganizationDetails**](docs/CronJobServiceApi.md#cronjobfetchorganizationdetails) | **Post** /api/v1/cronjob/fetch-organization-details | Fetch organization details
+*CronJobServiceApi* | [**CronjobPurgeExpiredProjects**](docs/CronJobServiceApi.md#cronjobpurgeexpiredprojects) | **Post** /api/v1/cronjob/purge-expired-projects | Purge expired projects
+*CronJobServiceApi* | [**CronjobRemindUsersByAlertingProfile**](docs/CronJobServiceApi.md#cronjobremindusersbyalertingprofile) | **Post** /api/v1/cronjob/remind-users-by-alerting-profile | Remind users by alerting profile
 *CronJobServiceApi* | [**CronjobSyncAppProxy**](docs/CronJobServiceApi.md#cronjobsyncappproxy) | **Post** /api/v1/cronjob/sync-app-proxy | Sync app proxy command 
 *CronJobServiceApi* | [**CronjobSyncBackupCredentials**](docs/CronJobServiceApi.md#cronjobsyncbackupcredentials) | **Post** /api/v1/cronjob/sync-backup-credentials | Sync backup credentials
+*CronJobServiceApi* | [**CronjobSyncOpaProfiles**](docs/CronJobServiceApi.md#cronjobsyncopaprofiles) | **Post** /api/v1/cronjob/sync-opa-profiles | Sync opa profiles
 *CronJobServiceApi* | [**CronjobSyncOrganizations**](docs/CronJobServiceApi.md#cronjobsyncorganizations) | **Post** /api/v1/cronjob/sync-organizations | Sync organizations
 *CronJobServiceApi* | [**CronjobSyncProjectApps**](docs/CronJobServiceApi.md#cronjobsyncprojectapps) | **Post** /api/v1/cronjob/sync-project-apps | Sync project apps
 *CronJobServiceApi* | [**CronjobSyncProjects**](docs/CronJobServiceApi.md#cronjobsyncprojects) | **Post** /api/v1/cronjob/sync-projects | Sync projects
 *CronJobServiceApi* | [**CronjobTriggerTemplates**](docs/CronJobServiceApi.md#cronjobtriggertemplates) | **Post** /api/v1/cronjob/trigger-templates | Trigger scheduled templates
+*CronJobServiceApi* | [**CronjobUpdateProjectAppStatus**](docs/CronJobServiceApi.md#cronjobupdateprojectappstatus) | **Post** /api/v1/cronjob/update-project-app-status | Update project app status
+*CronJobServiceApi* | [**CronjobUpdateProjectQuotaMessage**](docs/CronJobServiceApi.md#cronjobupdateprojectquotamessage) | **Post** /api/v1/cronjob/update-project-quota-message | Update project quota message
 *DnsServersApi* | [**DnsserversCreate**](docs/DnsServersApi.md#dnsserverscreate) | **Post** /api/v1/dnsservers/create | Create dns servers for access profile
 *DnsServersApi* | [**DnsserversDelete**](docs/DnsServersApi.md#dnsserversdelete) | **Delete** /api/v1/dnsservers/{id} | Delete dns server
 *DnsServersApi* | [**DnsserversEdit**](docs/DnsServersApi.md#dnsserversedit) | **Put** /api/v1/dnsservers/edit/{id} | Edit dns server
@@ -265,19 +278,20 @@ Class | Method | HTTP request | Description
 *GoogleApi* | [**GooglecloudRegionList**](docs/GoogleApi.md#googlecloudregionlist) | **Post** /api/v1/googlecloud/regions | Retrieve google region list
 *GoogleApi* | [**GooglecloudZoneList**](docs/GoogleApi.md#googlecloudzonelist) | **Post** /api/v1/googlecloud/zones | Google zones list
 *ImagesApi* | [**ImagesAwsCommonImages**](docs/ImagesApi.md#imagesawscommonimages) | **Get** /api/v1/images/aws/common/{cloudId} | Commonly used aws images
-*ImagesApi* | [**ImagesAwsImages**](docs/ImagesApi.md#imagesawsimages) | **Get** /api/v1/images/aws | Retrieve aws images
+*ImagesApi* | [**ImagesAwsImages**](docs/ImagesApi.md#imagesawsimages) | **Post** /api/v1/images/aws | Retrieve aws images
 *ImagesApi* | [**ImagesAwsPersonalImages**](docs/ImagesApi.md#imagesawspersonalimages) | **Get** /api/v1/images/aws/personal/{cloudId} | Aws personal images
+*ImagesApi* | [**ImagesAzureCommonImages**](docs/ImagesApi.md#imagesazurecommonimages) | **Get** /api/v1/images/azure/common/{cloudId} | Commonly used azure images
 *ImagesApi* | [**ImagesAzureImages**](docs/ImagesApi.md#imagesazureimages) | **Get** /api/v1/images/azure/{cloudId}/{publisherName}/{offer}/{sku} | 
 *ImagesApi* | [**ImagesAzurePersonalImages**](docs/ImagesApi.md#imagesazurepersonalimages) | **Get** /api/v1/images/azure/personal/{cloudId} | Azure personal images
-*ImagesApi* | [**ImagesBindImagesToProject**](docs/ImagesApi.md#imagesbindimagestoproject) | **Get** /api/v1/images/bind | Bind images to project
+*ImagesApi* | [**ImagesBindImagesToProject**](docs/ImagesApi.md#imagesbindimagestoproject) | **Post** /api/v1/images/bind | Bind images to project
 *ImagesApi* | [**ImagesCommonGoogleImages**](docs/ImagesApi.md#imagescommongoogleimages) | **Get** /api/v1/images/google/common/{cloudId} | Commonly used google images
 *ImagesApi* | [**ImagesGoogleImages**](docs/ImagesApi.md#imagesgoogleimages) | **Get** /api/v1/images/google/{cloudId}/{type} | 
-*ImagesApi* | [**ImagesImageDetails**](docs/ImagesApi.md#imagesimagedetails) | **Get** /api/v1/images/details | Get image details
+*ImagesApi* | [**ImagesImageDetails**](docs/ImagesApi.md#imagesimagedetails) | **Post** /api/v1/images/details | Get image details
 *ImagesApi* | [**ImagesOpenstackImages**](docs/ImagesApi.md#imagesopenstackimages) | **Get** /api/v1/images/openstack/{cloudId} | Retrieve openstack images
 *ImagesApi* | [**ImagesProxmoxImages**](docs/ImagesApi.md#imagesproxmoximages) | **Get** /api/v1/images/proxmox/{cloudId} | Retrieve proxmox images
-*ImagesApi* | [**ImagesSelectedImagesForProject**](docs/ImagesApi.md#imagesselectedimagesforproject) | **Get** /api/v1/images/projects/lis | Retrieve selected images for projects
+*ImagesApi* | [**ImagesSelectedImagesForProject**](docs/ImagesApi.md#imagesselectedimagesforproject) | **Get** /api/v1/images/projects/list | Retrieve selected images for projects
 *ImagesApi* | [**ImagesTanzuImages**](docs/ImagesApi.md#imagestanzuimages) | **Get** /api/v1/images/tanzu/{cloudId} | Retrieve tanzu images
-*ImagesApi* | [**ImagesUnbindImagesFromProject**](docs/ImagesApi.md#imagesunbindimagesfromproject) | **Get** /api/v1/images/unbind | Unbind images from project
+*ImagesApi* | [**ImagesUnbindImagesFromProject**](docs/ImagesApi.md#imagesunbindimagesfromproject) | **Post** /api/v1/images/unbind | Unbind images from project
 *InvoicesApi* | [**InvoicesCreate**](docs/InvoicesApi.md#invoicescreate) | **Post** /api/v1/invoices/create | Create invoice
 *InvoicesApi* | [**InvoicesDownload**](docs/InvoicesApi.md#invoicesdownload) | **Get** /api/v1/invoices/download | Download invoice
 *InvoicesApi* | [**InvoicesList**](docs/InvoicesApi.md#invoiceslist) | **Get** /api/v1/invoices/list | Invoices list
@@ -624,13 +638,13 @@ Class | Method | HTTP request | Description
 *TicketApi* | [**TicketDeleteMessage**](docs/TicketApi.md#ticketdeletemessage) | **Delete** /api/v1/ticket/delete/message/{messageId} | 
 *TicketApi* | [**TicketEdit**](docs/TicketApi.md#ticketedit) | **Post** /api/v1/ticket/edit | Edit ticket
 *TicketApi* | [**TicketEditMessage**](docs/TicketApi.md#ticketeditmessage) | **Post** /api/v1/ticket/edit/message | Edit ticket message
-*TicketApi* | [**TicketList**](docs/TicketApi.md#ticketlist) | **Post** /api/v1/ticket/list | Retrieve list of tickets
-*TicketApi* | [**TicketMessages**](docs/TicketApi.md#ticketmessages) | **Post** /api/v1/ticket/{ticketId}/messages | 
+*TicketApi* | [**TicketList**](docs/TicketApi.md#ticketlist) | **Get** /api/v1/ticket/list | Retrieve list of tickets
+*TicketApi* | [**TicketMessages**](docs/TicketApi.md#ticketmessages) | **Get** /api/v1/ticket/{ticketId}/messages | 
 *TicketApi* | [**TicketOpen**](docs/TicketApi.md#ticketopen) | **Post** /api/v1/ticket/open | Open ticket
 *TicketApi* | [**TicketReply**](docs/TicketApi.md#ticketreply) | **Post** /api/v1/ticket/reply | Reply message
 *TicketApi* | [**TicketSetPriority**](docs/TicketApi.md#ticketsetpriority) | **Post** /api/v1/ticket/set-priority | Set priority
 *TicketApi* | [**TicketTransfer**](docs/TicketApi.md#tickettransfer) | **Post** /api/v1/ticket/transfer | Transfer ticket
-*TicketApi* | [**TicketTransferList**](docs/TicketApi.md#tickettransferlist) | **Post** /api/v1/ticket/transfer/list | Retrieve organization managers
+*TicketApi* | [**TicketTransferList**](docs/TicketApi.md#tickettransferlist) | **Get** /api/v1/ticket/transfer/list | Retrieve organization managers
 *UserGroupApi* | [**UsergroupsBindProjectsGroup**](docs/UserGroupApi.md#usergroupsbindprojectsgroup) | **Post** /api/v1/usergroups/bind-project-groups | Bind project groups
 *UserGroupApi* | [**UsergroupsCreate**](docs/UserGroupApi.md#usergroupscreate) | **Post** /api/v1/usergroups/create | Add user groups
 *UserGroupApi* | [**UsergroupsDelete**](docs/UserGroupApi.md#usergroupsdelete) | **Delete** /api/v1/usergroups | Remove user group(s)
@@ -737,6 +751,7 @@ Class | Method | HTTP request | Description
  - [AwsRegionDto](docs/AwsRegionDto.md)
  - [AwsValidateOwnerCommand](docs/AwsValidateOwnerCommand.md)
  - [AzResult](docs/AzResult.md)
+ - [AzureCommonImages](docs/AzureCommonImages.md)
  - [AzureCredentialList](docs/AzureCredentialList.md)
  - [AzureCredentialsForProjectDto](docs/AzureCredentialsForProjectDto.md)
  - [AzureCredentialsListDto](docs/AzureCredentialsListDto.md)
@@ -746,6 +761,7 @@ Class | Method | HTTP request | Description
  - [AzureImageList](docs/AzureImageList.md)
  - [AzureLocationsCommand](docs/AzureLocationsCommand.md)
  - [AzureOffersList](docs/AzureOffersList.md)
+ - [AzurePublisherDetails](docs/AzurePublisherDetails.md)
  - [AzurePublishersList](docs/AzurePublishersList.md)
  - [AzureQuotaListRecordDto](docs/AzureQuotaListRecordDto.md)
  - [AzureSkusList](docs/AzureSkusList.md)
@@ -1146,6 +1162,7 @@ Class | Method | HTTP request | Description
  - [PodsSearchCommand](docs/PodsSearchCommand.md)
  - [PodsSearchList](docs/PodsSearchList.md)
  - [ProblemDetails](docs/ProblemDetails.md)
+ - [ProjectActionDto](docs/ProjectActionDto.md)
  - [ProjectActionUpdateDto](docs/ProjectActionUpdateDto.md)
  - [ProjectActionVisibilityDto](docs/ProjectActionVisibilityDto.md)
  - [ProjectAppDetailsDto](docs/ProjectAppDetailsDto.md)
@@ -1177,6 +1194,7 @@ Class | Method | HTTP request | Description
  - [ProjectLockManagerCommand](docs/ProjectLockManagerCommand.md)
  - [ProjectQuotaList](docs/ProjectQuotaList.md)
  - [ProjectQuotaListDto](docs/ProjectQuotaListDto.md)
+ - [ProjectRevisionDto](docs/ProjectRevisionDto.md)
  - [ProjectRevisionUpdateDto](docs/ProjectRevisionUpdateDto.md)
  - [ProjectStatus](docs/ProjectStatus.md)
  - [ProjectTemplateDropdownListDto](docs/ProjectTemplateDropdownListDto.md)
@@ -1230,6 +1248,7 @@ Class | Method | HTTP request | Description
  - [RebootStandAloneVmCommand](docs/RebootStandAloneVmCommand.md)
  - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegionListCommand](docs/RegionListCommand.md)
+ - [RemindUsersByAlertingProfileCommand](docs/RemindUsersByAlertingProfileCommand.md)
  - [RepairStandAloneVmCommand](docs/RepairStandAloneVmCommand.md)
  - [ReplyTicketCommand](docs/ReplyTicketCommand.md)
  - [Repository](docs/Repository.md)
@@ -1244,6 +1263,7 @@ Class | Method | HTTP request | Description
  - [RestoreBackupCommand](docs/RestoreBackupCommand.md)
  - [RuleCreateCommand](docs/RuleCreateCommand.md)
  - [RuleForUpdateDto](docs/RuleForUpdateDto.md)
+ - [S3CredentialForProjectDto](docs/S3CredentialForProjectDto.md)
  - [SecretDto](docs/SecretDto.md)
  - [SecretSearchCommand](docs/SecretSearchCommand.md)
  - [SecretSearchList](docs/SecretSearchList.md)
@@ -1328,6 +1348,7 @@ Class | Method | HTTP request | Description
  - [Subnet](docs/Subnet.md)
  - [Subresource](docs/Subresource.md)
  - [SyncProjectAppCommand](docs/SyncProjectAppCommand.md)
+ - [TaikunLbDto](docs/TaikunLbDto.md)
  - [TanzuCredentialsForProjectDto](docs/TanzuCredentialsForProjectDto.md)
  - [TanzuCredentialsList](docs/TanzuCredentialsList.md)
  - [TanzuCredentialsListDto](docs/TanzuCredentialsListDto.md)

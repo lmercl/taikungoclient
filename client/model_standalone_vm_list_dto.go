@@ -32,11 +32,11 @@ type StandaloneVmListDto struct {
 	PublicIpEnabled *bool `json:"publicIpEnabled,omitempty"`
 	PublicIp NullableString `json:"publicIp,omitempty"`
 	IpAddress NullableString `json:"ipAddress,omitempty"`
-	CloudType NullableString `json:"cloudType,omitempty"`
+	CloudType *CloudType `json:"cloudType,omitempty"`
 	ImageName NullableString `json:"imageName,omitempty"`
 	Revision *int32 `json:"revision,omitempty"`
 	IsWindows *bool `json:"isWindows,omitempty"`
-	Status NullableString `json:"status,omitempty"`
+	Status *StandAloneVmStatus `json:"status,omitempty"`
 	ProjectName NullableString `json:"projectName,omitempty"`
 	ProjectId *int32 `json:"projectId,omitempty"`
 	StandAloneProfile *StandaloneProfileListDto `json:"standAloneProfile,omitempty"`
@@ -506,46 +506,36 @@ func (o *StandaloneVmListDto) UnsetIpAddress() {
 	o.IpAddress.Unset()
 }
 
-// GetCloudType returns the CloudType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StandaloneVmListDto) GetCloudType() string {
-	if o == nil || IsNil(o.CloudType.Get()) {
-		var ret string
+// GetCloudType returns the CloudType field value if set, zero value otherwise.
+func (o *StandaloneVmListDto) GetCloudType() CloudType {
+	if o == nil || IsNil(o.CloudType) {
+		var ret CloudType
 		return ret
 	}
-	return *o.CloudType.Get()
+	return *o.CloudType
 }
 
 // GetCloudTypeOk returns a tuple with the CloudType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StandaloneVmListDto) GetCloudTypeOk() (*string, bool) {
-	if o == nil {
+func (o *StandaloneVmListDto) GetCloudTypeOk() (*CloudType, bool) {
+	if o == nil || IsNil(o.CloudType) {
 		return nil, false
 	}
-	return o.CloudType.Get(), o.CloudType.IsSet()
+	return o.CloudType, true
 }
 
 // HasCloudType returns a boolean if a field has been set.
 func (o *StandaloneVmListDto) HasCloudType() bool {
-	if o != nil && o.CloudType.IsSet() {
+	if o != nil && !IsNil(o.CloudType) {
 		return true
 	}
 
 	return false
 }
 
-// SetCloudType gets a reference to the given NullableString and assigns it to the CloudType field.
-func (o *StandaloneVmListDto) SetCloudType(v string) {
-	o.CloudType.Set(&v)
-}
-// SetCloudTypeNil sets the value for CloudType to be an explicit nil
-func (o *StandaloneVmListDto) SetCloudTypeNil() {
-	o.CloudType.Set(nil)
-}
-
-// UnsetCloudType ensures that no value is present for CloudType, not even an explicit nil
-func (o *StandaloneVmListDto) UnsetCloudType() {
-	o.CloudType.Unset()
+// SetCloudType gets a reference to the given CloudType and assigns it to the CloudType field.
+func (o *StandaloneVmListDto) SetCloudType(v CloudType) {
+	o.CloudType = &v
 }
 
 // GetImageName returns the ImageName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -654,46 +644,36 @@ func (o *StandaloneVmListDto) SetIsWindows(v bool) {
 	o.IsWindows = &v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StandaloneVmListDto) GetStatus() string {
-	if o == nil || IsNil(o.Status.Get()) {
-		var ret string
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *StandaloneVmListDto) GetStatus() StandAloneVmStatus {
+	if o == nil || IsNil(o.Status) {
+		var ret StandAloneVmStatus
 		return ret
 	}
-	return *o.Status.Get()
+	return *o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StandaloneVmListDto) GetStatusOk() (*string, bool) {
-	if o == nil {
+func (o *StandaloneVmListDto) GetStatusOk() (*StandAloneVmStatus, bool) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *StandaloneVmListDto) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
-func (o *StandaloneVmListDto) SetStatus(v string) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *StandaloneVmListDto) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *StandaloneVmListDto) UnsetStatus() {
-	o.Status.Unset()
+// SetStatus gets a reference to the given StandAloneVmStatus and assigns it to the Status field.
+func (o *StandaloneVmListDto) SetStatus(v StandAloneVmStatus) {
+	o.Status = &v
 }
 
 // GetProjectName returns the ProjectName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -974,8 +954,8 @@ func (o StandaloneVmListDto) ToMap() (map[string]interface{}, error) {
 	if o.IpAddress.IsSet() {
 		toSerialize["ipAddress"] = o.IpAddress.Get()
 	}
-	if o.CloudType.IsSet() {
-		toSerialize["cloudType"] = o.CloudType.Get()
+	if !IsNil(o.CloudType) {
+		toSerialize["cloudType"] = o.CloudType
 	}
 	if o.ImageName.IsSet() {
 		toSerialize["imageName"] = o.ImageName.Get()
@@ -986,8 +966,8 @@ func (o StandaloneVmListDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsWindows) {
 		toSerialize["isWindows"] = o.IsWindows
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	if o.ProjectName.IsSet() {
 		toSerialize["projectName"] = o.ProjectName.Get()

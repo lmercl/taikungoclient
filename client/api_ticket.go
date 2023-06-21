@@ -1230,7 +1230,7 @@ func (a *TicketApiService) TicketList(ctx context.Context) ApiTicketListRequest 
 //  @return AllTicketsList
 func (a *TicketApiService) TicketListExecute(r ApiTicketListRequest) (*AllTicketsList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *AllTicketsList
@@ -1431,7 +1431,7 @@ func (a *TicketApiService) TicketMessages(ctx context.Context, ticketId string) 
 //  @return ArticleList
 func (a *TicketApiService) TicketMessagesExecute(r ApiTicketMessagesRequest) (*ArticleList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *ArticleList
@@ -2269,7 +2269,7 @@ func (a *TicketApiService) TicketTransferList(ctx context.Context) ApiTicketTran
 //  @return []TransferList
 func (a *TicketApiService) TicketTransferListExecute(r ApiTicketTransferListRequest) ([]TransferList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []TransferList

@@ -23,9 +23,6 @@ var _ MappedNullable = &ProjectForListDto{}
 type ProjectForListDto struct {
 	Id *int32 `json:"id,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	Operation NullableString `json:"operation,omitempty"`
-	JobUrl NullableString `json:"jobUrl,omitempty"`
-	TopicName NullableString `json:"topicName,omitempty"`
 	ImageName NullableString `json:"imageName,omitempty"`
 	Token NullableString `json:"token,omitempty"`
 	IsKubernetes *bool `json:"isKubernetes,omitempty"`
@@ -34,11 +31,10 @@ type ProjectForListDto struct {
 	IsMonitoringEnabled *bool `json:"isMonitoringEnabled,omitempty"`
 	IsOpaEnabled *bool `json:"isOpaEnabled,omitempty"`
 	IsAutoUpgrade *bool `json:"isAutoUpgrade,omitempty"`
+	S3BucketName NullableString `json:"s3BucketName,omitempty"`
 	HasKubeConfigFile *bool `json:"hasKubeConfigFile,omitempty"`
 	HasSelectedFlavors *bool `json:"hasSelectedFlavors,omitempty"`
 	QuotaId *int32 `json:"quotaId,omitempty"`
-	AccessProfileRevision *int32 `json:"accessProfileRevision,omitempty"`
-	OpaProfileRevision *int32 `json:"opaProfileRevision,omitempty"`
 	CloudCredentialName NullableString `json:"cloudCredentialName,omitempty"`
 	CloudCredentialId NullableInt32 `json:"cloudCredentialId,omitempty"`
 	OrganizationName NullableString `json:"organizationName,omitempty"`
@@ -60,17 +56,7 @@ type ProjectForListDto struct {
 	KubernetesProfiles *KubernetesProfilesLisForPollerDto `json:"kubernetesProfiles,omitempty"`
 	OpaProfile *OpaProfileListDto `json:"opaProfile,omitempty"`
 	KubernetesAlerts []KubernetesAlertDto `json:"kubernetesAlerts,omitempty"`
-	S3BucketName NullableString `json:"s3BucketName,omitempty"`
-	S3AccessKeyId NullableString `json:"s3AccessKeyId,omitempty"`
-	S3SecretKey NullableString `json:"s3SecretKey,omitempty"`
-	S3Endpoint NullableString `json:"s3Endpoint,omitempty"`
-	S3Region NullableString `json:"s3Region,omitempty"`
 	IsDeleteCluster *bool `json:"isDeleteCluster,omitempty"`
-	TaikunLBFlavor NullableString `json:"taikunLBFlavor,omitempty"`
-	TaikunLBPrivateKey NullableString `json:"taikunLBPrivateKey,omitempty"`
-	TaikunLBPublicKey NullableString `json:"taikunLBPublicKey,omitempty"`
-	RouterIdStartRange NullableInt32 `json:"routerIdStartRange,omitempty"`
-	RouterIdEndRange NullableInt32 `json:"routerIdEndRange,omitempty"`
 	TaikunPrivateSSHKey NullableString `json:"taikunPrivateSSHKey,omitempty"`
 	TaikunPublicSSHKey NullableString `json:"taikunPublicSSHKey,omitempty"`
 	GoogleProjectId NullableString `json:"googleProjectId,omitempty"`
@@ -84,6 +70,11 @@ type ProjectForListDto struct {
 	KubevapEnabeledKubernetesVersions []string `json:"kubevapEnabeledKubernetesVersions,omitempty"`
 	AwsProjectAZSubnets []AwsProjectAZSubnetDto `json:"awsProjectAZSubnets,omitempty"`
 	AvailabilityZones []string `json:"availabilityZones,omitempty"`
+	WorkersCount *int32 `json:"workersCount,omitempty"`
+	TaikunLB *TaikunLbDto `json:"taikunLB,omitempty"`
+	S3Credential *S3CredentialForProjectDto `json:"s3Credential,omitempty"`
+	ProjectRevision *ProjectRevisionDto `json:"projectRevision,omitempty"`
+	ProjectActionDto *ProjectActionDto `json:"projectActionDto,omitempty"`
 }
 
 // NewProjectForListDto instantiates a new ProjectForListDto object
@@ -175,132 +166,6 @@ func (o *ProjectForListDto) SetNameNil() {
 // UnsetName ensures that no value is present for Name, not even an explicit nil
 func (o *ProjectForListDto) UnsetName() {
 	o.Name.Unset()
-}
-
-// GetOperation returns the Operation field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetOperation() string {
-	if o == nil || IsNil(o.Operation.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Operation.Get()
-}
-
-// GetOperationOk returns a tuple with the Operation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetOperationOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Operation.Get(), o.Operation.IsSet()
-}
-
-// HasOperation returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasOperation() bool {
-	if o != nil && o.Operation.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOperation gets a reference to the given NullableString and assigns it to the Operation field.
-func (o *ProjectForListDto) SetOperation(v string) {
-	o.Operation.Set(&v)
-}
-// SetOperationNil sets the value for Operation to be an explicit nil
-func (o *ProjectForListDto) SetOperationNil() {
-	o.Operation.Set(nil)
-}
-
-// UnsetOperation ensures that no value is present for Operation, not even an explicit nil
-func (o *ProjectForListDto) UnsetOperation() {
-	o.Operation.Unset()
-}
-
-// GetJobUrl returns the JobUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetJobUrl() string {
-	if o == nil || IsNil(o.JobUrl.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.JobUrl.Get()
-}
-
-// GetJobUrlOk returns a tuple with the JobUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetJobUrlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.JobUrl.Get(), o.JobUrl.IsSet()
-}
-
-// HasJobUrl returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasJobUrl() bool {
-	if o != nil && o.JobUrl.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetJobUrl gets a reference to the given NullableString and assigns it to the JobUrl field.
-func (o *ProjectForListDto) SetJobUrl(v string) {
-	o.JobUrl.Set(&v)
-}
-// SetJobUrlNil sets the value for JobUrl to be an explicit nil
-func (o *ProjectForListDto) SetJobUrlNil() {
-	o.JobUrl.Set(nil)
-}
-
-// UnsetJobUrl ensures that no value is present for JobUrl, not even an explicit nil
-func (o *ProjectForListDto) UnsetJobUrl() {
-	o.JobUrl.Unset()
-}
-
-// GetTopicName returns the TopicName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetTopicName() string {
-	if o == nil || IsNil(o.TopicName.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TopicName.Get()
-}
-
-// GetTopicNameOk returns a tuple with the TopicName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetTopicNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TopicName.Get(), o.TopicName.IsSet()
-}
-
-// HasTopicName returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasTopicName() bool {
-	if o != nil && o.TopicName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTopicName gets a reference to the given NullableString and assigns it to the TopicName field.
-func (o *ProjectForListDto) SetTopicName(v string) {
-	o.TopicName.Set(&v)
-}
-// SetTopicNameNil sets the value for TopicName to be an explicit nil
-func (o *ProjectForListDto) SetTopicNameNil() {
-	o.TopicName.Set(nil)
-}
-
-// UnsetTopicName ensures that no value is present for TopicName, not even an explicit nil
-func (o *ProjectForListDto) UnsetTopicName() {
-	o.TopicName.Unset()
 }
 
 // GetImageName returns the ImageName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -579,6 +444,48 @@ func (o *ProjectForListDto) SetIsAutoUpgrade(v bool) {
 	o.IsAutoUpgrade = &v
 }
 
+// GetS3BucketName returns the S3BucketName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectForListDto) GetS3BucketName() string {
+	if o == nil || IsNil(o.S3BucketName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.S3BucketName.Get()
+}
+
+// GetS3BucketNameOk returns a tuple with the S3BucketName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectForListDto) GetS3BucketNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.S3BucketName.Get(), o.S3BucketName.IsSet()
+}
+
+// HasS3BucketName returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasS3BucketName() bool {
+	if o != nil && o.S3BucketName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetS3BucketName gets a reference to the given NullableString and assigns it to the S3BucketName field.
+func (o *ProjectForListDto) SetS3BucketName(v string) {
+	o.S3BucketName.Set(&v)
+}
+// SetS3BucketNameNil sets the value for S3BucketName to be an explicit nil
+func (o *ProjectForListDto) SetS3BucketNameNil() {
+	o.S3BucketName.Set(nil)
+}
+
+// UnsetS3BucketName ensures that no value is present for S3BucketName, not even an explicit nil
+func (o *ProjectForListDto) UnsetS3BucketName() {
+	o.S3BucketName.Unset()
+}
+
 // GetHasKubeConfigFile returns the HasKubeConfigFile field value if set, zero value otherwise.
 func (o *ProjectForListDto) GetHasKubeConfigFile() bool {
 	if o == nil || IsNil(o.HasKubeConfigFile) {
@@ -673,70 +580,6 @@ func (o *ProjectForListDto) HasQuotaId() bool {
 // SetQuotaId gets a reference to the given int32 and assigns it to the QuotaId field.
 func (o *ProjectForListDto) SetQuotaId(v int32) {
 	o.QuotaId = &v
-}
-
-// GetAccessProfileRevision returns the AccessProfileRevision field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetAccessProfileRevision() int32 {
-	if o == nil || IsNil(o.AccessProfileRevision) {
-		var ret int32
-		return ret
-	}
-	return *o.AccessProfileRevision
-}
-
-// GetAccessProfileRevisionOk returns a tuple with the AccessProfileRevision field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetAccessProfileRevisionOk() (*int32, bool) {
-	if o == nil || IsNil(o.AccessProfileRevision) {
-		return nil, false
-	}
-	return o.AccessProfileRevision, true
-}
-
-// HasAccessProfileRevision returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasAccessProfileRevision() bool {
-	if o != nil && !IsNil(o.AccessProfileRevision) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccessProfileRevision gets a reference to the given int32 and assigns it to the AccessProfileRevision field.
-func (o *ProjectForListDto) SetAccessProfileRevision(v int32) {
-	o.AccessProfileRevision = &v
-}
-
-// GetOpaProfileRevision returns the OpaProfileRevision field value if set, zero value otherwise.
-func (o *ProjectForListDto) GetOpaProfileRevision() int32 {
-	if o == nil || IsNil(o.OpaProfileRevision) {
-		var ret int32
-		return ret
-	}
-	return *o.OpaProfileRevision
-}
-
-// GetOpaProfileRevisionOk returns a tuple with the OpaProfileRevision field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProjectForListDto) GetOpaProfileRevisionOk() (*int32, bool) {
-	if o == nil || IsNil(o.OpaProfileRevision) {
-		return nil, false
-	}
-	return o.OpaProfileRevision, true
-}
-
-// HasOpaProfileRevision returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasOpaProfileRevision() bool {
-	if o != nil && !IsNil(o.OpaProfileRevision) {
-		return true
-	}
-
-	return false
-}
-
-// SetOpaProfileRevision gets a reference to the given int32 and assigns it to the OpaProfileRevision field.
-func (o *ProjectForListDto) SetOpaProfileRevision(v int32) {
-	o.OpaProfileRevision = &v
 }
 
 // GetCloudCredentialName returns the CloudCredentialName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1543,216 +1386,6 @@ func (o *ProjectForListDto) SetKubernetesAlerts(v []KubernetesAlertDto) {
 	o.KubernetesAlerts = v
 }
 
-// GetS3BucketName returns the S3BucketName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetS3BucketName() string {
-	if o == nil || IsNil(o.S3BucketName.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.S3BucketName.Get()
-}
-
-// GetS3BucketNameOk returns a tuple with the S3BucketName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetS3BucketNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.S3BucketName.Get(), o.S3BucketName.IsSet()
-}
-
-// HasS3BucketName returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasS3BucketName() bool {
-	if o != nil && o.S3BucketName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetS3BucketName gets a reference to the given NullableString and assigns it to the S3BucketName field.
-func (o *ProjectForListDto) SetS3BucketName(v string) {
-	o.S3BucketName.Set(&v)
-}
-// SetS3BucketNameNil sets the value for S3BucketName to be an explicit nil
-func (o *ProjectForListDto) SetS3BucketNameNil() {
-	o.S3BucketName.Set(nil)
-}
-
-// UnsetS3BucketName ensures that no value is present for S3BucketName, not even an explicit nil
-func (o *ProjectForListDto) UnsetS3BucketName() {
-	o.S3BucketName.Unset()
-}
-
-// GetS3AccessKeyId returns the S3AccessKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetS3AccessKeyId() string {
-	if o == nil || IsNil(o.S3AccessKeyId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.S3AccessKeyId.Get()
-}
-
-// GetS3AccessKeyIdOk returns a tuple with the S3AccessKeyId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetS3AccessKeyIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.S3AccessKeyId.Get(), o.S3AccessKeyId.IsSet()
-}
-
-// HasS3AccessKeyId returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasS3AccessKeyId() bool {
-	if o != nil && o.S3AccessKeyId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetS3AccessKeyId gets a reference to the given NullableString and assigns it to the S3AccessKeyId field.
-func (o *ProjectForListDto) SetS3AccessKeyId(v string) {
-	o.S3AccessKeyId.Set(&v)
-}
-// SetS3AccessKeyIdNil sets the value for S3AccessKeyId to be an explicit nil
-func (o *ProjectForListDto) SetS3AccessKeyIdNil() {
-	o.S3AccessKeyId.Set(nil)
-}
-
-// UnsetS3AccessKeyId ensures that no value is present for S3AccessKeyId, not even an explicit nil
-func (o *ProjectForListDto) UnsetS3AccessKeyId() {
-	o.S3AccessKeyId.Unset()
-}
-
-// GetS3SecretKey returns the S3SecretKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetS3SecretKey() string {
-	if o == nil || IsNil(o.S3SecretKey.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.S3SecretKey.Get()
-}
-
-// GetS3SecretKeyOk returns a tuple with the S3SecretKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetS3SecretKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.S3SecretKey.Get(), o.S3SecretKey.IsSet()
-}
-
-// HasS3SecretKey returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasS3SecretKey() bool {
-	if o != nil && o.S3SecretKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetS3SecretKey gets a reference to the given NullableString and assigns it to the S3SecretKey field.
-func (o *ProjectForListDto) SetS3SecretKey(v string) {
-	o.S3SecretKey.Set(&v)
-}
-// SetS3SecretKeyNil sets the value for S3SecretKey to be an explicit nil
-func (o *ProjectForListDto) SetS3SecretKeyNil() {
-	o.S3SecretKey.Set(nil)
-}
-
-// UnsetS3SecretKey ensures that no value is present for S3SecretKey, not even an explicit nil
-func (o *ProjectForListDto) UnsetS3SecretKey() {
-	o.S3SecretKey.Unset()
-}
-
-// GetS3Endpoint returns the S3Endpoint field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetS3Endpoint() string {
-	if o == nil || IsNil(o.S3Endpoint.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.S3Endpoint.Get()
-}
-
-// GetS3EndpointOk returns a tuple with the S3Endpoint field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetS3EndpointOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.S3Endpoint.Get(), o.S3Endpoint.IsSet()
-}
-
-// HasS3Endpoint returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasS3Endpoint() bool {
-	if o != nil && o.S3Endpoint.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetS3Endpoint gets a reference to the given NullableString and assigns it to the S3Endpoint field.
-func (o *ProjectForListDto) SetS3Endpoint(v string) {
-	o.S3Endpoint.Set(&v)
-}
-// SetS3EndpointNil sets the value for S3Endpoint to be an explicit nil
-func (o *ProjectForListDto) SetS3EndpointNil() {
-	o.S3Endpoint.Set(nil)
-}
-
-// UnsetS3Endpoint ensures that no value is present for S3Endpoint, not even an explicit nil
-func (o *ProjectForListDto) UnsetS3Endpoint() {
-	o.S3Endpoint.Unset()
-}
-
-// GetS3Region returns the S3Region field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetS3Region() string {
-	if o == nil || IsNil(o.S3Region.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.S3Region.Get()
-}
-
-// GetS3RegionOk returns a tuple with the S3Region field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetS3RegionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.S3Region.Get(), o.S3Region.IsSet()
-}
-
-// HasS3Region returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasS3Region() bool {
-	if o != nil && o.S3Region.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetS3Region gets a reference to the given NullableString and assigns it to the S3Region field.
-func (o *ProjectForListDto) SetS3Region(v string) {
-	o.S3Region.Set(&v)
-}
-// SetS3RegionNil sets the value for S3Region to be an explicit nil
-func (o *ProjectForListDto) SetS3RegionNil() {
-	o.S3Region.Set(nil)
-}
-
-// UnsetS3Region ensures that no value is present for S3Region, not even an explicit nil
-func (o *ProjectForListDto) UnsetS3Region() {
-	o.S3Region.Unset()
-}
-
 // GetIsDeleteCluster returns the IsDeleteCluster field value if set, zero value otherwise.
 func (o *ProjectForListDto) GetIsDeleteCluster() bool {
 	if o == nil || IsNil(o.IsDeleteCluster) {
@@ -1783,216 +1416,6 @@ func (o *ProjectForListDto) HasIsDeleteCluster() bool {
 // SetIsDeleteCluster gets a reference to the given bool and assigns it to the IsDeleteCluster field.
 func (o *ProjectForListDto) SetIsDeleteCluster(v bool) {
 	o.IsDeleteCluster = &v
-}
-
-// GetTaikunLBFlavor returns the TaikunLBFlavor field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetTaikunLBFlavor() string {
-	if o == nil || IsNil(o.TaikunLBFlavor.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TaikunLBFlavor.Get()
-}
-
-// GetTaikunLBFlavorOk returns a tuple with the TaikunLBFlavor field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetTaikunLBFlavorOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TaikunLBFlavor.Get(), o.TaikunLBFlavor.IsSet()
-}
-
-// HasTaikunLBFlavor returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasTaikunLBFlavor() bool {
-	if o != nil && o.TaikunLBFlavor.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTaikunLBFlavor gets a reference to the given NullableString and assigns it to the TaikunLBFlavor field.
-func (o *ProjectForListDto) SetTaikunLBFlavor(v string) {
-	o.TaikunLBFlavor.Set(&v)
-}
-// SetTaikunLBFlavorNil sets the value for TaikunLBFlavor to be an explicit nil
-func (o *ProjectForListDto) SetTaikunLBFlavorNil() {
-	o.TaikunLBFlavor.Set(nil)
-}
-
-// UnsetTaikunLBFlavor ensures that no value is present for TaikunLBFlavor, not even an explicit nil
-func (o *ProjectForListDto) UnsetTaikunLBFlavor() {
-	o.TaikunLBFlavor.Unset()
-}
-
-// GetTaikunLBPrivateKey returns the TaikunLBPrivateKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetTaikunLBPrivateKey() string {
-	if o == nil || IsNil(o.TaikunLBPrivateKey.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TaikunLBPrivateKey.Get()
-}
-
-// GetTaikunLBPrivateKeyOk returns a tuple with the TaikunLBPrivateKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetTaikunLBPrivateKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TaikunLBPrivateKey.Get(), o.TaikunLBPrivateKey.IsSet()
-}
-
-// HasTaikunLBPrivateKey returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasTaikunLBPrivateKey() bool {
-	if o != nil && o.TaikunLBPrivateKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTaikunLBPrivateKey gets a reference to the given NullableString and assigns it to the TaikunLBPrivateKey field.
-func (o *ProjectForListDto) SetTaikunLBPrivateKey(v string) {
-	o.TaikunLBPrivateKey.Set(&v)
-}
-// SetTaikunLBPrivateKeyNil sets the value for TaikunLBPrivateKey to be an explicit nil
-func (o *ProjectForListDto) SetTaikunLBPrivateKeyNil() {
-	o.TaikunLBPrivateKey.Set(nil)
-}
-
-// UnsetTaikunLBPrivateKey ensures that no value is present for TaikunLBPrivateKey, not even an explicit nil
-func (o *ProjectForListDto) UnsetTaikunLBPrivateKey() {
-	o.TaikunLBPrivateKey.Unset()
-}
-
-// GetTaikunLBPublicKey returns the TaikunLBPublicKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetTaikunLBPublicKey() string {
-	if o == nil || IsNil(o.TaikunLBPublicKey.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TaikunLBPublicKey.Get()
-}
-
-// GetTaikunLBPublicKeyOk returns a tuple with the TaikunLBPublicKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetTaikunLBPublicKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TaikunLBPublicKey.Get(), o.TaikunLBPublicKey.IsSet()
-}
-
-// HasTaikunLBPublicKey returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasTaikunLBPublicKey() bool {
-	if o != nil && o.TaikunLBPublicKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTaikunLBPublicKey gets a reference to the given NullableString and assigns it to the TaikunLBPublicKey field.
-func (o *ProjectForListDto) SetTaikunLBPublicKey(v string) {
-	o.TaikunLBPublicKey.Set(&v)
-}
-// SetTaikunLBPublicKeyNil sets the value for TaikunLBPublicKey to be an explicit nil
-func (o *ProjectForListDto) SetTaikunLBPublicKeyNil() {
-	o.TaikunLBPublicKey.Set(nil)
-}
-
-// UnsetTaikunLBPublicKey ensures that no value is present for TaikunLBPublicKey, not even an explicit nil
-func (o *ProjectForListDto) UnsetTaikunLBPublicKey() {
-	o.TaikunLBPublicKey.Unset()
-}
-
-// GetRouterIdStartRange returns the RouterIdStartRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetRouterIdStartRange() int32 {
-	if o == nil || IsNil(o.RouterIdStartRange.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.RouterIdStartRange.Get()
-}
-
-// GetRouterIdStartRangeOk returns a tuple with the RouterIdStartRange field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetRouterIdStartRangeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RouterIdStartRange.Get(), o.RouterIdStartRange.IsSet()
-}
-
-// HasRouterIdStartRange returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasRouterIdStartRange() bool {
-	if o != nil && o.RouterIdStartRange.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRouterIdStartRange gets a reference to the given NullableInt32 and assigns it to the RouterIdStartRange field.
-func (o *ProjectForListDto) SetRouterIdStartRange(v int32) {
-	o.RouterIdStartRange.Set(&v)
-}
-// SetRouterIdStartRangeNil sets the value for RouterIdStartRange to be an explicit nil
-func (o *ProjectForListDto) SetRouterIdStartRangeNil() {
-	o.RouterIdStartRange.Set(nil)
-}
-
-// UnsetRouterIdStartRange ensures that no value is present for RouterIdStartRange, not even an explicit nil
-func (o *ProjectForListDto) UnsetRouterIdStartRange() {
-	o.RouterIdStartRange.Unset()
-}
-
-// GetRouterIdEndRange returns the RouterIdEndRange field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectForListDto) GetRouterIdEndRange() int32 {
-	if o == nil || IsNil(o.RouterIdEndRange.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.RouterIdEndRange.Get()
-}
-
-// GetRouterIdEndRangeOk returns a tuple with the RouterIdEndRange field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectForListDto) GetRouterIdEndRangeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RouterIdEndRange.Get(), o.RouterIdEndRange.IsSet()
-}
-
-// HasRouterIdEndRange returns a boolean if a field has been set.
-func (o *ProjectForListDto) HasRouterIdEndRange() bool {
-	if o != nil && o.RouterIdEndRange.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRouterIdEndRange gets a reference to the given NullableInt32 and assigns it to the RouterIdEndRange field.
-func (o *ProjectForListDto) SetRouterIdEndRange(v int32) {
-	o.RouterIdEndRange.Set(&v)
-}
-// SetRouterIdEndRangeNil sets the value for RouterIdEndRange to be an explicit nil
-func (o *ProjectForListDto) SetRouterIdEndRangeNil() {
-	o.RouterIdEndRange.Set(nil)
-}
-
-// UnsetRouterIdEndRange ensures that no value is present for RouterIdEndRange, not even an explicit nil
-func (o *ProjectForListDto) UnsetRouterIdEndRange() {
-	o.RouterIdEndRange.Unset()
 }
 
 // GetTaikunPrivateSSHKey returns the TaikunPrivateSSHKey field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2494,6 +1917,166 @@ func (o *ProjectForListDto) SetAvailabilityZones(v []string) {
 	o.AvailabilityZones = v
 }
 
+// GetWorkersCount returns the WorkersCount field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetWorkersCount() int32 {
+	if o == nil || IsNil(o.WorkersCount) {
+		var ret int32
+		return ret
+	}
+	return *o.WorkersCount
+}
+
+// GetWorkersCountOk returns a tuple with the WorkersCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetWorkersCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.WorkersCount) {
+		return nil, false
+	}
+	return o.WorkersCount, true
+}
+
+// HasWorkersCount returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasWorkersCount() bool {
+	if o != nil && !IsNil(o.WorkersCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkersCount gets a reference to the given int32 and assigns it to the WorkersCount field.
+func (o *ProjectForListDto) SetWorkersCount(v int32) {
+	o.WorkersCount = &v
+}
+
+// GetTaikunLB returns the TaikunLB field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetTaikunLB() TaikunLbDto {
+	if o == nil || IsNil(o.TaikunLB) {
+		var ret TaikunLbDto
+		return ret
+	}
+	return *o.TaikunLB
+}
+
+// GetTaikunLBOk returns a tuple with the TaikunLB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetTaikunLBOk() (*TaikunLbDto, bool) {
+	if o == nil || IsNil(o.TaikunLB) {
+		return nil, false
+	}
+	return o.TaikunLB, true
+}
+
+// HasTaikunLB returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasTaikunLB() bool {
+	if o != nil && !IsNil(o.TaikunLB) {
+		return true
+	}
+
+	return false
+}
+
+// SetTaikunLB gets a reference to the given TaikunLbDto and assigns it to the TaikunLB field.
+func (o *ProjectForListDto) SetTaikunLB(v TaikunLbDto) {
+	o.TaikunLB = &v
+}
+
+// GetS3Credential returns the S3Credential field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetS3Credential() S3CredentialForProjectDto {
+	if o == nil || IsNil(o.S3Credential) {
+		var ret S3CredentialForProjectDto
+		return ret
+	}
+	return *o.S3Credential
+}
+
+// GetS3CredentialOk returns a tuple with the S3Credential field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetS3CredentialOk() (*S3CredentialForProjectDto, bool) {
+	if o == nil || IsNil(o.S3Credential) {
+		return nil, false
+	}
+	return o.S3Credential, true
+}
+
+// HasS3Credential returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasS3Credential() bool {
+	if o != nil && !IsNil(o.S3Credential) {
+		return true
+	}
+
+	return false
+}
+
+// SetS3Credential gets a reference to the given S3CredentialForProjectDto and assigns it to the S3Credential field.
+func (o *ProjectForListDto) SetS3Credential(v S3CredentialForProjectDto) {
+	o.S3Credential = &v
+}
+
+// GetProjectRevision returns the ProjectRevision field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetProjectRevision() ProjectRevisionDto {
+	if o == nil || IsNil(o.ProjectRevision) {
+		var ret ProjectRevisionDto
+		return ret
+	}
+	return *o.ProjectRevision
+}
+
+// GetProjectRevisionOk returns a tuple with the ProjectRevision field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetProjectRevisionOk() (*ProjectRevisionDto, bool) {
+	if o == nil || IsNil(o.ProjectRevision) {
+		return nil, false
+	}
+	return o.ProjectRevision, true
+}
+
+// HasProjectRevision returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasProjectRevision() bool {
+	if o != nil && !IsNil(o.ProjectRevision) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectRevision gets a reference to the given ProjectRevisionDto and assigns it to the ProjectRevision field.
+func (o *ProjectForListDto) SetProjectRevision(v ProjectRevisionDto) {
+	o.ProjectRevision = &v
+}
+
+// GetProjectActionDto returns the ProjectActionDto field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetProjectActionDto() ProjectActionDto {
+	if o == nil || IsNil(o.ProjectActionDto) {
+		var ret ProjectActionDto
+		return ret
+	}
+	return *o.ProjectActionDto
+}
+
+// GetProjectActionDtoOk returns a tuple with the ProjectActionDto field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetProjectActionDtoOk() (*ProjectActionDto, bool) {
+	if o == nil || IsNil(o.ProjectActionDto) {
+		return nil, false
+	}
+	return o.ProjectActionDto, true
+}
+
+// HasProjectActionDto returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasProjectActionDto() bool {
+	if o != nil && !IsNil(o.ProjectActionDto) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectActionDto gets a reference to the given ProjectActionDto and assigns it to the ProjectActionDto field.
+func (o *ProjectForListDto) SetProjectActionDto(v ProjectActionDto) {
+	o.ProjectActionDto = &v
+}
+
 func (o ProjectForListDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2509,15 +2092,6 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Operation.IsSet() {
-		toSerialize["operation"] = o.Operation.Get()
-	}
-	if o.JobUrl.IsSet() {
-		toSerialize["jobUrl"] = o.JobUrl.Get()
-	}
-	if o.TopicName.IsSet() {
-		toSerialize["topicName"] = o.TopicName.Get()
 	}
 	if o.ImageName.IsSet() {
 		toSerialize["imageName"] = o.ImageName.Get()
@@ -2543,6 +2117,9 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsAutoUpgrade) {
 		toSerialize["isAutoUpgrade"] = o.IsAutoUpgrade
 	}
+	if o.S3BucketName.IsSet() {
+		toSerialize["s3BucketName"] = o.S3BucketName.Get()
+	}
 	if !IsNil(o.HasKubeConfigFile) {
 		toSerialize["hasKubeConfigFile"] = o.HasKubeConfigFile
 	}
@@ -2551,12 +2128,6 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.QuotaId) {
 		toSerialize["quotaId"] = o.QuotaId
-	}
-	if !IsNil(o.AccessProfileRevision) {
-		toSerialize["accessProfileRevision"] = o.AccessProfileRevision
-	}
-	if !IsNil(o.OpaProfileRevision) {
-		toSerialize["opaProfileRevision"] = o.OpaProfileRevision
 	}
 	if o.CloudCredentialName.IsSet() {
 		toSerialize["cloudCredentialName"] = o.CloudCredentialName.Get()
@@ -2621,38 +2192,8 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	if o.KubernetesAlerts != nil {
 		toSerialize["kubernetesAlerts"] = o.KubernetesAlerts
 	}
-	if o.S3BucketName.IsSet() {
-		toSerialize["s3BucketName"] = o.S3BucketName.Get()
-	}
-	if o.S3AccessKeyId.IsSet() {
-		toSerialize["s3AccessKeyId"] = o.S3AccessKeyId.Get()
-	}
-	if o.S3SecretKey.IsSet() {
-		toSerialize["s3SecretKey"] = o.S3SecretKey.Get()
-	}
-	if o.S3Endpoint.IsSet() {
-		toSerialize["s3Endpoint"] = o.S3Endpoint.Get()
-	}
-	if o.S3Region.IsSet() {
-		toSerialize["s3Region"] = o.S3Region.Get()
-	}
 	if !IsNil(o.IsDeleteCluster) {
 		toSerialize["isDeleteCluster"] = o.IsDeleteCluster
-	}
-	if o.TaikunLBFlavor.IsSet() {
-		toSerialize["taikunLBFlavor"] = o.TaikunLBFlavor.Get()
-	}
-	if o.TaikunLBPrivateKey.IsSet() {
-		toSerialize["taikunLBPrivateKey"] = o.TaikunLBPrivateKey.Get()
-	}
-	if o.TaikunLBPublicKey.IsSet() {
-		toSerialize["taikunLBPublicKey"] = o.TaikunLBPublicKey.Get()
-	}
-	if o.RouterIdStartRange.IsSet() {
-		toSerialize["routerIdStartRange"] = o.RouterIdStartRange.Get()
-	}
-	if o.RouterIdEndRange.IsSet() {
-		toSerialize["routerIdEndRange"] = o.RouterIdEndRange.Get()
 	}
 	if o.TaikunPrivateSSHKey.IsSet() {
 		toSerialize["taikunPrivateSSHKey"] = o.TaikunPrivateSSHKey.Get()
@@ -2692,6 +2233,21 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AvailabilityZones != nil {
 		toSerialize["availabilityZones"] = o.AvailabilityZones
+	}
+	if !IsNil(o.WorkersCount) {
+		toSerialize["workersCount"] = o.WorkersCount
+	}
+	if !IsNil(o.TaikunLB) {
+		toSerialize["taikunLB"] = o.TaikunLB
+	}
+	if !IsNil(o.S3Credential) {
+		toSerialize["s3Credential"] = o.S3Credential
+	}
+	if !IsNil(o.ProjectRevision) {
+		toSerialize["projectRevision"] = o.ProjectRevision
+	}
+	if !IsNil(o.ProjectActionDto) {
+		toSerialize["projectActionDto"] = o.ProjectActionDto
 	}
 	return toSerialize, nil
 }

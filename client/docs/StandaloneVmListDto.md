@@ -16,11 +16,11 @@ Name | Type | Description | Notes
 **PublicIpEnabled** | Pointer to **bool** |  | [optional] 
 **PublicIp** | Pointer to **NullableString** |  | [optional] 
 **IpAddress** | Pointer to **NullableString** |  | [optional] 
-**CloudType** | Pointer to **NullableString** |  | [optional] 
+**CloudType** | Pointer to [**CloudType**](CloudType.md) |  | [optional] 
 **ImageName** | Pointer to **NullableString** |  | [optional] 
 **Revision** | Pointer to **int32** |  | [optional] 
 **IsWindows** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to **NullableString** |  | [optional] 
+**Status** | Pointer to [**StandAloneVmStatus**](StandAloneVmStatus.md) |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **StandAloneProfile** | Pointer to [**StandaloneProfileListDto**](StandaloneProfileListDto.md) |  | [optional] 
@@ -409,20 +409,20 @@ HasIpAddress returns a boolean if a field has been set.
 UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
 ### GetCloudType
 
-`func (o *StandaloneVmListDto) GetCloudType() string`
+`func (o *StandaloneVmListDto) GetCloudType() CloudType`
 
 GetCloudType returns the CloudType field if non-nil, zero value otherwise.
 
 ### GetCloudTypeOk
 
-`func (o *StandaloneVmListDto) GetCloudTypeOk() (*string, bool)`
+`func (o *StandaloneVmListDto) GetCloudTypeOk() (*CloudType, bool)`
 
 GetCloudTypeOk returns a tuple with the CloudType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCloudType
 
-`func (o *StandaloneVmListDto) SetCloudType(v string)`
+`func (o *StandaloneVmListDto) SetCloudType(v CloudType)`
 
 SetCloudType sets CloudType field to given value.
 
@@ -432,16 +432,6 @@ SetCloudType sets CloudType field to given value.
 
 HasCloudType returns a boolean if a field has been set.
 
-### SetCloudTypeNil
-
-`func (o *StandaloneVmListDto) SetCloudTypeNil(b bool)`
-
- SetCloudTypeNil sets the value for CloudType to be an explicit nil
-
-### UnsetCloudType
-`func (o *StandaloneVmListDto) UnsetCloudType()`
-
-UnsetCloudType ensures that no value is present for CloudType, not even an explicit nil
 ### GetImageName
 
 `func (o *StandaloneVmListDto) GetImageName() string`
@@ -529,20 +519,20 @@ HasIsWindows returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *StandaloneVmListDto) GetStatus() string`
+`func (o *StandaloneVmListDto) GetStatus() StandAloneVmStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *StandaloneVmListDto) GetStatusOk() (*string, bool)`
+`func (o *StandaloneVmListDto) GetStatusOk() (*StandAloneVmStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *StandaloneVmListDto) SetStatus(v string)`
+`func (o *StandaloneVmListDto) SetStatus(v StandAloneVmStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -552,16 +542,6 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *StandaloneVmListDto) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *StandaloneVmListDto) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetProjectName
 
 `func (o *StandaloneVmListDto) GetProjectName() string`

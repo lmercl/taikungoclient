@@ -5,19 +5,20 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ImagesAwsCommonImages**](ImagesApi.md#ImagesAwsCommonImages) | **Get** /api/v1/images/aws/common/{cloudId} | Commonly used aws images
-[**ImagesAwsImages**](ImagesApi.md#ImagesAwsImages) | **Get** /api/v1/images/aws | Retrieve aws images
+[**ImagesAwsImages**](ImagesApi.md#ImagesAwsImages) | **Post** /api/v1/images/aws | Retrieve aws images
 [**ImagesAwsPersonalImages**](ImagesApi.md#ImagesAwsPersonalImages) | **Get** /api/v1/images/aws/personal/{cloudId} | Aws personal images
+[**ImagesAzureCommonImages**](ImagesApi.md#ImagesAzureCommonImages) | **Get** /api/v1/images/azure/common/{cloudId} | Commonly used azure images
 [**ImagesAzureImages**](ImagesApi.md#ImagesAzureImages) | **Get** /api/v1/images/azure/{cloudId}/{publisherName}/{offer}/{sku} | 
 [**ImagesAzurePersonalImages**](ImagesApi.md#ImagesAzurePersonalImages) | **Get** /api/v1/images/azure/personal/{cloudId} | Azure personal images
-[**ImagesBindImagesToProject**](ImagesApi.md#ImagesBindImagesToProject) | **Get** /api/v1/images/bind | Bind images to project
+[**ImagesBindImagesToProject**](ImagesApi.md#ImagesBindImagesToProject) | **Post** /api/v1/images/bind | Bind images to project
 [**ImagesCommonGoogleImages**](ImagesApi.md#ImagesCommonGoogleImages) | **Get** /api/v1/images/google/common/{cloudId} | Commonly used google images
 [**ImagesGoogleImages**](ImagesApi.md#ImagesGoogleImages) | **Get** /api/v1/images/google/{cloudId}/{type} | 
-[**ImagesImageDetails**](ImagesApi.md#ImagesImageDetails) | **Get** /api/v1/images/details | Get image details
+[**ImagesImageDetails**](ImagesApi.md#ImagesImageDetails) | **Post** /api/v1/images/details | Get image details
 [**ImagesOpenstackImages**](ImagesApi.md#ImagesOpenstackImages) | **Get** /api/v1/images/openstack/{cloudId} | Retrieve openstack images
 [**ImagesProxmoxImages**](ImagesApi.md#ImagesProxmoxImages) | **Get** /api/v1/images/proxmox/{cloudId} | Retrieve proxmox images
-[**ImagesSelectedImagesForProject**](ImagesApi.md#ImagesSelectedImagesForProject) | **Get** /api/v1/images/projects/lis | Retrieve selected images for projects
+[**ImagesSelectedImagesForProject**](ImagesApi.md#ImagesSelectedImagesForProject) | **Get** /api/v1/images/projects/list | Retrieve selected images for projects
 [**ImagesTanzuImages**](ImagesApi.md#ImagesTanzuImages) | **Get** /api/v1/images/tanzu/{cloudId} | Retrieve tanzu images
-[**ImagesUnbindImagesFromProject**](ImagesApi.md#ImagesUnbindImagesFromProject) | **Get** /api/v1/images/unbind | Unbind images from project
+[**ImagesUnbindImagesFromProject**](ImagesApi.md#ImagesUnbindImagesFromProject) | **Post** /api/v1/images/unbind | Unbind images from project
 
 
 
@@ -208,6 +209,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]CommonStringBasedDropdownDto**](CommonStringBasedDropdownDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImagesAzureCommonImages
+
+> []AzurePublisherDetails ImagesAzureCommonImages(ctx, cloudId).Execute()
+
+Commonly used azure images
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    cloudId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ImagesApi.ImagesAzureCommonImages(context.Background(), cloudId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesAzureCommonImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImagesAzureCommonImages`: []AzurePublisherDetails
+    fmt.Fprintf(os.Stdout, "Response from `ImagesApi.ImagesAzureCommonImages`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiImagesAzureCommonImagesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]AzurePublisherDetails**](AzurePublisherDetails.md)
 
 ### Authorization
 

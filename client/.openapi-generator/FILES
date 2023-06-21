@@ -156,6 +156,7 @@ docs/AwsRegionDto.md
 docs/AwsValidateOwnerCommand.md
 docs/AzResult.md
 docs/AzureCloudCredentialApi.md
+docs/AzureCommonImages.md
 docs/AzureCredentialList.md
 docs/AzureCredentialsForProjectDto.md
 docs/AzureCredentialsListDto.md
@@ -165,6 +166,7 @@ docs/AzureFlavorsWithPriceDto.md
 docs/AzureImageList.md
 docs/AzureLocationsCommand.md
 docs/AzureOffersList.md
+docs/AzurePublisherDetails.md
 docs/AzurePublishersList.md
 docs/AzureQuotaListRecordDto.md
 docs/AzureSkusList.md
@@ -596,6 +598,7 @@ docs/PodsSearchCommand.md
 docs/PodsSearchList.md
 docs/PreDefinedQueriesApi.md
 docs/ProblemDetails.md
+docs/ProjectActionDto.md
 docs/ProjectActionUpdateDto.md
 docs/ProjectActionVisibilityDto.md
 docs/ProjectActionsApi.md
@@ -633,6 +636,7 @@ docs/ProjectLockManagerCommand.md
 docs/ProjectQuotaList.md
 docs/ProjectQuotaListDto.md
 docs/ProjectQuotasApi.md
+docs/ProjectRevisionDto.md
 docs/ProjectRevisionUpdateDto.md
 docs/ProjectRevisionsApi.md
 docs/ProjectStatus.md
@@ -693,6 +697,7 @@ docs/RebootServerCommand.md
 docs/RebootStandAloneVmCommand.md
 docs/RefreshTokenCommand.md
 docs/RegionListCommand.md
+docs/RemindUsersByAlertingProfileCommand.md
 docs/RepairStandAloneVmCommand.md
 docs/ReplyTicketCommand.md
 docs/Repository.md
@@ -707,6 +712,7 @@ docs/RestartStsCommand.md
 docs/RestoreBackupCommand.md
 docs/RuleCreateCommand.md
 docs/RuleForUpdateDto.md
+docs/S3CredentialForProjectDto.md
 docs/S3CredentialsApi.md
 docs/SearchApi.md
 docs/SecretDto.md
@@ -802,6 +808,7 @@ docs/Subnet.md
 docs/Subresource.md
 docs/SubscriptionApi.md
 docs/SyncProjectAppCommand.md
+docs/TaikunLbDto.md
 docs/TanzuApi.md
 docs/TanzuCredentialsForProjectDto.md
 docs/TanzuCredentialsList.md
@@ -960,6 +967,7 @@ model_aws_project_az_subnet_dto.go
 model_aws_region_dto.go
 model_aws_validate_owner_command.go
 model_az_result.go
+model_azure_common_images.go
 model_azure_credential_list.go
 model_azure_credentials_for_project_dto.go
 model_azure_credentials_list_dto.go
@@ -969,6 +977,7 @@ model_azure_flavors_with_price_dto.go
 model_azure_image_list.go
 model_azure_locations_command.go
 model_azure_offers_list.go
+model_azure_publisher_details.go
 model_azure_publishers_list.go
 model_azure_quota_list_record_dto.go
 model_azure_skus_list.go
@@ -1369,6 +1378,7 @@ model_pods.go
 model_pods_search_command.go
 model_pods_search_list.go
 model_problem_details.go
+model_project_action_dto.go
 model_project_action_update_dto.go
 model_project_action_visibility_dto.go
 model_project_app_details_dto.go
@@ -1400,6 +1410,7 @@ model_project_list_for_project_group_dto.go
 model_project_lock_manager_command.go
 model_project_quota_list.go
 model_project_quota_list_dto.go
+model_project_revision_dto.go
 model_project_revision_update_dto.go
 model_project_status.go
 model_project_template_dropdown_list_dto.go
@@ -1453,6 +1464,7 @@ model_reboot_server_command.go
 model_reboot_stand_alone_vm_command.go
 model_refresh_token_command.go
 model_region_list_command.go
+model_remind_users_by_alerting_profile_command.go
 model_repair_stand_alone_vm_command.go
 model_reply_ticket_command.go
 model_repository.go
@@ -1467,6 +1479,7 @@ model_restart_sts_command.go
 model_restore_backup_command.go
 model_rule_create_command.go
 model_rule_for_update_dto.go
+model_s3_credential_for_project_dto.go
 model_secret_dto.go
 model_secret_search_command.go
 model_secret_search_list.go
@@ -1551,6 +1564,7 @@ model_sts_search_list.go
 model_subnet.go
 model_subresource.go
 model_sync_project_app_command.go
+model_taikun_lb_dto.go
 model_tanzu_credentials_for_project_dto.go
 model_tanzu_credentials_list.go
 model_tanzu_credentials_list_dto.go

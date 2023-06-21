@@ -62,6 +62,20 @@ func Test_taikuncore_ImagesApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test ImagesApiService ImagesAzureCommonImages", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var cloudId int32
+
+		resp, httpRes, err := apiClient.ImagesApi.ImagesAzureCommonImages(context.Background(), cloudId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ImagesApiService ImagesAzureImages", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

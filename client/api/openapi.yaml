@@ -4544,7 +4544,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: Success
@@ -4602,7 +4602,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: Success
@@ -4660,7 +4660,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: Success
@@ -7877,6 +7877,49 @@ paths:
           description: Success
       tags:
       - Common
+  /api/v1/cronjob/remind-users-by-alerting-profile:
+    post:
+      operationId: cronjob-remind-users-by-alerting-profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemindUsersByAlertingProfileCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Remind users by alerting profile
+      tags:
+      - Cron Job Service
   /api/v1/cronjob/auto-upgrade-projects:
     post:
       operationId: cronjob-auto-upgrade-projects
@@ -8006,6 +8049,92 @@ paths:
       summary: Remove deleted user's kube config
       tags:
       - Cron Job Service
+  /api/v1/cronjob/delete-removed-spot-instances:
+    post:
+      operationId: cronjob-delete-removed-spot-instances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteRemovedSpotInstancesCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Delete removed spot instances
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/purge-expired-projects:
+    post:
+      operationId: cronjob-purge-expired-projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurgeExpiredProjectsCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Purge expired projects
+      tags:
+      - Cron Job Service
   /api/v1/cronjob/project-expiration:
     post:
       operationId: cronjob-email-for-project-expiration
@@ -8090,6 +8219,49 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Sync backup credentials
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/sync-opa-profiles:
+    post:
+      operationId: cronjob-sync-opa-profiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncOpaProfilesCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Sync opa profiles
       tags:
       - Cron Job Service
   /api/v1/cronjob/sync-projects:
@@ -8178,6 +8350,49 @@ paths:
       summary: Trigger scheduled templates
       tags:
       - Cron Job Service
+  /api/v1/cronjob/update-project-quota-message:
+    post:
+      operationId: cronjob-update-project-quota-message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectQuotaMessageCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Update project quota message
+      tags:
+      - Cron Job Service
   /api/v1/cronjob/block-organization:
     post:
       operationId: cronjob-block-organization
@@ -8221,6 +8436,49 @@ paths:
       summary: Block organization
       tags:
       - Cron Job Service
+  /api/v1/cronjob/fetch-organization-details:
+    post:
+      operationId: cronjob-fetch-organization-details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchOrganizationDetailsCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch organization details
+      tags:
+      - Cron Job Service
   /api/v1/cronjob/sync-organizations:
     post:
       operationId: cronjob-sync-organizations
@@ -8262,6 +8520,92 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Sync organizations
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/fetch-k8s-alert-data:
+    post:
+      operationId: cronjob-fetch-k8s-alert-data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchKubernetesAlertDataCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch k8s alert data
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/fetch-k8s-overview-data:
+    post:
+      operationId: cronjob-fetch-k8s-overview-data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchKubernetesOverviewDataCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch k8s overview data
       tags:
       - Cron Job Service
   /api/v1/cronjob/alerts:
@@ -8479,6 +8823,49 @@ paths:
       summary: Delete expired requests
       tags:
       - Cron Job Service
+  /api/v1/cronjob/delete-expired-servers:
+    post:
+      operationId: cronjob-delete-expired-servers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteExpiredServersCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Delete expired servers
+      tags:
+      - Cron Job Service
   /api/v1/cronjob/project-actions:
     post:
       operationId: cronjob-delete-useless-project-actions
@@ -8520,6 +8907,135 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Delete useless project actions
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/delete-expired-organizations:
+    post:
+      operationId: cronjob-delete-expired-orgs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteRegisterExpiredOrganizationCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Delete registration expired organizations
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/fetch-azure-flavor-prices:
+    post:
+      operationId: cronjob-fetch-azure-flavor-prices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchAzureFlavorPricesCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch azure flavor prices
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/fetch-azure-flavor-prices-with-euro:
+    post:
+      operationId: cronjob-fetch-azure-flavor-prices-with-euro
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchAzureFlavorEuroPricesCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch azure flavor prices with euro
       tags:
       - Cron Job Service
   /api/v1/cronjob/fetch-artifact-organizations:
@@ -8648,6 +9164,49 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Sync project apps
+      tags:
+      - Cron Job Service
+  /api/v1/cronjob/update-project-app-status:
+    post:
+      operationId: cronjob-update-project-app-status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectAppStatusCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Update project app status
       tags:
       - Cron Job Service
   /api/v1/dnsservers/edit/{id}:
@@ -10152,7 +10711,7 @@ paths:
       tags:
       - Google
   /api/v1/images/aws:
-    get:
+    post:
       operationId: images-aws-images
       requestBody:
         content:
@@ -10199,9 +10758,9 @@ paths:
           description: Internal Server Error
       summary: Retrieve aws images
       tags:
-      - images
+      - Images
   /api/v1/images/bind:
-    get:
+    post:
       operationId: images-bind-images-to-project
       requestBody:
         content:
@@ -10243,7 +10802,7 @@ paths:
       tags:
       - Images
   /api/v1/images/details:
-    get:
+    post:
       operationId: images-image-details
       requestBody:
         content:
@@ -10286,7 +10845,7 @@ paths:
       tags:
       - Images
   /api/v1/images/unbind:
-    get:
+    post:
       operationId: images-unbind-images-from-project
       requestBody:
         content:
@@ -10498,6 +11057,60 @@ paths:
       summary: Commonly used aws images
       tags:
       - Images
+  /api/v1/images/azure/common/{cloudId}:
+    get:
+      operationId: images-azure-common-images
+      parameters:
+      - explode: false
+        in: path
+        name: cloudId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AzurePublisherDetails'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Commonly used azure images
+      tags:
+      - Images
   /api/v1/images/google/common/{cloudId}:
     get:
       operationId: images-common-google-images
@@ -10552,7 +11165,7 @@ paths:
       summary: Commonly used google images
       tags:
       - Images
-  /api/v1/images/projects/lis:
+  /api/v1/images/projects/list:
     get:
       operationId: images-selected-images-for-project
       parameters:
@@ -11257,6 +11870,13 @@ paths:
               $ref: '#/components/schemas/DownloadInvoiceCommand'
         required: true
       responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: byte
+                type: string
+          description: OK
         "400":
           content:
             application/json:
@@ -11830,7 +12450,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -11879,7 +12499,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -12175,7 +12795,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -12272,7 +12892,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -13447,7 +14067,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15106,7 +15726,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15155,7 +15775,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15204,7 +15824,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15253,7 +15873,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15302,7 +15922,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15351,7 +15971,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15400,7 +16020,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15449,7 +16069,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15498,7 +16118,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15547,7 +16167,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15596,7 +16216,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15645,7 +16265,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15694,7 +16314,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15743,7 +16363,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15792,7 +16412,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15841,7 +16461,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -15890,7 +16510,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -19156,7 +19776,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -26499,7 +27119,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -27008,7 +27628,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -28341,7 +28961,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -28406,7 +29026,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -28719,7 +29339,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
           description: OK
@@ -30401,7 +31021,7 @@ paths:
       tags:
       - Ticket
   /api/v1/ticket/{ticketId}/messages:
-    post:
+    get:
       operationId: ticket-messages
       parameters:
       - explode: false
@@ -30467,7 +31087,7 @@ paths:
       tags:
       - Ticket
   /api/v1/ticket/transfer/list:
-    post:
+    get:
       operationId: ticket-transfer-list
       parameters:
       - explode: true
@@ -30521,7 +31141,7 @@ paths:
       tags:
       - Ticket
   /api/v1/ticket/list:
-    post:
+    get:
       operationId: ticket-list
       parameters:
       - explode: true
@@ -32360,7 +32980,7 @@ components:
     AccessProfilesForProjectListDto:
       additionalProperties: false
       example:
-        organizationId: 2
+        organizationId: 9
         allowedHosts:
         - accessProfileName: accessProfileName
           ipAddress: ipAddress
@@ -32382,22 +33002,22 @@ components:
         - address: address
           id: 5
         name: name
-        id: 3
+        id: 7
         dnsServers:
         - address: address
           id: 1
         - address: address
           id: 1
-        revision: 4
+        revision: 3
         sshUsers:
         - sshPublicKey: sshPublicKey
           isDeleted: true
           name: name
-          id: 7
+          id: 2
         - sshPublicKey: sshPublicKey
           isDeleted: true
           name: name
-          id: 7
+          id: 2
       properties:
         id:
           format: int32
@@ -34519,6 +35139,23 @@ components:
           format: int32
           type: integer
       type: object
+    AzureCommonImages:
+      additionalProperties: false
+      example:
+        displayName: displayName
+        name: name
+        id: id
+      properties:
+        name:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+      type: object
     AzureCredentialList:
       additionalProperties: false
       example:
@@ -34829,6 +35466,21 @@ components:
         totalCount:
           format: int32
           type: integer
+      type: object
+    AzurePublisherDetails:
+      additionalProperties: false
+      example:
+        image:
+          displayName: displayName
+          name: name
+          id: id
+        publisher: publisher
+      properties:
+        publisher:
+          nullable: true
+          type: string
+        image:
+          $ref: '#/components/schemas/AzureCommonImages'
       type: object
     AzurePublishersList:
       additionalProperties: false
@@ -39774,6 +40426,9 @@ components:
     DeleteExpiredRefreshTokensCommand:
       additionalProperties: false
       type: object
+    DeleteExpiredServersCommand:
+      additionalProperties: false
+      type: object
     DeleteImageFromProjectCommand:
       additionalProperties: false
       example:
@@ -39822,6 +40477,12 @@ components:
           type: boolean
       type: object
     DeleteRedundantProjectActionsCommand:
+      additionalProperties: false
+      type: object
+    DeleteRegisterExpiredOrganizationCommand:
+      additionalProperties: false
+      type: object
+    DeleteRemovedSpotInstancesCommand:
       additionalProperties: false
       type: object
     DeleteRemovedUsersKubeConfigCommand:
@@ -41295,6 +41956,21 @@ components:
         totalCount:
           format: int32
           type: integer
+      type: object
+    FetchAzureFlavorEuroPricesCommand:
+      additionalProperties: false
+      type: object
+    FetchAzureFlavorPricesCommand:
+      additionalProperties: false
+      type: object
+    FetchKubernetesAlertDataCommand:
+      additionalProperties: false
+      type: object
+    FetchKubernetesOverviewDataCommand:
+      additionalProperties: false
+      type: object
+    FetchOrganizationDetailsCommand:
+      additionalProperties: false
       type: object
     FillArtifacthubOrganizationCommand:
       additionalProperties: false
@@ -43087,7 +43763,7 @@ components:
     KubernetesProfilesLisForPollerDto:
       additionalProperties: false
       example:
-        organizationId: 1
+        organizationId: 7
         proxmoxStorage: proxmoxStorage
         organizationName: organizationName
         octaviaEnabled: true
@@ -43095,7 +43771,7 @@ components:
         name: name
         exposeNodePortOnBastion: true
         allowSchedulingOnMaster: true
-        id: 1
+        id: 4
         uniqueClusterName: true
         taikunLBEnabled: true
         cni: cni
@@ -43887,7 +44563,7 @@ components:
         password: password
         alertManagerUrl: alertManagerUrl
         prometheusUrl: prometheusUrl
-        id: 9
+        id: 2
         username: username
       properties:
         id:
@@ -46494,6 +47170,27 @@ components:
           nullable: true
           type: string
       type: object
+    ProjectActionDto:
+      additionalProperties: false
+      example:
+        estimatedTime: estimatedTime
+        jobUrl: jobUrl
+        topicName: topicName
+        operation: operation
+      properties:
+        operation:
+          nullable: true
+          type: string
+        jobUrl:
+          nullable: true
+          type: string
+        topicName:
+          nullable: true
+          type: string
+        estimatedTime:
+          nullable: true
+          type: string
+      type: object
     ProjectActionUpdateDto:
       additionalProperties: false
       example:
@@ -47488,11 +48185,12 @@ components:
         - flavors
         - flavors
         isKubevapEnabled: true
-        taikunLBFlavor: taikunLBFlavor
         isOpaEnabled: true
-        s3Region: s3Region
-        routerIdStartRange: 1
         privateIp: privateIp
+        projectRevision:
+          accessProfileRevision: 1
+          cloudCredentialRevision: 5
+          opaProfileRevision: 4
         opaProfile:
           projects:
           - name: name
@@ -47524,11 +48222,14 @@ components:
         availabilityZones:
         - availabilityZones
         - availabilityZones
-        organizationId: 2
-        taikunLBPublicKey: taikunLBPublicKey
-        s3Endpoint: s3Endpoint
+        organizationId: 5
+        taikunLB:
+          flavor: flavor
+          privateKey: privateKey
+          routerIdEndRange: 7
+          routerIdStartRange: 6
+          publicKey: publicKey
         cloudType: cloudType
-        s3AccessKeyId: s3AccessKeyId
         isLocked: true
         s3BucketName: s3BucketName
         googleProjectId: googleProjectId
@@ -47544,10 +48245,14 @@ components:
         accessIp: accessIp
         quotaId: 6
         cloudCredentialName: cloudCredentialName
+        projectActionDto:
+          estimatedTime: estimatedTime
+          jobUrl: jobUrl
+          topicName: topicName
+          operation: operation
         name: name
-        cloudCredentialId: 5
+        cloudCredentialId: 1
         kubernetesCurrentVersion: kubernetesCurrentVersion
-        opaProfileRevision: 5
         status: status
         isDeleteCluster: true
         awsProjectAZSubnets:
@@ -47557,9 +48262,8 @@ components:
         - zone: zone
           privateIp: privateIp
           publicIp: publicIp
-        taikunLBPrivateKey: taikunLBPrivateKey
         accessProfile:
-          organizationId: 2
+          organizationId: 9
           allowedHosts:
           - accessProfileName: accessProfileName
             ipAddress: ipAddress
@@ -47581,31 +48285,35 @@ components:
           - address: address
             id: 5
           name: name
-          id: 3
+          id: 7
           dnsServers:
           - address: address
             id: 1
           - address: address
             id: 1
-          revision: 4
+          revision: 3
           sshUsers:
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 7
+            id: 2
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 7
+            id: 2
         tanzuReleaseVersion: tanzuReleaseVersion
+        workersCount: 1
         nfsDiskSize: 1
-        jobUrl: jobUrl
         cidr: cidr
         taikunPrivateSSHKey: taikunPrivateSSHKey
         kubesprayTargetVersion: kubesprayTargetVersion
-        routerIdEndRange: 6
+        s3Credential:
+          s3SecretKey: s3SecretKey
+          s3Endpoint: s3Endpoint
+          s3AccessKeyId: s3AccessKeyId
+          s3Region: s3Region
         kubernetesTargetVersion: kubernetesTargetVersion
-        netMask: 7
+        netMask: 1
         isMonitoringEnabled: true
         health: health
         kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -47617,10 +48325,10 @@ components:
           password: password
           alertManagerUrl: alertManagerUrl
           prometheusUrl: prometheusUrl
-          id: 9
+          id: 2
           username: username
         kubernetesProfiles:
-          organizationId: 1
+          organizationId: 7
           proxmoxStorage: proxmoxStorage
           organizationName: organizationName
           octaviaEnabled: true
@@ -47628,17 +48336,14 @@ components:
           name: name
           exposeNodePortOnBastion: true
           allowSchedulingOnMaster: true
-          id: 1
+          id: 4
           uniqueClusterName: true
           taikunLBEnabled: true
           cni: cni
-        s3SecretKey: s3SecretKey
         kubevapEnabeledKubernetesVersions:
         - kubevapEnabeledKubernetesVersions
         - kubevapEnabeledKubernetesVersions
-        accessProfileRevision: 1
         isBackupEnabled: true
-        topicName: topicName
         kubernetesAlerts:
         - severity: severity
           lastModifiedBy: lastModifiedBy
@@ -47670,22 +48375,12 @@ components:
           projectName: projectName
           projectId: 6
           status: status
-        partnerId: 7
-        operation: operation
+        partnerId: 5
       properties:
         id:
           format: int32
           type: integer
         name:
-          nullable: true
-          type: string
-        operation:
-          nullable: true
-          type: string
-        jobUrl:
-          nullable: true
-          type: string
-        topicName:
           nullable: true
           type: string
         imageName:
@@ -47706,17 +48401,14 @@ components:
           type: boolean
         isAutoUpgrade:
           type: boolean
+        s3BucketName:
+          nullable: true
+          type: string
         hasKubeConfigFile:
           type: boolean
         hasSelectedFlavors:
           type: boolean
         quotaId:
-          format: int32
-          type: integer
-        accessProfileRevision:
-          format: int32
-          type: integer
-        opaProfileRevision:
           format: int32
           type: integer
         cloudCredentialName:
@@ -47784,40 +48476,8 @@ components:
             $ref: '#/components/schemas/KubernetesAlertDto'
           nullable: true
           type: array
-        s3BucketName:
-          nullable: true
-          type: string
-        s3AccessKeyId:
-          nullable: true
-          type: string
-        s3SecretKey:
-          nullable: true
-          type: string
-        s3Endpoint:
-          nullable: true
-          type: string
-        s3Region:
-          nullable: true
-          type: string
         isDeleteCluster:
           type: boolean
-        taikunLBFlavor:
-          nullable: true
-          type: string
-        taikunLBPrivateKey:
-          nullable: true
-          type: string
-        taikunLBPublicKey:
-          nullable: true
-          type: string
-        routerIdStartRange:
-          format: int32
-          nullable: true
-          type: integer
-        routerIdEndRange:
-          format: int32
-          nullable: true
-          type: integer
         taikunPrivateSSHKey:
           nullable: true
           type: string
@@ -47863,6 +48523,17 @@ components:
             type: string
           nullable: true
           type: array
+        workersCount:
+          format: int32
+          type: integer
+        taikunLB:
+          $ref: '#/components/schemas/TaikunLbDto'
+        s3Credential:
+          $ref: '#/components/schemas/S3CredentialForProjectDto'
+        projectRevision:
+          $ref: '#/components/schemas/ProjectRevisionDto'
+        projectActionDto:
+          $ref: '#/components/schemas/ProjectActionDto'
       type: object
     ProjectForUpdateDto:
       additionalProperties: false
@@ -47941,7 +48612,7 @@ components:
         organizationId: 1
         createdAt: createdAt
         accessProfiles:
-          organizationId: 2
+          organizationId: 9
           allowedHosts:
           - accessProfileName: accessProfileName
             ipAddress: ipAddress
@@ -47963,22 +48634,22 @@ components:
           - address: address
             id: 5
           name: name
-          id: 3
+          id: 7
           dnsServers:
           - address: address
             id: 1
           - address: address
             id: 1
-          revision: 4
+          revision: 3
           sshUsers:
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 7
+            id: 2
           - sshPublicKey: sshPublicKey
             isDeleted: true
             name: name
-            id: 7
+            id: 2
         cloudType: cloudType
         isLocked: true
         jobUrl: jobUrl
@@ -48494,7 +49165,7 @@ components:
           password: password
           alertManagerUrl: alertManagerUrl
           prometheusUrl: prometheusUrl
-          id: 9
+          id: 2
           username: username
         isKubernetes: true
         isLocked: true
@@ -48579,11 +49250,12 @@ components:
           - flavors
           - flavors
           isKubevapEnabled: true
-          taikunLBFlavor: taikunLBFlavor
           isOpaEnabled: true
-          s3Region: s3Region
-          routerIdStartRange: 1
           privateIp: privateIp
+          projectRevision:
+            accessProfileRevision: 1
+            cloudCredentialRevision: 5
+            opaProfileRevision: 4
           opaProfile:
             projects:
             - name: name
@@ -48615,11 +49287,14 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 2
-          taikunLBPublicKey: taikunLBPublicKey
-          s3Endpoint: s3Endpoint
+          organizationId: 5
+          taikunLB:
+            flavor: flavor
+            privateKey: privateKey
+            routerIdEndRange: 7
+            routerIdStartRange: 6
+            publicKey: publicKey
           cloudType: cloudType
-          s3AccessKeyId: s3AccessKeyId
           isLocked: true
           s3BucketName: s3BucketName
           googleProjectId: googleProjectId
@@ -48635,10 +49310,14 @@ components:
           accessIp: accessIp
           quotaId: 6
           cloudCredentialName: cloudCredentialName
+          projectActionDto:
+            estimatedTime: estimatedTime
+            jobUrl: jobUrl
+            topicName: topicName
+            operation: operation
           name: name
-          cloudCredentialId: 5
+          cloudCredentialId: 1
           kubernetesCurrentVersion: kubernetesCurrentVersion
-          opaProfileRevision: 5
           status: status
           isDeleteCluster: true
           awsProjectAZSubnets:
@@ -48648,9 +49327,8 @@ components:
           - zone: zone
             privateIp: privateIp
             publicIp: publicIp
-          taikunLBPrivateKey: taikunLBPrivateKey
           accessProfile:
-            organizationId: 2
+            organizationId: 9
             allowedHosts:
             - accessProfileName: accessProfileName
               ipAddress: ipAddress
@@ -48672,31 +49350,35 @@ components:
             - address: address
               id: 5
             name: name
-            id: 3
+            id: 7
             dnsServers:
             - address: address
               id: 1
             - address: address
               id: 1
-            revision: 4
+            revision: 3
             sshUsers:
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 7
+              id: 2
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 7
+              id: 2
           tanzuReleaseVersion: tanzuReleaseVersion
+          workersCount: 1
           nfsDiskSize: 1
-          jobUrl: jobUrl
           cidr: cidr
           taikunPrivateSSHKey: taikunPrivateSSHKey
           kubesprayTargetVersion: kubesprayTargetVersion
-          routerIdEndRange: 6
+          s3Credential:
+            s3SecretKey: s3SecretKey
+            s3Endpoint: s3Endpoint
+            s3AccessKeyId: s3AccessKeyId
+            s3Region: s3Region
           kubernetesTargetVersion: kubernetesTargetVersion
-          netMask: 7
+          netMask: 1
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -48708,10 +49390,10 @@ components:
             password: password
             alertManagerUrl: alertManagerUrl
             prometheusUrl: prometheusUrl
-            id: 9
+            id: 2
             username: username
           kubernetesProfiles:
-            organizationId: 1
+            organizationId: 7
             proxmoxStorage: proxmoxStorage
             organizationName: organizationName
             octaviaEnabled: true
@@ -48719,17 +49401,14 @@ components:
             name: name
             exposeNodePortOnBastion: true
             allowSchedulingOnMaster: true
-            id: 1
+            id: 4
             uniqueClusterName: true
             taikunLBEnabled: true
             cni: cni
-          s3SecretKey: s3SecretKey
           kubevapEnabeledKubernetesVersions:
           - kubevapEnabeledKubernetesVersions
           - kubevapEnabeledKubernetesVersions
-          accessProfileRevision: 1
           isBackupEnabled: true
-          topicName: topicName
           kubernetesAlerts:
           - severity: severity
             lastModifiedBy: lastModifiedBy
@@ -48761,17 +49440,17 @@ components:
             projectName: projectName
             projectId: 6
             status: status
-          partnerId: 7
-          operation: operation
+          partnerId: 5
         - flavors:
           - flavors
           - flavors
           isKubevapEnabled: true
-          taikunLBFlavor: taikunLBFlavor
           isOpaEnabled: true
-          s3Region: s3Region
-          routerIdStartRange: 1
           privateIp: privateIp
+          projectRevision:
+            accessProfileRevision: 1
+            cloudCredentialRevision: 5
+            opaProfileRevision: 4
           opaProfile:
             projects:
             - name: name
@@ -48803,11 +49482,14 @@ components:
           availabilityZones:
           - availabilityZones
           - availabilityZones
-          organizationId: 2
-          taikunLBPublicKey: taikunLBPublicKey
-          s3Endpoint: s3Endpoint
+          organizationId: 5
+          taikunLB:
+            flavor: flavor
+            privateKey: privateKey
+            routerIdEndRange: 7
+            routerIdStartRange: 6
+            publicKey: publicKey
           cloudType: cloudType
-          s3AccessKeyId: s3AccessKeyId
           isLocked: true
           s3BucketName: s3BucketName
           googleProjectId: googleProjectId
@@ -48823,10 +49505,14 @@ components:
           accessIp: accessIp
           quotaId: 6
           cloudCredentialName: cloudCredentialName
+          projectActionDto:
+            estimatedTime: estimatedTime
+            jobUrl: jobUrl
+            topicName: topicName
+            operation: operation
           name: name
-          cloudCredentialId: 5
+          cloudCredentialId: 1
           kubernetesCurrentVersion: kubernetesCurrentVersion
-          opaProfileRevision: 5
           status: status
           isDeleteCluster: true
           awsProjectAZSubnets:
@@ -48836,9 +49522,8 @@ components:
           - zone: zone
             privateIp: privateIp
             publicIp: publicIp
-          taikunLBPrivateKey: taikunLBPrivateKey
           accessProfile:
-            organizationId: 2
+            organizationId: 9
             allowedHosts:
             - accessProfileName: accessProfileName
               ipAddress: ipAddress
@@ -48860,31 +49545,35 @@ components:
             - address: address
               id: 5
             name: name
-            id: 3
+            id: 7
             dnsServers:
             - address: address
               id: 1
             - address: address
               id: 1
-            revision: 4
+            revision: 3
             sshUsers:
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 7
+              id: 2
             - sshPublicKey: sshPublicKey
               isDeleted: true
               name: name
-              id: 7
+              id: 2
           tanzuReleaseVersion: tanzuReleaseVersion
+          workersCount: 1
           nfsDiskSize: 1
-          jobUrl: jobUrl
           cidr: cidr
           taikunPrivateSSHKey: taikunPrivateSSHKey
           kubesprayTargetVersion: kubesprayTargetVersion
-          routerIdEndRange: 6
+          s3Credential:
+            s3SecretKey: s3SecretKey
+            s3Endpoint: s3Endpoint
+            s3AccessKeyId: s3AccessKeyId
+            s3Region: s3Region
           kubernetesTargetVersion: kubernetesTargetVersion
-          netMask: 7
+          netMask: 1
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -48896,10 +49585,10 @@ components:
             password: password
             alertManagerUrl: alertManagerUrl
             prometheusUrl: prometheusUrl
-            id: 9
+            id: 2
             username: username
           kubernetesProfiles:
-            organizationId: 1
+            organizationId: 7
             proxmoxStorage: proxmoxStorage
             organizationName: organizationName
             octaviaEnabled: true
@@ -48907,17 +49596,14 @@ components:
             name: name
             exposeNodePortOnBastion: true
             allowSchedulingOnMaster: true
-            id: 1
+            id: 4
             uniqueClusterName: true
             taikunLBEnabled: true
             cni: cni
-          s3SecretKey: s3SecretKey
           kubevapEnabeledKubernetesVersions:
           - kubevapEnabeledKubernetesVersions
           - kubevapEnabeledKubernetesVersions
-          accessProfileRevision: 1
           isBackupEnabled: true
-          topicName: topicName
           kubernetesAlerts:
           - severity: severity
             lastModifiedBy: lastModifiedBy
@@ -48949,8 +49635,7 @@ components:
             projectName: projectName
             projectId: 6
             status: status
-          partnerId: 7
-          operation: operation
+          partnerId: 5
         totalCount: 0
       properties:
         data:
@@ -49058,6 +49743,23 @@ components:
         projectName:
           nullable: true
           type: string
+      type: object
+    ProjectRevisionDto:
+      additionalProperties: false
+      example:
+        accessProfileRevision: 1
+        cloudCredentialRevision: 5
+        opaProfileRevision: 4
+      properties:
+        accessProfileRevision:
+          format: int32
+          type: integer
+        opaProfileRevision:
+          format: int32
+          type: integer
+        cloudCredentialRevision:
+          format: int32
+          type: integer
       type: object
     ProjectRevisionUpdateDto:
       additionalProperties: false
@@ -50447,6 +51149,9 @@ components:
           nullable: true
           type: array
       type: object
+    PurgeExpiredProjectsCommand:
+      additionalProperties: false
+      type: object
     PurgeStandAloneCommand:
       additionalProperties: false
       example:
@@ -50645,6 +51350,14 @@ components:
         awsSecretAccessKey:
           nullable: true
           type: string
+      type: object
+    RemindUsersByAlertingProfileCommand:
+      additionalProperties: false
+      example:
+        reminder: null
+      properties:
+        reminder:
+          $ref: '#/components/schemas/AlertingReminder'
       type: object
     RepairStandAloneVmCommand:
       additionalProperties: false
@@ -51105,6 +51818,27 @@ components:
           format: int32
           nullable: true
           type: integer
+      type: object
+    S3CredentialForProjectDto:
+      additionalProperties: false
+      example:
+        s3SecretKey: s3SecretKey
+        s3Endpoint: s3Endpoint
+        s3AccessKeyId: s3AccessKeyId
+        s3Region: s3Region
+      properties:
+        s3AccessKeyId:
+          nullable: true
+          type: string
+        s3SecretKey:
+          nullable: true
+          type: string
+        s3Endpoint:
+          nullable: true
+          type: string
+        s3Region:
+          nullable: true
+          type: string
       type: object
     SecretDto:
       additionalProperties: false
@@ -52439,7 +53173,7 @@ components:
         sshPublicKey: sshPublicKey
         isDeleted: true
         name: name
-        id: 7
+        id: 2
       properties:
         id:
           format: int32
@@ -53441,7 +54175,7 @@ components:
         organizationId: 1
         createdAt: createdAt
         createdBy: createdBy
-        cloudType: cloudType
+        cloudType: null
         name: name
         isWindows: true
         id: 0
@@ -53467,7 +54201,7 @@ components:
           id: 9
           revision: 3
         ram: 5
-        status: status
+        status: null
       properties:
         id:
           format: int32
@@ -53505,8 +54239,7 @@ components:
           nullable: true
           type: string
         cloudType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/CloudType'
         imageName:
           nullable: true
           type: string
@@ -53516,8 +54249,7 @@ components:
         isWindows:
           type: boolean
         status:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/StandAloneVmStatus'
         projectName:
           nullable: true
           type: string
@@ -53566,7 +54298,7 @@ components:
           organizationId: 1
           createdAt: createdAt
           createdBy: createdBy
-          cloudType: cloudType
+          cloudType: null
           name: name
           isWindows: true
           id: 0
@@ -53592,7 +54324,7 @@ components:
             id: 9
             revision: 3
           ram: 5
-          status: status
+          status: null
         - volumeType: volumeType
           imageName: imageName
           organizationName: organizationName
@@ -53606,7 +54338,7 @@ components:
           organizationId: 1
           createdAt: createdAt
           createdBy: createdBy
-          cloudType: cloudType
+          cloudType: null
           name: name
           isWindows: true
           id: 0
@@ -53632,7 +54364,7 @@ components:
             id: 9
             revision: 3
           ram: 5
-          status: status
+          status: null
         totalCount: 1
       properties:
         data:
@@ -54254,6 +54986,9 @@ components:
     SyncBackupCredentialsCommand:
       additionalProperties: false
       type: object
+    SyncOpaProfilesCommand:
+      additionalProperties: false
+      type: object
     SyncOrganizationsCommand:
       additionalProperties: false
       type: object
@@ -54271,6 +55006,33 @@ components:
       type: object
     SyncProjectsCommand:
       additionalProperties: false
+      type: object
+    TaikunLbDto:
+      additionalProperties: false
+      example:
+        flavor: flavor
+        privateKey: privateKey
+        routerIdEndRange: 7
+        routerIdStartRange: 6
+        publicKey: publicKey
+      properties:
+        flavor:
+          nullable: true
+          type: string
+        privateKey:
+          nullable: true
+          type: string
+        publicKey:
+          nullable: true
+          type: string
+        routerIdStartRange:
+          format: int32
+          nullable: true
+          type: integer
+        routerIdEndRange:
+          format: int32
+          nullable: true
+          type: integer
       type: object
     TanzuCredentialsForProjectDto:
       additionalProperties: false
@@ -55018,6 +55780,9 @@ components:
           nullable: true
           type: string
       type: object
+    UpdateProjectAppStatusCommand:
+      additionalProperties: false
+      type: object
     UpdateProjectGroupDto:
       additionalProperties: false
       example:
@@ -55035,6 +55800,9 @@ components:
             type: integer
           nullable: true
           type: array
+      type: object
+    UpdateProjectQuotaMessageCommand:
+      additionalProperties: false
       type: object
     UpdateProjectUserDto:
       additionalProperties: false

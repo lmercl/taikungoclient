@@ -11,13 +11,13 @@ Method | HTTP request | Description
 [**TicketDeleteMessage**](TicketApi.md#TicketDeleteMessage) | **Delete** /api/v1/ticket/delete/message/{messageId} | 
 [**TicketEdit**](TicketApi.md#TicketEdit) | **Post** /api/v1/ticket/edit | Edit ticket
 [**TicketEditMessage**](TicketApi.md#TicketEditMessage) | **Post** /api/v1/ticket/edit/message | Edit ticket message
-[**TicketList**](TicketApi.md#TicketList) | **Post** /api/v1/ticket/list | Retrieve list of tickets
-[**TicketMessages**](TicketApi.md#TicketMessages) | **Post** /api/v1/ticket/{ticketId}/messages | 
+[**TicketList**](TicketApi.md#TicketList) | **Get** /api/v1/ticket/list | Retrieve list of tickets
+[**TicketMessages**](TicketApi.md#TicketMessages) | **Get** /api/v1/ticket/{ticketId}/messages | 
 [**TicketOpen**](TicketApi.md#TicketOpen) | **Post** /api/v1/ticket/open | Open ticket
 [**TicketReply**](TicketApi.md#TicketReply) | **Post** /api/v1/ticket/reply | Reply message
 [**TicketSetPriority**](TicketApi.md#TicketSetPriority) | **Post** /api/v1/ticket/set-priority | Set priority
 [**TicketTransfer**](TicketApi.md#TicketTransfer) | **Post** /api/v1/ticket/transfer | Transfer ticket
-[**TicketTransferList**](TicketApi.md#TicketTransferList) | **Post** /api/v1/ticket/transfer/list | Retrieve organization managers
+[**TicketTransferList**](TicketApi.md#TicketTransferList) | **Get** /api/v1/ticket/transfer/list | Retrieve organization managers
 
 
 
