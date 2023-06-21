@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
 	"time"
 
 	taikuncore "github.com/chnyda/taikungoclient/client"
@@ -24,6 +25,7 @@ const TaikunApiHostEnvVar = "TAIKUN_API_HOST"
 type CustomTransport struct {
 	Transport http.RoundTripper
 	Client    *Client
+	mu        sync.Mutex
 }
 
 type Client struct {
@@ -109,29 +111,34 @@ func NewClient() *Client {
 func (c *CustomTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 	if req.URL.Path != "/api/v1/auth/login" && req.URL.Path != "/api/v1/auth/refresh" {
 		if c.Client.token == "" {
-			var loginCmd *taikuncore.LoginCommand
-			// keycloak
-			// default
-			// token
-			// autoscaling
-			if c.Client.authMode != "" || c.Client.authMode == "default" {
-				loginCmd = &taikuncore.LoginCommand{
-					SecretKey: *taikuncore.NewNullableString(&c.Client.secretKey),
-					AccessKey: *taikuncore.NewNullableString(&c.Client.accessKey),
-					Mode:      *taikuncore.NewNullableString(&c.Client.authMode),
+			c.mu.Lock()
+			defer c.mu.Unlock()
+
+			if c.Client.token == "" {
+				var loginCmd *taikuncore.LoginCommand
+				// keycloak
+				// default
+				// token
+				// autoscaling
+				if c.Client.authMode != "" || c.Client.authMode == "default" {
+					loginCmd = &taikuncore.LoginCommand{
+						SecretKey: *taikuncore.NewNullableString(&c.Client.secretKey),
+						AccessKey: *taikuncore.NewNullableString(&c.Client.accessKey),
+						Mode:      *taikuncore.NewNullableString(&c.Client.authMode),
+					}
+				} else {
+					loginCmd = &taikuncore.LoginCommand{
+						Email:    *taikuncore.NewNullableString(&c.Client.email),
+						Password: *taikuncore.NewNullableString(&c.Client.password),
+					}
 				}
-			} else {
-				loginCmd = &taikuncore.LoginCommand{
-					Email:    *taikuncore.NewNullableString(&c.Client.email),
-					Password: *taikuncore.NewNullableString(&c.Client.password),
+				result, _, err := c.Client.Client.AuthManagementApi.AuthLogin(req.Context()).LoginCommand(*loginCmd).Execute()
+				if err != nil {
+					return nil, err
 				}
+				c.Client.token = *result.Token.Get()
+				c.Client.refreshToken = *result.RefreshToken.Get()
 			}
-			result, _, err := c.Client.Client.AuthManagementApi.AuthLogin(req.Context()).LoginCommand(*loginCmd).Execute()
-			if err != nil {
-				return nil, err
-			}
-			c.Client.token = *result.Token.Get()
-			c.Client.refreshToken = *result.RefreshToken.Get()
 		} else if c.Client.token != "" && c.hasTokenExpired() {
 			result, _, err := c.Client.Client.AuthManagementApi.AuthRefresh(req.Context()).RefreshTokenCommand(taikuncore.RefreshTokenCommand{
 				RefreshToken: *taikuncore.NewNullableString(&c.Client.refreshToken),
