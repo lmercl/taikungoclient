@@ -61,7 +61,7 @@ func (e *TaikunError) Error() string {
 	return fmt.Sprintf("Taikun Error: %s (HTTP %d)", e.Message, e.HTTPStatusCode)
 }
 func CreateError(resp *http.Response, err error) error {
-	if resp == nil {
+	if err == nil || resp == nil {
 		return err
 	}
 	body, err2 := ioutil.ReadAll(resp.Body)
