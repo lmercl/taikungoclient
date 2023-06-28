@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to [**[]GroupedShowbackSummaries**](GroupedShowbackSummaries.md) |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**TotalPrice** | Pointer to **float64** |  | [optional] 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**TotalPrice** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### SetDataNil
+
+`func (o *GroupedShowbackSummaryInfos) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *GroupedShowbackSummaryInfos) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetId
 
 `func (o *GroupedShowbackSummaryInfos) GetId() int32`
@@ -78,6 +88,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *GroupedShowbackSummaryInfos) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *GroupedShowbackSummaryInfos) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *GroupedShowbackSummaryInfos) GetName() string`
@@ -103,6 +123,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *GroupedShowbackSummaryInfos) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *GroupedShowbackSummaryInfos) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *GroupedShowbackSummaryInfos) GetTotalPrice() float64`
@@ -128,6 +158,16 @@ SetTotalPrice sets TotalPrice field to given value.
 
 HasTotalPrice returns a boolean if a field has been set.
 
+### SetTotalPriceNil
+
+`func (o *GroupedShowbackSummaryInfos) SetTotalPriceNil(b bool)`
+
+ SetTotalPriceNil sets the value for TotalPrice to be an explicit nil
+
+### UnsetTotalPrice
+`func (o *GroupedShowbackSummaryInfos) UnsetTotalPrice()`
+
+UnsetTotalPrice ensures that no value is present for TotalPrice, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

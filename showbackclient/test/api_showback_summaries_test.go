@@ -22,39 +22,11 @@ func Test_taikunshowback_ShowbackSummariesApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesCreate", func(t *testing.T) {
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesByLabel", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesCreate(context.Background(), v).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesExportCsv", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var v string
-
-		httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesExportCsv(context.Background(), v).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesGroupedByLabelList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var v string
-
-		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesGroupedByLabelList(context.Background(), v).Execute()
+		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesByLabel(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +34,11 @@ func Test_taikunshowback_ShowbackSummariesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesGroupedByProjectList", func(t *testing.T) {
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesByProject", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesGroupedByProjectList(context.Background(), v).Execute()
+		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesByProject(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +46,22 @@ func Test_taikunshowback_ShowbackSummariesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesGroupedList", func(t *testing.T) {
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
+		httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesCreate(context.Background()).Execute()
 
-		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesGroupedList(context.Background(), v).Execute()
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesExportCsv", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesExportCsv(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,13 +69,23 @@ func Test_taikunshowback_ShowbackSummariesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackSummariesApiService ShowbackSummariesGroupedShowbackSummaryList", func(t *testing.T) {
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesGrouped", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
+		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesGrouped(context.Background()).Execute()
 
-		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbackSummariesGroupedShowbackSummaryList(context.Background(), v).Execute()
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ShowbackSummariesApiService ShowbacksummariesGroupedList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ShowbackSummariesApi.ShowbacksummariesGroupedList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

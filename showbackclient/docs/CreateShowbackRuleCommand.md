@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
-**MetricName** | Pointer to **string** |  | [optional] 
-**ByLabel** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**MetricName** | Pointer to **NullableString** |  | [optional] 
+**ByLabel** | Pointer to **NullableString** |  | [optional] 
 **Kind** | Pointer to [**EShowbackType**](EShowbackType.md) |  | [optional] 
 **Type** | Pointer to [**EPrometheusType**](EPrometheusType.md) |  | [optional] 
-**Price** | Pointer to **float64** |  | [optional] 
-**ProjectAlertLimit** | Pointer to **int32** |  | [optional] 
-**GlobalAlertLimit** | Pointer to **int32** |  | [optional] 
-**OrganizationId** | Pointer to **int32** |  | [optional] 
+**Price** | Pointer to **NullableFloat64** |  | [optional] 
+**ProjectAlertLimit** | Pointer to **NullableInt32** |  | [optional] 
+**GlobalAlertLimit** | Pointer to **NullableInt32** |  | [optional] 
+**OrganizationId** | Pointer to **NullableInt32** |  | [optional] 
 **Labels** | Pointer to [**[]ShowbackLabelCreateDto**](ShowbackLabelCreateDto.md) |  | [optional] 
-**ShowbackCredentialId** | Pointer to **int32** |  | [optional] 
+**ShowbackCredentialId** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -60,6 +60,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *CreateShowbackRuleCommand) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateShowbackRuleCommand) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetMetricName
 
 `func (o *CreateShowbackRuleCommand) GetMetricName() string`
@@ -85,6 +95,16 @@ SetMetricName sets MetricName field to given value.
 
 HasMetricName returns a boolean if a field has been set.
 
+### SetMetricNameNil
+
+`func (o *CreateShowbackRuleCommand) SetMetricNameNil(b bool)`
+
+ SetMetricNameNil sets the value for MetricName to be an explicit nil
+
+### UnsetMetricName
+`func (o *CreateShowbackRuleCommand) UnsetMetricName()`
+
+UnsetMetricName ensures that no value is present for MetricName, not even an explicit nil
 ### GetByLabel
 
 `func (o *CreateShowbackRuleCommand) GetByLabel() string`
@@ -110,6 +130,16 @@ SetByLabel sets ByLabel field to given value.
 
 HasByLabel returns a boolean if a field has been set.
 
+### SetByLabelNil
+
+`func (o *CreateShowbackRuleCommand) SetByLabelNil(b bool)`
+
+ SetByLabelNil sets the value for ByLabel to be an explicit nil
+
+### UnsetByLabel
+`func (o *CreateShowbackRuleCommand) UnsetByLabel()`
+
+UnsetByLabel ensures that no value is present for ByLabel, not even an explicit nil
 ### GetKind
 
 `func (o *CreateShowbackRuleCommand) GetKind() EShowbackType`
@@ -185,6 +215,16 @@ SetPrice sets Price field to given value.
 
 HasPrice returns a boolean if a field has been set.
 
+### SetPriceNil
+
+`func (o *CreateShowbackRuleCommand) SetPriceNil(b bool)`
+
+ SetPriceNil sets the value for Price to be an explicit nil
+
+### UnsetPrice
+`func (o *CreateShowbackRuleCommand) UnsetPrice()`
+
+UnsetPrice ensures that no value is present for Price, not even an explicit nil
 ### GetProjectAlertLimit
 
 `func (o *CreateShowbackRuleCommand) GetProjectAlertLimit() int32`
@@ -210,6 +250,16 @@ SetProjectAlertLimit sets ProjectAlertLimit field to given value.
 
 HasProjectAlertLimit returns a boolean if a field has been set.
 
+### SetProjectAlertLimitNil
+
+`func (o *CreateShowbackRuleCommand) SetProjectAlertLimitNil(b bool)`
+
+ SetProjectAlertLimitNil sets the value for ProjectAlertLimit to be an explicit nil
+
+### UnsetProjectAlertLimit
+`func (o *CreateShowbackRuleCommand) UnsetProjectAlertLimit()`
+
+UnsetProjectAlertLimit ensures that no value is present for ProjectAlertLimit, not even an explicit nil
 ### GetGlobalAlertLimit
 
 `func (o *CreateShowbackRuleCommand) GetGlobalAlertLimit() int32`
@@ -235,6 +285,16 @@ SetGlobalAlertLimit sets GlobalAlertLimit field to given value.
 
 HasGlobalAlertLimit returns a boolean if a field has been set.
 
+### SetGlobalAlertLimitNil
+
+`func (o *CreateShowbackRuleCommand) SetGlobalAlertLimitNil(b bool)`
+
+ SetGlobalAlertLimitNil sets the value for GlobalAlertLimit to be an explicit nil
+
+### UnsetGlobalAlertLimit
+`func (o *CreateShowbackRuleCommand) UnsetGlobalAlertLimit()`
+
+UnsetGlobalAlertLimit ensures that no value is present for GlobalAlertLimit, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *CreateShowbackRuleCommand) GetOrganizationId() int32`
@@ -260,6 +320,16 @@ SetOrganizationId sets OrganizationId field to given value.
 
 HasOrganizationId returns a boolean if a field has been set.
 
+### SetOrganizationIdNil
+
+`func (o *CreateShowbackRuleCommand) SetOrganizationIdNil(b bool)`
+
+ SetOrganizationIdNil sets the value for OrganizationId to be an explicit nil
+
+### UnsetOrganizationId
+`func (o *CreateShowbackRuleCommand) UnsetOrganizationId()`
+
+UnsetOrganizationId ensures that no value is present for OrganizationId, not even an explicit nil
 ### GetLabels
 
 `func (o *CreateShowbackRuleCommand) GetLabels() []ShowbackLabelCreateDto`
@@ -285,6 +355,16 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
+### SetLabelsNil
+
+`func (o *CreateShowbackRuleCommand) SetLabelsNil(b bool)`
+
+ SetLabelsNil sets the value for Labels to be an explicit nil
+
+### UnsetLabels
+`func (o *CreateShowbackRuleCommand) UnsetLabels()`
+
+UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 ### GetShowbackCredentialId
 
 `func (o *CreateShowbackRuleCommand) GetShowbackCredentialId() int32`
@@ -310,6 +390,16 @@ SetShowbackCredentialId sets ShowbackCredentialId field to given value.
 
 HasShowbackCredentialId returns a boolean if a field has been set.
 
+### SetShowbackCredentialIdNil
+
+`func (o *CreateShowbackRuleCommand) SetShowbackCredentialIdNil(b bool)`
+
+ SetShowbackCredentialIdNil sets the value for ShowbackCredentialId to be an explicit nil
+
+### UnsetShowbackCredentialId
+`func (o *CreateShowbackRuleCommand) UnsetShowbackCredentialId()`
+
+UnsetShowbackCredentialId ensures that no value is present for ShowbackCredentialId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

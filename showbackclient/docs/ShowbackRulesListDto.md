@@ -5,24 +5,24 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**ByLabel** | Pointer to **string** |  | [optional] 
-**MetricName** | Pointer to **string** |  | [optional] 
-**CreatedAt** | Pointer to **string** |  | [optional] 
-**Kind** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**ByLabel** | Pointer to **NullableString** |  | [optional] 
+**MetricName** | Pointer to **NullableString** |  | [optional] 
+**CreatedAt** | Pointer to **NullableString** |  | [optional] 
+**Kind** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 **ProjectAlertLimit** | Pointer to **int32** |  | [optional] 
 **GlobalAlertLimit** | Pointer to **int32** |  | [optional] 
-**OrganizationName** | Pointer to **string** |  | [optional] 
+**OrganizationName** | Pointer to **NullableString** |  | [optional] 
 **OrganizationId** | Pointer to **int32** |  | [optional] 
-**BillingStartDate** | Pointer to **string** |  | [optional] 
+**BillingStartDate** | Pointer to **NullableString** |  | [optional] 
 **Labels** | Pointer to [**[]ShowbackLabelCreateDto**](ShowbackLabelCreateDto.md) |  | [optional] 
-**ShowbackCredentialName** | Pointer to **string** |  | [optional] 
-**ShowbackCredentialId** | Pointer to **int32** |  | [optional] 
-**CreatedBy** | Pointer to **string** |  | [optional] 
-**LastModified** | Pointer to **string** |  | [optional] 
-**LastModifiedBy** | Pointer to **string** |  | [optional] 
+**ShowbackCredentialName** | Pointer to **NullableString** |  | [optional] 
+**ShowbackCredentialId** | Pointer to **NullableInt32** |  | [optional] 
+**CreatedBy** | Pointer to **NullableString** |  | [optional] 
+**LastModified** | Pointer to **NullableString** |  | [optional] 
+**LastModifiedBy** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -93,6 +93,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ShowbackRulesListDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ShowbackRulesListDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetByLabel
 
 `func (o *ShowbackRulesListDto) GetByLabel() string`
@@ -118,6 +128,16 @@ SetByLabel sets ByLabel field to given value.
 
 HasByLabel returns a boolean if a field has been set.
 
+### SetByLabelNil
+
+`func (o *ShowbackRulesListDto) SetByLabelNil(b bool)`
+
+ SetByLabelNil sets the value for ByLabel to be an explicit nil
+
+### UnsetByLabel
+`func (o *ShowbackRulesListDto) UnsetByLabel()`
+
+UnsetByLabel ensures that no value is present for ByLabel, not even an explicit nil
 ### GetMetricName
 
 `func (o *ShowbackRulesListDto) GetMetricName() string`
@@ -143,6 +163,16 @@ SetMetricName sets MetricName field to given value.
 
 HasMetricName returns a boolean if a field has been set.
 
+### SetMetricNameNil
+
+`func (o *ShowbackRulesListDto) SetMetricNameNil(b bool)`
+
+ SetMetricNameNil sets the value for MetricName to be an explicit nil
+
+### UnsetMetricName
+`func (o *ShowbackRulesListDto) UnsetMetricName()`
+
+UnsetMetricName ensures that no value is present for MetricName, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *ShowbackRulesListDto) GetCreatedAt() string`
@@ -168,6 +198,16 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+### SetCreatedAtNil
+
+`func (o *ShowbackRulesListDto) SetCreatedAtNil(b bool)`
+
+ SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
+
+### UnsetCreatedAt
+`func (o *ShowbackRulesListDto) UnsetCreatedAt()`
+
+UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetKind
 
 `func (o *ShowbackRulesListDto) GetKind() string`
@@ -193,6 +233,16 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
+### SetKindNil
+
+`func (o *ShowbackRulesListDto) SetKindNil(b bool)`
+
+ SetKindNil sets the value for Kind to be an explicit nil
+
+### UnsetKind
+`func (o *ShowbackRulesListDto) UnsetKind()`
+
+UnsetKind ensures that no value is present for Kind, not even an explicit nil
 ### GetType
 
 `func (o *ShowbackRulesListDto) GetType() string`
@@ -218,6 +268,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *ShowbackRulesListDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *ShowbackRulesListDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetPrice
 
 `func (o *ShowbackRulesListDto) GetPrice() float64`
@@ -318,6 +378,16 @@ SetOrganizationName sets OrganizationName field to given value.
 
 HasOrganizationName returns a boolean if a field has been set.
 
+### SetOrganizationNameNil
+
+`func (o *ShowbackRulesListDto) SetOrganizationNameNil(b bool)`
+
+ SetOrganizationNameNil sets the value for OrganizationName to be an explicit nil
+
+### UnsetOrganizationName
+`func (o *ShowbackRulesListDto) UnsetOrganizationName()`
+
+UnsetOrganizationName ensures that no value is present for OrganizationName, not even an explicit nil
 ### GetOrganizationId
 
 `func (o *ShowbackRulesListDto) GetOrganizationId() int32`
@@ -368,6 +438,16 @@ SetBillingStartDate sets BillingStartDate field to given value.
 
 HasBillingStartDate returns a boolean if a field has been set.
 
+### SetBillingStartDateNil
+
+`func (o *ShowbackRulesListDto) SetBillingStartDateNil(b bool)`
+
+ SetBillingStartDateNil sets the value for BillingStartDate to be an explicit nil
+
+### UnsetBillingStartDate
+`func (o *ShowbackRulesListDto) UnsetBillingStartDate()`
+
+UnsetBillingStartDate ensures that no value is present for BillingStartDate, not even an explicit nil
 ### GetLabels
 
 `func (o *ShowbackRulesListDto) GetLabels() []ShowbackLabelCreateDto`
@@ -393,6 +473,16 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
+### SetLabelsNil
+
+`func (o *ShowbackRulesListDto) SetLabelsNil(b bool)`
+
+ SetLabelsNil sets the value for Labels to be an explicit nil
+
+### UnsetLabels
+`func (o *ShowbackRulesListDto) UnsetLabels()`
+
+UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 ### GetShowbackCredentialName
 
 `func (o *ShowbackRulesListDto) GetShowbackCredentialName() string`
@@ -418,6 +508,16 @@ SetShowbackCredentialName sets ShowbackCredentialName field to given value.
 
 HasShowbackCredentialName returns a boolean if a field has been set.
 
+### SetShowbackCredentialNameNil
+
+`func (o *ShowbackRulesListDto) SetShowbackCredentialNameNil(b bool)`
+
+ SetShowbackCredentialNameNil sets the value for ShowbackCredentialName to be an explicit nil
+
+### UnsetShowbackCredentialName
+`func (o *ShowbackRulesListDto) UnsetShowbackCredentialName()`
+
+UnsetShowbackCredentialName ensures that no value is present for ShowbackCredentialName, not even an explicit nil
 ### GetShowbackCredentialId
 
 `func (o *ShowbackRulesListDto) GetShowbackCredentialId() int32`
@@ -443,6 +543,16 @@ SetShowbackCredentialId sets ShowbackCredentialId field to given value.
 
 HasShowbackCredentialId returns a boolean if a field has been set.
 
+### SetShowbackCredentialIdNil
+
+`func (o *ShowbackRulesListDto) SetShowbackCredentialIdNil(b bool)`
+
+ SetShowbackCredentialIdNil sets the value for ShowbackCredentialId to be an explicit nil
+
+### UnsetShowbackCredentialId
+`func (o *ShowbackRulesListDto) UnsetShowbackCredentialId()`
+
+UnsetShowbackCredentialId ensures that no value is present for ShowbackCredentialId, not even an explicit nil
 ### GetCreatedBy
 
 `func (o *ShowbackRulesListDto) GetCreatedBy() string`
@@ -468,6 +578,16 @@ SetCreatedBy sets CreatedBy field to given value.
 
 HasCreatedBy returns a boolean if a field has been set.
 
+### SetCreatedByNil
+
+`func (o *ShowbackRulesListDto) SetCreatedByNil(b bool)`
+
+ SetCreatedByNil sets the value for CreatedBy to be an explicit nil
+
+### UnsetCreatedBy
+`func (o *ShowbackRulesListDto) UnsetCreatedBy()`
+
+UnsetCreatedBy ensures that no value is present for CreatedBy, not even an explicit nil
 ### GetLastModified
 
 `func (o *ShowbackRulesListDto) GetLastModified() string`
@@ -493,6 +613,16 @@ SetLastModified sets LastModified field to given value.
 
 HasLastModified returns a boolean if a field has been set.
 
+### SetLastModifiedNil
+
+`func (o *ShowbackRulesListDto) SetLastModifiedNil(b bool)`
+
+ SetLastModifiedNil sets the value for LastModified to be an explicit nil
+
+### UnsetLastModified
+`func (o *ShowbackRulesListDto) UnsetLastModified()`
+
+UnsetLastModified ensures that no value is present for LastModified, not even an explicit nil
 ### GetLastModifiedBy
 
 `func (o *ShowbackRulesListDto) GetLastModifiedBy() string`
@@ -518,6 +648,16 @@ SetLastModifiedBy sets LastModifiedBy field to given value.
 
 HasLastModifiedBy returns a boolean if a field has been set.
 
+### SetLastModifiedByNil
+
+`func (o *ShowbackRulesListDto) SetLastModifiedByNil(b bool)`
+
+ SetLastModifiedByNil sets the value for LastModifiedBy to be an explicit nil
+
+### UnsetLastModifiedBy
+`func (o *ShowbackRulesListDto) UnsetLastModifiedBy()`
+
+UnsetLastModifiedBy ensures that no value is present for LastModifiedBy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**MonitoringUrl** | Pointer to **string** |  | [optional] 
-**MonitoringUsername** | Pointer to **string** |  | [optional] 
-**MonitoringPassword** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**MonitoringUrl** | Pointer to **NullableString** |  | [optional] 
+**MonitoringUsername** | Pointer to **NullableString** |  | [optional] 
+**MonitoringPassword** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -79,6 +79,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ShowbackProjectsListDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ShowbackProjectsListDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetMonitoringUrl
 
 `func (o *ShowbackProjectsListDto) GetMonitoringUrl() string`
@@ -104,6 +114,16 @@ SetMonitoringUrl sets MonitoringUrl field to given value.
 
 HasMonitoringUrl returns a boolean if a field has been set.
 
+### SetMonitoringUrlNil
+
+`func (o *ShowbackProjectsListDto) SetMonitoringUrlNil(b bool)`
+
+ SetMonitoringUrlNil sets the value for MonitoringUrl to be an explicit nil
+
+### UnsetMonitoringUrl
+`func (o *ShowbackProjectsListDto) UnsetMonitoringUrl()`
+
+UnsetMonitoringUrl ensures that no value is present for MonitoringUrl, not even an explicit nil
 ### GetMonitoringUsername
 
 `func (o *ShowbackProjectsListDto) GetMonitoringUsername() string`
@@ -129,6 +149,16 @@ SetMonitoringUsername sets MonitoringUsername field to given value.
 
 HasMonitoringUsername returns a boolean if a field has been set.
 
+### SetMonitoringUsernameNil
+
+`func (o *ShowbackProjectsListDto) SetMonitoringUsernameNil(b bool)`
+
+ SetMonitoringUsernameNil sets the value for MonitoringUsername to be an explicit nil
+
+### UnsetMonitoringUsername
+`func (o *ShowbackProjectsListDto) UnsetMonitoringUsername()`
+
+UnsetMonitoringUsername ensures that no value is present for MonitoringUsername, not even an explicit nil
 ### GetMonitoringPassword
 
 `func (o *ShowbackProjectsListDto) GetMonitoringPassword() string`
@@ -154,6 +184,16 @@ SetMonitoringPassword sets MonitoringPassword field to given value.
 
 HasMonitoringPassword returns a boolean if a field has been set.
 
+### SetMonitoringPasswordNil
+
+`func (o *ShowbackProjectsListDto) SetMonitoringPasswordNil(b bool)`
+
+ SetMonitoringPasswordNil sets the value for MonitoringPassword to be an explicit nil
+
+### UnsetMonitoringPassword
+`func (o *ShowbackProjectsListDto) UnsetMonitoringPassword()`
+
+UnsetMonitoringPassword ensures that no value is present for MonitoringPassword, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

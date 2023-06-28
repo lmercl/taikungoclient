@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **BeginApply** | Pointer to **time.Time** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 **ShowbackRuleId** | Pointer to **int32** |  | [optional] 
-**ProjectId** | Pointer to **int32** |  | [optional] 
-**ByLabelValue** | Pointer to **string** |  | [optional] 
+**ProjectId** | Pointer to **NullableInt32** |  | [optional] 
+**ByLabelValue** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -129,6 +129,16 @@ SetProjectId sets ProjectId field to given value.
 
 HasProjectId returns a boolean if a field has been set.
 
+### SetProjectIdNil
+
+`func (o *CreateShowbackSummaryCommand) SetProjectIdNil(b bool)`
+
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
+
+### UnsetProjectId
+`func (o *CreateShowbackSummaryCommand) UnsetProjectId()`
+
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 ### GetByLabelValue
 
 `func (o *CreateShowbackSummaryCommand) GetByLabelValue() string`
@@ -154,6 +164,16 @@ SetByLabelValue sets ByLabelValue field to given value.
 
 HasByLabelValue returns a boolean if a field has been set.
 
+### SetByLabelValueNil
+
+`func (o *CreateShowbackSummaryCommand) SetByLabelValueNil(b bool)`
+
+ SetByLabelValueNil sets the value for ByLabelValue to be an explicit nil
+
+### UnsetByLabelValue
+`func (o *CreateShowbackSummaryCommand) UnsetByLabelValue()`
+
+UnsetByLabelValue ensures that no value is present for ByLabelValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

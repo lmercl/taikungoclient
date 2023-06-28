@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectName** | Pointer to **string** |  | [optional] 
-**TotalPrice** | Pointer to **float64** |  | [optional] 
+**ProjectName** | Pointer to **NullableString** |  | [optional] 
+**TotalPrice** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetProjectName sets ProjectName field to given value.
 
 HasProjectName returns a boolean if a field has been set.
 
+### SetProjectNameNil
+
+`func (o *GroupedShowbackSummariesByProjectDto) SetProjectNameNil(b bool)`
+
+ SetProjectNameNil sets the value for ProjectName to be an explicit nil
+
+### UnsetProjectName
+`func (o *GroupedShowbackSummariesByProjectDto) UnsetProjectName()`
+
+UnsetProjectName ensures that no value is present for ProjectName, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *GroupedShowbackSummariesByProjectDto) GetTotalPrice() float64`
@@ -76,6 +86,16 @@ SetTotalPrice sets TotalPrice field to given value.
 
 HasTotalPrice returns a boolean if a field has been set.
 
+### SetTotalPriceNil
+
+`func (o *GroupedShowbackSummariesByProjectDto) SetTotalPriceNil(b bool)`
+
+ SetTotalPriceNil sets the value for TotalPrice to be an explicit nil
+
+### UnsetTotalPrice
+`func (o *GroupedShowbackSummariesByProjectDto) UnsetTotalPrice()`
+
+UnsetTotalPrice ensures that no value is present for TotalPrice, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

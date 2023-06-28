@@ -50,6 +50,16 @@ SetByLabelValues sets ByLabelValues field to given value.
 
 HasByLabelValues returns a boolean if a field has been set.
 
+### SetByLabelValuesNil
+
+`func (o *GroupedShowbackByLabelList) SetByLabelValuesNil(b bool)`
+
+ SetByLabelValuesNil sets the value for ByLabelValues to be an explicit nil
+
+### UnsetByLabelValues
+`func (o *GroupedShowbackByLabelList) UnsetByLabelValues()`
+
+UnsetByLabelValues ensures that no value is present for ByLabelValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

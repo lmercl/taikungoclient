@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **int32** |  | [optional] 
-**ProjectId** | Pointer to **int32** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableInt32** |  | [optional] 
+**ProjectId** | Pointer to **NullableInt32** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *GroupedCredentialForShowbackSummary) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *GroupedCredentialForShowbackSummary) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetProjectId
 
 `func (o *GroupedCredentialForShowbackSummary) GetProjectId() int32`
@@ -77,6 +87,16 @@ SetProjectId sets ProjectId field to given value.
 
 HasProjectId returns a boolean if a field has been set.
 
+### SetProjectIdNil
+
+`func (o *GroupedCredentialForShowbackSummary) SetProjectIdNil(b bool)`
+
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
+
+### UnsetProjectId
+`func (o *GroupedCredentialForShowbackSummary) UnsetProjectId()`
+
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 ### GetName
 
 `func (o *GroupedCredentialForShowbackSummary) GetName() string`
@@ -102,6 +122,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *GroupedCredentialForShowbackSummary) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *GroupedCredentialForShowbackSummary) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

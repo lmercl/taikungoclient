@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ByLabel** | Pointer to **string** |  | [optional] 
-**TotalPrice** | Pointer to **float64** |  | [optional] 
+**ByLabel** | Pointer to **NullableString** |  | [optional] 
+**TotalPrice** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetByLabel sets ByLabel field to given value.
 
 HasByLabel returns a boolean if a field has been set.
 
+### SetByLabelNil
+
+`func (o *GroupedShowbackSummariesByLabelDto) SetByLabelNil(b bool)`
+
+ SetByLabelNil sets the value for ByLabel to be an explicit nil
+
+### UnsetByLabel
+`func (o *GroupedShowbackSummariesByLabelDto) UnsetByLabel()`
+
+UnsetByLabel ensures that no value is present for ByLabel, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *GroupedShowbackSummariesByLabelDto) GetTotalPrice() float64`
@@ -76,6 +86,16 @@ SetTotalPrice sets TotalPrice field to given value.
 
 HasTotalPrice returns a boolean if a field has been set.
 
+### SetTotalPriceNil
+
+`func (o *GroupedShowbackSummariesByLabelDto) SetTotalPriceNil(b bool)`
+
+ SetTotalPriceNil sets the value for TotalPrice to be an explicit nil
+
+### UnsetTotalPrice
+`func (o *GroupedShowbackSummariesByLabelDto) UnsetTotalPrice()`
+
+UnsetTotalPrice ensures that no value is present for TotalPrice, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

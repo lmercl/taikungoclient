@@ -50,6 +50,16 @@ SetByProjects sets ByProjects field to given value.
 
 HasByProjects returns a boolean if a field has been set.
 
+### SetByProjectsNil
+
+`func (o *GroupedShowbackByProjectList) SetByProjectsNil(b bool)`
+
+ SetByProjectsNil sets the value for ByProjects to be an explicit nil
+
+### UnsetByProjects
+`func (o *GroupedShowbackByProjectList) UnsetByProjects()`
+
+UnsetByProjects ensures that no value is present for ByProjects, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

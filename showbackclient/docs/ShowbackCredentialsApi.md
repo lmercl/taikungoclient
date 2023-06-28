@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ShowbackCredentialsCreate**](ShowbackCredentialsApi.md#ShowbackCredentialsCreate) | **Post** /showback/v{v}/ShowbackCredentials/create | Create showback credential
-[**ShowbackCredentialsDelete**](ShowbackCredentialsApi.md#ShowbackCredentialsDelete) | **Delete** /showback/v{v}/ShowbackCredentials/{id} | Delete showback credential
-[**ShowbackCredentialsDropdown**](ShowbackCredentialsApi.md#ShowbackCredentialsDropdown) | **Get** /showback/v{v}/ShowbackCredentials/list | Retrieve showback credentials by organization Id
-[**ShowbackCredentialsList**](ShowbackCredentialsApi.md#ShowbackCredentialsList) | **Get** /showback/v{v}/ShowbackCredentials | Retrieve all showback credentials
-[**ShowbackCredentialsLockManager**](ShowbackCredentialsApi.md#ShowbackCredentialsLockManager) | **Post** /showback/v{v}/ShowbackCredentials/lockmanager | Lock/Unlock showback credential
+[**ShowbackcredentialsCreate**](ShowbackCredentialsApi.md#ShowbackcredentialsCreate) | **Post** /showback/v1/showbackcredentials/create | Create showback credential
+[**ShowbackcredentialsDelete**](ShowbackCredentialsApi.md#ShowbackcredentialsDelete) | **Delete** /showback/v1/showbackcredentials/{id} | Delete showback credential
+[**ShowbackcredentialsDropdown**](ShowbackCredentialsApi.md#ShowbackcredentialsDropdown) | **Get** /showback/v1/showbackcredentials/list | Retrieve showback credentials by organization id
+[**ShowbackcredentialsList**](ShowbackCredentialsApi.md#ShowbackcredentialsList) | **Get** /showback/v1/showbackcredentials | Retrieve all showback credentials
+[**ShowbackcredentialsLockManagement**](ShowbackCredentialsApi.md#ShowbackcredentialsLockManagement) | **Post** /showback/v1/showbackcredentials/lockmanager | Lock management for showback credential
 
 
 
-## ShowbackCredentialsCreate
+## ShowbackcredentialsCreate
 
-> ApiResponse ShowbackCredentialsCreate(ctx, v).Body(body).Execute()
+> ApiResponse ShowbackcredentialsCreate(ctx).CreateShowbackCredentialCommand(createShowbackCredentialCommand).Execute()
 
 Create showback credential
 
@@ -31,38 +31,32 @@ import (
 )
 
 func main() {
-    v := "v_example" // string | 
-    body := *openapiclient.NewCreateShowbackCredentialCommand() // CreateShowbackCredentialCommand |  (optional)
+    createShowbackCredentialCommand := *openapiclient.NewCreateShowbackCredentialCommand() // CreateShowbackCredentialCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsCreate(context.Background(), v).Body(body).Execute()
+    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsCreate(context.Background()).CreateShowbackCredentialCommand(createShowbackCredentialCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackCredentialsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackcredentialsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ShowbackCredentialsCreate`: ApiResponse
-    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackCredentialsCreate`: %v\n", resp)
+    // response from `ShowbackcredentialsCreate`: ApiResponse
+    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackcredentialsCreate`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**v** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiShowbackCredentialsCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiShowbackcredentialsCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **body** | [**CreateShowbackCredentialCommand**](CreateShowbackCredentialCommand.md) |  | 
+ **createShowbackCredentialCommand** | [**CreateShowbackCredentialCommand**](CreateShowbackCredentialCommand.md) |  | 
 
 ### Return type
 
@@ -74,17 +68,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ShowbackCredentialsDelete
+## ShowbackcredentialsDelete
 
-> ShowbackCredentialsDelete(ctx, id, v).Execute()
+> ShowbackcredentialsDelete(ctx, id).Execute()
 
 Delete showback credential
 
@@ -102,13 +96,12 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    v := "v_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsDelete(context.Background(), id, v).Execute()
+    r, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsDelete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackCredentialsDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackcredentialsDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -121,16 +114,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **int32** |  | 
-**v** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiShowbackCredentialsDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiShowbackcredentialsDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 ### Return type
@@ -144,18 +135,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ShowbackCredentialsDropdown
+## ShowbackcredentialsDropdown
 
-> []ShowbackCredentialsDetailsDto ShowbackCredentialsDropdown(ctx, v).OrganizationId(organizationId).Execute()
+> []ShowbackCredentialsDetailsDto ShowbackcredentialsDropdown(ctx).OrganizationId(organizationId).Execute()
 
-Retrieve showback credentials by organization Id
+Retrieve showback credentials by organization id
 
 ### Example
 
@@ -170,37 +161,31 @@ import (
 )
 
 func main() {
-    v := "v_example" // string | 
     organizationId := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsDropdown(context.Background(), v).OrganizationId(organizationId).Execute()
+    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsDropdown(context.Background()).OrganizationId(organizationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackCredentialsDropdown``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackcredentialsDropdown``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ShowbackCredentialsDropdown`: []ShowbackCredentialsDetailsDto
-    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackCredentialsDropdown`: %v\n", resp)
+    // response from `ShowbackcredentialsDropdown`: []ShowbackCredentialsDetailsDto
+    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackcredentialsDropdown`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**v** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiShowbackCredentialsDropdownRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiShowbackcredentialsDropdownRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **organizationId** | **int32** |  | 
 
 ### Return type
@@ -214,16 +199,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ShowbackCredentialsList
+## ShowbackcredentialsList
 
-> ShowbackCredentialsList ShowbackCredentialsList(ctx, v).Limit(limit).Offset(offset).OrganizationId(organizationId).SortBy(sortBy).SortDirection(sortDirection).Search(search).Id(id).Execute()
+> ShowbackCredentialsList ShowbackcredentialsList(ctx).Limit(limit).Offset(offset).OrganizationId(organizationId).SortBy(sortBy).SortDirection(sortDirection).Search(search).Id(id).Execute()
 
 Retrieve all showback credentials
 
@@ -240,9 +225,8 @@ import (
 )
 
 func main() {
-    v := "v_example" // string | 
-    limit := int32(56) // int32 | Limits user size (by default 50) (optional)
-    offset := int32(56) // int32 | Skip elements (optional)
+    limit := int32(56) // int32 |  (optional)
+    offset := int32(56) // int32 |  (optional)
     organizationId := int32(56) // int32 |  (optional)
     sortBy := "sortBy_example" // string |  (optional)
     sortDirection := "sortDirection_example" // string |  (optional)
@@ -251,34 +235,29 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsList(context.Background(), v).Limit(limit).Offset(offset).OrganizationId(organizationId).SortBy(sortBy).SortDirection(sortDirection).Search(search).Id(id).Execute()
+    resp, r, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsList(context.Background()).Limit(limit).Offset(offset).OrganizationId(organizationId).SortBy(sortBy).SortDirection(sortDirection).Search(search).Id(id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackCredentialsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackcredentialsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ShowbackCredentialsList`: ShowbackCredentialsList
-    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackCredentialsList`: %v\n", resp)
+    // response from `ShowbackcredentialsList`: ShowbackCredentialsList
+    fmt.Fprintf(os.Stdout, "Response from `ShowbackCredentialsApi.ShowbackcredentialsList`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**v** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiShowbackCredentialsListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiShowbackcredentialsListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **limit** | **int32** | Limits user size (by default 50) | 
- **offset** | **int32** | Skip elements | 
+ **limit** | **int32** |  | 
+ **offset** | **int32** |  | 
  **organizationId** | **int32** |  | 
  **sortBy** | **string** |  | 
  **sortDirection** | **string** |  | 
@@ -296,18 +275,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## ShowbackCredentialsLockManager
+## ShowbackcredentialsLockManagement
 
-> ShowbackCredentialsLockManager(ctx, v).Body(body).Execute()
+> ShowbackcredentialsLockManagement(ctx).ShowbackCredentialLockCommand(showbackCredentialLockCommand).Execute()
 
-Lock/Unlock showback credential
+Lock management for showback credential
 
 ### Example
 
@@ -322,14 +301,13 @@ import (
 )
 
 func main() {
-    v := "v_example" // string | 
-    body := *openapiclient.NewShowbackCredentialLockCommand() // ShowbackCredentialLockCommand |  (optional)
+    showbackCredentialLockCommand := *openapiclient.NewShowbackCredentialLockCommand() // ShowbackCredentialLockCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsLockManager(context.Background(), v).Body(body).Execute()
+    r, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsLockManagement(context.Background()).ShowbackCredentialLockCommand(showbackCredentialLockCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackCredentialsLockManager``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ShowbackCredentialsApi.ShowbackcredentialsLockManagement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -338,20 +316,15 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**v** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiShowbackCredentialsLockManagerRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiShowbackcredentialsLockManagementRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **body** | [**ShowbackCredentialLockCommand**](ShowbackCredentialLockCommand.md) |  | 
+ **showbackCredentialLockCommand** | [**ShowbackCredentialLockCommand**](ShowbackCredentialLockCommand.md) |  | 
 
 ### Return type
 
@@ -363,8 +336,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

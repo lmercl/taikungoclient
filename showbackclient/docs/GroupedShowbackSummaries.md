@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | Pointer to **string** |  | [optional] 
+**StartDate** | Pointer to **NullableString** |  | [optional] 
 **Price** | Pointer to **float64** |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### SetStartDateNil
+
+`func (o *GroupedShowbackSummaries) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *GroupedShowbackSummaries) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetPrice
 
 `func (o *GroupedShowbackSummaries) GetPrice() float64`

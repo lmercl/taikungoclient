@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_projects.go
 api_showback_credentials.go
 api_showback_rules.go
 api_showback_summaries.go
@@ -12,6 +13,7 @@ docs/ApiResponse.md
 docs/CreateShowbackCredentialCommand.md
 docs/CreateShowbackRuleCommand.md
 docs/CreateShowbackSummaryCommand.md
+docs/CsvExporter.md
 docs/DeleteRulesCommand.md
 docs/EPrometheusType.md
 docs/EShowbackType.md
@@ -28,6 +30,7 @@ docs/GroupedShowbackSummaryByProjectInfos.md
 docs/GroupedShowbackSummaryInfos.md
 docs/GroupedShowbackSummaryListDto.md
 docs/ProblemDetails.md
+docs/ProjectsApi.md
 docs/ShowbackCredentialLockCommand.md
 docs/ShowbackCredentialsApi.md
 docs/ShowbackCredentialsDetailsDto.md
@@ -42,7 +45,6 @@ docs/ShowbackRulesApi.md
 docs/ShowbackRulesListDto.md
 docs/ShowbackSummariesApi.md
 docs/UpdateShowbackRuleCommand.md
-docs/ValidationProblemDetails.md
 git_push.sh
 go.mod
 go.sum
@@ -50,6 +52,7 @@ model_api_response.go
 model_create_showback_credential_command.go
 model_create_showback_rule_command.go
 model_create_showback_summary_command.go
+model_csv_exporter.go
 model_delete_rules_command.go
 model_e_prometheus_type.go
 model_e_showback_type.go
@@ -77,8 +80,8 @@ model_showback_rule_entity_dto.go
 model_showback_rule_list.go
 model_showback_rules_list_dto.go
 model_update_showback_rule_command.go
-model_validation_problem_details.go
 response.go
+test/api_projects_test.go
 test/api_showback_credentials_test.go
 test/api_showback_rules_test.go
 test/api_showback_summaries_test.go

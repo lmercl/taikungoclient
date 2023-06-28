@@ -22,13 +22,11 @@ func Test_taikunshowback_ShowbackCredentialsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ShowbackCredentialsApiService ShowbackCredentialsCreate", func(t *testing.T) {
+	t.Run("Test ShowbackCredentialsApiService ShowbackcredentialsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsCreate(context.Background(), v).Execute()
+		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,27 +34,24 @@ func Test_taikunshowback_ShowbackCredentialsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackCredentialsApiService ShowbackCredentialsDelete", func(t *testing.T) {
+	t.Run("Test ShowbackCredentialsApiService ShowbackcredentialsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id int32
-		var v string
 
-		httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsDelete(context.Background(), id, v).Execute()
+		httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsDelete(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ShowbackCredentialsApiService ShowbackCredentialsDropdown", func(t *testing.T) {
+	t.Run("Test ShowbackCredentialsApiService ShowbackcredentialsDropdown", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsDropdown(context.Background(), v).Execute()
+		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsDropdown(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +59,11 @@ func Test_taikunshowback_ShowbackCredentialsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackCredentialsApiService ShowbackCredentialsList", func(t *testing.T) {
+	t.Run("Test ShowbackCredentialsApiService ShowbackcredentialsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsList(context.Background(), v).Execute()
+		resp, httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -78,13 +71,11 @@ func Test_taikunshowback_ShowbackCredentialsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ShowbackCredentialsApiService ShowbackCredentialsLockManager", func(t *testing.T) {
+	t.Run("Test ShowbackCredentialsApiService ShowbackcredentialsLockManagement", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var v string
-
-		httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackCredentialsLockManager(context.Background(), v).Execute()
+		httpRes, err := apiClient.ShowbackCredentialsApi.ShowbackcredentialsLockManagement(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

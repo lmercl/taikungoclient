@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RuleId** | Pointer to **int32** |  | [optional] 
-**RuleName** | Pointer to **string** |  | [optional] 
+**RuleName** | Pointer to **NullableString** |  | [optional] 
 **TotalPrice** | Pointer to **float64** |  | [optional] 
 **Projects** | Pointer to [**[]GroupedProjectForShowbackSummary**](GroupedProjectForShowbackSummary.md) |  | [optional] 
 **Credential** | Pointer to [**GroupedCredentialForShowbackSummary**](GroupedCredentialForShowbackSummary.md) |  | [optional] 
@@ -79,6 +79,16 @@ SetRuleName sets RuleName field to given value.
 
 HasRuleName returns a boolean if a field has been set.
 
+### SetRuleNameNil
+
+`func (o *GroupedShowbackSummaryListDto) SetRuleNameNil(b bool)`
+
+ SetRuleNameNil sets the value for RuleName to be an explicit nil
+
+### UnsetRuleName
+`func (o *GroupedShowbackSummaryListDto) UnsetRuleName()`
+
+UnsetRuleName ensures that no value is present for RuleName, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *GroupedShowbackSummaryListDto) GetTotalPrice() float64`
@@ -129,6 +139,16 @@ SetProjects sets Projects field to given value.
 
 HasProjects returns a boolean if a field has been set.
 
+### SetProjectsNil
+
+`func (o *GroupedShowbackSummaryListDto) SetProjectsNil(b bool)`
+
+ SetProjectsNil sets the value for Projects to be an explicit nil
+
+### UnsetProjects
+`func (o *GroupedShowbackSummaryListDto) UnsetProjects()`
+
+UnsetProjects ensures that no value is present for Projects, not even an explicit nil
 ### GetCredential
 
 `func (o *GroupedShowbackSummaryListDto) GetCredential() GroupedCredentialForShowbackSummary`

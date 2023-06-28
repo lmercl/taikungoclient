@@ -52,6 +52,16 @@ SetProjects sets Projects field to given value.
 
 HasProjects returns a boolean if a field has been set.
 
+### SetProjectsNil
+
+`func (o *GroupedShowbackList) SetProjectsNil(b bool)`
+
+ SetProjectsNil sets the value for Projects to be an explicit nil
+
+### UnsetProjects
+`func (o *GroupedShowbackList) UnsetProjects()`
+
+UnsetProjects ensures that no value is present for Projects, not even an explicit nil
 ### GetCredentials
 
 `func (o *GroupedShowbackList) GetCredentials() []GroupedShowbackSummaryInfos`
@@ -77,6 +87,16 @@ SetCredentials sets Credentials field to given value.
 
 HasCredentials returns a boolean if a field has been set.
 
+### SetCredentialsNil
+
+`func (o *GroupedShowbackList) SetCredentialsNil(b bool)`
+
+ SetCredentialsNil sets the value for Credentials to be an explicit nil
+
+### UnsetCredentials
+`func (o *GroupedShowbackList) UnsetCredentials()`
+
+UnsetCredentials ensures that no value is present for Credentials, not even an explicit nil
 ### GetByLabelValues
 
 `func (o *GroupedShowbackList) GetByLabelValues() []GroupedShowbackSummaryInfos`
@@ -102,6 +122,16 @@ SetByLabelValues sets ByLabelValues field to given value.
 
 HasByLabelValues returns a boolean if a field has been set.
 
+### SetByLabelValuesNil
+
+`func (o *GroupedShowbackList) SetByLabelValuesNil(b bool)`
+
+ SetByLabelValuesNil sets the value for ByLabelValues to be an explicit nil
+
+### UnsetByLabelValues
+`func (o *GroupedShowbackList) UnsetByLabelValues()`
+
+UnsetByLabelValues ensures that no value is present for ByLabelValues, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

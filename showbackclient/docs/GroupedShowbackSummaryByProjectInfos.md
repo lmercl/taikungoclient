@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to [**[]GroupedShowbackSummariesByProjectDto**](GroupedShowbackSummariesByProjectDto.md) |  | [optional] 
-**RuleName** | Pointer to **string** |  | [optional] 
-**CredentialName** | Pointer to **string** |  | [optional] 
-**TotalPrice** | Pointer to **float64** |  | [optional] 
+**RuleName** | Pointer to **NullableString** |  | [optional] 
+**CredentialName** | Pointer to **NullableString** |  | [optional] 
+**TotalPrice** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### SetDataNil
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *GroupedShowbackSummaryByProjectInfos) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetRuleName
 
 `func (o *GroupedShowbackSummaryByProjectInfos) GetRuleName() string`
@@ -78,6 +88,16 @@ SetRuleName sets RuleName field to given value.
 
 HasRuleName returns a boolean if a field has been set.
 
+### SetRuleNameNil
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetRuleNameNil(b bool)`
+
+ SetRuleNameNil sets the value for RuleName to be an explicit nil
+
+### UnsetRuleName
+`func (o *GroupedShowbackSummaryByProjectInfos) UnsetRuleName()`
+
+UnsetRuleName ensures that no value is present for RuleName, not even an explicit nil
 ### GetCredentialName
 
 `func (o *GroupedShowbackSummaryByProjectInfos) GetCredentialName() string`
@@ -103,6 +123,16 @@ SetCredentialName sets CredentialName field to given value.
 
 HasCredentialName returns a boolean if a field has been set.
 
+### SetCredentialNameNil
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetCredentialNameNil(b bool)`
+
+ SetCredentialNameNil sets the value for CredentialName to be an explicit nil
+
+### UnsetCredentialName
+`func (o *GroupedShowbackSummaryByProjectInfos) UnsetCredentialName()`
+
+UnsetCredentialName ensures that no value is present for CredentialName, not even an explicit nil
 ### GetTotalPrice
 
 `func (o *GroupedShowbackSummaryByProjectInfos) GetTotalPrice() float64`
@@ -128,6 +158,16 @@ SetTotalPrice sets TotalPrice field to given value.
 
 HasTotalPrice returns a boolean if a field has been set.
 
+### SetTotalPriceNil
+
+`func (o *GroupedShowbackSummaryByProjectInfos) SetTotalPriceNil(b bool)`
+
+ SetTotalPriceNil sets the value for TotalPrice to be an explicit nil
+
+### UnsetTotalPrice
+`func (o *GroupedShowbackSummaryByProjectInfos) UnsetTotalPrice()`
+
+UnsetTotalPrice ensures that no value is present for TotalPrice, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
