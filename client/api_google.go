@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"os"
 )
 
@@ -40,7 +41,7 @@ func (r ApiGooglecloudBillingAccountListRequest) Execute() ([]CommonStringBasedD
 }
 
 /*
-GooglecloudBillingAccountList Retrieve google billing accounts list
+GooglecloudBillingAccountList Method for GooglecloudBillingAccountList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGooglecloudBillingAccountListRequest
@@ -215,28 +216,28 @@ func (a *GoogleApiService) GooglecloudBillingAccountListExecute(r ApiGooglecloud
 type ApiGooglecloudCreateRequest struct {
 	ctx context.Context
 	ApiService *GoogleApiService
-	name *string
-	config *os.File
 	importProject *bool
+	azCount *int32
+	name *string
 	folderId *string
 	billingAccountId *string
-	azCount *int32
 	region *string
 	organizationId *int32
-}
-
-func (r ApiGooglecloudCreateRequest) Name(name string) ApiGooglecloudCreateRequest {
-	r.name = &name
-	return r
-}
-
-func (r ApiGooglecloudCreateRequest) Config(config *os.File) ApiGooglecloudCreateRequest {
-	r.config = config
-	return r
+	config *os.File
 }
 
 func (r ApiGooglecloudCreateRequest) ImportProject(importProject bool) ApiGooglecloudCreateRequest {
 	r.importProject = &importProject
+	return r
+}
+
+func (r ApiGooglecloudCreateRequest) AzCount(azCount int32) ApiGooglecloudCreateRequest {
+	r.azCount = &azCount
+	return r
+}
+
+func (r ApiGooglecloudCreateRequest) Name(name string) ApiGooglecloudCreateRequest {
+	r.name = &name
 	return r
 }
 
@@ -250,11 +251,6 @@ func (r ApiGooglecloudCreateRequest) BillingAccountId(billingAccountId string) A
 	return r
 }
 
-func (r ApiGooglecloudCreateRequest) AzCount(azCount int32) ApiGooglecloudCreateRequest {
-	r.azCount = &azCount
-	return r
-}
-
 func (r ApiGooglecloudCreateRequest) Region(region string) ApiGooglecloudCreateRequest {
 	r.region = &region
 	return r
@@ -265,12 +261,17 @@ func (r ApiGooglecloudCreateRequest) OrganizationId(organizationId int32) ApiGoo
 	return r
 }
 
+func (r ApiGooglecloudCreateRequest) Config(config *os.File) ApiGooglecloudCreateRequest {
+	r.config = config
+	return r
+}
+
 func (r ApiGooglecloudCreateRequest) Execute() (*ApiResponse, *http.Response, error) {
 	return r.ApiService.GooglecloudCreateExecute(r)
 }
 
 /*
-GooglecloudCreate Create google cloud credential
+GooglecloudCreate Method for GooglecloudCreate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGooglecloudCreateRequest
@@ -302,7 +303,30 @@ func (a *GoogleApiService) GooglecloudCreateExecute(r ApiGooglecloudCreateReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.importProject == nil {
+		return localVarReturnValue, nil, reportError("importProject is required and must be specified")
+	}
+	if r.azCount == nil {
+		return localVarReturnValue, nil, reportError("azCount is required and must be specified")
+	}
 
+	if r.name != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Name", r.name, "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "ImportProject", r.importProject, "")
+	if r.folderId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "FolderId", r.folderId, "")
+	}
+	if r.billingAccountId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "BillingAccountId", r.billingAccountId, "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "AzCount", r.azCount, "")
+	if r.region != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Region", r.region, "")
+	}
+	if r.organizationId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrganizationId", r.organizationId, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
@@ -320,9 +344,6 @@ func (a *GoogleApiService) GooglecloudCreateExecute(r ApiGooglecloudCreateReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "")
-	}
 	var configLocalVarFormFileName string
 	var configLocalVarFileName     string
 	var configLocalVarFileBytes    []byte
@@ -339,24 +360,6 @@ func (a *GoogleApiService) GooglecloudCreateExecute(r ApiGooglecloudCreateReques
 		configLocalVarFileName = configLocalVarFile.Name()
 		configLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: configLocalVarFileBytes, fileName: configLocalVarFileName, formFileName: configLocalVarFormFileName})
-	}
-	if r.importProject != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "importProject", r.importProject, "")
-	}
-	if r.folderId != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "folderId", r.folderId, "")
-	}
-	if r.billingAccountId != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "billingAccountId", r.billingAccountId, "")
-	}
-	if r.azCount != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "azCount", r.azCount, "")
-	}
-	if r.region != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "region", r.region, "")
-	}
-	if r.organizationId != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "organizationId", r.organizationId, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -703,11 +706,11 @@ func (a *GoogleApiService) GooglecloudListExecute(r ApiGooglecloudListRequest) (
 type ApiGooglecloudRegionListRequest struct {
 	ctx context.Context
 	ApiService *GoogleApiService
-	config *os.File
+	file *os.File
 }
 
-func (r ApiGooglecloudRegionListRequest) Config(config *os.File) ApiGooglecloudRegionListRequest {
-	r.config = config
+func (r ApiGooglecloudRegionListRequest) File(file *os.File) ApiGooglecloudRegionListRequest {
+	r.file = file
 	return r
 }
 
@@ -716,7 +719,7 @@ func (r ApiGooglecloudRegionListRequest) Execute() ([]string, *http.Response, er
 }
 
 /*
-GooglecloudRegionList Retrieve google region list
+GooglecloudRegionList Method for GooglecloudRegionList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGooglecloudRegionListRequest
@@ -766,22 +769,22 @@ func (a *GoogleApiService) GooglecloudRegionListExecute(r ApiGooglecloudRegionLi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var configLocalVarFormFileName string
-	var configLocalVarFileName     string
-	var configLocalVarFileBytes    []byte
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
 
-	configLocalVarFormFileName = "config"
+	fileLocalVarFormFileName = "file"
 
 
-	configLocalVarFile := r.config
+	fileLocalVarFile := r.file
 
-	if configLocalVarFile != nil {
-		fbs, _ := io.ReadAll(configLocalVarFile)
+	if fileLocalVarFile != nil {
+		fbs, _ := io.ReadAll(fileLocalVarFile)
 
-		configLocalVarFileBytes = fbs
-		configLocalVarFileName = configLocalVarFile.Name()
-		configLocalVarFile.Close()
-		formFiles = append(formFiles, formFile{fileBytes: configLocalVarFileBytes, fileName: configLocalVarFileName, formFileName: configLocalVarFormFileName})
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -891,23 +894,18 @@ func (a *GoogleApiService) GooglecloudRegionListExecute(r ApiGooglecloudRegionLi
 type ApiGooglecloudZoneListRequest struct {
 	ctx context.Context
 	ApiService *GoogleApiService
-	config *os.File
-	region *string
+	region string
 	cloudId *int32
-}
-
-func (r ApiGooglecloudZoneListRequest) Config(config *os.File) ApiGooglecloudZoneListRequest {
-	r.config = config
-	return r
-}
-
-func (r ApiGooglecloudZoneListRequest) Region(region string) ApiGooglecloudZoneListRequest {
-	r.region = &region
-	return r
+	config *os.File
 }
 
 func (r ApiGooglecloudZoneListRequest) CloudId(cloudId int32) ApiGooglecloudZoneListRequest {
 	r.cloudId = &cloudId
+	return r
+}
+
+func (r ApiGooglecloudZoneListRequest) Config(config *os.File) ApiGooglecloudZoneListRequest {
+	r.config = config
 	return r
 }
 
@@ -916,15 +914,17 @@ func (r ApiGooglecloudZoneListRequest) Execute() (*AzResult, *http.Response, err
 }
 
 /*
-GooglecloudZoneList Google zones list
+GooglecloudZoneList Method for GooglecloudZoneList
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param region
  @return ApiGooglecloudZoneListRequest
 */
-func (a *GoogleApiService) GooglecloudZoneList(ctx context.Context) ApiGooglecloudZoneListRequest {
+func (a *GoogleApiService) GooglecloudZoneList(ctx context.Context, region string) ApiGooglecloudZoneListRequest {
 	return ApiGooglecloudZoneListRequest{
 		ApiService: a,
 		ctx: ctx,
+		region: region,
 	}
 }
 
@@ -943,12 +943,16 @@ func (a *GoogleApiService) GooglecloudZoneListExecute(r ApiGooglecloudZoneListRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/googlecloud/zones"
+	localVarPath := localBasePath + "/api/v1/googlecloud/zones/{region}"
+	localVarPath = strings.Replace(localVarPath, "{"+"region"+"}", url.PathEscape(parameterValueToString(r.region, "region")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.cloudId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cloudId", r.cloudId, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
@@ -982,12 +986,6 @@ func (a *GoogleApiService) GooglecloudZoneListExecute(r ApiGooglecloudZoneListRe
 		configLocalVarFileName = configLocalVarFile.Name()
 		configLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: configLocalVarFileBytes, fileName: configLocalVarFileName, formFileName: configLocalVarFormFileName})
-	}
-	if r.region != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "region", r.region, "")
-	}
-	if r.cloudId != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "cloudId", r.cloudId, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

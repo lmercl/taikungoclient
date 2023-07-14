@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ProjectsAiAnalyzer**](ProjectsApi.md#ProjectsAiAnalyzer) | **Get** /api/v1/projects/ai-analyze/{projectId} | Analyze cluster by AI model
+[**ProjectsChatCompletions**](ProjectsApi.md#ProjectsChatCompletions) | **Post** /api/v1/projects/chat/completions | AI Chat completions
 [**ProjectsCommit**](ProjectsApi.md#ProjectsCommit) | **Post** /api/v1/projects/commit/{projectId} | Commit changes for the given project. The changes will then be applied and the project will be updated. The project must be in the READY state.
 [**ProjectsCreate**](ProjectsApi.md#ProjectsCreate) | **Post** /api/v1/projects | Create a new project
 [**ProjectsDelete**](ProjectsApi.md#ProjectsDelete) | **Post** /api/v1/projects/delete | Delete the project. The project must be empty (no server) and in READY state
@@ -12,8 +14,8 @@ Method | HTTP request | Description
 [**ProjectsDetails**](ProjectsApi.md#ProjectsDetails) | **Get** /api/v1/projects/{projectId} | Retrieve details of the project by Id
 [**ProjectsDropdown**](ProjectsApi.md#ProjectsDropdown) | **Get** /api/v1/projects/list | Retrieve list of projects for dropdown
 [**ProjectsEdit**](ProjectsApi.md#ProjectsEdit) | **Put** /api/v1/projects/edit/{projectId} | Update project by Id for poller
-[**ProjectsEditHealth**](ProjectsApi.md#ProjectsEditHealth) | **Put** /api/v1/projects/edit/{projectId}/health | Update health status of the project by Id
-[**ProjectsEditStatus**](ProjectsApi.md#ProjectsEditStatus) | **Put** /api/v1/projects/edit/{projectId}/status | Change the project status for the given project. Only available for admin.
+[**ProjectsEditHealth**](ProjectsApi.md#ProjectsEditHealth) | **Put** /api/v1/projects/edit/health | Update health status of the project by Id
+[**ProjectsEditStatus**](ProjectsApi.md#ProjectsEditStatus) | **Put** /api/v1/projects/edit/status | Change the project status for the given project. Only available for admin.
 [**ProjectsExtendLifetime**](ProjectsApi.md#ProjectsExtendLifetime) | **Post** /api/v1/projects/extend/lifetime | Extend life time of project
 [**ProjectsForAlerting**](ProjectsApi.md#ProjectsForAlerting) | **Get** /api/v1/projects/foralerting | Retrieve a list of projects for alert poller. Only available for admins.
 [**ProjectsForBilling**](ProjectsApi.md#ProjectsForBilling) | **Get** /api/v1/projects/forbilling | Retrieve a list of projects for billing
@@ -33,6 +35,138 @@ Method | HTTP request | Description
 [**ProjectsUpgrade**](ProjectsApi.md#ProjectsUpgrade) | **Post** /api/v1/projects/upgrade/{projectId} | Upgrade the project&#39;s Kubernetes to the next available version. Project must be READY.
 [**ProjectsVisibility**](ProjectsApi.md#ProjectsVisibility) | **Get** /api/v1/projects/visibility/{projectId} | Visibility of project actions
 
+
+
+## ProjectsAiAnalyzer
+
+> interface{} ProjectsAiAnalyzer(ctx, projectId).Execute()
+
+Analyze cluster by AI model
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    projectId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectsApi.ProjectsAiAnalyzer(context.Background(), projectId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ProjectsAiAnalyzer``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ProjectsAiAnalyzer`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ProjectsAiAnalyzer`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProjectsAiAnalyzerRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProjectsChatCompletions
+
+> interface{} ProjectsChatCompletions(ctx).ChatCompletionsCommand(chatCompletionsCommand).Execute()
+
+AI Chat completions
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    chatCompletionsCommand := *openapiclient.NewChatCompletionsCommand() // ChatCompletionsCommand | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectsApi.ProjectsChatCompletions(context.Background()).ChatCompletionsCommand(chatCompletionsCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ProjectsChatCompletions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ProjectsChatCompletions`: interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ProjectsChatCompletions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProjectsChatCompletionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **chatCompletionsCommand** | [**ChatCompletionsCommand**](ChatCompletionsCommand.md) |  | 
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ProjectsCommit
@@ -571,7 +705,7 @@ Name | Type | Description  | Notes
 
 ## ProjectsEditHealth
 
-> ProjectsEditHealth(ctx, projectId).Body(body).Execute()
+> ProjectsEditHealth(ctx).UpdateHealthStatusCommand(updateHealthStatusCommand).Execute()
 
 Update health status of the project by Id
 
@@ -588,12 +722,11 @@ import (
 )
 
 func main() {
-    projectId := int32(56) // int32 | 
-    body := string(987) // string | 
+    updateHealthStatusCommand := *openapiclient.NewUpdateHealthStatusCommand() // UpdateHealthStatusCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ProjectsEditHealth(context.Background(), projectId).Body(body).Execute()
+    r, err := apiClient.ProjectsApi.ProjectsEditHealth(context.Background()).UpdateHealthStatusCommand(updateHealthStatusCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ProjectsEditHealth``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -604,10 +737,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **int32** |  | 
 
 ### Other Parameters
 
@@ -616,8 +745,7 @@ Other parameters are passed through a pointer to a apiProjectsEditHealthRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **body** | **string** |  | 
+ **updateHealthStatusCommand** | [**UpdateHealthStatusCommand**](UpdateHealthStatusCommand.md) |  | 
 
 ### Return type
 
@@ -639,7 +767,7 @@ Name | Type | Description  | Notes
 
 ## ProjectsEditStatus
 
-> ProjectsEditStatus(ctx, projectId).Body(body).Execute()
+> ProjectsEditStatus(ctx).ResetProjectStatusCommand(resetProjectStatusCommand).Execute()
 
 Change the project status for the given project. Only available for admin.
 
@@ -656,12 +784,11 @@ import (
 )
 
 func main() {
-    projectId := int32(56) // int32 | 
-    body := string(987) // string | 
+    resetProjectStatusCommand := *openapiclient.NewResetProjectStatusCommand() // ResetProjectStatusCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ProjectsEditStatus(context.Background(), projectId).Body(body).Execute()
+    r, err := apiClient.ProjectsApi.ProjectsEditStatus(context.Background()).ResetProjectStatusCommand(resetProjectStatusCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ProjectsEditStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -672,10 +799,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **int32** |  | 
 
 ### Other Parameters
 
@@ -684,8 +807,7 @@ Other parameters are passed through a pointer to a apiProjectsEditStatusRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **body** | **string** |  | 
+ **resetProjectStatusCommand** | [**ResetProjectStatusCommand**](ResetProjectStatusCommand.md) |  | 
 
 ### Return type
 

@@ -22,7 +22,8 @@ var _ MappedNullable = &PrometheusOrganizationDiscountDto{}
 type PrometheusOrganizationDiscountDto struct {
 	Id *int32 `json:"id,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	DiscountRate *float64 `json:"discountRate,omitempty"`
+	RuleDiscountRate *float64 `json:"ruleDiscountRate,omitempty"`
+	GlobalDiscountRate *float64 `json:"globalDiscountRate,omitempty"`
 }
 
 // NewPrometheusOrganizationDiscountDto instantiates a new PrometheusOrganizationDiscountDto object
@@ -116,36 +117,68 @@ func (o *PrometheusOrganizationDiscountDto) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetDiscountRate returns the DiscountRate field value if set, zero value otherwise.
-func (o *PrometheusOrganizationDiscountDto) GetDiscountRate() float64 {
-	if o == nil || IsNil(o.DiscountRate) {
+// GetRuleDiscountRate returns the RuleDiscountRate field value if set, zero value otherwise.
+func (o *PrometheusOrganizationDiscountDto) GetRuleDiscountRate() float64 {
+	if o == nil || IsNil(o.RuleDiscountRate) {
 		var ret float64
 		return ret
 	}
-	return *o.DiscountRate
+	return *o.RuleDiscountRate
 }
 
-// GetDiscountRateOk returns a tuple with the DiscountRate field value if set, nil otherwise
+// GetRuleDiscountRateOk returns a tuple with the RuleDiscountRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PrometheusOrganizationDiscountDto) GetDiscountRateOk() (*float64, bool) {
-	if o == nil || IsNil(o.DiscountRate) {
+func (o *PrometheusOrganizationDiscountDto) GetRuleDiscountRateOk() (*float64, bool) {
+	if o == nil || IsNil(o.RuleDiscountRate) {
 		return nil, false
 	}
-	return o.DiscountRate, true
+	return o.RuleDiscountRate, true
 }
 
-// HasDiscountRate returns a boolean if a field has been set.
-func (o *PrometheusOrganizationDiscountDto) HasDiscountRate() bool {
-	if o != nil && !IsNil(o.DiscountRate) {
+// HasRuleDiscountRate returns a boolean if a field has been set.
+func (o *PrometheusOrganizationDiscountDto) HasRuleDiscountRate() bool {
+	if o != nil && !IsNil(o.RuleDiscountRate) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscountRate gets a reference to the given float64 and assigns it to the DiscountRate field.
-func (o *PrometheusOrganizationDiscountDto) SetDiscountRate(v float64) {
-	o.DiscountRate = &v
+// SetRuleDiscountRate gets a reference to the given float64 and assigns it to the RuleDiscountRate field.
+func (o *PrometheusOrganizationDiscountDto) SetRuleDiscountRate(v float64) {
+	o.RuleDiscountRate = &v
+}
+
+// GetGlobalDiscountRate returns the GlobalDiscountRate field value if set, zero value otherwise.
+func (o *PrometheusOrganizationDiscountDto) GetGlobalDiscountRate() float64 {
+	if o == nil || IsNil(o.GlobalDiscountRate) {
+		var ret float64
+		return ret
+	}
+	return *o.GlobalDiscountRate
+}
+
+// GetGlobalDiscountRateOk returns a tuple with the GlobalDiscountRate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrometheusOrganizationDiscountDto) GetGlobalDiscountRateOk() (*float64, bool) {
+	if o == nil || IsNil(o.GlobalDiscountRate) {
+		return nil, false
+	}
+	return o.GlobalDiscountRate, true
+}
+
+// HasGlobalDiscountRate returns a boolean if a field has been set.
+func (o *PrometheusOrganizationDiscountDto) HasGlobalDiscountRate() bool {
+	if o != nil && !IsNil(o.GlobalDiscountRate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGlobalDiscountRate gets a reference to the given float64 and assigns it to the GlobalDiscountRate field.
+func (o *PrometheusOrganizationDiscountDto) SetGlobalDiscountRate(v float64) {
+	o.GlobalDiscountRate = &v
 }
 
 func (o PrometheusOrganizationDiscountDto) MarshalJSON() ([]byte, error) {
@@ -164,8 +197,11 @@ func (o PrometheusOrganizationDiscountDto) ToMap() (map[string]interface{}, erro
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.DiscountRate) {
-		toSerialize["discountRate"] = o.DiscountRate
+	if !IsNil(o.RuleDiscountRate) {
+		toSerialize["ruleDiscountRate"] = o.RuleDiscountRate
+	}
+	if !IsNil(o.GlobalDiscountRate) {
+		toSerialize["globalDiscountRate"] = o.GlobalDiscountRate
 	}
 	return toSerialize, nil
 }

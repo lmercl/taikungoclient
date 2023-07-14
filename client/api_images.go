@@ -193,29 +193,29 @@ func (a *ImagesApiService) ImagesAwsCommonImagesExecute(r ApiImagesAwsCommonImag
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiImagesAwsImagesRequest struct {
+type ApiImagesAwsImagesListRequest struct {
 	ctx context.Context
 	ApiService *ImagesApiService
 	awsImagesPostListCommand *AwsImagesPostListCommand
 }
 
-func (r ApiImagesAwsImagesRequest) AwsImagesPostListCommand(awsImagesPostListCommand AwsImagesPostListCommand) ApiImagesAwsImagesRequest {
+func (r ApiImagesAwsImagesListRequest) AwsImagesPostListCommand(awsImagesPostListCommand AwsImagesPostListCommand) ApiImagesAwsImagesListRequest {
 	r.awsImagesPostListCommand = &awsImagesPostListCommand
 	return r
 }
 
-func (r ApiImagesAwsImagesRequest) Execute() (*AwsImagesPostList, *http.Response, error) {
-	return r.ApiService.ImagesAwsImagesExecute(r)
+func (r ApiImagesAwsImagesListRequest) Execute() (*AwsImagesPostList, *http.Response, error) {
+	return r.ApiService.ImagesAwsImagesListExecute(r)
 }
 
 /*
-ImagesAwsImages Retrieve aws images
+ImagesAwsImagesList Retrieve aws images
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiImagesAwsImagesRequest
+ @return ApiImagesAwsImagesListRequest
 */
-func (a *ImagesApiService) ImagesAwsImages(ctx context.Context) ApiImagesAwsImagesRequest {
-	return ApiImagesAwsImagesRequest{
+func (a *ImagesApiService) ImagesAwsImagesList(ctx context.Context) ApiImagesAwsImagesListRequest {
+	return ApiImagesAwsImagesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -223,7 +223,7 @@ func (a *ImagesApiService) ImagesAwsImages(ctx context.Context) ApiImagesAwsImag
 
 // Execute executes the request
 //  @return AwsImagesPostList
-func (a *ImagesApiService) ImagesAwsImagesExecute(r ApiImagesAwsImagesRequest) (*AwsImagesPostList, *http.Response, error) {
+func (a *ImagesApiService) ImagesAwsImagesListExecute(r ApiImagesAwsImagesListRequest) (*AwsImagesPostList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -231,7 +231,7 @@ func (a *ImagesApiService) ImagesAwsImagesExecute(r ApiImagesAwsImagesRequest) (
 		localVarReturnValue  *AwsImagesPostList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImagesApiService.ImagesAwsImages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImagesApiService.ImagesAwsImagesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -723,17 +723,12 @@ type ApiImagesAzureImagesRequest struct {
 	publisherName string
 	offer string
 	sku string
-	latest *bool
 	limit *int32
 	offset *int32
 	sortBy *string
 	sortDirection *string
 	search *string
-}
-
-func (r ApiImagesAzureImagesRequest) Latest(latest bool) ApiImagesAzureImagesRequest {
-	r.latest = &latest
-	return r
+	latest *bool
 }
 
 func (r ApiImagesAzureImagesRequest) Limit(limit int32) ApiImagesAzureImagesRequest {
@@ -758,6 +753,11 @@ func (r ApiImagesAzureImagesRequest) SortDirection(sortDirection string) ApiImag
 
 func (r ApiImagesAzureImagesRequest) Search(search string) ApiImagesAzureImagesRequest {
 	r.search = &search
+	return r
+}
+
+func (r ApiImagesAzureImagesRequest) Latest(latest bool) ApiImagesAzureImagesRequest {
+	r.latest = &latest
 	return r
 }
 
@@ -810,9 +810,6 @@ func (a *ImagesApiService) ImagesAzureImagesExecute(r ApiImagesAzureImagesReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.latest == nil {
-		return localVarReturnValue, nil, reportError("latest is required and must be specified")
-	}
 
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Limit", r.limit, "")
@@ -829,7 +826,9 @@ func (a *ImagesApiService) ImagesAzureImagesExecute(r ApiImagesAzureImagesReques
 	if r.search != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Search", r.search, "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "Latest", r.latest, "")
+	if r.latest != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Latest", r.latest, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1691,7 +1690,7 @@ func (r ApiImagesImageDetailsRequest) ImageByIdCommand(imageByIdCommand ImageByI
 	return r
 }
 
-func (r ApiImagesImageDetailsRequest) Execute() (*http.Response, error) {
+func (r ApiImagesImageDetailsRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.ImagesImageDetailsExecute(r)
 }
 
@@ -1709,16 +1708,18 @@ func (a *ImagesApiService) ImagesImageDetails(ctx context.Context) ApiImagesImag
 }
 
 // Execute executes the request
-func (a *ImagesApiService) ImagesImageDetailsExecute(r ApiImagesImageDetailsRequest) (*http.Response, error) {
+//  @return string
+func (a *ImagesApiService) ImagesImageDetailsExecute(r ApiImagesImageDetailsRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImagesApiService.ImagesImageDetails")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v1/images/details"
@@ -1727,7 +1728,7 @@ func (a *ImagesApiService) ImagesImageDetailsExecute(r ApiImagesImageDetailsRequ
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.imageByIdCommand == nil {
-		return nil, reportError("imageByIdCommand is required and must be specified")
+		return localVarReturnValue, nil, reportError("imageByIdCommand is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1765,19 +1766,19 @@ func (a *ImagesApiService) ImagesImageDetailsExecute(r ApiImagesImageDetailsRequ
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1790,76 +1791,80 @@ func (a *ImagesApiService) ImagesImageDetailsExecute(r ApiImagesImageDetailsRequ
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiImagesOpenstackImagesRequest struct {
 	ctx context.Context
 	ApiService *ImagesApiService
 	cloudId int32
-	personal *bool
 	limit *int32
 	offset *int32
 	sortBy *string
 	sortDirection *string
 	search *string
-}
-
-func (r ApiImagesOpenstackImagesRequest) Personal(personal bool) ApiImagesOpenstackImagesRequest {
-	r.personal = &personal
-	return r
+	personal *bool
 }
 
 func (r ApiImagesOpenstackImagesRequest) Limit(limit int32) ApiImagesOpenstackImagesRequest {
@@ -1884,6 +1889,11 @@ func (r ApiImagesOpenstackImagesRequest) SortDirection(sortDirection string) Api
 
 func (r ApiImagesOpenstackImagesRequest) Search(search string) ApiImagesOpenstackImagesRequest {
 	r.search = &search
+	return r
+}
+
+func (r ApiImagesOpenstackImagesRequest) Personal(personal bool) ApiImagesOpenstackImagesRequest {
+	r.personal = &personal
 	return r
 }
 
@@ -1927,9 +1937,6 @@ func (a *ImagesApiService) ImagesOpenstackImagesExecute(r ApiImagesOpenstackImag
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.personal == nil {
-		return localVarReturnValue, nil, reportError("personal is required and must be specified")
-	}
 
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Limit", r.limit, "")
@@ -1946,7 +1953,9 @@ func (a *ImagesApiService) ImagesOpenstackImagesExecute(r ApiImagesOpenstackImag
 	if r.search != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Search", r.search, "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "Personal", r.personal, "")
+	if r.personal != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Personal", r.personal, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

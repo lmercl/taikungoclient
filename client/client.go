@@ -56,6 +56,10 @@ type APIClient struct {
 
 	AdminApi *AdminApiService
 
+	AiCredentialsApi *AiCredentialsApiService
+
+	AiManagementApi *AiManagementApiService
+
 	AlertingIntegrationsApi *AlertingIntegrationsApiService
 
 	AlertingProfilesApi *AlertingProfilesApiService
@@ -114,6 +118,8 @@ type APIClient struct {
 
 	OpaProfilesApi *OpaProfilesApiService
 
+	OpenshiftApi *OpenshiftApiService
+
 	OpenstackCloudCredentialApi *OpenstackCloudCredentialApiService
 
 	OperationCredentialsApi *OperationCredentialsApiService
@@ -125,8 +131,6 @@ type APIClient struct {
 	PackageApi *PackageApiService
 
 	PartnersApi *PartnersApiService
-
-	PaymentApi *PaymentApiService
 
 	PaymentsApi *PaymentsApiService
 
@@ -212,6 +216,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AWSCloudCredentialApi = (*AWSCloudCredentialApiService)(&c.common)
 	c.AccessProfilesApi = (*AccessProfilesApiService)(&c.common)
 	c.AdminApi = (*AdminApiService)(&c.common)
+	c.AiCredentialsApi = (*AiCredentialsApiService)(&c.common)
+	c.AiManagementApi = (*AiManagementApiService)(&c.common)
 	c.AlertingIntegrationsApi = (*AlertingIntegrationsApiService)(&c.common)
 	c.AlertingProfilesApi = (*AlertingProfilesApiService)(&c.common)
 	c.AllowedHostApi = (*AllowedHostApiService)(&c.common)
@@ -241,13 +247,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.NotificationsApi = (*NotificationsApiService)(&c.common)
 	c.NtpServersApi = (*NtpServersApiService)(&c.common)
 	c.OpaProfilesApi = (*OpaProfilesApiService)(&c.common)
+	c.OpenshiftApi = (*OpenshiftApiService)(&c.common)
 	c.OpenstackCloudCredentialApi = (*OpenstackCloudCredentialApiService)(&c.common)
 	c.OperationCredentialsApi = (*OperationCredentialsApiService)(&c.common)
 	c.OrganizationSubscriptionsApi = (*OrganizationSubscriptionsApiService)(&c.common)
 	c.OrganizationsApi = (*OrganizationsApiService)(&c.common)
 	c.PackageApi = (*PackageApiService)(&c.common)
 	c.PartnersApi = (*PartnersApiService)(&c.common)
-	c.PaymentApi = (*PaymentApiService)(&c.common)
 	c.PaymentsApi = (*PaymentsApiService)(&c.common)
 	c.PreDefinedQueriesApi = (*PreDefinedQueriesApiService)(&c.common)
 	c.ProjectActionsApi = (*ProjectActionsApiService)(&c.common)

@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GooglecloudBillingAccountList**](GoogleApi.md#GooglecloudBillingAccountList) | **Post** /api/v1/googlecloud/billing-accounts | Retrieve google billing accounts list
-[**GooglecloudCreate**](GoogleApi.md#GooglecloudCreate) | **Post** /api/v1/googlecloud/create | Create google cloud credential
+[**GooglecloudBillingAccountList**](GoogleApi.md#GooglecloudBillingAccountList) | **Post** /api/v1/googlecloud/billing-accounts | 
+[**GooglecloudCreate**](GoogleApi.md#GooglecloudCreate) | **Post** /api/v1/googlecloud/create | 
 [**GooglecloudList**](GoogleApi.md#GooglecloudList) | **Get** /api/v1/googlecloud/list | Retrieve list of google cloud credentials
-[**GooglecloudRegionList**](GoogleApi.md#GooglecloudRegionList) | **Post** /api/v1/googlecloud/regions | Retrieve google region list
-[**GooglecloudZoneList**](GoogleApi.md#GooglecloudZoneList) | **Post** /api/v1/googlecloud/zones | Google zones list
+[**GooglecloudRegionList**](GoogleApi.md#GooglecloudRegionList) | **Post** /api/v1/googlecloud/regions | 
+[**GooglecloudZoneList**](GoogleApi.md#GooglecloudZoneList) | **Post** /api/v1/googlecloud/zones/{region} | 
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > []CommonStringBasedDropdownDto GooglecloudBillingAccountList(ctx).Config(config).Execute()
 
-Retrieve google billing accounts list
+
 
 ### Example
 
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 
 ## GooglecloudCreate
 
-> ApiResponse GooglecloudCreate(ctx).Name(name).Config(config).ImportProject(importProject).FolderId(folderId).BillingAccountId(billingAccountId).AzCount(azCount).Region(region).OrganizationId(organizationId).Execute()
+> ApiResponse GooglecloudCreate(ctx).ImportProject(importProject).AzCount(azCount).Name(name).FolderId(folderId).BillingAccountId(billingAccountId).Region(region).OrganizationId(organizationId).Config(config).Execute()
 
-Create google cloud credential
+
 
 ### Example
 
@@ -95,18 +95,18 @@ import (
 )
 
 func main() {
+    importProject := true // bool | 
+    azCount := int32(56) // int32 | 
     name := "name_example" // string |  (optional)
-    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
-    importProject := true // bool |  (optional)
     folderId := "folderId_example" // string |  (optional)
     billingAccountId := "billingAccountId_example" // string |  (optional)
-    azCount := int32(56) // int32 |  (optional)
     region := "region_example" // string |  (optional)
     organizationId := int32(56) // int32 |  (optional)
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudCreate(context.Background()).Name(name).Config(config).ImportProject(importProject).FolderId(folderId).BillingAccountId(billingAccountId).AzCount(azCount).Region(region).OrganizationId(organizationId).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudCreate(context.Background()).ImportProject(importProject).AzCount(azCount).Name(name).FolderId(folderId).BillingAccountId(billingAccountId).Region(region).OrganizationId(organizationId).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,14 +127,14 @@ Other parameters are passed through a pointer to a apiGooglecloudCreateRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string** |  | 
- **config** | ***os.File** |  | 
  **importProject** | **bool** |  | 
+ **azCount** | **int32** |  | 
+ **name** | **string** |  | 
  **folderId** | **string** |  | 
  **billingAccountId** | **string** |  | 
- **azCount** | **int32** |  | 
  **region** | **string** |  | 
  **organizationId** | **int32** |  | 
+ **config** | ***os.File** |  | 
 
 ### Return type
 
@@ -234,9 +234,9 @@ Name | Type | Description  | Notes
 
 ## GooglecloudRegionList
 
-> []string GooglecloudRegionList(ctx).Config(config).Execute()
+> []string GooglecloudRegionList(ctx).File(file).Execute()
 
-Retrieve google region list
+
 
 ### Example
 
@@ -251,11 +251,11 @@ import (
 )
 
 func main() {
-    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudRegionList(context.Background()).Config(config).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudRegionList(context.Background()).File(file).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudRegionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,7 +276,7 @@ Other parameters are passed through a pointer to a apiGooglecloudRegionListReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | ***os.File** |  | 
+ **file** | ***os.File** |  | 
 
 ### Return type
 
@@ -298,9 +298,9 @@ Name | Type | Description  | Notes
 
 ## GooglecloudZoneList
 
-> AzResult GooglecloudZoneList(ctx).Config(config).Region(region).CloudId(cloudId).Execute()
+> AzResult GooglecloudZoneList(ctx, region).CloudId(cloudId).Config(config).Execute()
 
-Google zones list
+
 
 ### Example
 
@@ -315,13 +315,13 @@ import (
 )
 
 func main() {
-    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
-    region := "region_example" // string |  (optional)
+    region := "region_example" // string | 
     cloudId := int32(56) // int32 |  (optional)
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GoogleApi.GooglecloudZoneList(context.Background()).Config(config).Region(region).CloudId(cloudId).Execute()
+    resp, r, err := apiClient.GoogleApi.GooglecloudZoneList(context.Background(), region).CloudId(cloudId).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GoogleApi.GooglecloudZoneList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -334,6 +334,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**region** | **string** |  | 
 
 ### Other Parameters
 
@@ -342,9 +346,9 @@ Other parameters are passed through a pointer to a apiGooglecloudZoneListRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | ***os.File** |  | 
- **region** | **string** |  | 
+
  **cloudId** | **int32** |  | 
+ **config** | ***os.File** |  | 
 
 ### Return type
 

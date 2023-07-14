@@ -5,6 +5,8 @@ README.md
 api/openapi.yaml
 api_access_profiles.go
 api_admin.go
+api_ai_credentials.go
+api_ai_management.go
 api_alerting_integrations.go
 api_alerting_profiles.go
 api_allowed_host.go
@@ -35,13 +37,13 @@ api_kubespray.go
 api_notifications.go
 api_ntp_servers.go
 api_opa_profiles.go
+api_openshift.go
 api_openstack_cloud_credential.go
 api_operation_credentials.go
 api_organization_subscriptions.go
 api_organizations.go
 api_package.go
 api_partners.go
-api_payment.go
 api_payments.go
 api_pre_defined_queries.go
 api_project_actions.go
@@ -102,6 +104,13 @@ docs/AdminUsersList.md
 docs/AdminUsersResponseData.md
 docs/AdminUsersUpdateEmailCommand.md
 docs/AdminUsersUpdatePasswordCommand.md
+docs/AiCredentialDto.md
+docs/AiCredentials.md
+docs/AiCredentialsApi.md
+docs/AiCredentialsForOrganizationEntity.md
+docs/AiCredentialsListDto.md
+docs/AiManagementApi.md
+docs/AiType.md
 docs/AlertingEmailDto.md
 docs/AlertingIntegrationDto.md
 docs/AlertingIntegrationType.md
@@ -231,6 +240,7 @@ docs/ChangeCardCommand.md
 docs/ChangePasswordCommand.md
 docs/Chart.md
 docs/ChartSpec.md
+docs/ChatCompletionsCommand.md
 docs/CheckAwsCommand.md
 docs/CheckAzureCommand.md
 docs/CheckAzureCpuQuotaCommand.md
@@ -274,6 +284,7 @@ docs/ContactUsCommand.md
 docs/CostComponent.md
 docs/CountryListDto.md
 docs/CreateAccessProfileCommand.md
+docs/CreateAiCredentialCommand.md
 docs/CreateAlertDto.md
 docs/CreateAlertingIntegrationCommand.md
 docs/CreateAlertingProfileCommand.md
@@ -361,6 +372,7 @@ docs/DescribeSecretCommand.md
 docs/DescribeServiceCommand.md
 docs/DescribeStorageClassCommand.md
 docs/DescribeStsCommand.md
+docs/DisableAiCommand.md
 docs/DisableAutoscalingCommand.md
 docs/DisableBackupCommand.md
 docs/DisableGatekeeperCommand.md
@@ -388,6 +400,7 @@ docs/EditProjectAppParamsDto.md
 docs/EditSecurityGroupCommand.md
 docs/EditSshUserCommand.md
 docs/EditTicketCommand.md
+docs/EnableAiCommand.md
 docs/EnableAutoscalingCommand.md
 docs/EnableBackupCommand.md
 docs/EnableGatekeeperCommand.md
@@ -525,11 +538,13 @@ docs/OpaProfileLockManagerCommand.md
 docs/OpaProfileSyncCommand.md
 docs/OpaProfileUpdateCommand.md
 docs/OpaProfilesApi.md
+docs/OpenAiCheckerCommand.md
 docs/OpenStackNetworkListQuery.md
 docs/OpenStackProjectListQuery.md
 docs/OpenStackRegionListQuery.md
 docs/OpenStackZoneListQuery.md
 docs/OpenTicketCommand.md
+docs/OpenshiftApi.md
 docs/OpenstackCloudCredentialApi.md
 docs/OpenstackComputeQuotaDto.md
 docs/OpenstackCredentialList.md
@@ -588,7 +603,6 @@ docs/PatchPvcCommand.md
 docs/PatchSecretCommand.md
 docs/PatchStsCommand.md
 docs/PayInvoiceCommand.md
-docs/PaymentApi.md
 docs/PaymentsApi.md
 docs/PodDisruptionDto.md
 docs/PodDisruptions.md
@@ -702,6 +716,7 @@ docs/RepairStandAloneVmCommand.md
 docs/ReplyTicketCommand.md
 docs/Repository.md
 docs/ResetPasswordCommand.md
+docs/ResetProjectStatusCommand.md
 docs/ResetServerStatusCommand.md
 docs/ResetStandAloneVmDiskStatusCommand.md
 docs/ResetStandAloneVmStatusCommand.md
@@ -835,6 +850,7 @@ docs/UpdateAlertingProfileCommand.md
 docs/UpdateAwsCommand.md
 docs/UpdateAzureCommand.md
 docs/UpdateCatalogDto.md
+docs/UpdateHealthStatusCommand.md
 docs/UpdateHypervisorsCommand.md
 docs/UpdateInvoiceDto.md
 docs/UpdateKubernetesAlertDto.md
@@ -920,6 +936,11 @@ model_admin_users_list.go
 model_admin_users_response_data.go
 model_admin_users_update_email_command.go
 model_admin_users_update_password_command.go
+model_ai_credential_dto.go
+model_ai_credentials.go
+model_ai_credentials_for_organization_entity.go
+model_ai_credentials_list_dto.go
+model_ai_type.go
 model_alerting_email_dto.go
 model_alerting_integration_dto.go
 model_alerting_integration_type.go
@@ -1038,6 +1059,7 @@ model_change_card_command.go
 model_change_password_command.go
 model_chart.go
 model_chart_spec.go
+model_chat_completions_command.go
 model_check_aws_command.go
 model_check_azure_command.go
 model_check_azure_cpu_quota_command.go
@@ -1078,6 +1100,7 @@ model_contact_us_command.go
 model_cost_component.go
 model_country_list_dto.go
 model_create_access_profile_command.go
+model_create_ai_credential_command.go
 model_create_alert_dto.go
 model_create_alerting_integration_command.go
 model_create_alerting_profile_command.go
@@ -1164,6 +1187,7 @@ model_describe_secret_command.go
 model_describe_service_command.go
 model_describe_storage_class_command.go
 model_describe_sts_command.go
+model_disable_ai_command.go
 model_disable_autoscaling_command.go
 model_disable_backup_command.go
 model_disable_gatekeeper_command.go
@@ -1190,6 +1214,7 @@ model_edit_project_app_params_dto.go
 model_edit_security_group_command.go
 model_edit_ssh_user_command.go
 model_edit_ticket_command.go
+model_enable_ai_command.go
 model_enable_autoscaling_command.go
 model_enable_backup_command.go
 model_enable_gatekeeper_command.go
@@ -1314,6 +1339,7 @@ model_opa_profile_list_dto.go
 model_opa_profile_lock_manager_command.go
 model_opa_profile_sync_command.go
 model_opa_profile_update_command.go
+model_open_ai_checker_command.go
 model_open_stack_network_list_query.go
 model_open_stack_project_list_query.go
 model_open_stack_region_list_query.go
@@ -1469,6 +1495,7 @@ model_repair_stand_alone_vm_command.go
 model_reply_ticket_command.go
 model_repository.go
 model_reset_password_command.go
+model_reset_project_status_command.go
 model_reset_server_status_command.go
 model_reset_stand_alone_vm_disk_status_command.go
 model_reset_stand_alone_vm_status_command.go
@@ -1589,6 +1616,7 @@ model_update_alerting_profile_command.go
 model_update_aws_command.go
 model_update_azure_command.go
 model_update_catalog_dto.go
+model_update_health_status_command.go
 model_update_hypervisors_command.go
 model_update_invoice_dto.go
 model_update_kubernetes_alert_dto.go
@@ -1647,6 +1675,8 @@ model_yaml_validator_command.go
 response.go
 test/api_access_profiles_test.go
 test/api_admin_test.go
+test/api_ai_credentials_test.go
+test/api_ai_management_test.go
 test/api_alerting_integrations_test.go
 test/api_alerting_profiles_test.go
 test/api_allowed_host_test.go
@@ -1677,13 +1707,13 @@ test/api_kubespray_test.go
 test/api_notifications_test.go
 test/api_ntp_servers_test.go
 test/api_opa_profiles_test.go
+test/api_openshift_test.go
 test/api_openstack_cloud_credential_test.go
 test/api_operation_credentials_test.go
 test/api_organization_subscriptions_test.go
 test/api_organizations_test.go
 test/api_package_test.go
 test/api_partners_test.go
-test/api_payment_test.go
 test/api_payments_test.go
 test/api_pre_defined_queries_test.go
 test/api_project_actions_test.go

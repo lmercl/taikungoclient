@@ -22,6 +22,32 @@ func Test_taikuncore_ProjectsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ProjectsApiService ProjectsAiAnalyzer", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var projectId int32
+
+		resp, httpRes, err := apiClient.ProjectsApi.ProjectsAiAnalyzer(context.Background(), projectId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProjectsApiService ProjectsChatCompletions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProjectsApi.ProjectsChatCompletions(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProjectsApiService ProjectsCommit", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -126,9 +152,7 @@ func Test_taikuncore_ProjectsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var projectId int32
-
-		httpRes, err := apiClient.ProjectsApi.ProjectsEditHealth(context.Background(), projectId).Execute()
+		httpRes, err := apiClient.ProjectsApi.ProjectsEditHealth(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -139,9 +163,7 @@ func Test_taikuncore_ProjectsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var projectId int32
-
-		httpRes, err := apiClient.ProjectsApi.ProjectsEditStatus(context.Background(), projectId).Execute()
+		httpRes, err := apiClient.ProjectsApi.ProjectsEditStatus(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

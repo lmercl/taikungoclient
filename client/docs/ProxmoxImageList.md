@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**[]CommonDropdownDto**](CommonDropdownDto.md) |  | [optional] 
+**Data** | Pointer to [**[]CommonStringBasedDropdownDto**](CommonStringBasedDropdownDto.md) |  | [optional] 
 **TotalCount** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *ProxmoxImageList) GetData() []CommonDropdownDto`
+`func (o *ProxmoxImageList) GetData() []CommonStringBasedDropdownDto`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *ProxmoxImageList) GetDataOk() (*[]CommonDropdownDto, bool)`
+`func (o *ProxmoxImageList) GetDataOk() (*[]CommonStringBasedDropdownDto, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *ProxmoxImageList) SetData(v []CommonDropdownDto)`
+`func (o *ProxmoxImageList) SetData(v []CommonStringBasedDropdownDto)`
 
 SetData sets Data field to given value.
 

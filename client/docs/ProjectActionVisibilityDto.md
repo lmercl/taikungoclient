@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **DisableFullSpot** | Pointer to [**ProjectButtonStatusDto**](ProjectButtonStatusDto.md) |  | [optional] 
 **EnableSpotVm** | Pointer to [**ProjectButtonStatusDto**](ProjectButtonStatusDto.md) |  | [optional] 
 **DisableSpotVm** | Pointer to [**ProjectButtonStatusDto**](ProjectButtonStatusDto.md) |  | [optional] 
+**AttachAlertingProfile** | Pointer to [**ProjectButtonStatusDto**](ProjectButtonStatusDto.md) |  | [optional] 
+**DetachAlertingProfile** | Pointer to [**ProjectButtonStatusDto**](ProjectButtonStatusDto.md) |  | [optional] 
 
 ## Methods
 
@@ -543,6 +545,56 @@ SetDisableSpotVm sets DisableSpotVm field to given value.
 `func (o *ProjectActionVisibilityDto) HasDisableSpotVm() bool`
 
 HasDisableSpotVm returns a boolean if a field has been set.
+
+### GetAttachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) GetAttachAlertingProfile() ProjectButtonStatusDto`
+
+GetAttachAlertingProfile returns the AttachAlertingProfile field if non-nil, zero value otherwise.
+
+### GetAttachAlertingProfileOk
+
+`func (o *ProjectActionVisibilityDto) GetAttachAlertingProfileOk() (*ProjectButtonStatusDto, bool)`
+
+GetAttachAlertingProfileOk returns a tuple with the AttachAlertingProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) SetAttachAlertingProfile(v ProjectButtonStatusDto)`
+
+SetAttachAlertingProfile sets AttachAlertingProfile field to given value.
+
+### HasAttachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) HasAttachAlertingProfile() bool`
+
+HasAttachAlertingProfile returns a boolean if a field has been set.
+
+### GetDetachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) GetDetachAlertingProfile() ProjectButtonStatusDto`
+
+GetDetachAlertingProfile returns the DetachAlertingProfile field if non-nil, zero value otherwise.
+
+### GetDetachAlertingProfileOk
+
+`func (o *ProjectActionVisibilityDto) GetDetachAlertingProfileOk() (*ProjectButtonStatusDto, bool)`
+
+GetDetachAlertingProfileOk returns a tuple with the DetachAlertingProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDetachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) SetDetachAlertingProfile(v ProjectButtonStatusDto)`
+
+SetDetachAlertingProfile sets DetachAlertingProfile field to given value.
+
+### HasDetachAlertingProfile
+
+`func (o *ProjectActionVisibilityDto) HasDetachAlertingProfile() bool`
+
+HasDetachAlertingProfile returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ImagesAwsCommonImages**](ImagesApi.md#ImagesAwsCommonImages) | **Get** /api/v1/images/aws/common/{cloudId} | Commonly used aws images
-[**ImagesAwsImages**](ImagesApi.md#ImagesAwsImages) | **Post** /api/v1/images/aws | Retrieve aws images
+[**ImagesAwsImagesList**](ImagesApi.md#ImagesAwsImagesList) | **Post** /api/v1/images/aws | Retrieve aws images
 [**ImagesAwsPersonalImages**](ImagesApi.md#ImagesAwsPersonalImages) | **Get** /api/v1/images/aws/personal/{cloudId} | Aws personal images
 [**ImagesAzureCommonImages**](ImagesApi.md#ImagesAzureCommonImages) | **Get** /api/v1/images/azure/common/{cloudId} | Commonly used azure images
 [**ImagesAzureImages**](ImagesApi.md#ImagesAzureImages) | **Get** /api/v1/images/azure/{cloudId}/{publisherName}/{offer}/{sku} | 
@@ -90,9 +90,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ImagesAwsImages
+## ImagesAwsImagesList
 
-> AwsImagesPostList ImagesAwsImages(ctx).AwsImagesPostListCommand(awsImagesPostListCommand).Execute()
+> AwsImagesPostList ImagesAwsImagesList(ctx).AwsImagesPostListCommand(awsImagesPostListCommand).Execute()
 
 Retrieve aws images
 
@@ -113,13 +113,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImagesApi.ImagesAwsImages(context.Background()).AwsImagesPostListCommand(awsImagesPostListCommand).Execute()
+    resp, r, err := apiClient.ImagesApi.ImagesAwsImagesList(context.Background()).AwsImagesPostListCommand(awsImagesPostListCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesAwsImages``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesAwsImagesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ImagesAwsImages`: AwsImagesPostList
-    fmt.Fprintf(os.Stdout, "Response from `ImagesApi.ImagesAwsImages`: %v\n", resp)
+    // response from `ImagesAwsImagesList`: AwsImagesPostList
+    fmt.Fprintf(os.Stdout, "Response from `ImagesApi.ImagesAwsImagesList`: %v\n", resp)
 }
 ```
 
@@ -129,7 +129,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiImagesAwsImagesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiImagesAwsImagesListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## ImagesAzureImages
 
-> AzureImageList ImagesAzureImages(ctx, cloudId, publisherName, offer, sku).Latest(latest).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+> AzureImageList ImagesAzureImages(ctx, cloudId, publisherName, offer, sku).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Latest(latest).Execute()
 
 
 
@@ -315,16 +315,16 @@ func main() {
     publisherName := "publisherName_example" // string | 
     offer := "offer_example" // string | 
     sku := "sku_example" // string | 
-    latest := true // bool | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
     sortBy := "sortBy_example" // string |  (optional)
     sortDirection := "sortDirection_example" // string |  (optional)
     search := "search_example" // string |  (optional)
+    latest := true // bool |  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImagesApi.ImagesAzureImages(context.Background(), cloudId, publisherName, offer, sku).Latest(latest).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+    resp, r, err := apiClient.ImagesApi.ImagesAzureImages(context.Background(), cloudId, publisherName, offer, sku).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Latest(latest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesAzureImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -356,12 +356,12 @@ Name | Type | Description  | Notes
 
 
 
- **latest** | **bool** |  | 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
  **sortBy** | **string** |  | 
  **sortDirection** | **string** |  | 
  **search** | **string** |  | 
+ **latest** | **bool** |  | [default to false]
 
 ### Return type
 
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 
 ## ImagesImageDetails
 
-> ImagesImageDetails(ctx).ImageByIdCommand(imageByIdCommand).Execute()
+> string ImagesImageDetails(ctx).ImageByIdCommand(imageByIdCommand).Execute()
 
 Get image details
 
@@ -685,11 +685,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ImagesApi.ImagesImageDetails(context.Background()).ImageByIdCommand(imageByIdCommand).Execute()
+    resp, r, err := apiClient.ImagesApi.ImagesImageDetails(context.Background()).ImageByIdCommand(imageByIdCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesImageDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ImagesImageDetails`: string
+    fmt.Fprintf(os.Stdout, "Response from `ImagesApi.ImagesImageDetails`: %v\n", resp)
 }
 ```
 
@@ -708,7 +710,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**string**
 
 ### Authorization
 
@@ -726,7 +728,7 @@ Name | Type | Description  | Notes
 
 ## ImagesOpenstackImages
 
-> OpenstackImageList ImagesOpenstackImages(ctx, cloudId).Personal(personal).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+> OpenstackImageList ImagesOpenstackImages(ctx, cloudId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Personal(personal).Execute()
 
 Retrieve openstack images
 
@@ -744,16 +746,16 @@ import (
 
 func main() {
     cloudId := int32(56) // int32 | 
-    personal := true // bool | 
     limit := int32(56) // int32 |  (optional)
     offset := int32(56) // int32 |  (optional)
     sortBy := "sortBy_example" // string |  (optional)
     sortDirection := "sortDirection_example" // string |  (optional)
     search := "search_example" // string |  (optional)
+    personal := true // bool |  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImagesApi.ImagesOpenstackImages(context.Background(), cloudId).Personal(personal).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Execute()
+    resp, r, err := apiClient.ImagesApi.ImagesOpenstackImages(context.Background(), cloudId).Limit(limit).Offset(offset).SortBy(sortBy).SortDirection(sortDirection).Search(search).Personal(personal).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImagesApi.ImagesOpenstackImages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -779,12 +781,12 @@ Other parameters are passed through a pointer to a apiImagesOpenstackImagesReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **personal** | **bool** |  | 
  **limit** | **int32** |  | 
  **offset** | **int32** |  | 
  **sortBy** | **string** |  | 
  **sortDirection** | **string** |  | 
  **search** | **string** |  | 
+ **personal** | **bool** |  | [default to false]
 
 ### Return type
 

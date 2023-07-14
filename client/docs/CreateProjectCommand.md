@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **IsAutoUpgrade** | Pointer to **bool** |  | [optional] 
 **IsBackupEnabled** | Pointer to **bool** |  | [optional] 
 **IsMonitoringEnabled** | Pointer to **bool** |  | [optional] 
+**AiEnabled** | Pointer to **bool** |  | [optional] 
+**AiCredentialId** | Pointer to **NullableInt32** |  | [optional] 
 **Flavors** | Pointer to **[]string** |  | [optional] 
 **Users** | Pointer to **[]string** |  | [optional] 
 **AlertingProfileId** | Pointer to **NullableInt32** |  | [optional] 
@@ -431,6 +433,66 @@ SetIsMonitoringEnabled sets IsMonitoringEnabled field to given value.
 
 HasIsMonitoringEnabled returns a boolean if a field has been set.
 
+### GetAiEnabled
+
+`func (o *CreateProjectCommand) GetAiEnabled() bool`
+
+GetAiEnabled returns the AiEnabled field if non-nil, zero value otherwise.
+
+### GetAiEnabledOk
+
+`func (o *CreateProjectCommand) GetAiEnabledOk() (*bool, bool)`
+
+GetAiEnabledOk returns a tuple with the AiEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAiEnabled
+
+`func (o *CreateProjectCommand) SetAiEnabled(v bool)`
+
+SetAiEnabled sets AiEnabled field to given value.
+
+### HasAiEnabled
+
+`func (o *CreateProjectCommand) HasAiEnabled() bool`
+
+HasAiEnabled returns a boolean if a field has been set.
+
+### GetAiCredentialId
+
+`func (o *CreateProjectCommand) GetAiCredentialId() int32`
+
+GetAiCredentialId returns the AiCredentialId field if non-nil, zero value otherwise.
+
+### GetAiCredentialIdOk
+
+`func (o *CreateProjectCommand) GetAiCredentialIdOk() (*int32, bool)`
+
+GetAiCredentialIdOk returns a tuple with the AiCredentialId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAiCredentialId
+
+`func (o *CreateProjectCommand) SetAiCredentialId(v int32)`
+
+SetAiCredentialId sets AiCredentialId field to given value.
+
+### HasAiCredentialId
+
+`func (o *CreateProjectCommand) HasAiCredentialId() bool`
+
+HasAiCredentialId returns a boolean if a field has been set.
+
+### SetAiCredentialIdNil
+
+`func (o *CreateProjectCommand) SetAiCredentialIdNil(b bool)`
+
+ SetAiCredentialIdNil sets the value for AiCredentialId to be an explicit nil
+
+### UnsetAiCredentialId
+`func (o *CreateProjectCommand) UnsetAiCredentialId()`
+
+UnsetAiCredentialId ensures that no value is present for AiCredentialId, not even an explicit nil
 ### GetFlavors
 
 `func (o *CreateProjectCommand) GetFlavors() []string`

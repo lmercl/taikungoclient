@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **HasExpirationWarning** | Pointer to **bool** |  | [optional] 
 **TotalHourlyCost** | Pointer to **float64** |  | [optional] 
 **IsAutoscalingEnabled** | Pointer to **bool** |  | [optional] 
+**AiEnabled** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -1113,6 +1114,31 @@ SetIsAutoscalingEnabled sets IsAutoscalingEnabled field to given value.
 `func (o *ProjectListDetailDto) HasIsAutoscalingEnabled() bool`
 
 HasIsAutoscalingEnabled returns a boolean if a field has been set.
+
+### GetAiEnabled
+
+`func (o *ProjectListDetailDto) GetAiEnabled() bool`
+
+GetAiEnabled returns the AiEnabled field if non-nil, zero value otherwise.
+
+### GetAiEnabledOk
+
+`func (o *ProjectListDetailDto) GetAiEnabledOk() (*bool, bool)`
+
+GetAiEnabledOk returns a tuple with the AiEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAiEnabled
+
+`func (o *ProjectListDetailDto) SetAiEnabled(v bool)`
+
+SetAiEnabled sets AiEnabled field to given value.
+
+### HasAiEnabled
+
+`func (o *ProjectListDetailDto) HasAiEnabled() bool`
+
+HasAiEnabled returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

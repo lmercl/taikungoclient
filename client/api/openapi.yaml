@@ -1121,6 +1121,300 @@ paths:
       summary: Users for admin
       tags:
       - Admin
+  /api/v1/ai-credential/create:
+    post:
+      operationId: ai-credential-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAiCredentialCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Create ai credential
+      tags:
+      - Ai Credentials
+  /api/v1/ai-credential:
+    get:
+      operationId: ai-credential-dropdown
+      parameters:
+      - explode: true
+        in: query
+        name: OrganizationId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AiCredentialsForOrganizationEntity'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Retrieve all AI credentials for organization
+      tags:
+      - Ai Credentials
+  /api/v1/ai-credential/list:
+    get:
+      operationId: ai-credential-list
+      parameters:
+      - explode: true
+        in: query
+        name: Limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: OrganizationId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Search
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SearchId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Id
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: SortBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortDirection
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiCredentials'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Retrieve all AI credentials
+      tags:
+      - Ai Credentials
+  /api/v1/ai-management/disable:
+    post:
+      operationId: ai-management-disable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisableAiCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Disable ai
+      tags:
+      - Ai Management
+  /api/v1/ai-management/enable:
+    post:
+      operationId: ai-management-enable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnableAiCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Enable ai
+      tags:
+      - Ai Management
   /api/v1/documentation:
     get:
       operationId: documentation-list
@@ -6123,6 +6417,49 @@ paths:
       summary: Delete catalog app
       tags:
       - Catalog app
+  /api/v1/checker/openai:
+    post:
+      operationId: checker-open-ai
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAiCheckerCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Check open-ai token
+      tags:
+      - Checker
   /api/v1/checker/artifact:
     post:
       operationId: checker-artifact
@@ -6336,6 +6673,56 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Internal Server Error
       summary: Check keycloak credential
+      tags:
+      - Checker
+  /api/v1/checker/kube-config:
+    post:
+      operationId: checker-kube-config
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              config:
+                style: form
+            schema:
+              $ref: '#/components/schemas/checker_kube_config_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: boolean
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Server Error
       tags:
       - Checker
   /api/v1/checker/ntp:
@@ -6866,9 +7253,18 @@ paths:
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              config:
+                style: form
             schema:
-              $ref: '#/components/schemas/CheckGoogleCloudCommand'
+              $ref: '#/components/schemas/checker_kube_config_request'
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: boolean
+          description: Success
         "400":
           content:
             application/json:
@@ -6898,8 +7294,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Check google credentials
+          description: Server Error
       tags:
       - Checker
   /api/v1/checker/openstack:
@@ -9418,7 +9813,7 @@ paths:
       tags:
       - Dns Servers
   /api/v1/flavors/bind:
-    get:
+    post:
       operationId: flavors-bind-to-project
       requestBody:
         content:
@@ -9460,7 +9855,7 @@ paths:
       tags:
       - Flavors
   /api/v1/flavors/unbind:
-    get:
+    post:
       operationId: flavors-unbind-from-project
       requestBody:
         content:
@@ -10416,8 +10811,11 @@ paths:
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              config:
+                style: form
             schema:
-              $ref: '#/components/schemas/GoogleBillingAccountListCommand'
+              $ref: '#/components/schemas/checker_kube_config_request'
       responses:
         "200":
           content:
@@ -10426,7 +10824,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/CommonStringBasedDropdownDto'
                 type: array
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -10456,25 +10854,79 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve google billing accounts list
+          description: Server Error
       tags:
       - Google
   /api/v1/googlecloud/create:
     post:
       operationId: googlecloud-create
+      parameters:
+      - explode: true
+        in: query
+        name: Name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: ImportProject
+        required: true
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: FolderId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: BillingAccountId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: AzCount
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Region
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: OrganizationId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              config:
+                style: form
             schema:
-              $ref: '#/components/schemas/CreateGoogleCredentialCommand'
+              $ref: '#/components/schemas/checker_kube_config_request'
       responses:
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -10504,8 +10956,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Create google cloud credential
+          description: Server Error
       tags:
       - Google
   /api/v1/googlecloud/regions:
@@ -10514,8 +10965,11 @@ paths:
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              file:
+                style: form
             schema:
-              $ref: '#/components/schemas/GoogleRegionListCommand'
+              $ref: '#/components/schemas/googlecloud_region_list_request'
       responses:
         "200":
           content:
@@ -10524,7 +10978,7 @@ paths:
                 items:
                   type: string
                 type: array
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -10554,25 +11008,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Retrieve google region list
+          description: Server Error
       tags:
       - Google
-  /api/v1/googlecloud/zones:
+  /api/v1/googlecloud/zones/{region}:
     post:
       operationId: googlecloud-zone-list
+      parameters:
+      - explode: false
+        in: path
+        name: region
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: cloudId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              config:
+                style: form
             schema:
-              $ref: '#/components/schemas/GoogleZoneListCommand'
+              $ref: '#/components/schemas/checker_kube_config_request'
       responses:
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AzResult'
-          description: OK
+          description: Success
         "400":
           content:
             application/json:
@@ -10602,8 +11074,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Google zones list
+          description: Server Error
       tags:
       - Google
   /api/v1/googlecloud/list:
@@ -10712,7 +11183,7 @@ paths:
       - Google
   /api/v1/images/aws:
     post:
-      operationId: images-aws-images
+      operationId: images-aws-images-list
       requestBody:
         content:
           application/json:
@@ -10811,6 +11282,12 @@ paths:
               $ref: '#/components/schemas/ImageByIdCommand'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: OK
         "400":
           content:
             application/json:
@@ -10960,8 +11437,9 @@ paths:
       - explode: true
         in: query
         name: Latest
-        required: true
+        required: false
         schema:
+          default: false
           type: boolean
         style: form
       responses:
@@ -11423,8 +11901,9 @@ paths:
       - explode: true
         in: query
         name: Personal
-        required: true
+        required: false
         schema:
+          default: false
           type: boolean
         style: form
       responses:
@@ -18092,6 +18571,58 @@ paths:
       summary: Remove Opa profile by Id
       tags:
       - Opa Profiles
+  /api/v1/openshift/storage-class:
+    post:
+      operationId: openshift-storage-class
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              config:
+                style: form
+            schema:
+              $ref: '#/components/schemas/checker_kube_config_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Server Error
+      tags:
+      - Openshift
   /api/v1/openstack/create:
     post:
       operationId: openstack-create
@@ -20241,11 +20772,101 @@ paths:
   /api/v1/partner/create:
     post:
       operationId: partner-create
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: link
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: phone
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: email
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: city
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: vatNumber
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: address
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: allowRegistration
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: requiredUserApproval
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: paymentEnabled
+        required: false
+        schema:
+          type: boolean
+        style: form
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              logo:
+                style: form
+              backgroundImage:
+                style: form
             schema:
-              $ref: '#/components/schemas/CreatePartnerCommand'
+              $ref: '#/components/schemas/partner_create_request'
       responses:
         "400":
           content:
@@ -20276,8 +20897,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Add a partner
+          description: Server Error
       tags:
       - Partners
   /api/v1/partner/delete/whitelist/domain:
@@ -20334,11 +20954,100 @@ paths:
           format: int32
           type: integer
         style: simple
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: link
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: phone
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: email
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: city
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: vatNumber
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: address
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: allowRegistration
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: requiredUserApproval
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: paymentEnabled
+        required: false
+        schema:
+          type: boolean
+        style: form
       requestBody:
         content:
           multipart/form-data:
+            encoding:
+              logo:
+                style: form
+              backgroundImage:
+                style: form
             schema:
-              $ref: '#/components/schemas/UpdatePartnerDto'
+              $ref: '#/components/schemas/partner_create_request'
       responses:
         "400":
           content:
@@ -20369,8 +21078,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Edit partner's data by Id
+          description: Server Error
       tags:
       - Partners
   /api/v1/partner/details:
@@ -20616,9 +21324,278 @@ paths:
       summary: Get partners dropdown
       tags:
       - Partners
-  /api/v1/payment/billing-info:
+  /api/v1/payments/clear:
+    post:
+      operationId: payments-clear
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClearCanceledPaymentMethodCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Clear payment
+      tags:
+      - Payments
+  /api/v1/payments/createcustomer:
+    post:
+      operationId: payments-create-customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStripeCustomerCommand'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Create customer
+      tags:
+      - Payments
+  /api/v1/payments/finalprice:
+    post:
+      operationId: payments-final-price
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinalPriceCommand'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinalPriceDto'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Fetch final price
+      tags:
+      - Payments
+  /api/v1/payments/pay:
+    post:
+      operationId: payments-pay
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayInvoiceCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IResult'
+          description: OK
+      summary: Pay invoice
+      tags:
+      - Payments
+  /api/v1/payments/updatecard:
+    post:
+      operationId: payments-update-card
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeCardCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Update payment card
+      tags:
+      - Payments
+  /api/v1/payments/webhook:
+    post:
+      operationId: payments-webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentWebhookCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Listen to payment webhook
+      tags:
+      - Payments
+  /api/v1/payments/billing-info:
     get:
-      operationId: payment-billing-info
+      operationId: payments-billing-info
       responses:
         "200":
           content:
@@ -20658,10 +21635,10 @@ paths:
           description: Internal Server Error
       summary: Get billing info for organization
       tags:
-      - Payment
-  /api/v1/payment/cardinfo:
+      - Payments
+  /api/v1/payments/cardinfo:
     get:
-      operationId: payment-cardinfo
+      operationId: payments-cardinfo
       parameters:
       - explode: true
         in: query
@@ -20710,10 +21687,10 @@ paths:
           description: Internal Server Error
       summary: Get card information
       tags:
-      - Payment
-  /api/v1/payment/stripeinvoices/{subscriptionId}:
+      - Payments
+  /api/v1/payments/stripeinvoices/{subscriptionId}:
     get:
-      operationId: payment-get-stripe-invoices
+      operationId: payments-get-stripe-invoices
       parameters:
       - explode: false
         in: path
@@ -20759,275 +21736,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Server Error
-      tags:
-      - Payment
-  /api/v1/payment/clear:
-    post:
-      operationId: payment-clear
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ClearCanceledPaymentMethodCommand'
-        required: true
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Clear payment
-      tags:
-      - Payments
-  /api/v1/payment/createcustomer:
-    post:
-      operationId: payment-create-customer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateStripeCustomerCommand'
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Create customer
-      tags:
-      - Payments
-  /api/v1/payment/finalprice:
-    post:
-      operationId: payment-final-price
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FinalPriceCommand'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FinalPriceDto'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Fetch final price
-      tags:
-      - Payments
-  /api/v1/payment/pay:
-    post:
-      operationId: payment-pay
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PayInvoiceCommand'
-        required: true
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IResult'
-          description: OK
-      summary: Pay invoice
-      tags:
-      - Payments
-  /api/v1/payment/updatecard:
-    post:
-      operationId: payment-update-card
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ChangeCardCommand'
-        required: true
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Update payment card
-      tags:
-      - Payments
-  /api/v1/payment/webhook:
-    post:
-      operationId: payment-webhook
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PaymentWebhookCommand'
-        required: true
-      responses:
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Internal Server Error
-      summary: Listen to payment webhook
       tags:
       - Payments
   /api/v1/predefinedqueries/prometheus/dashboard/create:
@@ -22872,24 +23580,14 @@ paths:
       summary: Update project by Id for poller
       tags:
       - Projects
-  /api/v1/projects/edit/{projectId}/health:
+  /api/v1/projects/edit/health:
     put:
       operationId: projects-edit-health
-      parameters:
-      - explode: false
-        in: path
-        name: projectId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProjectHealth'
-        required: true
+              $ref: '#/components/schemas/UpdateHealthStatusCommand'
       responses:
         "400":
           content:
@@ -22924,23 +23622,14 @@ paths:
       summary: Update health status of the project by Id
       tags:
       - Projects
-  /api/v1/projects/edit/{projectId}/status:
+  /api/v1/projects/edit/status:
     put:
       operationId: projects-edit-status
-      parameters:
-      - explode: false
-        in: path
-        name: projectId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProjectStatus'
+              $ref: '#/components/schemas/ResetProjectStatusCommand'
         required: true
       responses:
         "400":
@@ -22975,6 +23664,54 @@ paths:
           description: Internal Server Error
       summary: Change the project status for the given project. Only available for
         admin.
+      tags:
+      - Projects
+  /api/v1/projects/chat/completions:
+    post:
+      operationId: projects-chat-completions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionsCommand'
+        required: true
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: OK
+      summary: AI Chat completions
       tags:
       - Projects
   /api/v1/projects/commit/{projectId}:
@@ -23856,6 +24593,57 @@ paths:
           description: Internal Server Error
       summary: Upgrade the project's Kubernetes to the next available version. Project
         must be READY.
+      tags:
+      - Projects
+  /api/v1/projects/ai-analyze/{projectId}:
+    get:
+      operationId: projects-ai-analyzer
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Internal Server Error
+      summary: Analyze cluster by AI model
       tags:
       - Projects
   /api/v1/projects/describe/{projectId}:
@@ -30477,7 +31265,7 @@ paths:
       tags:
       - Tanzu
   /api/v1/tanzu/kubernetes-versions/{cloudId}:
-    post:
+    get:
       operationId: tanzu-kubernetes-versions
       parameters:
       - explode: false
@@ -30531,7 +31319,7 @@ paths:
       tags:
       - Tanzu
   /api/v1/tanzu/list:
-    post:
+    get:
       operationId: tanzu-list
       parameters:
       - explode: true
@@ -30728,6 +31516,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateTicketCommand'
+        required: true
       responses:
         "400":
           content:
@@ -33364,6 +34153,10 @@ components:
       - DisableAutoscaling
       - BoundProject
       - LockUnlockProject
+      - EnabledAi
+      - StartedEnableAi
+      - DisabledAi
+      - StartedDisableAi
       type: string
     AdminAddBalanceCommand:
       additionalProperties: false
@@ -33671,6 +34464,145 @@ components:
           nullable: true
           type: string
       type: object
+    AiCredentialDto:
+      additionalProperties: false
+      example:
+        apiKey: apiKey
+        name: name
+        type: null
+        url: url
+      properties:
+        url:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        apiKey:
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/AiType'
+      type: object
+    AiCredentials:
+      additionalProperties: false
+      example:
+        data:
+        - organizationId: 6
+          isDefault: true
+          projects:
+          - name: name
+            id: 0
+          - name: name
+            id: 0
+          apiKey: apiKey
+          organizationName: organizationName
+          name: name
+          id: 0
+          type: null
+          url: url
+        - organizationId: 6
+          isDefault: true
+          projects:
+          - name: name
+            id: 0
+          - name: name
+            id: 0
+          apiKey: apiKey
+          organizationName: organizationName
+          name: name
+          id: 0
+          type: null
+          url: url
+        totalCount: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AiCredentialsListDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int32
+          type: integer
+      type: object
+    AiCredentialsForOrganizationEntity:
+      additionalProperties: false
+      example:
+        isDefault: true
+        apiKey: apiKey
+        name: name
+        id: 0
+        type: null
+        url: url
+      properties:
+        id:
+          format: int32
+          type: integer
+        url:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        apiKey:
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/AiType'
+        isDefault:
+          type: boolean
+      type: object
+    AiCredentialsListDto:
+      additionalProperties: false
+      example:
+        organizationId: 6
+        isDefault: true
+        projects:
+        - name: name
+          id: 0
+        - name: name
+          id: 0
+        apiKey: apiKey
+        organizationName: organizationName
+        name: name
+        id: 0
+        type: null
+        url: url
+      properties:
+        id:
+          format: int32
+          type: integer
+        url:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        apiKey:
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/AiType'
+        organizationId:
+          format: int32
+          nullable: true
+          type: integer
+        organizationName:
+          nullable: true
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/CommonDropdownDto'
+          nullable: true
+          type: array
+        isDefault:
+          type: boolean
+      type: object
+    AiType:
+      enum:
+      - Taikun
+      - OpenAi
+      type: string
     AlertingEmailDto:
       additionalProperties: false
       example:
@@ -37328,6 +38260,18 @@ components:
           nullable: true
           type: string
       type: object
+    ChatCompletionsCommand:
+      additionalProperties: false
+      example:
+        messages: ""
+        model: model
+      properties:
+        model:
+          nullable: true
+          type: string
+        messages:
+          nullable: true
+      type: object
     CheckAwsCommand:
       additionalProperties: false
       example:
@@ -37371,18 +38315,11 @@ components:
           format: int32
           type: integer
       type: object
-    CheckGoogleCloudCommand:
-      additionalProperties: false
-      properties:
-        config:
-          format: binary
-          nullable: true
-          type: string
-      type: object
     CheckOpenstackCommand:
       additionalProperties: false
       example:
         openStackUrl: openStackUrl
+        applicationCredEnabled: true
         openStackPassword: openStackPassword
         openStackDomain: openStackDomain
         openStackUser: openStackUser
@@ -37401,6 +38338,9 @@ components:
           nullable: true
           type: string
         isAdmin:
+          type: boolean
+        applicationCredEnabled:
+          nullable: true
           type: boolean
       type: object
     CheckPrometheusCommand:
@@ -38108,6 +39048,31 @@ components:
           nullable: true
           type: array
       type: object
+    CreateAiCredentialCommand:
+      additionalProperties: false
+      example:
+        organizationId: 0
+        apiKey: apiKey
+        aiType: null
+        name: name
+        url: url
+      properties:
+        url:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        apiKey:
+          nullable: true
+          type: string
+        aiType:
+          $ref: '#/components/schemas/AiType'
+        organizationId:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
     CreateAlertDto:
       additionalProperties: false
       example:
@@ -38423,35 +39388,6 @@ components:
           format: int32
           type: integer
       type: object
-    CreateGoogleCredentialCommand:
-      additionalProperties: false
-      properties:
-        name:
-          nullable: true
-          type: string
-        config:
-          format: binary
-          nullable: true
-          type: string
-        importProject:
-          type: boolean
-        folderId:
-          nullable: true
-          type: string
-        billingAccountId:
-          nullable: true
-          type: string
-        azCount:
-          format: int32
-          type: integer
-        region:
-          nullable: true
-          type: string
-        organizationId:
-          format: int32
-          nullable: true
-          type: integer
-      type: object
     CreateInvoiceCommand:
       additionalProperties: false
       example:
@@ -38695,54 +39631,6 @@ components:
         isAdmin:
           type: boolean
       type: object
-    CreatePartnerCommand:
-      additionalProperties: false
-      properties:
-        name:
-          nullable: true
-          type: string
-        domain:
-          nullable: true
-          type: string
-        link:
-          nullable: true
-          type: string
-        phone:
-          nullable: true
-          type: string
-        email:
-          nullable: true
-          type: string
-        country:
-          nullable: true
-          type: string
-        city:
-          nullable: true
-          type: string
-        vatNumber:
-          nullable: true
-          type: string
-        address:
-          nullable: true
-          type: string
-        logo:
-          format: binary
-          nullable: true
-          type: string
-        backgroundImage:
-          format: binary
-          nullable: true
-          type: string
-        allowRegistration:
-          nullable: true
-          type: boolean
-        requiredUserApproval:
-          nullable: true
-          type: boolean
-        paymentEnabled:
-          nullable: true
-          type: boolean
-      type: object
     CreateProjectAppCommand:
       additionalProperties: false
       example:
@@ -38788,38 +39676,40 @@ components:
         - flavors
         - flavors
         taikunLBFlavor: taikunLBFlavor
-        routerIdStartRange: 9
+        routerIdStartRange: 3
         accessProfileId: 5
         opaProfileId: 5
-        maxSize: 7
+        maxSize: 1
         autoscalingEnabled: true
         autoscalingGroupName: autoscalingGroupName
         organizationId: 0
         expiredAt: 2000-01-23T04:56:07.000+00:00
-        diskSize: 1.2315135367772556
+        diskSize: 1.0246457001441578
         kubernetesProfileId: 2
-        minSize: 4
+        minSize: 7
         cidr: cidr
         autoscalingSpotEnabled: true
         kubernetesVersion: kubernetesVersion
         s3CredentialId: 1
         isAutoUpgrade: true
         isKubernetes: true
-        routerIdEndRange: 3
+        routerIdEndRange: 2
         allowSpotVMs: true
+        aiCredentialId: 7
         netMask: 1
+        aiEnabled: true
         isMonitoringEnabled: true
         fromTemplate:
           autoTrigger: true
           userName: userName
           userId: userId
         allowSpotWorkers: true
-        maxSpotPrice: 2.027123023002322
+        maxSpotPrice: 4.145608029883936
         users:
         - users
         - users
         autoscalingFlavor: autoscalingFlavor
-        alertingProfileId: 7
+        alertingProfileId: 9
         deleteOnExpiration: true
         saveAsTemplate: true
         templateName: templateName
@@ -38829,13 +39719,13 @@ components:
         allowFullSpotKubernetes: true
         serverTemplates:
         - flavor: flavor
-          diskSize: 1.4894159098541704
+          diskSize: 6.84685269835264
           role: null
-          count: 6
+          count: 7
         - flavor: flavor
-          diskSize: 1.4894159098541704
+          diskSize: 6.84685269835264
           role: null
-          count: 6
+          count: 7
       properties:
         name:
           nullable: true
@@ -38874,6 +39764,12 @@ components:
           type: boolean
         isMonitoringEnabled:
           type: boolean
+        aiEnabled:
+          type: boolean
+        aiCredentialId:
+          format: int32
+          nullable: true
+          type: integer
         flavors:
           items:
             type: string
@@ -40997,6 +41893,15 @@ components:
           nullable: true
           type: string
       type: object
+    DisableAiCommand:
+      additionalProperties: false
+      example:
+        projectId: 0
+      properties:
+        projectId:
+          format: int32
+          type: integer
+      type: object
     DisableAutoscalingCommand:
       additionalProperties: false
       example:
@@ -41395,6 +42300,19 @@ components:
         description:
           nullable: true
           type: string
+      type: object
+    EnableAiCommand:
+      additionalProperties: false
+      example:
+        aiCredentialId: 6
+        projectId: 0
+      properties:
+        projectId:
+          format: int32
+          type: integer
+        aiCredentialId:
+          format: int32
+          type: integer
       type: object
     EnableAutoscalingCommand:
       additionalProperties: false
@@ -42161,14 +43079,6 @@ components:
           nullable: true
           type: string
       type: object
-    GoogleBillingAccountListCommand:
-      additionalProperties: false
-      properties:
-        config:
-          format: binary
-          nullable: true
-          type: string
-      type: object
     GoogleCommonImages:
       additionalProperties: false
       example:
@@ -42456,29 +43366,6 @@ components:
           type: string
         image:
           $ref: '#/components/schemas/GoogleCommonImages'
-      type: object
-    GoogleRegionListCommand:
-      additionalProperties: false
-      properties:
-        config:
-          format: binary
-          nullable: true
-          type: string
-      type: object
-    GoogleZoneListCommand:
-      additionalProperties: false
-      properties:
-        config:
-          format: binary
-          nullable: true
-          type: string
-        region:
-          nullable: true
-          type: string
-        cloudId:
-          format: int32
-          nullable: true
-          type: integer
       type: object
     GroupedBillingInfo:
       additionalProperties: false
@@ -45106,6 +45993,15 @@ components:
           nullable: true
           type: array
       type: object
+    OpenAiCheckerCommand:
+      additionalProperties: false
+      example:
+        token: token
+      properties:
+        token:
+          nullable: true
+          type: string
+      type: object
     OpenStackNetworkListQuery:
       additionalProperties: false
       example:
@@ -47266,6 +48162,11 @@ components:
           - reasons
           - reasons
           enable: true
+        attachAlertingProfile:
+          reasons:
+          - reasons
+          - reasons
+          enable: true
         monitoring:
           reasons:
           - reasons
@@ -47282,6 +48183,11 @@ components:
           - reasons
           enable: true
         disableSpotWorker:
+          reasons:
+          - reasons
+          - reasons
+          enable: true
+        detachAlertingProfile:
           reasons:
           - reasons
           - reasons
@@ -47351,6 +48257,10 @@ components:
         enableSpotVm:
           $ref: '#/components/schemas/ProjectButtonStatusDto'
         disableSpotVm:
+          $ref: '#/components/schemas/ProjectButtonStatusDto'
+        attachAlertingProfile:
+          $ref: '#/components/schemas/ProjectButtonStatusDto'
+        detachAlertingProfile:
           $ref: '#/components/schemas/ProjectButtonStatusDto'
       type: object
     ProjectAppDetailsDto:
@@ -48245,6 +49155,11 @@ components:
         accessIp: accessIp
         quotaId: 6
         cloudCredentialName: cloudCredentialName
+        aiCredential:
+          apiKey: apiKey
+          name: name
+          type: null
+          url: url
         projectActionDto:
           estimatedTime: estimatedTime
           jobUrl: jobUrl
@@ -48314,6 +49229,7 @@ components:
           s3Region: s3Region
         kubernetesTargetVersion: kubernetesTargetVersion
         netMask: 1
+        aiEnabled: true
         isMonitoringEnabled: true
         health: health
         kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -48400,6 +49316,8 @@ components:
         isOpaEnabled:
           type: boolean
         isAutoUpgrade:
+          type: boolean
+        aiEnabled:
           type: boolean
         s3BucketName:
           nullable: true
@@ -48534,10 +49452,13 @@ components:
           $ref: '#/components/schemas/ProjectRevisionDto'
         projectActionDto:
           $ref: '#/components/schemas/ProjectActionDto'
+        aiCredential:
+          $ref: '#/components/schemas/AiCredentialDto'
       type: object
     ProjectForUpdateDto:
       additionalProperties: false
       example:
+        isAiEnabled: true
         isAutoUpgrade: true
         tanzuReleaseCurrentVersion: tanzuReleaseCurrentVersion
         imageName: imageName
@@ -48584,6 +49505,9 @@ components:
           nullable: true
           type: boolean
         isOpaEnabled:
+          nullable: true
+          type: boolean
+        isAiEnabled:
           nullable: true
           type: boolean
         isAutoUpgrade:
@@ -48986,6 +49910,7 @@ components:
       type: object
     ProjectHealth:
       enum:
+      - "Null"
       - Healthy
       - None
       - Unhealthy
@@ -49028,6 +49953,7 @@ components:
         allowSpotVMs: true
         kubernetesTargetVersion: kubernetesTargetVersion
         lastModifiedBy: lastModifiedBy
+        aiEnabled: true
         health: health
         kubesprayCurrentVersion: kubesprayCurrentVersion
         quotaId: 2
@@ -49141,6 +50067,8 @@ components:
           format: double
           type: number
         isAutoscalingEnabled:
+          type: boolean
+        aiEnabled:
           type: boolean
       type: object
     ProjectListDto:
@@ -49310,6 +50238,11 @@ components:
           accessIp: accessIp
           quotaId: 6
           cloudCredentialName: cloudCredentialName
+          aiCredential:
+            apiKey: apiKey
+            name: name
+            type: null
+            url: url
           projectActionDto:
             estimatedTime: estimatedTime
             jobUrl: jobUrl
@@ -49379,6 +50312,7 @@ components:
             s3Region: s3Region
           kubernetesTargetVersion: kubernetesTargetVersion
           netMask: 1
+          aiEnabled: true
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -49505,6 +50439,11 @@ components:
           accessIp: accessIp
           quotaId: 6
           cloudCredentialName: cloudCredentialName
+          aiCredential:
+            apiKey: apiKey
+            name: name
+            type: null
+            url: url
           projectActionDto:
             estimatedTime: estimatedTime
             jobUrl: jobUrl
@@ -49574,6 +50513,7 @@ components:
             s3Region: s3Region
           kubernetesTargetVersion: kubernetesTargetVersion
           netMask: 1
+          aiEnabled: true
           isMonitoringEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
@@ -49783,13 +50723,16 @@ components:
       type: object
     ProjectStatus:
       enum:
+      - "Null"
       - Deleting
+      - DisableAi
       - DisableGatekeeper
       - DeletingBackupPolicies
       - DisableBackup
       - DisableMonitoring
       - EnableBackup
       - EnableMonitoring
+      - EnableAi
       - EnableGatekeeper
       - Failure
       - FailedUpgrade
@@ -50023,6 +50966,7 @@ components:
           allowSpotVMs: true
           kubernetesTargetVersion: kubernetesTargetVersion
           lastModifiedBy: lastModifiedBy
+          aiEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
           quotaId: 2
@@ -50062,6 +51006,7 @@ components:
           allowSpotVMs: true
           kubernetesTargetVersion: kubernetesTargetVersion
           lastModifiedBy: lastModifiedBy
+          aiEnabled: true
           health: health
           kubesprayCurrentVersion: kubesprayCurrentVersion
           quotaId: 2
@@ -50435,7 +51380,8 @@ components:
     PrometheusOrganizationDiscountDto:
       additionalProperties: false
       example:
-        discountRate: 5.962133916683182
+        globalDiscountRate: 5.637376656633329
+        ruleDiscountRate: 5.962133916683182
         name: name
         id: 1
       properties:
@@ -50445,7 +51391,10 @@ components:
         name:
           nullable: true
           type: string
-        discountRate:
+        ruleDiscountRate:
+          format: double
+          type: number
+        globalDiscountRate:
           format: double
           type: number
       type: object
@@ -50458,10 +51407,12 @@ components:
         type: type
         url: url
         boundOrganizations:
-        - discountRate: 5.962133916683182
+        - globalDiscountRate: 5.637376656633329
+          ruleDiscountRate: 5.962133916683182
           name: name
           id: 1
-        - discountRate: 5.962133916683182
+        - globalDiscountRate: 5.637376656633329
+          ruleDiscountRate: 5.962133916683182
           name: name
           id: 1
         billingStartDate: billingStartDate
@@ -50504,7 +51455,7 @@ components:
           email: email
           vatNumber: vatNumber
         createdBy: createdBy
-        price: 5.637376656633329
+        price: 2.3021358869347655
         name: name
         id: 0
         lastModified: lastModified
@@ -50573,10 +51524,12 @@ components:
           type: type
           url: url
           boundOrganizations:
-          - discountRate: 5.962133916683182
+          - globalDiscountRate: 5.637376656633329
+            ruleDiscountRate: 5.962133916683182
             name: name
             id: 1
-          - discountRate: 5.962133916683182
+          - globalDiscountRate: 5.637376656633329
+            ruleDiscountRate: 5.962133916683182
             name: name
             id: 1
           billingStartDate: billingStartDate
@@ -50619,7 +51572,7 @@ components:
             email: email
             vatNumber: vatNumber
           createdBy: createdBy
-          price: 5.637376656633329
+          price: 2.3021358869347655
           name: name
           id: 0
           lastModified: lastModified
@@ -50629,10 +51582,12 @@ components:
           type: type
           url: url
           boundOrganizations:
-          - discountRate: 5.962133916683182
+          - globalDiscountRate: 5.637376656633329
+            ruleDiscountRate: 5.962133916683182
             name: name
             id: 1
-          - discountRate: 5.962133916683182
+          - globalDiscountRate: 5.637376656633329
+            ruleDiscountRate: 5.962133916683182
             name: name
             id: 1
           billingStartDate: billingStartDate
@@ -50675,11 +51630,11 @@ components:
             email: email
             vatNumber: vatNumber
           createdBy: createdBy
-          price: 5.637376656633329
+          price: 2.3021358869347655
           name: name
           id: 0
           lastModified: lastModified
-        totalCount: 2
+        totalCount: 7
       properties:
         data:
           items:
@@ -50876,14 +51831,14 @@ components:
       example:
         data:
         - name: name
-          id: 0
+          id: id
         - name: name
-          id: 0
+          id: id
         totalCount: 0
       properties:
         data:
           items:
-            $ref: '#/components/schemas/CommonDropdownDto'
+            $ref: '#/components/schemas/CommonStringBasedDropdownDto'
           nullable: true
           type: array
         totalCount:
@@ -51435,6 +52390,18 @@ components:
         newPassword:
           nullable: true
           type: string
+      type: object
+    ResetProjectStatusCommand:
+      additionalProperties: false
+      example:
+        projectId: 0
+        status: null
+      properties:
+        projectId:
+          format: int32
+          type: integer
+        status:
+          $ref: '#/components/schemas/ProjectStatus'
       type: object
     ResetServerStatusCommand:
       additionalProperties: false
@@ -52500,9 +53467,9 @@ components:
       additionalProperties: false
       example:
         flavor: flavor
-        diskSize: 1.4894159098541704
+        diskSize: 6.84685269835264
         role: null
-        count: 6
+        count: 7
       properties:
         role:
           $ref: '#/components/schemas/CloudRole'
@@ -55535,6 +56502,18 @@ components:
         isBound:
           type: boolean
       type: object
+    UpdateHealthStatusCommand:
+      additionalProperties: false
+      example:
+        health: null
+        projectId: 0
+      properties:
+        projectId:
+          format: int32
+          type: integer
+        health:
+          $ref: '#/components/schemas/ProjectHealth'
+      type: object
     UpdateHypervisorsCommand:
       additionalProperties: false
       example:
@@ -55717,54 +56696,6 @@ components:
           format: int32
           type: integer
         isYearly:
-          type: boolean
-      type: object
-    UpdatePartnerDto:
-      additionalProperties: false
-      properties:
-        name:
-          nullable: true
-          type: string
-        domain:
-          nullable: true
-          type: string
-        link:
-          nullable: true
-          type: string
-        phone:
-          nullable: true
-          type: string
-        email:
-          nullable: true
-          type: string
-        country:
-          nullable: true
-          type: string
-        city:
-          nullable: true
-          type: string
-        vatNumber:
-          nullable: true
-          type: string
-        address:
-          nullable: true
-          type: string
-        logo:
-          format: binary
-          nullable: true
-          type: string
-        backgroundImage:
-          format: binary
-          nullable: true
-          type: string
-        allowRegistration:
-          nullable: true
-          type: boolean
-        requiredUserApproval:
-          nullable: true
-          type: boolean
-        paymentEnabled:
-          nullable: true
           type: boolean
       type: object
     UpdatePaymentIdCommand:
@@ -56894,6 +57825,27 @@ components:
       properties:
         yaml:
           nullable: true
+          type: string
+      type: object
+    checker_kube_config_request:
+      properties:
+        config:
+          format: binary
+          type: string
+      type: object
+    googlecloud_region_list_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
+    partner_create_request:
+      properties:
+        logo:
+          format: binary
+          type: string
+        backgroundImage:
+          format: binary
           type: string
       type: object
   securitySchemes:

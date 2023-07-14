@@ -12,10 +12,12 @@ Method | HTTP request | Description
 [**CheckerCron**](CheckerApi.md#CheckerCron) | **Post** /api/v1/checker/cron | Check valid cron job format
 [**CheckerDns**](CheckerApi.md#CheckerDns) | **Post** /api/v1/checker/dns | Check valid dns format
 [**CheckerDuplicateName**](CheckerApi.md#CheckerDuplicateName) | **Post** /api/v1/checker/duplicate | Duplicate name
-[**CheckerGoogle**](CheckerApi.md#CheckerGoogle) | **Post** /api/v1/checker/google | Check google credentials
+[**CheckerGoogle**](CheckerApi.md#CheckerGoogle) | **Post** /api/v1/checker/google | 
 [**CheckerKeycloak**](CheckerApi.md#CheckerKeycloak) | **Post** /api/v1/checker/keycloak | Check keycloak credential
+[**CheckerKubeConfig**](CheckerApi.md#CheckerKubeConfig) | **Post** /api/v1/checker/kube-config | 
 [**CheckerNode**](CheckerApi.md#CheckerNode) | **Post** /api/v1/checker/node | Duplicate server name checker
 [**CheckerNtp**](CheckerApi.md#CheckerNtp) | **Post** /api/v1/checker/ntp | Check valid ntp format
+[**CheckerOpenAi**](CheckerApi.md#CheckerOpenAi) | **Post** /api/v1/checker/openai | Check open-ai token
 [**CheckerOpenstack**](CheckerApi.md#CheckerOpenstack) | **Post** /api/v1/checker/openstack | Check openstack credential
 [**CheckerOpenstackTaikunImage**](CheckerApi.md#CheckerOpenstackTaikunImage) | **Post** /api/v1/checker/openstack-image/{id} | Check openstack taikun image
 [**CheckerOpenstackTaikunLbImage**](CheckerApi.md#CheckerOpenstackTaikunLbImage) | **Post** /api/v1/checker/taikun-lb-image/{id} | Check openstack taikun lb image
@@ -530,9 +532,9 @@ Name | Type | Description  | Notes
 
 ## CheckerGoogle
 
-> CheckerGoogle(ctx).Config(config).Execute()
+> bool CheckerGoogle(ctx).Config(config).Execute()
 
-Check google credentials
+
 
 ### Example
 
@@ -551,11 +553,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CheckerApi.CheckerGoogle(context.Background()).Config(config).Execute()
+    resp, r, err := apiClient.CheckerApi.CheckerGoogle(context.Background()).Config(config).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CheckerApi.CheckerGoogle``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CheckerGoogle`: bool
+    fmt.Fprintf(os.Stdout, "Response from `CheckerApi.CheckerGoogle`: %v\n", resp)
 }
 ```
 
@@ -574,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**bool**
 
 ### Authorization
 
@@ -645,6 +649,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CheckerKubeConfig
+
+> bool CheckerKubeConfig(ctx).Config(config).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    config := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CheckerApi.CheckerKubeConfig(context.Background()).Config(config).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CheckerApi.CheckerKubeConfig``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CheckerKubeConfig`: bool
+    fmt.Fprintf(os.Stdout, "Response from `CheckerApi.CheckerKubeConfig`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCheckerKubeConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config** | ***os.File** |  | 
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -757,6 +825,68 @@ Other parameters are passed through a pointer to a apiCheckerNtpRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ntpCommand** | [**NtpCommand**](NtpCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CheckerOpenAi
+
+> CheckerOpenAi(ctx).OpenAiCheckerCommand(openAiCheckerCommand).Execute()
+
+Check open-ai token
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    openAiCheckerCommand := *openapiclient.NewOpenAiCheckerCommand() // OpenAiCheckerCommand | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CheckerApi.CheckerOpenAi(context.Background()).OpenAiCheckerCommand(openAiCheckerCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CheckerApi.CheckerOpenAi``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCheckerOpenAiRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **openAiCheckerCommand** | [**OpenAiCheckerCommand**](OpenAiCheckerCommand.md) |  | 
 
 ### Return type
 

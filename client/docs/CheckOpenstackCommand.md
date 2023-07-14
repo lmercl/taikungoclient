@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **OpenStackUrl** | Pointer to **NullableString** |  | [optional] 
 **OpenStackDomain** | Pointer to **NullableString** |  | [optional] 
 **IsAdmin** | Pointer to **bool** |  | [optional] 
+**ApplicationCredEnabled** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -194,6 +195,41 @@ SetIsAdmin sets IsAdmin field to given value.
 
 HasIsAdmin returns a boolean if a field has been set.
 
+### GetApplicationCredEnabled
+
+`func (o *CheckOpenstackCommand) GetApplicationCredEnabled() bool`
+
+GetApplicationCredEnabled returns the ApplicationCredEnabled field if non-nil, zero value otherwise.
+
+### GetApplicationCredEnabledOk
+
+`func (o *CheckOpenstackCommand) GetApplicationCredEnabledOk() (*bool, bool)`
+
+GetApplicationCredEnabledOk returns a tuple with the ApplicationCredEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApplicationCredEnabled
+
+`func (o *CheckOpenstackCommand) SetApplicationCredEnabled(v bool)`
+
+SetApplicationCredEnabled sets ApplicationCredEnabled field to given value.
+
+### HasApplicationCredEnabled
+
+`func (o *CheckOpenstackCommand) HasApplicationCredEnabled() bool`
+
+HasApplicationCredEnabled returns a boolean if a field has been set.
+
+### SetApplicationCredEnabledNil
+
+`func (o *CheckOpenstackCommand) SetApplicationCredEnabledNil(b bool)`
+
+ SetApplicationCredEnabledNil sets the value for ApplicationCredEnabled to be an explicit nil
+
+### UnsetApplicationCredEnabled
+`func (o *CheckOpenstackCommand) UnsetApplicationCredEnabled()`
+
+UnsetApplicationCredEnabled ensures that no value is present for ApplicationCredEnabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

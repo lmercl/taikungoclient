@@ -31,6 +31,7 @@ type ProjectForListDto struct {
 	IsMonitoringEnabled *bool `json:"isMonitoringEnabled,omitempty"`
 	IsOpaEnabled *bool `json:"isOpaEnabled,omitempty"`
 	IsAutoUpgrade *bool `json:"isAutoUpgrade,omitempty"`
+	AiEnabled *bool `json:"aiEnabled,omitempty"`
 	S3BucketName NullableString `json:"s3BucketName,omitempty"`
 	HasKubeConfigFile *bool `json:"hasKubeConfigFile,omitempty"`
 	HasSelectedFlavors *bool `json:"hasSelectedFlavors,omitempty"`
@@ -75,6 +76,7 @@ type ProjectForListDto struct {
 	S3Credential *S3CredentialForProjectDto `json:"s3Credential,omitempty"`
 	ProjectRevision *ProjectRevisionDto `json:"projectRevision,omitempty"`
 	ProjectActionDto *ProjectActionDto `json:"projectActionDto,omitempty"`
+	AiCredential *AiCredentialDto `json:"aiCredential,omitempty"`
 }
 
 // NewProjectForListDto instantiates a new ProjectForListDto object
@@ -442,6 +444,38 @@ func (o *ProjectForListDto) HasIsAutoUpgrade() bool {
 // SetIsAutoUpgrade gets a reference to the given bool and assigns it to the IsAutoUpgrade field.
 func (o *ProjectForListDto) SetIsAutoUpgrade(v bool) {
 	o.IsAutoUpgrade = &v
+}
+
+// GetAiEnabled returns the AiEnabled field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetAiEnabled() bool {
+	if o == nil || IsNil(o.AiEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.AiEnabled
+}
+
+// GetAiEnabledOk returns a tuple with the AiEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetAiEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.AiEnabled) {
+		return nil, false
+	}
+	return o.AiEnabled, true
+}
+
+// HasAiEnabled returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasAiEnabled() bool {
+	if o != nil && !IsNil(o.AiEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiEnabled gets a reference to the given bool and assigns it to the AiEnabled field.
+func (o *ProjectForListDto) SetAiEnabled(v bool) {
+	o.AiEnabled = &v
 }
 
 // GetS3BucketName returns the S3BucketName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2077,6 +2111,38 @@ func (o *ProjectForListDto) SetProjectActionDto(v ProjectActionDto) {
 	o.ProjectActionDto = &v
 }
 
+// GetAiCredential returns the AiCredential field value if set, zero value otherwise.
+func (o *ProjectForListDto) GetAiCredential() AiCredentialDto {
+	if o == nil || IsNil(o.AiCredential) {
+		var ret AiCredentialDto
+		return ret
+	}
+	return *o.AiCredential
+}
+
+// GetAiCredentialOk returns a tuple with the AiCredential field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectForListDto) GetAiCredentialOk() (*AiCredentialDto, bool) {
+	if o == nil || IsNil(o.AiCredential) {
+		return nil, false
+	}
+	return o.AiCredential, true
+}
+
+// HasAiCredential returns a boolean if a field has been set.
+func (o *ProjectForListDto) HasAiCredential() bool {
+	if o != nil && !IsNil(o.AiCredential) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiCredential gets a reference to the given AiCredentialDto and assigns it to the AiCredential field.
+func (o *ProjectForListDto) SetAiCredential(v AiCredentialDto) {
+	o.AiCredential = &v
+}
+
 func (o ProjectForListDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -2116,6 +2182,9 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsAutoUpgrade) {
 		toSerialize["isAutoUpgrade"] = o.IsAutoUpgrade
+	}
+	if !IsNil(o.AiEnabled) {
+		toSerialize["aiEnabled"] = o.AiEnabled
 	}
 	if o.S3BucketName.IsSet() {
 		toSerialize["s3BucketName"] = o.S3BucketName.Get()
@@ -2248,6 +2317,9 @@ func (o ProjectForListDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ProjectActionDto) {
 		toSerialize["projectActionDto"] = o.ProjectActionDto
+	}
+	if !IsNil(o.AiCredential) {
+		toSerialize["aiCredential"] = o.AiCredential
 	}
 	return toSerialize, nil
 }

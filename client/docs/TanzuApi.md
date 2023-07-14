@@ -5,8 +5,8 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TanzuCreate**](TanzuApi.md#TanzuCreate) | **Post** /api/v1/tanzu/create | Create tanzu credentials
-[**TanzuKubernetesVersions**](TanzuApi.md#TanzuKubernetesVersions) | **Post** /api/v1/tanzu/kubernetes-versions/{cloudId} | Tanzu available k8s version list
-[**TanzuList**](TanzuApi.md#TanzuList) | **Post** /api/v1/tanzu/list | Retrieve list of tanzu cloud credentials
+[**TanzuKubernetesVersions**](TanzuApi.md#TanzuKubernetesVersions) | **Get** /api/v1/tanzu/kubernetes-versions/{cloudId} | Tanzu available k8s version list
+[**TanzuList**](TanzuApi.md#TanzuList) | **Get** /api/v1/tanzu/list | Retrieve list of tanzu cloud credentials
 [**TanzuStorageList**](TanzuApi.md#TanzuStorageList) | **Post** /api/v1/tanzu/storage-list | Tanzu storage list
 [**TanzuUpdate**](TanzuApi.md#TanzuUpdate) | **Post** /api/v1/tanzu/update | Update tanzu credentials
 

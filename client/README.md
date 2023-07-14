@@ -107,6 +107,11 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**AdminUpdateUserKube**](docs/AdminApi.md#adminupdateuserkube) | **Post** /api/v1/admin/projects/update/userkube | Projects update kube for admin
 *AdminApi* | [**AdminUpdateUsers**](docs/AdminApi.md#adminupdateusers) | **Post** /api/v1/admin/users/update/email | User email update for admin
 *AdminApi* | [**AdminUsersList**](docs/AdminApi.md#adminuserslist) | **Get** /api/v1/admin/users/list | Users for admin
+*AiCredentialsApi* | [**AiCredentialCreate**](docs/AiCredentialsApi.md#aicredentialcreate) | **Post** /api/v1/ai-credential/create | Create ai credential
+*AiCredentialsApi* | [**AiCredentialDropdown**](docs/AiCredentialsApi.md#aicredentialdropdown) | **Get** /api/v1/ai-credential | Retrieve all AI credentials for organization
+*AiCredentialsApi* | [**AiCredentialList**](docs/AiCredentialsApi.md#aicredentiallist) | **Get** /api/v1/ai-credential/list | Retrieve all AI credentials
+*AiManagementApi* | [**AiManagementDisable**](docs/AiManagementApi.md#aimanagementdisable) | **Post** /api/v1/ai-management/disable | Disable ai
+*AiManagementApi* | [**AiManagementEnable**](docs/AiManagementApi.md#aimanagementenable) | **Post** /api/v1/ai-management/enable | Enable ai
 *AlertingIntegrationsApi* | [**AlertingintegrationsCreate**](docs/AlertingIntegrationsApi.md#alertingintegrationscreate) | **Post** /api/v1/alertingintegrations/create | Create alerting profile alerting integration
 *AlertingIntegrationsApi* | [**AlertingintegrationsDelete**](docs/AlertingIntegrationsApi.md#alertingintegrationsdelete) | **Delete** /api/v1/alertingintegrations/{id} | Delete alerting profile alerting integration
 *AlertingIntegrationsApi* | [**AlertingintegrationsEdit**](docs/AlertingIntegrationsApi.md#alertingintegrationsedit) | **Put** /api/v1/alertingintegrations/edit | Edit alerting profile alerting integration
@@ -198,10 +203,12 @@ Class | Method | HTTP request | Description
 *CheckerApi* | [**CheckerCron**](docs/CheckerApi.md#checkercron) | **Post** /api/v1/checker/cron | Check valid cron job format
 *CheckerApi* | [**CheckerDns**](docs/CheckerApi.md#checkerdns) | **Post** /api/v1/checker/dns | Check valid dns format
 *CheckerApi* | [**CheckerDuplicateName**](docs/CheckerApi.md#checkerduplicatename) | **Post** /api/v1/checker/duplicate | Duplicate name
-*CheckerApi* | [**CheckerGoogle**](docs/CheckerApi.md#checkergoogle) | **Post** /api/v1/checker/google | Check google credentials
+*CheckerApi* | [**CheckerGoogle**](docs/CheckerApi.md#checkergoogle) | **Post** /api/v1/checker/google | 
 *CheckerApi* | [**CheckerKeycloak**](docs/CheckerApi.md#checkerkeycloak) | **Post** /api/v1/checker/keycloak | Check keycloak credential
+*CheckerApi* | [**CheckerKubeConfig**](docs/CheckerApi.md#checkerkubeconfig) | **Post** /api/v1/checker/kube-config | 
 *CheckerApi* | [**CheckerNode**](docs/CheckerApi.md#checkernode) | **Post** /api/v1/checker/node | Duplicate server name checker
 *CheckerApi* | [**CheckerNtp**](docs/CheckerApi.md#checkerntp) | **Post** /api/v1/checker/ntp | Check valid ntp format
+*CheckerApi* | [**CheckerOpenAi**](docs/CheckerApi.md#checkeropenai) | **Post** /api/v1/checker/openai | Check open-ai token
 *CheckerApi* | [**CheckerOpenstack**](docs/CheckerApi.md#checkeropenstack) | **Post** /api/v1/checker/openstack | Check openstack credential
 *CheckerApi* | [**CheckerOpenstackTaikunImage**](docs/CheckerApi.md#checkeropenstacktaikunimage) | **Post** /api/v1/checker/openstack-image/{id} | Check openstack taikun image
 *CheckerApi* | [**CheckerOpenstackTaikunLbImage**](docs/CheckerApi.md#checkeropenstacktaikunlbimage) | **Post** /api/v1/checker/taikun-lb-image/{id} | Check openstack taikun lb image
@@ -264,21 +271,21 @@ Class | Method | HTTP request | Description
 *DnsServersApi* | [**DnsserversList**](docs/DnsServersApi.md#dnsserverslist) | **Get** /api/v1/dnsservers/{accessProfileId} | List dn servers by profile id
 *FlavorsApi* | [**FlavorsAwsInstanceTypes**](docs/FlavorsApi.md#flavorsawsinstancetypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
 *FlavorsApi* | [**FlavorsAzureVmSizes**](docs/FlavorsApi.md#flavorsazurevmsizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
-*FlavorsApi* | [**FlavorsBindToProject**](docs/FlavorsApi.md#flavorsbindtoproject) | **Get** /api/v1/flavors/bind | Bind flavors to project
+*FlavorsApi* | [**FlavorsBindToProject**](docs/FlavorsApi.md#flavorsbindtoproject) | **Post** /api/v1/flavors/bind | Bind flavors to project
 *FlavorsApi* | [**FlavorsDropdownFlavors**](docs/FlavorsApi.md#flavorsdropdownflavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
 *FlavorsApi* | [**FlavorsGoogleMachineTypes**](docs/FlavorsApi.md#flavorsgooglemachinetypes) | **Get** /api/v1/flavors/google/{cloudId} | 
 *FlavorsApi* | [**FlavorsOpenstackFlavors**](docs/FlavorsApi.md#flavorsopenstackflavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
 *FlavorsApi* | [**FlavorsProxmoxFlavors**](docs/FlavorsApi.md#flavorsproxmoxflavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
 *FlavorsApi* | [**FlavorsSelectedFlavorsForProject**](docs/FlavorsApi.md#flavorsselectedflavorsforproject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
 *FlavorsApi* | [**FlavorsTanzuFlavors**](docs/FlavorsApi.md#flavorstanzuflavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
-*FlavorsApi* | [**FlavorsUnbindFromProject**](docs/FlavorsApi.md#flavorsunbindfromproject) | **Get** /api/v1/flavors/unbind | Unbind flavors from project
-*GoogleApi* | [**GooglecloudBillingAccountList**](docs/GoogleApi.md#googlecloudbillingaccountlist) | **Post** /api/v1/googlecloud/billing-accounts | Retrieve google billing accounts list
-*GoogleApi* | [**GooglecloudCreate**](docs/GoogleApi.md#googlecloudcreate) | **Post** /api/v1/googlecloud/create | Create google cloud credential
+*FlavorsApi* | [**FlavorsUnbindFromProject**](docs/FlavorsApi.md#flavorsunbindfromproject) | **Post** /api/v1/flavors/unbind | Unbind flavors from project
+*GoogleApi* | [**GooglecloudBillingAccountList**](docs/GoogleApi.md#googlecloudbillingaccountlist) | **Post** /api/v1/googlecloud/billing-accounts | 
+*GoogleApi* | [**GooglecloudCreate**](docs/GoogleApi.md#googlecloudcreate) | **Post** /api/v1/googlecloud/create | 
 *GoogleApi* | [**GooglecloudList**](docs/GoogleApi.md#googlecloudlist) | **Get** /api/v1/googlecloud/list | Retrieve list of google cloud credentials
-*GoogleApi* | [**GooglecloudRegionList**](docs/GoogleApi.md#googlecloudregionlist) | **Post** /api/v1/googlecloud/regions | Retrieve google region list
-*GoogleApi* | [**GooglecloudZoneList**](docs/GoogleApi.md#googlecloudzonelist) | **Post** /api/v1/googlecloud/zones | Google zones list
+*GoogleApi* | [**GooglecloudRegionList**](docs/GoogleApi.md#googlecloudregionlist) | **Post** /api/v1/googlecloud/regions | 
+*GoogleApi* | [**GooglecloudZoneList**](docs/GoogleApi.md#googlecloudzonelist) | **Post** /api/v1/googlecloud/zones/{region} | 
 *ImagesApi* | [**ImagesAwsCommonImages**](docs/ImagesApi.md#imagesawscommonimages) | **Get** /api/v1/images/aws/common/{cloudId} | Commonly used aws images
-*ImagesApi* | [**ImagesAwsImages**](docs/ImagesApi.md#imagesawsimages) | **Post** /api/v1/images/aws | Retrieve aws images
+*ImagesApi* | [**ImagesAwsImagesList**](docs/ImagesApi.md#imagesawsimageslist) | **Post** /api/v1/images/aws | Retrieve aws images
 *ImagesApi* | [**ImagesAwsPersonalImages**](docs/ImagesApi.md#imagesawspersonalimages) | **Get** /api/v1/images/aws/personal/{cloudId} | Aws personal images
 *ImagesApi* | [**ImagesAzureCommonImages**](docs/ImagesApi.md#imagesazurecommonimages) | **Get** /api/v1/images/azure/common/{cloudId} | Commonly used azure images
 *ImagesApi* | [**ImagesAzureImages**](docs/ImagesApi.md#imagesazureimages) | **Get** /api/v1/images/azure/{cloudId}/{publisherName}/{offer}/{sku} | 
@@ -397,6 +404,7 @@ Class | Method | HTTP request | Description
 *OpaProfilesApi* | [**OpaprofilesMakeDefault**](docs/OpaProfilesApi.md#opaprofilesmakedefault) | **Post** /api/v1/opaprofiles/make-default | Choose default policy profile
 *OpaProfilesApi* | [**OpaprofilesSync**](docs/OpaProfilesApi.md#opaprofilessync) | **Post** /api/v1/opaprofiles/sync | Sync policy profile
 *OpaProfilesApi* | [**OpaprofilesUpdate**](docs/OpaProfilesApi.md#opaprofilesupdate) | **Put** /api/v1/opaprofiles | Update policy profile
+*OpenshiftApi* | [**OpenshiftStorageClass**](docs/OpenshiftApi.md#openshiftstorageclass) | **Post** /api/v1/openshift/storage-class | 
 *OpenstackCloudCredentialApi* | [**OpenstackCreate**](docs/OpenstackCloudCredentialApi.md#openstackcreate) | **Post** /api/v1/openstack/create | Add Openstack credentials
 *OpenstackCloudCredentialApi* | [**OpenstackList**](docs/OpenstackCloudCredentialApi.md#openstacklist) | **Get** /api/v1/openstack/list | Retrieve list of openstack cloud credentials
 *OpenstackCloudCredentialApi* | [**OpenstackNetworks**](docs/OpenstackCloudCredentialApi.md#openstacknetworks) | **Post** /api/v1/openstack/networks | Openstack network list
@@ -437,22 +445,22 @@ Class | Method | HTTP request | Description
 *PartnersApi* | [**PartnerBecomeAPartner**](docs/PartnersApi.md#partnerbecomeapartner) | **Post** /api/v1/partner/become-a-partner | Become a partner
 *PartnersApi* | [**PartnerBindOrganizations**](docs/PartnersApi.md#partnerbindorganizations) | **Post** /api/v1/partner/bindorganizations | Bind organizations to a partner
 *PartnersApi* | [**PartnerContactUs**](docs/PartnersApi.md#partnercontactus) | **Post** /api/v1/partner/contact-us | Contact with us
-*PartnersApi* | [**PartnerCreate**](docs/PartnersApi.md#partnercreate) | **Post** /api/v1/partner/create | Add a partner
+*PartnersApi* | [**PartnerCreate**](docs/PartnersApi.md#partnercreate) | **Post** /api/v1/partner/create | 
 *PartnersApi* | [**PartnerDeleteWhitelistDomain**](docs/PartnersApi.md#partnerdeletewhitelistdomain) | **Post** /api/v1/partner/delete/whitelist/domain | Delete white list domain
 *PartnersApi* | [**PartnerDetails**](docs/PartnersApi.md#partnerdetails) | **Get** /api/v1/partner/details | Details of partners
 *PartnersApi* | [**PartnerDropdown**](docs/PartnersApi.md#partnerdropdown) | **Get** /api/v1/partner/list | Get partners dropdown
 *PartnersApi* | [**PartnerInfo**](docs/PartnersApi.md#partnerinfo) | **Get** /api/v1/partner/info | Get partner&#39;s registration info
 *PartnersApi* | [**PartnerList**](docs/PartnersApi.md#partnerlist) | **Get** /api/v1/partner | Get partners
-*PartnersApi* | [**PartnerUpdate**](docs/PartnersApi.md#partnerupdate) | **Put** /api/v1/partner/update/{id} | Edit partner&#39;s data by Id
-*PaymentApi* | [**PaymentBillingInfo**](docs/PaymentApi.md#paymentbillinginfo) | **Get** /api/v1/payment/billing-info | Get billing info for organization
-*PaymentApi* | [**PaymentCardinfo**](docs/PaymentApi.md#paymentcardinfo) | **Get** /api/v1/payment/cardinfo | Get card information
-*PaymentApi* | [**PaymentGetStripeInvoices**](docs/PaymentApi.md#paymentgetstripeinvoices) | **Get** /api/v1/payment/stripeinvoices/{subscriptionId} | 
-*PaymentsApi* | [**PaymentClear**](docs/PaymentsApi.md#paymentclear) | **Post** /api/v1/payment/clear | Clear payment
-*PaymentsApi* | [**PaymentCreateCustomer**](docs/PaymentsApi.md#paymentcreatecustomer) | **Post** /api/v1/payment/createcustomer | Create customer
-*PaymentsApi* | [**PaymentFinalPrice**](docs/PaymentsApi.md#paymentfinalprice) | **Post** /api/v1/payment/finalprice | Fetch final price
-*PaymentsApi* | [**PaymentPay**](docs/PaymentsApi.md#paymentpay) | **Post** /api/v1/payment/pay | Pay invoice
-*PaymentsApi* | [**PaymentUpdateCard**](docs/PaymentsApi.md#paymentupdatecard) | **Post** /api/v1/payment/updatecard | Update payment card
-*PaymentsApi* | [**PaymentWebhook**](docs/PaymentsApi.md#paymentwebhook) | **Post** /api/v1/payment/webhook | Listen to payment webhook
+*PartnersApi* | [**PartnerUpdate**](docs/PartnersApi.md#partnerupdate) | **Put** /api/v1/partner/update/{id} | 
+*PaymentsApi* | [**PaymentsBillingInfo**](docs/PaymentsApi.md#paymentsbillinginfo) | **Get** /api/v1/payments/billing-info | Get billing info for organization
+*PaymentsApi* | [**PaymentsCardinfo**](docs/PaymentsApi.md#paymentscardinfo) | **Get** /api/v1/payments/cardinfo | Get card information
+*PaymentsApi* | [**PaymentsClear**](docs/PaymentsApi.md#paymentsclear) | **Post** /api/v1/payments/clear | Clear payment
+*PaymentsApi* | [**PaymentsCreateCustomer**](docs/PaymentsApi.md#paymentscreatecustomer) | **Post** /api/v1/payments/createcustomer | Create customer
+*PaymentsApi* | [**PaymentsFinalPrice**](docs/PaymentsApi.md#paymentsfinalprice) | **Post** /api/v1/payments/finalprice | Fetch final price
+*PaymentsApi* | [**PaymentsGetStripeInvoices**](docs/PaymentsApi.md#paymentsgetstripeinvoices) | **Get** /api/v1/payments/stripeinvoices/{subscriptionId} | 
+*PaymentsApi* | [**PaymentsPay**](docs/PaymentsApi.md#paymentspay) | **Post** /api/v1/payments/pay | Pay invoice
+*PaymentsApi* | [**PaymentsUpdateCard**](docs/PaymentsApi.md#paymentsupdatecard) | **Post** /api/v1/payments/updatecard | Update payment card
+*PaymentsApi* | [**PaymentsWebhook**](docs/PaymentsApi.md#paymentswebhook) | **Post** /api/v1/payments/webhook | Listen to payment webhook
 *PreDefinedQueriesApi* | [**PredefinedqueriesCreate**](docs/PreDefinedQueriesApi.md#predefinedqueriescreate) | **Post** /api/v1/predefinedqueries/prometheus/dashboard/create | Create prometheus dashboard pre defined query
 *PreDefinedQueriesApi* | [**PredefinedqueriesDelete**](docs/PreDefinedQueriesApi.md#predefinedqueriesdelete) | **Delete** /api/v1/predefinedqueries/prometheus/dashboard/delete/{id} | Delete prometheus dashboard pre defined query
 *PreDefinedQueriesApi* | [**PredefinedqueriesList**](docs/PreDefinedQueriesApi.md#predefinedquerieslist) | **Get** /api/v1/predefinedqueries/prometheus/dashboard/list/{projectId} | Get list of pre defined organization prometheus dashboard elements
@@ -485,6 +493,8 @@ Class | Method | HTTP request | Description
 *ProjectTemplatesApi* | [**ProjecttemplateDelete**](docs/ProjectTemplatesApi.md#projecttemplatedelete) | **Delete** /api/v1/projecttemplate/{id} | Delete project template by Id
 *ProjectTemplatesApi* | [**ProjecttemplateDropdown**](docs/ProjectTemplatesApi.md#projecttemplatedropdown) | **Get** /api/v1/projecttemplate/list | Retrieve project template by organization Id
 *ProjectTemplatesApi* | [**ProjecttemplateList**](docs/ProjectTemplatesApi.md#projecttemplatelist) | **Get** /api/v1/projecttemplate | Retrieve all project templates
+*ProjectsApi* | [**ProjectsAiAnalyzer**](docs/ProjectsApi.md#projectsaianalyzer) | **Get** /api/v1/projects/ai-analyze/{projectId} | Analyze cluster by AI model
+*ProjectsApi* | [**ProjectsChatCompletions**](docs/ProjectsApi.md#projectschatcompletions) | **Post** /api/v1/projects/chat/completions | AI Chat completions
 *ProjectsApi* | [**ProjectsCommit**](docs/ProjectsApi.md#projectscommit) | **Post** /api/v1/projects/commit/{projectId} | Commit changes for the given project. The changes will then be applied and the project will be updated. The project must be in the READY state.
 *ProjectsApi* | [**ProjectsCreate**](docs/ProjectsApi.md#projectscreate) | **Post** /api/v1/projects | Create a new project
 *ProjectsApi* | [**ProjectsDelete**](docs/ProjectsApi.md#projectsdelete) | **Post** /api/v1/projects/delete | Delete the project. The project must be empty (no server) and in READY state
@@ -493,8 +503,8 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ProjectsDetails**](docs/ProjectsApi.md#projectsdetails) | **Get** /api/v1/projects/{projectId} | Retrieve details of the project by Id
 *ProjectsApi* | [**ProjectsDropdown**](docs/ProjectsApi.md#projectsdropdown) | **Get** /api/v1/projects/list | Retrieve list of projects for dropdown
 *ProjectsApi* | [**ProjectsEdit**](docs/ProjectsApi.md#projectsedit) | **Put** /api/v1/projects/edit/{projectId} | Update project by Id for poller
-*ProjectsApi* | [**ProjectsEditHealth**](docs/ProjectsApi.md#projectsedithealth) | **Put** /api/v1/projects/edit/{projectId}/health | Update health status of the project by Id
-*ProjectsApi* | [**ProjectsEditStatus**](docs/ProjectsApi.md#projectseditstatus) | **Put** /api/v1/projects/edit/{projectId}/status | Change the project status for the given project. Only available for admin.
+*ProjectsApi* | [**ProjectsEditHealth**](docs/ProjectsApi.md#projectsedithealth) | **Put** /api/v1/projects/edit/health | Update health status of the project by Id
+*ProjectsApi* | [**ProjectsEditStatus**](docs/ProjectsApi.md#projectseditstatus) | **Put** /api/v1/projects/edit/status | Change the project status for the given project. Only available for admin.
 *ProjectsApi* | [**ProjectsExtendLifetime**](docs/ProjectsApi.md#projectsextendlifetime) | **Post** /api/v1/projects/extend/lifetime | Extend life time of project
 *ProjectsApi* | [**ProjectsForAlerting**](docs/ProjectsApi.md#projectsforalerting) | **Get** /api/v1/projects/foralerting | Retrieve a list of projects for alert poller. Only available for admins.
 *ProjectsApi* | [**ProjectsForBilling**](docs/ProjectsApi.md#projectsforbilling) | **Get** /api/v1/projects/forbilling | Retrieve a list of projects for billing
@@ -627,8 +637,8 @@ Class | Method | HTTP request | Description
 *SubscriptionApi* | [**SubscriptionSubscription**](docs/SubscriptionApi.md#subscriptionsubscription) | **Post** /api/v1/subscription/create | Add new subscription package
 *SubscriptionApi* | [**SubscriptionUpdate**](docs/SubscriptionApi.md#subscriptionupdate) | **Post** /api/v1/subscription/update | Update subscription
 *TanzuApi* | [**TanzuCreate**](docs/TanzuApi.md#tanzucreate) | **Post** /api/v1/tanzu/create | Create tanzu credentials
-*TanzuApi* | [**TanzuKubernetesVersions**](docs/TanzuApi.md#tanzukubernetesversions) | **Post** /api/v1/tanzu/kubernetes-versions/{cloudId} | Tanzu available k8s version list
-*TanzuApi* | [**TanzuList**](docs/TanzuApi.md#tanzulist) | **Post** /api/v1/tanzu/list | Retrieve list of tanzu cloud credentials
+*TanzuApi* | [**TanzuKubernetesVersions**](docs/TanzuApi.md#tanzukubernetesversions) | **Get** /api/v1/tanzu/kubernetes-versions/{cloudId} | Tanzu available k8s version list
+*TanzuApi* | [**TanzuList**](docs/TanzuApi.md#tanzulist) | **Get** /api/v1/tanzu/list | Retrieve list of tanzu cloud credentials
 *TanzuApi* | [**TanzuStorageList**](docs/TanzuApi.md#tanzustoragelist) | **Post** /api/v1/tanzu/storage-list | Tanzu storage list
 *TanzuApi* | [**TanzuUpdate**](docs/TanzuApi.md#tanzuupdate) | **Post** /api/v1/tanzu/update | Update tanzu credentials
 *TicketApi* | [**TicketArchive**](docs/TicketApi.md#ticketarchive) | **Post** /api/v1/ticket/archive | Archive ticket
@@ -704,6 +714,11 @@ Class | Method | HTTP request | Description
  - [AdminUsersResponseData](docs/AdminUsersResponseData.md)
  - [AdminUsersUpdateEmailCommand](docs/AdminUsersUpdateEmailCommand.md)
  - [AdminUsersUpdatePasswordCommand](docs/AdminUsersUpdatePasswordCommand.md)
+ - [AiCredentialDto](docs/AiCredentialDto.md)
+ - [AiCredentials](docs/AiCredentials.md)
+ - [AiCredentialsForOrganizationEntity](docs/AiCredentialsForOrganizationEntity.md)
+ - [AiCredentialsListDto](docs/AiCredentialsListDto.md)
+ - [AiType](docs/AiType.md)
  - [AlertingEmailDto](docs/AlertingEmailDto.md)
  - [AlertingIntegrationDto](docs/AlertingIntegrationDto.md)
  - [AlertingIntegrationType](docs/AlertingIntegrationType.md)
@@ -822,6 +837,7 @@ Class | Method | HTTP request | Description
  - [ChangePasswordCommand](docs/ChangePasswordCommand.md)
  - [Chart](docs/Chart.md)
  - [ChartSpec](docs/ChartSpec.md)
+ - [ChatCompletionsCommand](docs/ChatCompletionsCommand.md)
  - [CheckAwsCommand](docs/CheckAwsCommand.md)
  - [CheckAzureCommand](docs/CheckAzureCommand.md)
  - [CheckAzureCpuQuotaCommand](docs/CheckAzureCpuQuotaCommand.md)
@@ -862,6 +878,7 @@ Class | Method | HTTP request | Description
  - [CostComponent](docs/CostComponent.md)
  - [CountryListDto](docs/CountryListDto.md)
  - [CreateAccessProfileCommand](docs/CreateAccessProfileCommand.md)
+ - [CreateAiCredentialCommand](docs/CreateAiCredentialCommand.md)
  - [CreateAlertDto](docs/CreateAlertDto.md)
  - [CreateAlertingIntegrationCommand](docs/CreateAlertingIntegrationCommand.md)
  - [CreateAlertingProfileCommand](docs/CreateAlertingProfileCommand.md)
@@ -948,6 +965,7 @@ Class | Method | HTTP request | Description
  - [DescribeServiceCommand](docs/DescribeServiceCommand.md)
  - [DescribeStorageClassCommand](docs/DescribeStorageClassCommand.md)
  - [DescribeStsCommand](docs/DescribeStsCommand.md)
+ - [DisableAiCommand](docs/DisableAiCommand.md)
  - [DisableAutoscalingCommand](docs/DisableAutoscalingCommand.md)
  - [DisableBackupCommand](docs/DisableBackupCommand.md)
  - [DisableGatekeeperCommand](docs/DisableGatekeeperCommand.md)
@@ -974,6 +992,7 @@ Class | Method | HTTP request | Description
  - [EditSecurityGroupCommand](docs/EditSecurityGroupCommand.md)
  - [EditSshUserCommand](docs/EditSshUserCommand.md)
  - [EditTicketCommand](docs/EditTicketCommand.md)
+ - [EnableAiCommand](docs/EnableAiCommand.md)
  - [EnableAutoscalingCommand](docs/EnableAutoscalingCommand.md)
  - [EnableBackupCommand](docs/EnableBackupCommand.md)
  - [EnableGatekeeperCommand](docs/EnableGatekeeperCommand.md)
@@ -1098,6 +1117,7 @@ Class | Method | HTTP request | Description
  - [OpaProfileLockManagerCommand](docs/OpaProfileLockManagerCommand.md)
  - [OpaProfileSyncCommand](docs/OpaProfileSyncCommand.md)
  - [OpaProfileUpdateCommand](docs/OpaProfileUpdateCommand.md)
+ - [OpenAiCheckerCommand](docs/OpenAiCheckerCommand.md)
  - [OpenStackNetworkListQuery](docs/OpenStackNetworkListQuery.md)
  - [OpenStackProjectListQuery](docs/OpenStackProjectListQuery.md)
  - [OpenStackRegionListQuery](docs/OpenStackRegionListQuery.md)
@@ -1253,6 +1273,7 @@ Class | Method | HTTP request | Description
  - [ReplyTicketCommand](docs/ReplyTicketCommand.md)
  - [Repository](docs/Repository.md)
  - [ResetPasswordCommand](docs/ResetPasswordCommand.md)
+ - [ResetProjectStatusCommand](docs/ResetProjectStatusCommand.md)
  - [ResetServerStatusCommand](docs/ResetServerStatusCommand.md)
  - [ResetStandAloneVmDiskStatusCommand](docs/ResetStandAloneVmDiskStatusCommand.md)
  - [ResetStandAloneVmStatusCommand](docs/ResetStandAloneVmStatusCommand.md)
@@ -1373,6 +1394,7 @@ Class | Method | HTTP request | Description
  - [UpdateAwsCommand](docs/UpdateAwsCommand.md)
  - [UpdateAzureCommand](docs/UpdateAzureCommand.md)
  - [UpdateCatalogDto](docs/UpdateCatalogDto.md)
+ - [UpdateHealthStatusCommand](docs/UpdateHealthStatusCommand.md)
  - [UpdateHypervisorsCommand](docs/UpdateHypervisorsCommand.md)
  - [UpdateInvoiceDto](docs/UpdateInvoiceDto.md)
  - [UpdateKubernetesAlertDto](docs/UpdateKubernetesAlertDto.md)

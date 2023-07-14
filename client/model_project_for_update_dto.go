@@ -31,6 +31,7 @@ type ProjectForUpdateDto struct {
 	IsBackupEnabled NullableBool `json:"isBackupEnabled,omitempty"`
 	IsMonitoringEnabled NullableBool `json:"isMonitoringEnabled,omitempty"`
 	IsOpaEnabled NullableBool `json:"isOpaEnabled,omitempty"`
+	IsAiEnabled NullableBool `json:"isAiEnabled,omitempty"`
 	IsAutoUpgrade NullableBool `json:"isAutoUpgrade,omitempty"`
 	AppEnabled NullableBool `json:"appEnabled,omitempty"`
 	IsKubevapEnabled NullableBool `json:"isKubevapEnabled,omitempty"`
@@ -497,6 +498,48 @@ func (o *ProjectForUpdateDto) UnsetIsOpaEnabled() {
 	o.IsOpaEnabled.Unset()
 }
 
+// GetIsAiEnabled returns the IsAiEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectForUpdateDto) GetIsAiEnabled() bool {
+	if o == nil || IsNil(o.IsAiEnabled.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsAiEnabled.Get()
+}
+
+// GetIsAiEnabledOk returns a tuple with the IsAiEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectForUpdateDto) GetIsAiEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsAiEnabled.Get(), o.IsAiEnabled.IsSet()
+}
+
+// HasIsAiEnabled returns a boolean if a field has been set.
+func (o *ProjectForUpdateDto) HasIsAiEnabled() bool {
+	if o != nil && o.IsAiEnabled.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsAiEnabled gets a reference to the given NullableBool and assigns it to the IsAiEnabled field.
+func (o *ProjectForUpdateDto) SetIsAiEnabled(v bool) {
+	o.IsAiEnabled.Set(&v)
+}
+// SetIsAiEnabledNil sets the value for IsAiEnabled to be an explicit nil
+func (o *ProjectForUpdateDto) SetIsAiEnabledNil() {
+	o.IsAiEnabled.Set(nil)
+}
+
+// UnsetIsAiEnabled ensures that no value is present for IsAiEnabled, not even an explicit nil
+func (o *ProjectForUpdateDto) UnsetIsAiEnabled() {
+	o.IsAiEnabled.Unset()
+}
+
 // GetIsAutoUpgrade returns the IsAutoUpgrade field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectForUpdateDto) GetIsAutoUpgrade() bool {
 	if o == nil || IsNil(o.IsAutoUpgrade.Get()) {
@@ -749,6 +792,9 @@ func (o ProjectForUpdateDto) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsOpaEnabled.IsSet() {
 		toSerialize["isOpaEnabled"] = o.IsOpaEnabled.Get()
+	}
+	if o.IsAiEnabled.IsSet() {
+		toSerialize["isAiEnabled"] = o.IsAiEnabled.Get()
 	}
 	if o.IsAutoUpgrade.IsSet() {
 		toSerialize["isAutoUpgrade"] = o.IsAutoUpgrade.Get()

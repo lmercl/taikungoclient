@@ -22,33 +22,11 @@ func Test_taikuncore_PaymentsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PaymentsApiService PaymentClear", func(t *testing.T) {
+	t.Run("Test PaymentsApiService PaymentsBillingInfo", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.PaymentsApi.PaymentClear(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PaymentsApiService PaymentCreateCustomer", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.PaymentsApi.PaymentCreateCustomer(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PaymentsApiService PaymentFinalPrice", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PaymentsApi.PaymentFinalPrice(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PaymentsApi.PaymentsBillingInfo(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -56,11 +34,11 @@ func Test_taikuncore_PaymentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsApiService PaymentPay", func(t *testing.T) {
+	t.Run("Test PaymentsApiService PaymentsCardinfo", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PaymentsApi.PaymentPay(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PaymentsApi.PaymentsCardinfo(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -68,22 +46,82 @@ func Test_taikuncore_PaymentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsApiService PaymentUpdateCard", func(t *testing.T) {
+	t.Run("Test PaymentsApiService PaymentsClear", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.PaymentsApi.PaymentUpdateCard(context.Background()).Execute()
+		httpRes, err := apiClient.PaymentsApi.PaymentsClear(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PaymentsApiService PaymentWebhook", func(t *testing.T) {
+	t.Run("Test PaymentsApiService PaymentsCreateCustomer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.PaymentsApi.PaymentWebhook(context.Background()).Execute()
+		httpRes, err := apiClient.PaymentsApi.PaymentsCreateCustomer(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsApiService PaymentsFinalPrice", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PaymentsApi.PaymentsFinalPrice(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsApiService PaymentsGetStripeInvoices", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var subscriptionId string
+
+		resp, httpRes, err := apiClient.PaymentsApi.PaymentsGetStripeInvoices(context.Background(), subscriptionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsApiService PaymentsPay", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PaymentsApi.PaymentsPay(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsApiService PaymentsUpdateCard", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.PaymentsApi.PaymentsUpdateCard(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PaymentsApiService PaymentsWebhook", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.PaymentsApi.PaymentsWebhook(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -40,6 +40,8 @@ type ProjectActionVisibilityDto struct {
 	DisableFullSpot *ProjectButtonStatusDto `json:"disableFullSpot,omitempty"`
 	EnableSpotVm *ProjectButtonStatusDto `json:"enableSpotVm,omitempty"`
 	DisableSpotVm *ProjectButtonStatusDto `json:"disableSpotVm,omitempty"`
+	AttachAlertingProfile *ProjectButtonStatusDto `json:"attachAlertingProfile,omitempty"`
+	DetachAlertingProfile *ProjectButtonStatusDto `json:"detachAlertingProfile,omitempty"`
 }
 
 // NewProjectActionVisibilityDto instantiates a new ProjectActionVisibilityDto object
@@ -699,6 +701,70 @@ func (o *ProjectActionVisibilityDto) SetDisableSpotVm(v ProjectButtonStatusDto) 
 	o.DisableSpotVm = &v
 }
 
+// GetAttachAlertingProfile returns the AttachAlertingProfile field value if set, zero value otherwise.
+func (o *ProjectActionVisibilityDto) GetAttachAlertingProfile() ProjectButtonStatusDto {
+	if o == nil || IsNil(o.AttachAlertingProfile) {
+		var ret ProjectButtonStatusDto
+		return ret
+	}
+	return *o.AttachAlertingProfile
+}
+
+// GetAttachAlertingProfileOk returns a tuple with the AttachAlertingProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectActionVisibilityDto) GetAttachAlertingProfileOk() (*ProjectButtonStatusDto, bool) {
+	if o == nil || IsNil(o.AttachAlertingProfile) {
+		return nil, false
+	}
+	return o.AttachAlertingProfile, true
+}
+
+// HasAttachAlertingProfile returns a boolean if a field has been set.
+func (o *ProjectActionVisibilityDto) HasAttachAlertingProfile() bool {
+	if o != nil && !IsNil(o.AttachAlertingProfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachAlertingProfile gets a reference to the given ProjectButtonStatusDto and assigns it to the AttachAlertingProfile field.
+func (o *ProjectActionVisibilityDto) SetAttachAlertingProfile(v ProjectButtonStatusDto) {
+	o.AttachAlertingProfile = &v
+}
+
+// GetDetachAlertingProfile returns the DetachAlertingProfile field value if set, zero value otherwise.
+func (o *ProjectActionVisibilityDto) GetDetachAlertingProfile() ProjectButtonStatusDto {
+	if o == nil || IsNil(o.DetachAlertingProfile) {
+		var ret ProjectButtonStatusDto
+		return ret
+	}
+	return *o.DetachAlertingProfile
+}
+
+// GetDetachAlertingProfileOk returns a tuple with the DetachAlertingProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectActionVisibilityDto) GetDetachAlertingProfileOk() (*ProjectButtonStatusDto, bool) {
+	if o == nil || IsNil(o.DetachAlertingProfile) {
+		return nil, false
+	}
+	return o.DetachAlertingProfile, true
+}
+
+// HasDetachAlertingProfile returns a boolean if a field has been set.
+func (o *ProjectActionVisibilityDto) HasDetachAlertingProfile() bool {
+	if o != nil && !IsNil(o.DetachAlertingProfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetDetachAlertingProfile gets a reference to the given ProjectButtonStatusDto and assigns it to the DetachAlertingProfile field.
+func (o *ProjectActionVisibilityDto) SetDetachAlertingProfile(v ProjectButtonStatusDto) {
+	o.DetachAlertingProfile = &v
+}
+
 func (o ProjectActionVisibilityDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -768,6 +834,12 @@ func (o ProjectActionVisibilityDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DisableSpotVm) {
 		toSerialize["disableSpotVm"] = o.DisableSpotVm
+	}
+	if !IsNil(o.AttachAlertingProfile) {
+		toSerialize["attachAlertingProfile"] = o.AttachAlertingProfile
+	}
+	if !IsNil(o.DetachAlertingProfile) {
+		toSerialize["detachAlertingProfile"] = o.DetachAlertingProfile
 	}
 	return toSerialize, nil
 }

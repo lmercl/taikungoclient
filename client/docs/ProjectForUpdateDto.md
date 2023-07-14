@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **IsBackupEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsMonitoringEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsOpaEnabled** | Pointer to **NullableBool** |  | [optional] 
+**IsAiEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsAutoUpgrade** | Pointer to **NullableBool** |  | [optional] 
 **AppEnabled** | Pointer to **NullableBool** |  | [optional] 
 **IsKubevapEnabled** | Pointer to **NullableBool** |  | [optional] 
@@ -405,6 +406,41 @@ HasIsOpaEnabled returns a boolean if a field has been set.
 `func (o *ProjectForUpdateDto) UnsetIsOpaEnabled()`
 
 UnsetIsOpaEnabled ensures that no value is present for IsOpaEnabled, not even an explicit nil
+### GetIsAiEnabled
+
+`func (o *ProjectForUpdateDto) GetIsAiEnabled() bool`
+
+GetIsAiEnabled returns the IsAiEnabled field if non-nil, zero value otherwise.
+
+### GetIsAiEnabledOk
+
+`func (o *ProjectForUpdateDto) GetIsAiEnabledOk() (*bool, bool)`
+
+GetIsAiEnabledOk returns a tuple with the IsAiEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsAiEnabled
+
+`func (o *ProjectForUpdateDto) SetIsAiEnabled(v bool)`
+
+SetIsAiEnabled sets IsAiEnabled field to given value.
+
+### HasIsAiEnabled
+
+`func (o *ProjectForUpdateDto) HasIsAiEnabled() bool`
+
+HasIsAiEnabled returns a boolean if a field has been set.
+
+### SetIsAiEnabledNil
+
+`func (o *ProjectForUpdateDto) SetIsAiEnabledNil(b bool)`
+
+ SetIsAiEnabledNil sets the value for IsAiEnabled to be an explicit nil
+
+### UnsetIsAiEnabled
+`func (o *ProjectForUpdateDto) UnsetIsAiEnabled()`
+
+UnsetIsAiEnabled ensures that no value is present for IsAiEnabled, not even an explicit nil
 ### GetIsAutoUpgrade
 
 `func (o *ProjectForUpdateDto) GetIsAutoUpgrade() bool`

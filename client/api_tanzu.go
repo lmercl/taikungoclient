@@ -229,7 +229,7 @@ func (a *TanzuApiService) TanzuKubernetesVersions(ctx context.Context, cloudId i
 //  @return []string
 func (a *TanzuApiService) TanzuKubernetesVersionsExecute(r ApiTanzuKubernetesVersionsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []string
@@ -443,7 +443,7 @@ func (a *TanzuApiService) TanzuList(ctx context.Context) ApiTanzuListRequest {
 //  @return TanzuCredentialsList
 func (a *TanzuApiService) TanzuListExecute(r ApiTanzuListRequest) (*TanzuCredentialsList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *TanzuCredentialsList

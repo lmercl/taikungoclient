@@ -3,7 +3,11 @@
 ## Enum
 
 
+* `NULL` (value: `"Null"`)
+
 * `DELETING` (value: `"Deleting"`)
+
+* `DISABLE_AI` (value: `"DisableAi"`)
 
 * `DISABLE_GATEKEEPER` (value: `"DisableGatekeeper"`)
 
@@ -16,6 +20,8 @@
 * `ENABLE_BACKUP` (value: `"EnableBackup"`)
 
 * `ENABLE_MONITORING` (value: `"EnableMonitoring"`)
+
+* `ENABLE_AI` (value: `"EnableAi"`)
 
 * `ENABLE_GATEKEEPER` (value: `"EnableGatekeeper"`)
 

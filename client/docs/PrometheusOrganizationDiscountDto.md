@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**DiscountRate** | Pointer to **float64** |  | [optional] 
+**RuleDiscountRate** | Pointer to **float64** |  | [optional] 
+**GlobalDiscountRate** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
@@ -87,30 +88,55 @@ HasName returns a boolean if a field has been set.
 `func (o *PrometheusOrganizationDiscountDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetDiscountRate
+### GetRuleDiscountRate
 
-`func (o *PrometheusOrganizationDiscountDto) GetDiscountRate() float64`
+`func (o *PrometheusOrganizationDiscountDto) GetRuleDiscountRate() float64`
 
-GetDiscountRate returns the DiscountRate field if non-nil, zero value otherwise.
+GetRuleDiscountRate returns the RuleDiscountRate field if non-nil, zero value otherwise.
 
-### GetDiscountRateOk
+### GetRuleDiscountRateOk
 
-`func (o *PrometheusOrganizationDiscountDto) GetDiscountRateOk() (*float64, bool)`
+`func (o *PrometheusOrganizationDiscountDto) GetRuleDiscountRateOk() (*float64, bool)`
 
-GetDiscountRateOk returns a tuple with the DiscountRate field if it's non-nil, zero value otherwise
+GetRuleDiscountRateOk returns a tuple with the RuleDiscountRate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDiscountRate
+### SetRuleDiscountRate
 
-`func (o *PrometheusOrganizationDiscountDto) SetDiscountRate(v float64)`
+`func (o *PrometheusOrganizationDiscountDto) SetRuleDiscountRate(v float64)`
 
-SetDiscountRate sets DiscountRate field to given value.
+SetRuleDiscountRate sets RuleDiscountRate field to given value.
 
-### HasDiscountRate
+### HasRuleDiscountRate
 
-`func (o *PrometheusOrganizationDiscountDto) HasDiscountRate() bool`
+`func (o *PrometheusOrganizationDiscountDto) HasRuleDiscountRate() bool`
 
-HasDiscountRate returns a boolean if a field has been set.
+HasRuleDiscountRate returns a boolean if a field has been set.
+
+### GetGlobalDiscountRate
+
+`func (o *PrometheusOrganizationDiscountDto) GetGlobalDiscountRate() float64`
+
+GetGlobalDiscountRate returns the GlobalDiscountRate field if non-nil, zero value otherwise.
+
+### GetGlobalDiscountRateOk
+
+`func (o *PrometheusOrganizationDiscountDto) GetGlobalDiscountRateOk() (*float64, bool)`
+
+GetGlobalDiscountRateOk returns a tuple with the GlobalDiscountRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGlobalDiscountRate
+
+`func (o *PrometheusOrganizationDiscountDto) SetGlobalDiscountRate(v float64)`
+
+SetGlobalDiscountRate sets GlobalDiscountRate field to given value.
+
+### HasGlobalDiscountRate
+
+`func (o *PrometheusOrganizationDiscountDto) HasGlobalDiscountRate() bool`
+
+HasGlobalDiscountRate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

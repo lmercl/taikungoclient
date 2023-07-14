@@ -36,11 +36,11 @@ func Test_taikuncore_ImagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImagesApiService ImagesAwsImages", func(t *testing.T) {
+	t.Run("Test ImagesApiService ImagesAwsImagesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ImagesApi.ImagesAwsImages(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ImagesApi.ImagesAwsImagesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -151,9 +151,10 @@ func Test_taikuncore_ImagesApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ImagesApi.ImagesImageDetails(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ImagesApi.ImagesImageDetails(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

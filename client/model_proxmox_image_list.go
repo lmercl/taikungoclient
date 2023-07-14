@@ -20,7 +20,7 @@ var _ MappedNullable = &ProxmoxImageList{}
 
 // ProxmoxImageList struct for ProxmoxImageList
 type ProxmoxImageList struct {
-	Data []CommonDropdownDto `json:"data,omitempty"`
+	Data []CommonStringBasedDropdownDto `json:"data,omitempty"`
 	TotalCount *int32 `json:"totalCount,omitempty"`
 }
 
@@ -42,9 +42,9 @@ func NewProxmoxImageListWithDefaults() *ProxmoxImageList {
 }
 
 // GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProxmoxImageList) GetData() []CommonDropdownDto {
+func (o *ProxmoxImageList) GetData() []CommonStringBasedDropdownDto {
 	if o == nil {
-		var ret []CommonDropdownDto
+		var ret []CommonStringBasedDropdownDto
 		return ret
 	}
 	return o.Data
@@ -53,7 +53,7 @@ func (o *ProxmoxImageList) GetData() []CommonDropdownDto {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProxmoxImageList) GetDataOk() ([]CommonDropdownDto, bool) {
+func (o *ProxmoxImageList) GetDataOk() ([]CommonStringBasedDropdownDto, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *ProxmoxImageList) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given []CommonDropdownDto and assigns it to the Data field.
-func (o *ProxmoxImageList) SetData(v []CommonDropdownDto) {
+// SetData gets a reference to the given []CommonStringBasedDropdownDto and assigns it to the Data field.
+func (o *ProxmoxImageList) SetData(v []CommonStringBasedDropdownDto) {
 	o.Data = v
 }
 

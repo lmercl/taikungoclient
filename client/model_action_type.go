@@ -79,6 +79,10 @@ const (
 	ACTIONTYPE_DISABLE_AUTOSCALING ActionType = "DisableAutoscaling"
 	ACTIONTYPE_BOUND_PROJECT ActionType = "BoundProject"
 	ACTIONTYPE_LOCK_UNLOCK_PROJECT ActionType = "LockUnlockProject"
+	ACTIONTYPE_ENABLED_AI ActionType = "EnabledAi"
+	ACTIONTYPE_STARTED_ENABLE_AI ActionType = "StartedEnableAi"
+	ACTIONTYPE_DISABLED_AI ActionType = "DisabledAi"
+	ACTIONTYPE_STARTED_DISABLE_AI ActionType = "StartedDisableAi"
 )
 
 // All allowed values of ActionType enum
@@ -141,6 +145,10 @@ var AllowedActionTypeEnumValues = []ActionType{
 	"DisableAutoscaling",
 	"BoundProject",
 	"LockUnlockProject",
+	"EnabledAi",
+	"StartedEnableAi",
+	"DisabledAi",
+	"StartedDisableAi",
 }
 
 func (v *ActionType) UnmarshalJSON(src []byte) error {

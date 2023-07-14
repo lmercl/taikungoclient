@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**FlavorsAwsInstanceTypes**](FlavorsApi.md#FlavorsAwsInstanceTypes) | **Get** /api/v1/flavors/aws/{cloudId} | 
 [**FlavorsAzureVmSizes**](FlavorsApi.md#FlavorsAzureVmSizes) | **Get** /api/v1/flavors/azure/{cloudId} | 
-[**FlavorsBindToProject**](FlavorsApi.md#FlavorsBindToProject) | **Get** /api/v1/flavors/bind | Bind flavors to project
+[**FlavorsBindToProject**](FlavorsApi.md#FlavorsBindToProject) | **Post** /api/v1/flavors/bind | Bind flavors to project
 [**FlavorsDropdownFlavors**](FlavorsApi.md#FlavorsDropdownFlavors) | **Get** /api/v1/flavors/credentials/dropdown/list | Retrieve cloud credentials dropdown list
 [**FlavorsGoogleMachineTypes**](FlavorsApi.md#FlavorsGoogleMachineTypes) | **Get** /api/v1/flavors/google/{cloudId} | 
 [**FlavorsOpenstackFlavors**](FlavorsApi.md#FlavorsOpenstackFlavors) | **Get** /api/v1/flavors/openstack/{cloudId} | 
 [**FlavorsProxmoxFlavors**](FlavorsApi.md#FlavorsProxmoxFlavors) | **Get** /api/v1/flavors/proxmox/{cloudId} | Retrieve proxmox flavors
 [**FlavorsSelectedFlavorsForProject**](FlavorsApi.md#FlavorsSelectedFlavorsForProject) | **Get** /api/v1/flavors/projects/list | Retrieve selected flavors for project
 [**FlavorsTanzuFlavors**](FlavorsApi.md#FlavorsTanzuFlavors) | **Get** /api/v1/flavors/tanzu/{cloudId} | Retrieve tanzu flavors
-[**FlavorsUnbindFromProject**](FlavorsApi.md#FlavorsUnbindFromProject) | **Get** /api/v1/flavors/unbind | Unbind flavors from project
+[**FlavorsUnbindFromProject**](FlavorsApi.md#FlavorsUnbindFromProject) | **Post** /api/v1/flavors/unbind | Unbind flavors from project
 
 
 

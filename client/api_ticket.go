@@ -400,6 +400,9 @@ func (a *TicketApiService) TicketCreateExecute(r ApiTicketCreateRequest) (*http.
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.createTicketCommand == nil {
+		return nil, reportError("createTicketCommand is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

@@ -555,7 +555,7 @@ func (a *FlavorsApiService) FlavorsBindToProject(ctx context.Context) ApiFlavors
 // Execute executes the request
 func (a *FlavorsApiService) FlavorsBindToProjectExecute(r ApiFlavorsBindToProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
@@ -2164,7 +2164,7 @@ func (a *FlavorsApiService) FlavorsUnbindFromProject(ctx context.Context) ApiFla
 // Execute executes the request
 func (a *FlavorsApiService) FlavorsUnbindFromProjectExecute(r ApiFlavorsUnbindFromProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)

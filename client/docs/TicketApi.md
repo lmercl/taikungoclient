@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-    createTicketCommand := *openapiclient.NewCreateTicketCommand() // CreateTicketCommand |  (optional)
+    createTicketCommand := *openapiclient.NewCreateTicketCommand() // CreateTicketCommand | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

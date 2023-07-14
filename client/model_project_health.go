@@ -21,6 +21,7 @@ type ProjectHealth string
 
 // List of ProjectHealth
 const (
+	PROJECTHEALTH_NULL ProjectHealth = "Null"
 	PROJECTHEALTH_HEALTHY ProjectHealth = "Healthy"
 	PROJECTHEALTH_NONE ProjectHealth = "None"
 	PROJECTHEALTH_UNHEALTHY ProjectHealth = "Unhealthy"
@@ -30,6 +31,7 @@ const (
 
 // All allowed values of ProjectHealth enum
 var AllowedProjectHealthEnumValues = []ProjectHealth{
+	"Null",
 	"Healthy",
 	"None",
 	"Unhealthy",

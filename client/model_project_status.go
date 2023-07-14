@@ -21,13 +21,16 @@ type ProjectStatus string
 
 // List of ProjectStatus
 const (
+	PROJECTSTATUS_NULL ProjectStatus = "Null"
 	PROJECTSTATUS_DELETING ProjectStatus = "Deleting"
+	PROJECTSTATUS_DISABLE_AI ProjectStatus = "DisableAi"
 	PROJECTSTATUS_DISABLE_GATEKEEPER ProjectStatus = "DisableGatekeeper"
 	PROJECTSTATUS_DELETING_BACKUP_POLICIES ProjectStatus = "DeletingBackupPolicies"
 	PROJECTSTATUS_DISABLE_BACKUP ProjectStatus = "DisableBackup"
 	PROJECTSTATUS_DISABLE_MONITORING ProjectStatus = "DisableMonitoring"
 	PROJECTSTATUS_ENABLE_BACKUP ProjectStatus = "EnableBackup"
 	PROJECTSTATUS_ENABLE_MONITORING ProjectStatus = "EnableMonitoring"
+	PROJECTSTATUS_ENABLE_AI ProjectStatus = "EnableAi"
 	PROJECTSTATUS_ENABLE_GATEKEEPER ProjectStatus = "EnableGatekeeper"
 	PROJECTSTATUS_FAILURE ProjectStatus = "Failure"
 	PROJECTSTATUS_FAILED_UPGRADE ProjectStatus = "FailedUpgrade"
@@ -45,13 +48,16 @@ const (
 
 // All allowed values of ProjectStatus enum
 var AllowedProjectStatusEnumValues = []ProjectStatus{
+	"Null",
 	"Deleting",
+	"DisableAi",
 	"DisableGatekeeper",
 	"DeletingBackupPolicies",
 	"DisableBackup",
 	"DisableMonitoring",
 	"EnableBackup",
 	"EnableMonitoring",
+	"EnableAi",
 	"EnableGatekeeper",
 	"Failure",
 	"FailedUpgrade",

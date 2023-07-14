@@ -55,6 +55,7 @@ type ProjectListDetailDto struct {
 	HasExpirationWarning *bool `json:"hasExpirationWarning,omitempty"`
 	TotalHourlyCost *float64 `json:"totalHourlyCost,omitempty"`
 	IsAutoscalingEnabled *bool `json:"isAutoscalingEnabled,omitempty"`
+	AiEnabled *bool `json:"aiEnabled,omitempty"`
 }
 
 // NewProjectListDetailDto instantiates a new ProjectListDetailDto object
@@ -1365,6 +1366,38 @@ func (o *ProjectListDetailDto) SetIsAutoscalingEnabled(v bool) {
 	o.IsAutoscalingEnabled = &v
 }
 
+// GetAiEnabled returns the AiEnabled field value if set, zero value otherwise.
+func (o *ProjectListDetailDto) GetAiEnabled() bool {
+	if o == nil || IsNil(o.AiEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.AiEnabled
+}
+
+// GetAiEnabledOk returns a tuple with the AiEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProjectListDetailDto) GetAiEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.AiEnabled) {
+		return nil, false
+	}
+	return o.AiEnabled, true
+}
+
+// HasAiEnabled returns a boolean if a field has been set.
+func (o *ProjectListDetailDto) HasAiEnabled() bool {
+	if o != nil && !IsNil(o.AiEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiEnabled gets a reference to the given bool and assigns it to the AiEnabled field.
+func (o *ProjectListDetailDto) SetAiEnabled(v bool) {
+	o.AiEnabled = &v
+}
+
 func (o ProjectListDetailDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1479,6 +1512,9 @@ func (o ProjectListDetailDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsAutoscalingEnabled) {
 		toSerialize["isAutoscalingEnabled"] = o.IsAutoscalingEnabled
+	}
+	if !IsNil(o.AiEnabled) {
+		toSerialize["aiEnabled"] = o.AiEnabled
 	}
 	return toSerialize, nil
 }

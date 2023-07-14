@@ -4,18 +4,144 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PaymentClear**](PaymentsApi.md#PaymentClear) | **Post** /api/v1/payment/clear | Clear payment
-[**PaymentCreateCustomer**](PaymentsApi.md#PaymentCreateCustomer) | **Post** /api/v1/payment/createcustomer | Create customer
-[**PaymentFinalPrice**](PaymentsApi.md#PaymentFinalPrice) | **Post** /api/v1/payment/finalprice | Fetch final price
-[**PaymentPay**](PaymentsApi.md#PaymentPay) | **Post** /api/v1/payment/pay | Pay invoice
-[**PaymentUpdateCard**](PaymentsApi.md#PaymentUpdateCard) | **Post** /api/v1/payment/updatecard | Update payment card
-[**PaymentWebhook**](PaymentsApi.md#PaymentWebhook) | **Post** /api/v1/payment/webhook | Listen to payment webhook
+[**PaymentsBillingInfo**](PaymentsApi.md#PaymentsBillingInfo) | **Get** /api/v1/payments/billing-info | Get billing info for organization
+[**PaymentsCardinfo**](PaymentsApi.md#PaymentsCardinfo) | **Get** /api/v1/payments/cardinfo | Get card information
+[**PaymentsClear**](PaymentsApi.md#PaymentsClear) | **Post** /api/v1/payments/clear | Clear payment
+[**PaymentsCreateCustomer**](PaymentsApi.md#PaymentsCreateCustomer) | **Post** /api/v1/payments/createcustomer | Create customer
+[**PaymentsFinalPrice**](PaymentsApi.md#PaymentsFinalPrice) | **Post** /api/v1/payments/finalprice | Fetch final price
+[**PaymentsGetStripeInvoices**](PaymentsApi.md#PaymentsGetStripeInvoices) | **Get** /api/v1/payments/stripeinvoices/{subscriptionId} | 
+[**PaymentsPay**](PaymentsApi.md#PaymentsPay) | **Post** /api/v1/payments/pay | Pay invoice
+[**PaymentsUpdateCard**](PaymentsApi.md#PaymentsUpdateCard) | **Post** /api/v1/payments/updatecard | Update payment card
+[**PaymentsWebhook**](PaymentsApi.md#PaymentsWebhook) | **Post** /api/v1/payments/webhook | Listen to payment webhook
 
 
 
-## PaymentClear
+## PaymentsBillingInfo
 
-> PaymentClear(ctx).Body(body).Execute()
+> BillingInfoDto PaymentsBillingInfo(ctx).Execute()
+
+Get billing info for organization
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PaymentsApi.PaymentsBillingInfo(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsBillingInfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PaymentsBillingInfo`: BillingInfoDto
+    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentsBillingInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentsBillingInfoRequest struct via the builder pattern
+
+
+### Return type
+
+[**BillingInfoDto**](BillingInfoDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentsCardinfo
+
+> CardInformationDto PaymentsCardinfo(ctx).OrganizationId(organizationId).Execute()
+
+Get card information
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    organizationId := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PaymentsApi.PaymentsCardinfo(context.Background()).OrganizationId(organizationId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsCardinfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PaymentsCardinfo`: CardInformationDto
+    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentsCardinfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentsCardinfoRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **int32** |  | 
+
+### Return type
+
+[**CardInformationDto**](CardInformationDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentsClear
+
+> PaymentsClear(ctx).Body(body).Execute()
 
 Clear payment
 
@@ -36,9 +162,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PaymentsApi.PaymentClear(context.Background()).Body(body).Execute()
+    r, err := apiClient.PaymentsApi.PaymentsClear(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentClear``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsClear``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -50,7 +176,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentClearRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsClearRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -75,9 +201,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentCreateCustomer
+## PaymentsCreateCustomer
 
-> PaymentCreateCustomer(ctx).CreateStripeCustomerCommand(createStripeCustomerCommand).Execute()
+> PaymentsCreateCustomer(ctx).CreateStripeCustomerCommand(createStripeCustomerCommand).Execute()
 
 Create customer
 
@@ -98,9 +224,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PaymentsApi.PaymentCreateCustomer(context.Background()).CreateStripeCustomerCommand(createStripeCustomerCommand).Execute()
+    r, err := apiClient.PaymentsApi.PaymentsCreateCustomer(context.Background()).CreateStripeCustomerCommand(createStripeCustomerCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentCreateCustomer``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsCreateCustomer``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -112,7 +238,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentCreateCustomerRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsCreateCustomerRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -137,9 +263,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentFinalPrice
+## PaymentsFinalPrice
 
-> FinalPriceDto PaymentFinalPrice(ctx).FinalPriceCommand(finalPriceCommand).Execute()
+> FinalPriceDto PaymentsFinalPrice(ctx).FinalPriceCommand(finalPriceCommand).Execute()
 
 Fetch final price
 
@@ -160,13 +286,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PaymentsApi.PaymentFinalPrice(context.Background()).FinalPriceCommand(finalPriceCommand).Execute()
+    resp, r, err := apiClient.PaymentsApi.PaymentsFinalPrice(context.Background()).FinalPriceCommand(finalPriceCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentFinalPrice``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsFinalPrice``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaymentFinalPrice`: FinalPriceDto
-    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentFinalPrice`: %v\n", resp)
+    // response from `PaymentsFinalPrice`: FinalPriceDto
+    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentsFinalPrice`: %v\n", resp)
 }
 ```
 
@@ -176,7 +302,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentFinalPriceRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsFinalPriceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -201,9 +327,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentPay
+## PaymentsGetStripeInvoices
 
-> map[string]interface{} PaymentPay(ctx).PayInvoiceCommand(payInvoiceCommand).Execute()
+> StripeInvoices PaymentsGetStripeInvoices(ctx, subscriptionId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/chnyda/taikungoclient"
+)
+
+func main() {
+    subscriptionId := "subscriptionId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PaymentsApi.PaymentsGetStripeInvoices(context.Background(), subscriptionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsGetStripeInvoices``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PaymentsGetStripeInvoices`: StripeInvoices
+    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentsGetStripeInvoices`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subscriptionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentsGetStripeInvoicesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**StripeInvoices**](StripeInvoices.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentsPay
+
+> map[string]interface{} PaymentsPay(ctx).PayInvoiceCommand(payInvoiceCommand).Execute()
 
 Pay invoice
 
@@ -224,13 +418,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PaymentsApi.PaymentPay(context.Background()).PayInvoiceCommand(payInvoiceCommand).Execute()
+    resp, r, err := apiClient.PaymentsApi.PaymentsPay(context.Background()).PayInvoiceCommand(payInvoiceCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentPay``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsPay``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PaymentPay`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentPay`: %v\n", resp)
+    // response from `PaymentsPay`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `PaymentsApi.PaymentsPay`: %v\n", resp)
 }
 ```
 
@@ -240,7 +434,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentPayRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsPayRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -265,9 +459,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentUpdateCard
+## PaymentsUpdateCard
 
-> PaymentUpdateCard(ctx).ChangeCardCommand(changeCardCommand).Execute()
+> PaymentsUpdateCard(ctx).ChangeCardCommand(changeCardCommand).Execute()
 
 Update payment card
 
@@ -288,9 +482,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PaymentsApi.PaymentUpdateCard(context.Background()).ChangeCardCommand(changeCardCommand).Execute()
+    r, err := apiClient.PaymentsApi.PaymentsUpdateCard(context.Background()).ChangeCardCommand(changeCardCommand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentUpdateCard``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsUpdateCard``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -302,7 +496,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentUpdateCardRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsUpdateCardRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -327,9 +521,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentWebhook
+## PaymentsWebhook
 
-> PaymentWebhook(ctx).Body(body).Execute()
+> PaymentsWebhook(ctx).Body(body).Execute()
 
 Listen to payment webhook
 
@@ -350,9 +544,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PaymentsApi.PaymentWebhook(context.Background()).Body(body).Execute()
+    r, err := apiClient.PaymentsApi.PaymentsWebhook(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentWebhook``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PaymentsApi.PaymentsWebhook``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -364,7 +558,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPaymentWebhookRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPaymentsWebhookRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

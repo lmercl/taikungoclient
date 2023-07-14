@@ -25,6 +25,7 @@ type CheckOpenstackCommand struct {
 	OpenStackUrl NullableString `json:"openStackUrl,omitempty"`
 	OpenStackDomain NullableString `json:"openStackDomain,omitempty"`
 	IsAdmin *bool `json:"isAdmin,omitempty"`
+	ApplicationCredEnabled NullableBool `json:"applicationCredEnabled,omitempty"`
 }
 
 // NewCheckOpenstackCommand instantiates a new CheckOpenstackCommand object
@@ -244,6 +245,48 @@ func (o *CheckOpenstackCommand) SetIsAdmin(v bool) {
 	o.IsAdmin = &v
 }
 
+// GetApplicationCredEnabled returns the ApplicationCredEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CheckOpenstackCommand) GetApplicationCredEnabled() bool {
+	if o == nil || IsNil(o.ApplicationCredEnabled.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ApplicationCredEnabled.Get()
+}
+
+// GetApplicationCredEnabledOk returns a tuple with the ApplicationCredEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CheckOpenstackCommand) GetApplicationCredEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ApplicationCredEnabled.Get(), o.ApplicationCredEnabled.IsSet()
+}
+
+// HasApplicationCredEnabled returns a boolean if a field has been set.
+func (o *CheckOpenstackCommand) HasApplicationCredEnabled() bool {
+	if o != nil && o.ApplicationCredEnabled.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApplicationCredEnabled gets a reference to the given NullableBool and assigns it to the ApplicationCredEnabled field.
+func (o *CheckOpenstackCommand) SetApplicationCredEnabled(v bool) {
+	o.ApplicationCredEnabled.Set(&v)
+}
+// SetApplicationCredEnabledNil sets the value for ApplicationCredEnabled to be an explicit nil
+func (o *CheckOpenstackCommand) SetApplicationCredEnabledNil() {
+	o.ApplicationCredEnabled.Set(nil)
+}
+
+// UnsetApplicationCredEnabled ensures that no value is present for ApplicationCredEnabled, not even an explicit nil
+func (o *CheckOpenstackCommand) UnsetApplicationCredEnabled() {
+	o.ApplicationCredEnabled.Unset()
+}
+
 func (o CheckOpenstackCommand) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -268,6 +311,9 @@ func (o CheckOpenstackCommand) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsAdmin) {
 		toSerialize["isAdmin"] = o.IsAdmin
+	}
+	if o.ApplicationCredEnabled.IsSet() {
+		toSerialize["applicationCredEnabled"] = o.ApplicationCredEnabled.Get()
 	}
 	return toSerialize, nil
 }

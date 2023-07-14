@@ -3,6 +3,8 @@
 ## Enum
 
 
+* `NULL` (value: `"Null"`)
+
 * `HEALTHY` (value: `"Healthy"`)
 
 * `NONE` (value: `"None"`)

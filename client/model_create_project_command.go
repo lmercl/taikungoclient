@@ -33,6 +33,8 @@ type CreateProjectCommand struct {
 	IsAutoUpgrade *bool `json:"isAutoUpgrade,omitempty"`
 	IsBackupEnabled *bool `json:"isBackupEnabled,omitempty"`
 	IsMonitoringEnabled *bool `json:"isMonitoringEnabled,omitempty"`
+	AiEnabled *bool `json:"aiEnabled,omitempty"`
+	AiCredentialId NullableInt32 `json:"aiCredentialId,omitempty"`
 	Flavors []string `json:"flavors,omitempty"`
 	Users []string `json:"users,omitempty"`
 	AlertingProfileId NullableInt32 `json:"alertingProfileId,omitempty"`
@@ -529,6 +531,80 @@ func (o *CreateProjectCommand) HasIsMonitoringEnabled() bool {
 // SetIsMonitoringEnabled gets a reference to the given bool and assigns it to the IsMonitoringEnabled field.
 func (o *CreateProjectCommand) SetIsMonitoringEnabled(v bool) {
 	o.IsMonitoringEnabled = &v
+}
+
+// GetAiEnabled returns the AiEnabled field value if set, zero value otherwise.
+func (o *CreateProjectCommand) GetAiEnabled() bool {
+	if o == nil || IsNil(o.AiEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.AiEnabled
+}
+
+// GetAiEnabledOk returns a tuple with the AiEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateProjectCommand) GetAiEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.AiEnabled) {
+		return nil, false
+	}
+	return o.AiEnabled, true
+}
+
+// HasAiEnabled returns a boolean if a field has been set.
+func (o *CreateProjectCommand) HasAiEnabled() bool {
+	if o != nil && !IsNil(o.AiEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetAiEnabled gets a reference to the given bool and assigns it to the AiEnabled field.
+func (o *CreateProjectCommand) SetAiEnabled(v bool) {
+	o.AiEnabled = &v
+}
+
+// GetAiCredentialId returns the AiCredentialId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateProjectCommand) GetAiCredentialId() int32 {
+	if o == nil || IsNil(o.AiCredentialId.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.AiCredentialId.Get()
+}
+
+// GetAiCredentialIdOk returns a tuple with the AiCredentialId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateProjectCommand) GetAiCredentialIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AiCredentialId.Get(), o.AiCredentialId.IsSet()
+}
+
+// HasAiCredentialId returns a boolean if a field has been set.
+func (o *CreateProjectCommand) HasAiCredentialId() bool {
+	if o != nil && o.AiCredentialId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAiCredentialId gets a reference to the given NullableInt32 and assigns it to the AiCredentialId field.
+func (o *CreateProjectCommand) SetAiCredentialId(v int32) {
+	o.AiCredentialId.Set(&v)
+}
+// SetAiCredentialIdNil sets the value for AiCredentialId to be an explicit nil
+func (o *CreateProjectCommand) SetAiCredentialIdNil() {
+	o.AiCredentialId.Set(nil)
+}
+
+// UnsetAiCredentialId ensures that no value is present for AiCredentialId, not even an explicit nil
+func (o *CreateProjectCommand) UnsetAiCredentialId() {
+	o.AiCredentialId.Unset()
 }
 
 // GetFlavors returns the Flavors field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1489,6 +1565,12 @@ func (o CreateProjectCommand) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsMonitoringEnabled) {
 		toSerialize["isMonitoringEnabled"] = o.IsMonitoringEnabled
+	}
+	if !IsNil(o.AiEnabled) {
+		toSerialize["aiEnabled"] = o.AiEnabled
+	}
+	if o.AiCredentialId.IsSet() {
+		toSerialize["aiCredentialId"] = o.AiCredentialId.Get()
 	}
 	if o.Flavors != nil {
 		toSerialize["flavors"] = o.Flavors

@@ -691,11 +691,11 @@ type ApiPartnerCreateRequest struct {
 	city *string
 	vatNumber *string
 	address *string
-	logo *os.File
-	backgroundImage *os.File
 	allowRegistration *bool
 	requiredUserApproval *bool
 	paymentEnabled *bool
+	logo *os.File
+	backgroundImage *os.File
 }
 
 func (r ApiPartnerCreateRequest) Name(name string) ApiPartnerCreateRequest {
@@ -743,16 +743,6 @@ func (r ApiPartnerCreateRequest) Address(address string) ApiPartnerCreateRequest
 	return r
 }
 
-func (r ApiPartnerCreateRequest) Logo(logo *os.File) ApiPartnerCreateRequest {
-	r.logo = logo
-	return r
-}
-
-func (r ApiPartnerCreateRequest) BackgroundImage(backgroundImage *os.File) ApiPartnerCreateRequest {
-	r.backgroundImage = backgroundImage
-	return r
-}
-
 func (r ApiPartnerCreateRequest) AllowRegistration(allowRegistration bool) ApiPartnerCreateRequest {
 	r.allowRegistration = &allowRegistration
 	return r
@@ -768,12 +758,22 @@ func (r ApiPartnerCreateRequest) PaymentEnabled(paymentEnabled bool) ApiPartnerC
 	return r
 }
 
+func (r ApiPartnerCreateRequest) Logo(logo *os.File) ApiPartnerCreateRequest {
+	r.logo = logo
+	return r
+}
+
+func (r ApiPartnerCreateRequest) BackgroundImage(backgroundImage *os.File) ApiPartnerCreateRequest {
+	r.backgroundImage = backgroundImage
+	return r
+}
+
 func (r ApiPartnerCreateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PartnerCreateExecute(r)
 }
 
 /*
-PartnerCreate Add a partner
+PartnerCreate Method for PartnerCreate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPartnerCreateRequest
@@ -804,6 +804,42 @@ func (a *PartnersApiService) PartnerCreateExecute(r ApiPartnerCreateRequest) (*h
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.name != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+	}
+	if r.domain != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "")
+	}
+	if r.link != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "link", r.link, "")
+	}
+	if r.phone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "phone", r.phone, "")
+	}
+	if r.email != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "email", r.email, "")
+	}
+	if r.country != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "country", r.country, "")
+	}
+	if r.city != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "city", r.city, "")
+	}
+	if r.vatNumber != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "vatNumber", r.vatNumber, "")
+	}
+	if r.address != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "address", r.address, "")
+	}
+	if r.allowRegistration != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "allowRegistration", r.allowRegistration, "")
+	}
+	if r.requiredUserApproval != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requiredUserApproval", r.requiredUserApproval, "")
+	}
+	if r.paymentEnabled != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "paymentEnabled", r.paymentEnabled, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
@@ -820,33 +856,6 @@ func (a *PartnersApiService) PartnerCreateExecute(r ApiPartnerCreateRequest) (*h
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "")
-	}
-	if r.domain != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "domain", r.domain, "")
-	}
-	if r.link != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "link", r.link, "")
-	}
-	if r.phone != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "phone", r.phone, "")
-	}
-	if r.email != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "email", r.email, "")
-	}
-	if r.country != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "country", r.country, "")
-	}
-	if r.city != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "city", r.city, "")
-	}
-	if r.vatNumber != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "vatNumber", r.vatNumber, "")
-	}
-	if r.address != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "")
 	}
 	var logoLocalVarFormFileName string
 	var logoLocalVarFileName     string
@@ -881,15 +890,6 @@ func (a *PartnersApiService) PartnerCreateExecute(r ApiPartnerCreateRequest) (*h
 		backgroundImageLocalVarFileName = backgroundImageLocalVarFile.Name()
 		backgroundImageLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: backgroundImageLocalVarFileBytes, fileName: backgroundImageLocalVarFileName, formFileName: backgroundImageLocalVarFormFileName})
-	}
-	if r.allowRegistration != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "allowRegistration", r.allowRegistration, "")
-	}
-	if r.requiredUserApproval != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "requiredUserApproval", r.requiredUserApproval, "")
-	}
-	if r.paymentEnabled != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "paymentEnabled", r.paymentEnabled, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1903,11 +1903,11 @@ type ApiPartnerUpdateRequest struct {
 	city *string
 	vatNumber *string
 	address *string
-	logo *os.File
-	backgroundImage *os.File
 	allowRegistration *bool
 	requiredUserApproval *bool
 	paymentEnabled *bool
+	logo *os.File
+	backgroundImage *os.File
 }
 
 func (r ApiPartnerUpdateRequest) Name(name string) ApiPartnerUpdateRequest {
@@ -1955,16 +1955,6 @@ func (r ApiPartnerUpdateRequest) Address(address string) ApiPartnerUpdateRequest
 	return r
 }
 
-func (r ApiPartnerUpdateRequest) Logo(logo *os.File) ApiPartnerUpdateRequest {
-	r.logo = logo
-	return r
-}
-
-func (r ApiPartnerUpdateRequest) BackgroundImage(backgroundImage *os.File) ApiPartnerUpdateRequest {
-	r.backgroundImage = backgroundImage
-	return r
-}
-
 func (r ApiPartnerUpdateRequest) AllowRegistration(allowRegistration bool) ApiPartnerUpdateRequest {
 	r.allowRegistration = &allowRegistration
 	return r
@@ -1980,12 +1970,22 @@ func (r ApiPartnerUpdateRequest) PaymentEnabled(paymentEnabled bool) ApiPartnerU
 	return r
 }
 
+func (r ApiPartnerUpdateRequest) Logo(logo *os.File) ApiPartnerUpdateRequest {
+	r.logo = logo
+	return r
+}
+
+func (r ApiPartnerUpdateRequest) BackgroundImage(backgroundImage *os.File) ApiPartnerUpdateRequest {
+	r.backgroundImage = backgroundImage
+	return r
+}
+
 func (r ApiPartnerUpdateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PartnerUpdateExecute(r)
 }
 
 /*
-PartnerUpdate Edit partner's data by Id
+PartnerUpdate Method for PartnerUpdate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
@@ -2019,6 +2019,42 @@ func (a *PartnersApiService) PartnerUpdateExecute(r ApiPartnerUpdateRequest) (*h
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.name != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+	}
+	if r.domain != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "")
+	}
+	if r.link != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "link", r.link, "")
+	}
+	if r.phone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "phone", r.phone, "")
+	}
+	if r.email != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "email", r.email, "")
+	}
+	if r.country != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "country", r.country, "")
+	}
+	if r.city != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "city", r.city, "")
+	}
+	if r.vatNumber != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "vatNumber", r.vatNumber, "")
+	}
+	if r.address != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "address", r.address, "")
+	}
+	if r.allowRegistration != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "allowRegistration", r.allowRegistration, "")
+	}
+	if r.requiredUserApproval != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requiredUserApproval", r.requiredUserApproval, "")
+	}
+	if r.paymentEnabled != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "paymentEnabled", r.paymentEnabled, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
@@ -2035,33 +2071,6 @@ func (a *PartnersApiService) PartnerUpdateExecute(r ApiPartnerUpdateRequest) (*h
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "name", r.name, "")
-	}
-	if r.domain != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "domain", r.domain, "")
-	}
-	if r.link != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "link", r.link, "")
-	}
-	if r.phone != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "phone", r.phone, "")
-	}
-	if r.email != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "email", r.email, "")
-	}
-	if r.country != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "country", r.country, "")
-	}
-	if r.city != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "city", r.city, "")
-	}
-	if r.vatNumber != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "vatNumber", r.vatNumber, "")
-	}
-	if r.address != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "")
 	}
 	var logoLocalVarFormFileName string
 	var logoLocalVarFileName     string
@@ -2096,15 +2105,6 @@ func (a *PartnersApiService) PartnerUpdateExecute(r ApiPartnerUpdateRequest) (*h
 		backgroundImageLocalVarFileName = backgroundImageLocalVarFile.Name()
 		backgroundImageLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: backgroundImageLocalVarFileBytes, fileName: backgroundImageLocalVarFileName, formFileName: backgroundImageLocalVarFormFileName})
-	}
-	if r.allowRegistration != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "allowRegistration", r.allowRegistration, "")
-	}
-	if r.requiredUserApproval != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "requiredUserApproval", r.requiredUserApproval, "")
-	}
-	if r.paymentEnabled != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "paymentEnabled", r.paymentEnabled, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

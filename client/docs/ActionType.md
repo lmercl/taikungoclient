@@ -119,6 +119,14 @@
 
 * `LOCK_UNLOCK_PROJECT` (value: `"LockUnlockProject"`)
 
+* `ENABLED_AI` (value: `"EnabledAi"`)
+
+* `STARTED_ENABLE_AI` (value: `"StartedEnableAi"`)
+
+* `DISABLED_AI` (value: `"DisabledAi"`)
+
+* `STARTED_DISABLE_AI` (value: `"StartedDisableAi"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
