@@ -40,6 +40,7 @@ type StandAloneVmFullDto struct {
 	IsWindows *bool `json:"isWindows,omitempty"`
 	StandAloneProfile *StandAloneProfileFullDto `json:"standAloneProfile,omitempty"`
 	StandAloneVmDisks []StandAloneVmDiskFullDto `json:"standAloneVmDisks,omitempty"`
+	StandAloneMetaDatas []StandAloneMetaDataDtoForVm `json:"standAloneMetaDatas,omitempty"`
 	Username NullableString `json:"username,omitempty"`
 	Password NullableString `json:"password,omitempty"`
 	SpotPrice NullableString `json:"spotPrice,omitempty"`
@@ -804,6 +805,40 @@ func (o *StandAloneVmFullDto) HasStandAloneVmDisks() bool {
 // SetStandAloneVmDisks gets a reference to the given []StandAloneVmDiskFullDto and assigns it to the StandAloneVmDisks field.
 func (o *StandAloneVmFullDto) SetStandAloneVmDisks(v []StandAloneVmDiskFullDto) {
 	o.StandAloneVmDisks = v
+}
+
+
+// GetStandAloneMetaDatas returns the StandAloneMetaDatas field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StandAloneVmFullDto) GetStandAloneMetaDatas() []StandAloneMetaDataDtoForVm {
+	if o == nil {
+		var ret []StandAloneMetaDataDtoForVm
+		return ret
+	}
+	return o.StandAloneMetaDatas
+}
+
+// GetStandAloneMetaDatasOk returns a tuple with the StandAloneMetaDatas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StandAloneVmFullDto) GetStandAloneMetaDatasOk() ([]StandAloneMetaDataDtoForVm, bool) {
+	if o == nil || IsNil(o.StandAloneMetaDatas) {
+		return nil, false
+	}
+	return o.StandAloneMetaDatas, true
+}
+
+// HasStandAloneMetaDatas returns a boolean if a field has been set.
+func (o *StandAloneVmFullDto) HasStandAloneMetaDatas() bool {
+	if o != nil && IsNil(o.StandAloneMetaDatas) {
+		return true
+	}
+
+	return false
+}
+
+// SetStandAloneMetaDatas gets a reference to the given []StandAloneVmDiskFullDto and assigns it to the StandAloneMetaDatas field.
+func (o *StandAloneVmFullDto) SetStandAloneMetaDatas(v []StandAloneMetaDataDtoForVm) {
+	o.StandAloneMetaDatas = v
 }
 
 // GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
